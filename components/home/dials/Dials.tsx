@@ -1,5 +1,6 @@
 import { FunctionComponent } from "react";
 import DIY from "./DIY";
+import Templates from "./Templates";
 import Text from "./Text";
 import TextSmall from "./TextSmall";
 
@@ -12,7 +13,10 @@ const Dials: FunctionComponent = (): JSX.Element => {
       <div className="relative w-full h-fit row-start-1 place-self-center md:hidden flex">
         <TextSmall />
       </div>
-      <div className="relative w-full h-fit row-start-2 place-self-center">
+      <div className="relative w-full h-fit row-start-2 place-self-center overflow-x-hidden p-4">
+        <Templates />
+      </div>
+      <div className="relative w-full h-fit row-start-3 place-self-center">
         <DIY />
       </div>
     </div>

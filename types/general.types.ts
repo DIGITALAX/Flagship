@@ -15,7 +15,7 @@ export interface Gallery {
   realm?: string;
   realmLink?: string;
   trueImage?: string;
-};
+}
 
 export type useGalleryResult = {
   currentImages: Gallery[];
@@ -40,7 +40,7 @@ export type GalleryProps = {
 export interface Blender {
   image: string;
   blurred: string;
-};
+}
 
 export type BlenderProps = {
   queryWindowSize300: boolean;
@@ -106,7 +106,7 @@ export interface Library {
   link: string;
   width: number;
   height: number;
-};
+}
 
 export type LibraryProps = {
   setRefactorModal: (e: boolean) => void;
@@ -251,9 +251,9 @@ export type useApproveResults = {
 
 export type PreOrderProps = {
   heartColor: string;
-}
+};
 
 export type TokenDetailsProps = {
   token: any;
   heartColor: string;
-}
+};
