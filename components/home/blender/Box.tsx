@@ -45,7 +45,7 @@ const Box: FunctionComponent<BoxProps> = ({
                       currentPage={currentPage}
                     />
                   </div>
-                  <div className="relative row-start-3 w-full h-full p-8 pb-1">
+                  <div className="relative row-start-3 w-full h-full px-8 pt-8 pb-1">
                     <div
                       className={`relative w-full h-[40vw] ${
                         blur && "blur-sm animate-unblur"
@@ -60,7 +60,7 @@ const Box: FunctionComponent<BoxProps> = ({
                       />
                     </div>
                   </div>
-                  <div className="relative row-start-4 w-fit h-full pt-1 p-8 place-self-end font-lib text-offBlack text-xs">
+                  <div className="relative row-start-4 w-fit h-full pt-1 px-8 pb-8 place-self-end font-lib text-offBlack text-xs">
                     bl_info: fashion syntheziser
                   </div>
                 </div>

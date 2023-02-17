@@ -11,7 +11,7 @@ const Footer: FunctionComponent<FooterProps> = ({
   const [blur, setBlur] = useState<boolean>(true);
   return (
     <div className="relative min-w-screen bg-offBlack h-fit min-h-full flex w-full">
-      <div className="relative grid auto-rows-auto grid-flow-row w-full h-full  pt-12">
+      <div className="relative grid auto-rows-auto grid-flow-row w-full h-full pt-12">
         <div className="relative row-start-1 w-full h-full">
           <div className="relative grid auto-cols-auto grid-flow-col h-full w-full">
             <div className="col-start-1 w-full md:w-fit lg:h-full lg:w-full relative md:pl-6 row-start-1 p-2 md:pb-0 pb-8">

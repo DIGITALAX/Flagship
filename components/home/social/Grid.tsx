@@ -73,7 +73,7 @@ const Grid: FunctionComponent<GridProps> = ({
           </div>
         </div>
       </div>
-      <div className="row-start-2 col-start-3 relative w-full h-fit lg:h-full bg-offWhite border-offBlack lg:border-8 lg:border-l-4 lg:border-b-0">
+      <div className="row-start-2 col-start-3 relative min-w-[33rem] w-full h-fit lg:h-full bg-offWhite border-offBlack lg:border-8 lg:border-l-4 lg:border-b-0">
         <div className="relative w-full h-full grid grid-flow-row auto-rows-auto content-center overflow-x-none">
           <Feed
             publicationsFeed={publicationsFeed}

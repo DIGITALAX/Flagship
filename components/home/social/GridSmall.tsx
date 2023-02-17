@@ -34,7 +34,7 @@ const GridSmall: FunctionComponent<GridSmallProps> = ({
           src="/images/gridmain.png"
         />
       </div>
-      <div className="row-start-4 col-start-1 relative w-full pb-12 pt-12 h-full border-offBlack border-8 border-r-4 border-b-4 text-darkG bg-grayL font-aud text-[4.5vw] leading-normal p-10">
+      <div className="row-start-4 col-start-1 relative w-full pb-12 pt-12 h-full border-offBlack border-8 border-r-4 border-b-4 text-darkG bg-grayL font-aud text-[4.5vw] leading-normal px-10 pb-10">
         THE FIRST PROFILES ARE LIVE ON LENS, <br /> WITH NEW PROTOCOL
         INTEGRATONS
         <br />

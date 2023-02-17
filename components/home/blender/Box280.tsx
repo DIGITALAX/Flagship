@@ -56,7 +56,7 @@ const Box280: FunctionComponent<BoxProps> = ({
                       />
                     </div>
                   </div>
-                  <div className="relative row-start-4 w-fit h-full pt-1 p-8 place-self-end font-lib text-offBlack text-xs">
+                  <div className="relative row-start-4 w-fit h-full pt-1 px-8 pb-8 place-self-end font-lib text-offBlack text-xs">
                     bl_info: fashion syntheziser
                   </div>
                 </div>

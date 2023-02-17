@@ -21,7 +21,7 @@ const LibrarySmall: FunctionComponent<LibraryLargeProps> = ({
                 key={index}
                 className={`border-2 border-offBlack relative col-start-${Number(
                   book.number
-                ).toString()} row-start-1 w-fit h-full p-2 pt-3 hover:scale-105 active:scale-95 cursor-sewingHS`}
+                ).toString()} row-start-1 w-fit h-full pb-2 px-2 pt-3 hover:scale-105 active:scale-95 cursor-sewingHS`}
                 id={book.id}
                 onClick={() => {
                   setShowImage(book.image);

@@ -139,7 +139,7 @@ const Directory: FunctionComponent = (): JSX.Element => {
                 </div>
                 <div className="relative col-start-2 w-full h-fit">packing</div>
               </div>
-              <div className="relative grid col-start-1 row-start-7 grid-flow-col auto-cols-auto w-fit h-fit  pl-3 pt-2">
+              <div className="relative grid col-start-1 row-start-7 grid-flow-col auto-cols-auto w-fit h-fit pl-3 pt-2">
                 <div
                   className={`relative col-start-1 w-fit h-fit pr-3 ${
                     blur && "blur-sm animate-unblur"

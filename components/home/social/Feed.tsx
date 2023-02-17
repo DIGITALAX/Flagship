@@ -29,7 +29,6 @@ const Feed: FunctionComponent<FeedProps> = ({
           ? "100rem"
           : "50rem"
       }
-      scrollableTarget="parent"
     >
       {publicationsFeed?.map((publication: any, index: number) => {
         let profileImage: string;

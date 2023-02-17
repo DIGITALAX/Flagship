@@ -56,11 +56,10 @@ const useFeed = (): useFeedResults => {
       const sortedArr: any[] = arr.sort(
         (a: any, b: any) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
       );
+      setPublicationsFeed(sortedArr);
       const reactionsResponse = await checkPostReactions(sortedArr);
       setReactionsFeed(reactionsResponse?.reactionsFeedArr);
-      setPublicationsFeed(sortedArr);
       setPageInfo(response?.data.publications.pageInfo);
-
       return sortedArr;
     } catch (err: any) {
       console.error(err.message);
@@ -82,13 +81,13 @@ const useFeed = (): useFeedResults => {
       const sortedArr = arr.sort(
         (a: any, b: any) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
       );
+      setPublicationsFeed([...publicationsFeed, ...sortedArr]);
+      setPageInfo(morePublications?.data.publications.pageInfo);
       const reactionsResponse = await checkPostReactions(sortedArr);
       setReactionsFeed([
         ...reactionsFeed,
         ...reactionsResponse?.reactionsFeedArr,
       ]);
-      setPublicationsFeed([...publicationsFeed, ...sortedArr]);
-      setPageInfo(morePublications?.data.publications.pageInfo);
     } catch (err: any) {
       console.error(err.message);
     }
