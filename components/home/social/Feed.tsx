@@ -1,6 +1,5 @@
 import { FunctionComponent } from "react";
-import { FaComments, FaRegCommentDots, FaRetweet } from "react-icons/fa";
-import { HiCollection } from "react-icons/hi";
+import { FaRegCommentDots } from "react-icons/fa";
 import moment from "moment";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { FeedProps } from "../../../types/general.types";
@@ -12,7 +11,6 @@ const Feed: FunctionComponent<FeedProps> = ({
   publicationsFeed,
   getMoreFeed,
   queryWindowSize,
-  queryWindowSizeMobile,
   queryWindowSizeXL,
   reactionsFeed,
 }): JSX.Element => {
@@ -32,6 +30,7 @@ const Feed: FunctionComponent<FeedProps> = ({
     >
       {publicationsFeed?.map((publication: any, index: number) => {
         let profileImage: string;
+        console.log(reactionsFeed?.[index], index)
         if (
           !publication?.profile?.picture ||
           publication?.profile?.picture.original?.url.includes("svg") ||

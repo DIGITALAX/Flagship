@@ -36,10 +36,11 @@ const useFeed = (): useFeedResults => {
     let reactionsFeedArr: any[] = [];
     try {
       for (let pub = 0; pub < arr?.length; pub++) {
-        const reactions = await fetchReactions(arr[pub]?.id);
+        let reactions;
+        reactions = await fetchReactions(arr[pub]?.id);
         reactionsFeedArr.push(reactions.length);
       }
-      return { reactionsFeedArr };
+      return reactionsFeedArr;
     } catch (err: any) {
       console.error(err.message);
     }
@@ -50,7 +51,7 @@ const useFeed = (): useFeedResults => {
       const response = await feedTimeline({
         profileId: "0x016305",
         publicationTypes: ["POST", "COMMENT", "MIRROR"],
-        limit: 30,
+        limit: 5,
       });
       const arr: any[] = [...response?.data.publications.items];
       const sortedArr: any[] = arr.sort(
@@ -59,24 +60,21 @@ const useFeed = (): useFeedResults => {
       setPublicationsFeed(sortedArr);
       setPageInfo(response?.data.publications.pageInfo);
       const reactionsResponse = await checkPostReactions(sortedArr);
-      setReactionsFeed(reactionsResponse?.reactionsFeedArr);
+      setReactionsFeed(reactionsResponse);
       return sortedArr;
     } catch (err: any) {
       console.error(err.message);
     }
   };
 
-  console.log(publicationsFeed.length);
-
   const getMoreFeed = async (): Promise<any> => {
     try {
       const morePublications = await feedTimeline({
         profileId: "0x016305",
         publicationTypes: ["POST", "COMMENT", "MIRROR"],
-        limit: 30,
+        limit: 5,
         cursor: pageInfo?.next,
       });
-
       const arr = [...morePublications?.data.publications.items];
       const sortedArr = arr.sort(
         (a: any, b: any) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
@@ -84,10 +82,7 @@ const useFeed = (): useFeedResults => {
       setPublicationsFeed([...publicationsFeed, ...sortedArr]);
       setPageInfo(morePublications?.data.publications.pageInfo);
       const reactionsResponse = await checkPostReactions(sortedArr);
-      setReactionsFeed([
-        ...reactionsFeed,
-        ...reactionsResponse?.reactionsFeedArr,
-      ]);
+      setReactionsFeed([...reactionsFeed, ...reactionsResponse]);
     } catch (err: any) {
       console.error(err.message);
     }
