@@ -119,8 +119,6 @@ const useFeed = (): useFeedResults => {
     }
   };
 
-  console.log(reactionsFeed)
-
   return {
     publicationsFeed,
     getMoreFeed,
