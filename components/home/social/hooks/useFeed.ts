@@ -15,7 +15,7 @@ const useFeed = (): useFeedResults => {
 
   useEffect(() => {
     getFeedData();
-  }, [reactionsFeed]);
+  }, []);
 
   const fetchReactions = async (pubId: string): Promise<any> => {
     try {
@@ -57,9 +57,9 @@ const useFeed = (): useFeedResults => {
         (a: any, b: any) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
       );
       setPublicationsFeed(sortedArr);
+      setPageInfo(response?.data.publications.pageInfo);
       const reactionsResponse = await checkPostReactions(sortedArr);
       setReactionsFeed(reactionsResponse?.reactionsFeedArr);
-      setPageInfo(response?.data.publications.pageInfo);
       return sortedArr;
     } catch (err: any) {
       console.error(err.message);
