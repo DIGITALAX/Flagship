@@ -30,7 +30,6 @@ const Feed: FunctionComponent<FeedProps> = ({
     >
       {publicationsFeed?.map((publication: any, index: number) => {
         let profileImage: string;
-        console.log(reactionsFeed?.[index], index)
         if (
           !publication?.profile?.picture ||
           publication?.profile?.picture.original?.url.includes("svg") ||
