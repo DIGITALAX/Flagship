@@ -21,6 +21,7 @@ const useFeed = (): useFeedResults => {
     try {
       const reactions = await whoReactedublications({
         publicationId: pubId,
+        limit: 50,
       });
       const upvoteArr = lodash.filter(
         reactions?.data?.whoReactedPublication.items,
@@ -32,15 +33,47 @@ const useFeed = (): useFeedResults => {
     }
   };
 
+  const fetchMoreReactions = async (pubId: string, page: any): Promise<any> => {
+    try {
+      const reactions = await whoReactedublications({
+        publicationId: pubId,
+        limit: 50,
+        cursor: page?.next,
+      });
+      const reactionsValues = lodash.filter(
+        reactions?.data?.whoReactedPublication.items,
+        (item: any) => item.reaction === "UPVOTE"
+      );
+      return {
+        reactionsValues,
+        paginatedData: reactions?.data?.whoReactedPublication?.pageInfo,
+      };
+    } catch (err: any) {
+      console.error(err.message);
+    }
+  };
+
   const checkPostReactions = async (arr: any[]): Promise<any> => {
     let reactionsFeedArr: any[] = [];
     try {
       for (let pub = 0; pub < arr?.length; pub++) {
         let reactions;
         reactions = await fetchReactions(arr[pub]?.id);
-        reactionsFeedArr.push(reactions.length);
+        let reactionsArray: any[] = reactions;
+        let loopReactionsArray: any[] = reactions;
+        let pageData: any = reactions?.data?.whoReactedPublication?.pageInfo;
+        while (loopReactionsArray.length === 50) {
+          const { reactionsValues, paginatedData } = await fetchMoreReactions(
+            arr[pub]?.id,
+            pageData
+          );
+          loopReactionsArray = reactionsValues;
+          pageData = paginatedData;
+          reactionsArray = [...reactionsArray, ...reactionsValues];
+        }
+        reactionsFeedArr.push(reactionsArray.length);
       }
-      return reactionsFeedArr;
+      setReactionsFeed([...reactionsFeed, ...reactionsFeedArr]);
     } catch (err: any) {
       console.error(err.message);
     }
@@ -59,8 +92,7 @@ const useFeed = (): useFeedResults => {
       );
       setPublicationsFeed(sortedArr);
       setPageInfo(response?.data.publications.pageInfo);
-      const reactionsResponse = await checkPostReactions(sortedArr);
-      setReactionsFeed(reactionsResponse);
+      await checkPostReactions(sortedArr);
       return sortedArr;
     } catch (err: any) {
       console.error(err.message);
@@ -81,12 +113,13 @@ const useFeed = (): useFeedResults => {
       );
       setPublicationsFeed([...publicationsFeed, ...sortedArr]);
       setPageInfo(morePublications?.data.publications.pageInfo);
-      const reactionsResponse = await checkPostReactions(sortedArr);
-      setReactionsFeed([...reactionsFeed, ...reactionsResponse]);
+      await checkPostReactions(sortedArr);
     } catch (err: any) {
       console.error(err.message);
     }
   };
+
+  console.log(reactionsFeed)
 
   return {
     publicationsFeed,
