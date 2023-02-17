@@ -70,7 +70,8 @@ module.exports = {
         brightGreen: "#AAFDBE",
         bronze: "#BB552D",
         midBlue: "#709AF3",
-        pinkish: "#B42AA1"
+        pinkish: "#B42AA1",
+        shame: "#F6F5F0",
       },
       fontFamily: {
         holo: "Nan Holo",
@@ -98,6 +99,7 @@ module.exports = {
         fut: "Futurist",
         aud: "Audimat",
         jacklane: "Jack Lane",
+        dosis: "Dosis Regular",
       },
       keyframes: {
         unblur: {
@@ -126,13 +128,18 @@ module.exports = {
         half: "900px",
         alm: "740px",
         over: "1490px",
-        galaxy: "300px"
+        galaxy: "300px",
+        above: "350px"
       },
       cursor: {
         sewing: "url('/images/sewingCursor.png'), auto",
         sewingH: "url('/images/sewingCursorH.png'), auto",
         sewingS: "url('/images/sewingCursorSmall.png'), auto",
         sewingHS: "url('/images/sewingCursorHSmall.png'), auto",
+      },
+      backgroundImage: {
+        spots:
+          "url('https://thedial.infura-ipfs.io/ipfs/QmXcLBvsHDC8kNDe3WFQHzPpotVKG1AHsAHou1AbiYe6yp')",
       },
     },
   },

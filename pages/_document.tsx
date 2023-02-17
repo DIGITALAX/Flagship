@@ -105,7 +105,7 @@ class Document extends NextDocument {
           />
           <link
             rel="preload"
-            href="/fonts/AUdimat Regular.ttf"
+            href="/fonts/DosisRegular.ttf"
             as="font"
             type="font/ttf"
             crossOrigin="anonymous"
@@ -129,6 +129,12 @@ class Document extends NextDocument {
                   font-family: "Fira Regular";
                   font-weight: 400;
                   src: url("./fonts/FiraCode-Regular.ttf");
+                }
+
+                @font-face {
+                  font-family: "Dosis Regular";
+                  font-weight: 400;
+                  src: url("./fonts/DosisRegular.ttf");
                 }
 
                 @font-face {

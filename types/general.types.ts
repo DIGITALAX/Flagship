@@ -43,7 +43,7 @@ export interface Blender {
 }
 
 export type BlenderProps = {
-  queryWindowSize300: boolean;
+  queryWindowSize400: boolean;
 };
 
 export type BoxProps = {
@@ -126,6 +126,7 @@ export type FeedProps = {
   queryWindowSize: boolean;
   queryWindowSizeMobile: boolean;
   queryWindowSizeXL: boolean;
+  reactionsFeed: any[]
 };
 
 export type SocialProps = {
@@ -135,6 +136,7 @@ export type SocialProps = {
   queryWindowSizeMobile: boolean;
   queryWindowSizeXL: boolean;
   queryWindowSize300: boolean;
+  reactionsFeed: any[]
 };
 
 export type useFeedResults = {
@@ -143,6 +145,7 @@ export type useFeedResults = {
   queryWindowSize: boolean;
   queryWindowSizeMobile: boolean;
   queryWindowSizeXL: boolean;
+  reactionsFeed: any[]
 };
 
 export type GridProps = {
@@ -151,6 +154,7 @@ export type GridProps = {
   queryWindowSize: boolean;
   queryWindowSizeMobile: boolean;
   queryWindowSizeXL: boolean;
+  reactionsFeed: any[]
 };
 
 export type GridSmallProps = {
@@ -160,6 +164,7 @@ export type GridSmallProps = {
   queryWindowSizeMobile: boolean;
   queryWindowSizeXL: boolean;
   queryWindowSize300: boolean;
+  reactionsFeed: any[]
 };
 
 export type DisplayProps = {
@@ -177,6 +182,7 @@ export type useFormResults = {
 export type HomeProps = {
   queryWindowSize2XL: boolean;
   queryWindowSize300: boolean;
+  queryWindowSize400: boolean;
   shop: any;
 };
 

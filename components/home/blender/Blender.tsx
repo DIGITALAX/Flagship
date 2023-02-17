@@ -6,7 +6,7 @@ import Box280 from "./Box280";
 import useBox from "./hooks/useBox";
 
 const Blender: FunctionComponent<BlenderProps> = ({
-  queryWindowSize300,
+  queryWindowSize400,
 }): JSX.Element => {
   const {
     currentImages,
@@ -59,8 +59,8 @@ const Blender: FunctionComponent<BlenderProps> = ({
           </div>
         </div>
       </div>
-      <div className="relative row-start-2 w-fit h-fit justify-center pt-10 sm:pt-20 self-center">
-        {queryWindowSize300 ? (
+      <div className="relative row-start-2 w-full h-fit justify-center pt-10 sm:pt-20 self-center">
+        {queryWindowSize400 ? (
           <Box280
             currentImages={currentImages}
             loading={loading}

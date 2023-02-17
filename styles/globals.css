@@ -9,6 +9,12 @@
 }
 
 @font-face {
+  font-family: "Dosis Regular";
+  font-weight: 400;
+  src: url("/fonts/DosisRegular.ttf");
+}
+
+@font-face {
   font-family: "Fira Bold";
   font-weight: 400;
   src: url("/fonts/FiraCode-Bold.ttf");
@@ -465,4 +471,25 @@ body {
 
 #library::-webkit-scrollbar-thumb {
   background-color: #ffdcff;
+}
+
+#crt {
+  background: linear-gradient(to right, #fc9cf3, #b9d9ff, #0091ff, #fd99dc);
+}
+
+#username {
+  background: linear-gradient(
+    -86deg,
+    #000000,
+    #8dc6f9,
+    #7b7fe7,
+    #2a42fc,
+    #000000
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#sideProfile {
+  background: linear-gradient(to right, transparent, white, #44afd3);
 }

@@ -1,10 +1,12 @@
 import { FunctionComponent } from "react";
-import { FaComments, FaRetweet } from "react-icons/fa";
+import { FaComments, FaRegCommentDots, FaRetweet } from "react-icons/fa";
 import { HiCollection } from "react-icons/hi";
 import moment from "moment";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { FeedProps } from "../../../types/general.types";
 import Image from "next/image";
+import { AiFillEye, AiOutlineRetweet } from "react-icons/ai";
+import { BsCollection, BsSuitHeart } from "react-icons/bs";
 
 const Feed: FunctionComponent<FeedProps> = ({
   publicationsFeed,
@@ -12,6 +14,7 @@ const Feed: FunctionComponent<FeedProps> = ({
   queryWindowSize,
   queryWindowSizeMobile,
   queryWindowSizeXL,
+  reactionsFeed,
 }): JSX.Element => {
   return (
     <InfiniteScroll
@@ -26,6 +29,7 @@ const Feed: FunctionComponent<FeedProps> = ({
           ? "100rem"
           : "50rem"
       }
+      scrollableTarget="parent"
     >
       {publicationsFeed?.map((publication: any, index: number) => {
         let profileImage: string;
@@ -37,151 +41,328 @@ const Feed: FunctionComponent<FeedProps> = ({
         ) {
           profileImage = "/images/inaripfp.png";
         } else if (publication.profile.picture.original) {
-          if (publication.profile.picture.original.url.includes("http")) {
-            profileImage = publication.profile.picture.original.url;
+          if (
+            publication?.profile?.picture?.original?.url?.includes("http") ||
+            publication?.profile?.picture?.original?.url?.includes("/ipfs/") ||
+            publication?.mirrorOf?.profile?.picture?.original?.url?.includes(
+              "http"
+            ) ||
+            publication?.mirrorOf?.profile?.picture?.original?.url?.includes(
+              "/ipfs/"
+            )
+          ) {
+            if (publication.__typename !== "Mirror") {
+              profileImage = publication.profile.picture.original.url;
+            } else {
+              profileImage = publication.mirrorOf.profile.picture.original.url;
+            }
           } else {
-            const cut = publication.profile.picture.original.url.split("//");
-            profileImage = "https://thedial.infura-ipfs.io/ipfs/" + cut[1];
+            if (publication.__typename !== "Mirror") {
+              const cut = publication.profile.picture.original.url.split("//");
+              profileImage = "https://thedial.infura-ipfs.io/ipfs/" + cut[1];
+            } else {
+              const cut =
+                publication.mirrorOf.profile.picture.original.url.split("//");
+              profileImage = "https://thedial.infura-ipfs.io/ipfs/" + cut[1];
+            }
           }
         } else {
-          profileImage = publication.profile.picture.uri;
+          if (publication.__typename !== "Mirror") {
+            profileImage = publication.profile.picture.uri;
+          } else {
+            profileImage = publication.mirrorOf.profile.picture.uri;
+          }
         }
         return (
           <div
+            className="relative w-full h-auto row-start-1 grid grid-flow-col auto-cols-auto px-0 sm:px-3 py-4"
             key={index}
-            className={`relative w-full h-fit row-start-${index} grid grid-flow-col auto-cols-auto pb-4 pt-4 overflow-x-none`}
           >
-            <div className="relative w-5/6 h-fit p-3 bg-white drop-shadow-xl grid grid-flow-row auto-rows-auto place-self-center col-start-1 rounded-xl border-2 border-offBlack">
-              {publication.__typename === "Mirror" && (
-                <div className="w-fit justify-self-end self-start relative h-fit row-start-1">
-                  <FaRetweet />
-                </div>
-              )}
-              <a
-                className={`relative w-full h-fit grid grid-flow-col auto-cols-auto cursor-sewingHS justify-self-start galaxy:p-2 ${
-                  publication.__typename === "Mirror"
-                    ? "row-start-2"
-                    : "row-start-1"
-                }`}
-                href={`https://lenster.xyz/u/${publication?.profile?.handle}`}
-                target="_blank"
-                rel="noreferrer"
-              >
-                <div className="relative w-fit h-fit col-start-1 justify-self-start self-center grid grid-flow-col auto-cols-auto gap-2 row-start-2 sm:row-start-1">
-                  <img
-                    src={profileImage}
-                    className="w-8 h-8 rounded-full drop-shadow-md relative col-start-1"
-                  />
-                  <div className="text-lensDark relative font-fira text-xs xl:text-base w-fit h-fit col-start-2 place-self-center">
-                    @{publication?.profile?.handle}
-                  </div>
-                </div>
-                <div className="relative w-fit h-fit col-start-1 galaxy:col-start-2 place-self-center text-space text-xs font-firaL justify-self-end self-center md:pr-4 whitespace-nowrap pt-2 md:pt-0 row-start-1 galaxy:pb-0 pb-2">
-                  {moment(`${publication?.createdAt}`).fromNow()}
-                </div>
-              </a>
+            <div className="relative w-full h-fit col-start-1 justify-self-center grid grid-flow-col auto-cols-auto">
               <div
-                className={`relative w-fit h-full text-sm place-self-start text-offBlack pb-8 sm:px-3 pt-6 text-center font-gisL break-all ${
-                  publication.__typename === "Mirror"
-                    ? "row-start-3"
-                    : "row-start-2"
-                }`}
+                key={index}
+                className={`relative w-full h-fit row-start-${index} flex flex-row flex-wrap xl:flex-nowrap rounded-md z-0 gap-3`}
               >
-                {publication?.metadata?.description}
-              </div>
-              {publication?.metadata?.media?.length !== 0 && (
                 <div
-                  className={`relative w-full h-fit ${
-                    publication.__typename === "Mirror"
-                      ? "row-start-4"
-                      : "row-start-3"
-                  } grid grid-flow-col auto-cols-auto overflow-x-scroll place-self-center gap-2 px-4`}
+                  className={`relative h-auto rounded-md pr-px py-px w-full xl:w-36 min-w-[7.5rem] col-start-1`}
+                  id="sideProfile"
                 >
-                  {publication?.metadata?.media.map(
-                    (media: any, index: number) => {
-                      const newLink = media?.original?.url.split("/");
-                      const imageSource =
-                        "https://thedial.infura-ipfs.io/ipfs/" + newLink[2];
-                      return (
-                        <div
-                          key={index}
-                          className={`relative col-start-${
-                            index + 1
-                          } gap-3 w-40 h-40 galaxy:w-60 galaxy:h-60 row-start-1`}
-                        >
-                          <a
-                            href={imageSource}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="galaxy:w-60 galaxy:h-60 cursor-sewingHS w-40 h-40"
+                  <div
+                    className={`relative w-full h-full bg-shame rounded-md flex flex-col items-center
+                       py-1.5 px-1 gap-3
+                    `}
+                  >
+                    <Image
+                      src={`https://thedial.infura-ipfs.io/ipfs/QmSjh6dsibg9yDfBwRfC5YSWFTmwpwPxRDTFG8DzLHzFyB`}
+                      layout="fill"
+                      objectFit="cover"
+                      className="absolute w-full h-full rounded-lg"
+                    />
+                    <div className="relative w-fit h-fit grid grid-flow-col auto-cols-auto justify-self-center">
+                      <div
+                        className={`w-20 relative h-8 rounded-full flex justify-self-center`}
+                      >
+                        <Image
+                          src={`https://thedial.infura-ipfs.io/ipfs/QmfDmMCcgcseCFzGam9DbmDk5sQRbt6zrQVhvj4nTeuLGq`}
+                          layout="fill"
+                          alt="backdrop"
+                          priority
+                          draggable={false}
+                          className="rounded-full w-full h-full"
+                        />
+                      </div>
+                      <a
+                        className={`absolute rounded-full flex w-8 h-full justify-self-center right-6 col-start-1 cursor-sewingHS active:scale-95 hover:opacity-80`}
+                        id="crt"
+                        target={"_blank"}
+                        rel="noreferrer"
+                        href={`/profile/${
+                          publication?.__typename !== "Mirror"
+                            ? publication?.profile?.handle?.split(".lens")[0]
+                            : publication?.mirrorOf?.profile?.handle?.split(
+                                ".lens"
+                              )[0]
+                        }`}
+                      >
+                        {profileImage !== "" && (
+                          <Image
+                            src={profileImage}
+                            objectFit="cover"
+                            alt="pfp"
+                            layout="fill"
+                            className="relative w-full h-full rounded-full"
+                            draggable={false}
+                          />
+                        )}
+                      </a>
+                    </div>
+                    <div className="relative w-full h-fit grid grid-flow-col auto-cols-auto">
+                      <div
+                        className={`relative w-fit h-fit font-dosis text-xs justify-self-center`}
+                        id={"username"}
+                      >
+                        {publication?.__typename !== "Mirror"
+                          ? publication?.profile?.name
+                            ? publication?.profile?.name?.length > 25
+                              ? publication?.profile?.name?.substring(0, 25) +
+                                "..."
+                              : publication?.profile?.name
+                            : ""
+                          : publication?.mirrorOf?.profile?.name
+                          ? publication?.mirrorOf?.profile?.name?.length > 25
+                            ? publication?.mirrorOf?.profile?.name?.substring(
+                                0,
+                                25
+                              ) + "..."
+                            : publication?.mirrorOf?.profile?.name
+                          : ""}
+                      </div>
+                    </div>
+                    <div className="relative w-full h-fit grid grid-flow-col auto-cols-auto">
+                      <div
+                        className={`relative w-fit h-fit ${
+                          publication?.profile?.name
+                            ? "row-start-2"
+                            : "row-start-1"
+                        } font-clash text-xs justify-self-center
+                           text-black
+                        `}
+                      >
+                        @
+                        {publication?.__typename !== "Mirror"
+                          ? publication?.profile?.handle?.length > 15
+                            ? publication?.profile?.handle?.substring(0, 15) +
+                              "..."
+                            : publication?.profile?.handle
+                          : publication?.mirrorOf?.profile?.handle?.length > 15
+                          ? publication?.mirrorOf?.profile?.handle?.substring(
+                              0,
+                              15
+                            ) + "..."
+                          : publication?.mirrorOf?.profile?.handle}
+                      </div>
+                    </div>
+                    <div className="relative w-full h-fit grid grid-flow-col auto-cols-auto">
+                      <div
+                        className={`relative w-fit h-fit text-offBlack font-dosis justify-self-center fo:pb-0 pb-2 text-xs `}
+                      >
+                        {moment(`${publication?.createdAt}`).fromNow()}
+                      </div>
+                    </div>
+                    <div className="relative w-full h-full grid grid-flow-col auto-cols-auto items-end pt-3">
+                      <div className="relative w-fit h-fit col-start-1 justify-self-center grid grid-flow-col auto-cols-auto gap-4">
+                        <div className="relative w-fit h-fit col-start-1 row-start-1 grid grid-flow-col auto-cols-auto gap-2 place-self-center">
+                          <div className="relative w-fit h-fit col-start-1 place-self-center  hover:opacity-70 active:scale-95">
+                            <BsSuitHeart color={"red"} size={15} />
+                          </div>
+                          <div
+                            className={`relative w-fit h-fit col-start-2 text-black font-dosis text-xs place-self-center`}
                           >
-                            <Image
-                              className="rounded-md border-2 border-black w-full h-full"
-                              src={imageSource}
-                              layout="fill"
-                              objectFit="cover"
-                            />
-                          </a>
+                            {!reactionsFeed?.[index] ? 0 : reactionsFeed[index]}
+                          </div>
                         </div>
-                      );
-                    }
+                        <div
+                          className={`relative w-fit h-fit row-start-1 col-start-2 grid grid-flow-col auto-cols-auto gap-2 place-self-center`}
+                        >
+                          <div className="relative w-fit h-fit col-start-1 place-self-center  hover:opacity-70 active:scale-95">
+                            <FaRegCommentDots color={"#0AC7AB"} size={15} />
+                          </div>
+                          <div
+                            className={`relative w-fit h-fit col-start-2 text-black font-dosis text-xs place-self-center`}
+                          >
+                            {publication?.__typename === "Mirror"
+                              ? (publication as any)?.mirrorOf?.stats
+                                  ?.totalAmountOfComments
+                              : (publication as any)?.stats
+                                  ?.totalAmountOfComments}
+                          </div>
+                        </div>
+                        <div
+                          className={`relative w-fit h-fit row-start-2 col-start-1 grid grid-flow-col auto-cols-auto gap-2 place-self-center`}
+                        >
+                          <div className="relative w-fit h-fit col-start-1 place-self-center  hover:opacity-70 active:scale-95">
+                            <AiOutlineRetweet color={"#712AF6"} size={15} />
+                          </div>
+                          <div
+                            className={`relative w-fit h-fit col-start-2 text-black font-dosis text-xs place-self-center`}
+                          >
+                            {publication?.__typename === "Mirror"
+                              ? (publication as any)?.mirrorOf?.stats
+                                  ?.totalAmountOfMirrors
+                              : (publication as any)?.stats
+                                  ?.totalAmountOfMirrors}
+                          </div>
+                        </div>
+
+                        <div
+                          className={`relative w-fit h-fit row-start-2 col-start-2 grid grid-flow-col auto-cols-auto gap-2 place-self-center`}
+                        >
+                          <div className="relative w-fit h-fit col-start-1 place-self-center  hover:opacity-70 active:scale-95">
+                            <BsCollection size={15} color={"#81A8F8"} />
+                          </div>
+                          <div
+                            className={`relative w-fit h-fit col-start-2 text-black font-dosis text-xs place-self-center`}
+                          >
+                            {publication?.__typename === "Mirror"
+                              ? (publication as any)?.mirrorOf?.stats
+                                  ?.totalAmountOfCollects
+                              : (publication as any)?.stats
+                                  ?.totalAmountOfCollects}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="relative w-full h-auto px-2 py-6 sm:py-6 sm:px-6 bg-gradient-to-r from-offBlack via-gray-600 to-black drop-shadow-xl grid grid-flow-row auto-rows-auto place-self-center col-start-2 rounded-md gap-6">
+                  {publication.__typename === "Mirror" && (
+                    <div className="relative w-fit h-fit row-start-1 justify-self-end self-center grid grid-flow-col auto-cols-auto gap-2">
+                      <div className="relative w-fit h-fit col-start-1 place-self-center text-xs font-dosis      text-offWhite">
+                        {`Mirrored by @${publication?.profile?.handle}`}
+                      </div>
+                      <div className="relative w-fit h-fit col-start-2 place-self-center">
+                        <AiOutlineRetweet color={"red"} size={15} />
+                      </div>
+                    </div>
                   )}
-                </div>
-              )}
-              <div
-                className={`relative w-fit h-fit grid grid-flow-col auto-cols-auto ${
-                  publication.__typename === "Mirror" &&
-                  publication?.metadata?.media?.length !== 0
-                    ? "row-start-5"
-                    : (publication.__typename === "Mirror" &&
-                        publication?.metadata?.media?.length === 0) ||
-                      (publication.__typename !== "Mirror" &&
-                        publication?.metadata?.media?.length !== 0)
-                    ? "row-start-4"
-                    : "row-start-3"
-                } gap-3 font-fira text-sm pt-4 pl-4`}
-              >
-                <div className="relative w-fit h-fit col-start-1 grid grid-flow-col auto-cols-auto gap-1 place-self-center cursor-sewingHS">
-                  <div className="relative w-fit h-fit col-start-1 place-self-center">
-                    <FaComments
-                      className="relative align-middle"
-                      color="#81A8F8"
-                      size={15}
-                    />
-                  </div>
-                  <div className="relative w-fit h-fit col-start-2 place-self-center grid grid-flow-col auto-cols-auto">
-                    <div className="relative w-fit h-fit col-start-1 place-self-center">
-                      {publication?.stats?.totalAmountOfComments}
+                  <div
+                    className={`${
+                      publication?.__typename === "Mirror"
+                        ? "row-start-2"
+                        : "row-start-1"
+                    } relative w-full h-fit  text-left font-dosis grid grid-flow-row auto-rows-auto gap-6`}
+                  >
+                    <div className="relative w-full h-fit row-start-1 relative w-fit h-fit text-white font-dosis self-center text-sm sm:text-base justify-self-start">
+                      <div className="relative grid grid-flow-col auto-cols-auto place-self-center">
+                        {(publication as any)?.__typename !== "Mirror"
+                          ? (publication as any)?.metadata?.description
+                            ? (publication as any)?.metadata?.description
+                            : (publication as any)?.metadata?.content
+                          : (publication as any)?.mirrorOf?.metadata
+                              ?.description
+                          ? (publication as any)?.mirrorOf?.metadata
+                              ?.description
+                          : (publication as any)?.mirrorOf?.metadata?.content}
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="relative w-fit h-fit col-start-2 grid grid-flow-col auto-cols-auto gap-1 place-self-center cursor-sewingHS">
-                  <div className="relative w-fit h-fit col-start-1 place-self-center">
-                    <HiCollection
-                      className="relative align-middle"
-                      color="#81A8F8"
-                      size={15}
-                    />
+                  <div
+                    className={`relative w-fit max-w-full h-fit rounded-lg overflow-x-scroll grid grid-flow-col auto-cols-auto gap-3 ${
+                      publication?.__typename === "Mirror"
+                        ? "row-start-3"
+                        : "row-start-2"
+                    }`}
+                  >
+                    {(publication?.__typename === "Mirror"
+                      ? publication?.mirrorOf?.metadata?.media
+                      : publication?.metadata?.media
+                    )?.map((image: any, index: number) => {
+                      let formattedImageURL: string;
+
+                      if (image.original.url.includes("ipfs://")) {
+                        formattedImageURL = `https://thedial.infura-ipfs.io/ipfs/${
+                          image.original.url?.split("://")[1]
+                        }`;
+                      } else {
+                        formattedImageURL = image.original.url;
+                      }
+
+                      return (
+                        <a
+                          key={index}
+                          className={`relative w-60 h-60 border-2 border-black rounded-lg bg-spots grid grid-flow-col auto-cols-auto col-start-${
+                            index + 1
+                          } cursor-sewingHS hover:opacity-70 active:scale-95`}
+                          target="_blank"
+                          rel="noreferrer"
+                          href={formattedImageURL}
+                        >
+                          <div className="relative w-full h-full col-start-1 flex">
+                            {image?.original?.mimeType !== "video/mp4" ? (
+                              <Image
+                                src={formattedImageURL}
+                                layout="fill"
+                                objectFit="cover"
+                                objectPosition={"center"}
+                                className="rounded-md"
+                                draggable={false}
+                              />
+                            ) : (
+                              <video
+                                muted
+                                controls
+                                className="rounded-md absolute w-full h-full object-cover"
+                              >
+                                <source
+                                  src={formattedImageURL}
+                                  type="video/mp4"
+                                />
+                              </video>
+                            )}
+                          </div>
+                        </a>
+                      );
+                    })}
                   </div>
-                  <div className="relative w-fit h-fit col-start-2 place-self-center grid grid-flow-col auto-cols-auto">
-                    <div className="relative w-fit h-fit col-start-1 place-self-center">
-                      {publication?.stats?.totalAmountOfCollects}
+                  <a
+                    className={`relative w-full h-full ${
+                      publication?.__typename === "Mirror"
+                        ? "row-start-4"
+                        : "row-start-3"
+                    } grid grid-flow-col auto-cols-auto`}
+                    target="_blank"
+                    rel="noreferrer"
+                    href={`https://lenster.xyz/posts/${publication?.id}`}
+                  >
+                    <div className="relative w-fit h-full col-start-1 row-start-1 xl:col-start-2 xl:pt-0 pt-3 justify-self-end self-center grid grid-flow-col auto-cols-auto font-dosis gap-1 cursor-sewingHS hover:opacity-70 active:scale-95 text-white">
+                      <div className="relative w-fit h-fit self-end col-start-1 text-sm">
+                        View Post
+                      </div>
+                      <div className="relative w-fit h-fit col-start-2 self-end">
+                        <AiFillEye color={"white"} size={20} />
+                      </div>
                     </div>
-                  </div>
-                </div>
-                <div className="relative w-fit h-fit col-start-3 grid grid-flow-col auto-cols-auto gap-1 place-self-center cursor-sewingHS">
-                  <div className="relative w-fit h-fit col-start-1 place-self-center">
-                    <FaRetweet
-                      className="relative align-middle"
-                      color="#81A8F8"
-                      size={15}
-                    />
-                  </div>
-                  <div className="relative w-fit h-fit col-start-2 place-self-center grid grid-flow-col auto-cols-auto">
-                    <div className="relative w-fit h-fit col-start-1 place-self-center">
-                      {publication?.stats?.totalAmountOfMirrors}
-                    </div>
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>

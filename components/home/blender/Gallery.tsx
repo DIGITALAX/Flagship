@@ -26,6 +26,7 @@ const Gallery: FunctionComponent<useGalleryBoxProps> = ({
                 priority
                 onLoadingComplete={() => setBlur(false)}
                 blurDataURL={image.blurred}
+                className="rounded-md"
               />
             </div>
           </div>

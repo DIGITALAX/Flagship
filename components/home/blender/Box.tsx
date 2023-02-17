@@ -17,7 +17,7 @@ const Box: FunctionComponent<BoxProps> = ({
 }): JSX.Element => {
   const [blur, setBlur] = useState<boolean>(true);
   return (
-    <div className="w-full md:w-[85.5vw] h-full border-r-8 border-b-8 border-t sm:border-t-4 border-l-2 border-offBlack rounded-xl relative">
+    <div className="w-full md:w-[85.5vw] h-full above:border-r-8 border-b-8 border-t sm:border-t-4 above:border-l-2 border-offBlack rounded-xl relative">
       <div className="bg-grayMid w-full md:w-[85vw] h-full rounded-lg relative">
         <div className="grid-flow-row grid auto-rows-auto w-full h-fit relative">
           <div className="relative row-start-1 border-r-0 border-l-0 md:border-l-2 md:border-r-2 border-b-2 md:border-2 rounded-none rounded-t-md border-offBlack w-full h-fit font-libB text-sm md:text-md lg:text-base text-offBlack pt-3 pb-1 pl-2">
