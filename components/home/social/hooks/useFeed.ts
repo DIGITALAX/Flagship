@@ -8,6 +8,7 @@ import whoReactedublications from "../../../../graphql/queries/whoReactedPublica
 const useFeed = (): useFeedResults => {
   const [publicationsFeed, setPublicationsFeed] = useState<any[]>([]);
   const [pageInfo, setPageInfo] = useState<any>([]);
+  const [reactionLoaded, setReactionLoaded] = useState<boolean[]>([]);
   const [reactionsFeed, setReactionsFeed] = useState<any[]>([]);
   let queryWindowSize: boolean = useMediaQuery("(max-width:1024px)");
   let queryWindowSizeMobile: boolean = useMediaQuery("(max-width:950px)");
@@ -94,13 +95,16 @@ const useFeed = (): useFeedResults => {
       setPageInfo(response?.data.publications.pageInfo);
       const reactionsResponse = await checkPostReactions(sortedArr);
       setReactionsFeed(reactionsResponse);
-      return sortedArr;
+      setReactionLoaded(Array(sortedArr?.length).fill(true));
     } catch (err: any) {
       console.error(err.message);
     }
   };
 
   const getMoreFeed = async (): Promise<any> => {
+    if (!pageInfo?.next) {
+      return;
+    }
     try {
       const morePublications = await feedTimeline({
         profileId: "0x016305",
@@ -114,8 +118,25 @@ const useFeed = (): useFeedResults => {
       );
       setPublicationsFeed([...publicationsFeed, ...sortedArr]);
       setPageInfo(morePublications?.data.publications.pageInfo);
-      const reactionsResponse = await checkPostReactions(sortedArr);
-      setReactionsFeed([...reactionsFeed, ...reactionsResponse]);
+      let reactionsResponse: any[];
+      if (reactionsFeed?.length !== publicationsFeed?.length) {
+        reactionsResponse = await checkPostReactions([
+          ...publicationsFeed?.slice(
+            -(publicationsFeed?.length - reactionsFeed?.length)
+          ),
+          ...sortedArr,
+        ]);
+      } else {
+        reactionsResponse = await checkPostReactions(sortedArr);
+      }
+      setReactionsFeed([
+        ...reactionsFeed,
+        ...reactionsResponse,
+      ]);
+      setReactionLoaded((prevReactionsLoaded) => [
+        ...prevReactionsLoaded,
+        ...Array(sortedArr?.length).fill(true),
+      ]);
     } catch (err: any) {
       console.error(err.message);
     }
@@ -128,6 +149,7 @@ const useFeed = (): useFeedResults => {
     queryWindowSizeMobile,
     queryWindowSizeXL,
     reactionsFeed,
+    reactionLoaded,
   };
 };
 

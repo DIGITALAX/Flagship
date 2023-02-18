@@ -126,7 +126,8 @@ export type FeedProps = {
   queryWindowSize: boolean;
   queryWindowSizeMobile: boolean;
   queryWindowSizeXL: boolean;
-  reactionsFeed: any[]
+  reactionsFeed: any[];
+  reactionLoaded: boolean[];
 };
 
 export type SocialProps = {
@@ -136,7 +137,8 @@ export type SocialProps = {
   queryWindowSizeMobile: boolean;
   queryWindowSizeXL: boolean;
   queryWindowSize300: boolean;
-  reactionsFeed: any[]
+  reactionsFeed: any[];
+  reactionLoaded: boolean[];
 };
 
 export type useFeedResults = {
@@ -145,7 +147,8 @@ export type useFeedResults = {
   queryWindowSize: boolean;
   queryWindowSizeMobile: boolean;
   queryWindowSizeXL: boolean;
-  reactionsFeed: any[]
+  reactionsFeed: any[];
+  reactionLoaded: boolean[];
 };
 
 export type GridProps = {
@@ -154,7 +157,8 @@ export type GridProps = {
   queryWindowSize: boolean;
   queryWindowSizeMobile: boolean;
   queryWindowSizeXL: boolean;
-  reactionsFeed: any[]
+  reactionsFeed: any[];
+  reactionLoaded: boolean[];
 };
 
 export type GridSmallProps = {
@@ -164,7 +168,8 @@ export type GridSmallProps = {
   queryWindowSizeMobile: boolean;
   queryWindowSizeXL: boolean;
   queryWindowSize300: boolean;
-  reactionsFeed: any[]
+  reactionsFeed: any[];
+  reactionLoaded: boolean[];
 };
 
 export type DisplayProps = {

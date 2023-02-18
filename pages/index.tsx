@@ -38,6 +38,7 @@ const Home: NextPage<HomeProps> = ({
     queryWindowSizeMobile,
     queryWindowSizeXL,
     reactionsFeed,
+    reactionLoaded
   } = useFeed();
   return (
     <div className="min-w-screen min-h-full h-full flex flex-col bg-mainBg">
@@ -75,6 +76,7 @@ const Home: NextPage<HomeProps> = ({
         queryWindowSize={queryWindowSize}
         queryWindowSizeMobile={queryWindowSizeMobile}
         queryWindowSizeXL={queryWindowSizeXL}
+        reactionLoaded={reactionLoaded}
       />
       <Library setRefactorModal={setRefactorModal} />
       <Slider />

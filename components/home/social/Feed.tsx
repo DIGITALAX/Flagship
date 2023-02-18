@@ -4,7 +4,7 @@ import moment from "moment";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { FeedProps } from "../../../types/general.types";
 import Image from "next/image";
-import { AiFillEye, AiOutlineRetweet } from "react-icons/ai";
+import { AiFillEye, AiOutlineLoading, AiOutlineRetweet } from "react-icons/ai";
 import { BsCollection, BsSuitHeart } from "react-icons/bs";
 
 const Feed: FunctionComponent<FeedProps> = ({
@@ -13,6 +13,7 @@ const Feed: FunctionComponent<FeedProps> = ({
   queryWindowSize,
   queryWindowSizeXL,
   reactionsFeed,
+  reactionLoaded,
 }): JSX.Element => {
   return (
     <InfiniteScroll
@@ -193,9 +194,18 @@ const Feed: FunctionComponent<FeedProps> = ({
                             <BsSuitHeart color={"red"} size={15} />
                           </div>
                           <div
-                            className={`relative w-fit h-fit col-start-2 text-black font-dosis text-xs place-self-center`}
+                            className={`relative w-fit h-fit col-start-2 text-black font-dosis text-xs place-self-center
+                            ${!reactionLoaded?.[index] && "animate-spin"}`}
                           >
-                            {!reactionsFeed?.[index] ? 0 : reactionsFeed[index]}
+                            {reactionLoaded?.[index] ? (
+                              !reactionsFeed?.[index] ? (
+                                0
+                              ) : (
+                                reactionsFeed[index]
+                              )
+                            ) : (
+                              <AiOutlineLoading color="black" size={10} />
+                            )}
                           </div>
                         </div>
                         <div
