@@ -13,7 +13,7 @@ const Grid: FunctionComponent<GridProps> = ({
 }): JSX.Element => {
   return (
     <div className="bg-offBlack w-full h-fit relative grid grid-flow-row auto-rows-auto pb-4 pt-4">
-      <div className="row-start-1 col-start-1 relative w-fit h-full border-offBlack border-8 border-r-4 border-b-4 text-foot text-[4.6vw] lg:text-[5.6vw] xl:text-[4.6vw] font-thun">
+      <div className="row-start-1 col-start-1 relative w-full h-full border-offBlack border-8 border-r-4 border-b-4 text-foot text-[4.6vw] lg:text-[5.6vw] xl:text-[4.6vw] font-thun">
         <Image layout="fill" objectFit="cover" src={"/images/tele.png"} />
         <div className="relative grid grid-flow-col w-full h-full pb-56 md:pr-6 pr-2 lg:pr-10 xl:pr-40">
           <div className="relative col-start-1 w-fit h-fit pl-4 md:pl-10 pt-10 leading-normal">
@@ -73,7 +73,7 @@ const Grid: FunctionComponent<GridProps> = ({
           </div>
         </div>
       </div>
-      <div className="row-start-2 col-start-3 relative min-w-[33rem] w-full h-fit lg:h-full bg-offWhite border-offBlack lg:border-8 lg:border-l-4 lg:border-b-0">
+      <div className="row-start-2 col-start-3 relative w-full h-fit lg:h-full bg-offWhite border-offBlack border-t-8 border-r-8 border-l-4 border-b-0">
         <div className="relative w-full h-full grid grid-flow-row auto-rows-auto content-center overflow-x-none">
           <Feed
             publicationsFeed={publicationsFeed}

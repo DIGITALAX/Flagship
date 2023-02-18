@@ -251,7 +251,7 @@ const Feed: FunctionComponent<FeedProps> = ({
                     </div>
                   </div>
                 </div>
-                <div className="relative w-full h-auto px-2 py-6 sm:py-6 sm:px-6 bg-gradient-to-r from-offBlack via-gray-600 to-black drop-shadow-xl grid grid-flow-row auto-rows-auto place-self-center col-start-2 rounded-md gap-6">
+                <div className="relative w-full h-auto px-1 galaxy:px-2 py-6 sm:py-6 sm:px-6 bg-gradient-to-r from-offBlack via-gray-600 to-black drop-shadow-xl grid grid-flow-row auto-rows-auto place-self-center col-start-2 rounded-md gap-6">
                   {publication.__typename === "Mirror" && (
                     <div className="relative w-fit h-fit row-start-1 justify-self-end self-center grid grid-flow-col auto-cols-auto gap-2">
                       <div className="relative w-fit h-fit col-start-1 place-self-center text-xs font-dosis      text-offWhite">

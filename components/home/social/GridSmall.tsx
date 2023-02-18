@@ -13,7 +13,7 @@ const GridSmall: FunctionComponent<GridSmallProps> = ({
 }): JSX.Element => {
   return (
     <div className="bg-offBlack w-full h-fit relative grid grid-flow-row auto-rows-auto pb-4 pt-4">
-      <div className="row-start-1 col-start-1 relative w-full sm:w-full h-fit border-offBlack border-8 border-r-4 border-b-4 text-foot text-[7.5vw] sm:text-[9.6vw] pb-36 font-thun">
+      <div className="row-start-1 col-start-1 relative w-full sm:w-full h-fit border-offBlack galaxy:border-y-8 galaxy:border-r-4 galaxy:border-b-4 text-foot text-[7.5vw] sm:text-[9.6vw] pb-36 font-thun">
         <Image layout="fill" objectFit="cover" src={"/images/tele.png"} />
         <div className="relative grid grid-flow-col w-[60vw] h-full pb-10 pr-2">
           <div className="relative col-start-1 w-fit h-fit pl-4 md:pl-10 pt-10 leading-normal">
@@ -23,9 +23,9 @@ const GridSmall: FunctionComponent<GridSmallProps> = ({
       </div>
       <div
         id="static"
-        className="row-start-2 col-start-1 relative w-full h-full border-offBlack border-8 border-l-4 border-r-4 border-b-4"
+        className="row-start-2 col-start-1 relative w-full h-full border-offBlack border-t-8 border-l-4 border-r-4 border-b-4"
       ></div>
-      <div className="row-start-3 col-start-1 relative w-full h-[50vw] border-offBlack md:border-8 md:border-l-4 md:border-b-4">
+      <div className="row-start-3 col-start-1 relative w-full h-[50vw] border-offBlack md:border-t-8 md:border-r-8 md:border-l-4 md:border-b-4">
         <Image
           objectFit="cover"
           layout="fill"
@@ -34,7 +34,7 @@ const GridSmall: FunctionComponent<GridSmallProps> = ({
           src="/images/gridmain.png"
         />
       </div>
-      <div className="row-start-4 col-start-1 relative w-full pb-12 pt-12 h-full border-offBlack border-8 border-r-4 border-b-4 text-darkG bg-grayL font-aud text-[4.5vw] leading-normal px-10 pb-10">
+      <div className="row-start-4 col-start-1 relative w-full pb-12 pt-12 h-full border-offBlack border-t-8 border-l-8 border-r-4 border-b-4 text-darkG bg-grayL font-aud text-[4.5vw] leading-normal px-10 pb-10">
         THE FIRST PROFILES ARE LIVE ON LENS, <br /> WITH NEW PROTOCOL
         INTEGRATONS
         <br />
