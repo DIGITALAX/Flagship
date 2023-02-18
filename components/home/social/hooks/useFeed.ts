@@ -73,7 +73,7 @@ const useFeed = (): useFeedResults => {
         }
         reactionsFeedArr.push(reactionsArray.length);
       }
-      setReactionsFeed([...reactionsFeed, ...reactionsFeedArr]);
+      return reactionsFeedArr;
     } catch (err: any) {
       console.error(err.message);
     }
@@ -92,7 +92,8 @@ const useFeed = (): useFeedResults => {
       );
       setPublicationsFeed(sortedArr);
       setPageInfo(response?.data.publications.pageInfo);
-      await checkPostReactions(sortedArr);
+      const reactionsResponse = await checkPostReactions(sortedArr);
+      setReactionsFeed(reactionsResponse);
       return sortedArr;
     } catch (err: any) {
       console.error(err.message);
@@ -113,7 +114,8 @@ const useFeed = (): useFeedResults => {
       );
       setPublicationsFeed([...publicationsFeed, ...sortedArr]);
       setPageInfo(morePublications?.data.publications.pageInfo);
-      await checkPostReactions(sortedArr);
+      const reactionsResponse = await checkPostReactions(sortedArr);
+      setReactionsFeed([...reactionsFeed, ...reactionsResponse]);
     } catch (err: any) {
       console.error(err.message);
     }
