@@ -75,7 +75,7 @@ const Feed: FunctionComponent<FeedProps> = ({
         return (
           <div
             key={index}
-            className={`relative w-full h-full grid grid-flow-row auto-rows-auto over:grid-flow-col over:auto-cols-auto rounded-md z-0 gap-3`}
+            className={`relative w-full h-full flex over:flex-row flex-col rounded-md z-0 gap-3`}
           >
             <div
               className={`relative h-auto rounded-md pr-px py-px w-full over:w-fit min-w-[7.5rem]`}
@@ -250,7 +250,7 @@ const Feed: FunctionComponent<FeedProps> = ({
                 </div>
               </div>
             </div>
-            <div className="relative w-full min-h-full px-1 galaxy:px-2 py-6 xl:px-6 bg-gradient-to-r from-offBlack via-gray-600 to-black drop-shadow-xl place-self-center rounded-md">
+            <div className="relative w-full px-1 galaxy:px-2 py-6 xl:px-6 bg-gradient-to-r from-offBlack via-gray-600 to-black drop-shadow-xl place-self-center rounded-md">
               <div className="relative w-full h-fit grid grid-flow-row auto-rows-auto gap-6">
                 {publication.__typename === "Mirror" && (
                   <div className="relative w-fit h-fit row-start-1 justify-self-end self-center grid grid-flow-col auto-cols-auto gap-2">

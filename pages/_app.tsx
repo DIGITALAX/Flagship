@@ -181,7 +181,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <GlobalContext.Provider value={{ expressInterest, setExpressInterest }}>
           <div
             className={[
-              "min-h-full h-auto min-w-screen w-screen relative selection:bg-skyBlue selection:text-dull cursor-sewingS bg-mainBg ",
+              "min-h-full h-auto min-w-screen w-screen relative selection:bg-skyBlue selection:text-dull cursor-sewingS bg-mainBg overflow-x-hidden",
               color ? `theme-${color}` : "theme-cream",
             ]
               .filter(Boolean)
