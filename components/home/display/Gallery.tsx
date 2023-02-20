@@ -16,7 +16,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
       className={`overflow-hidden ${
         more
           ? "h-full md:h-full lg:h-full"
-          : "h-[20vh] above:h-[40vh] sm:h-[60vh] md:h-[100vh] lg:h-[155vh]"
+          : "h-[60vh] md:h-[100vh] lg:h-[155vh]"
       } w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center relative content-evenly gap-5 items-center inline-flex 2xl:place-content-center`}
     >
       <div className="relative w-full h-full place-items-center">

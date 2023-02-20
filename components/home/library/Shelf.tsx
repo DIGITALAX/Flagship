@@ -12,7 +12,7 @@ const Shelf: FunctionComponent<ShelfProps> = ({
     useLibrary();
   const [blur, setBlur] = useState<boolean>(true);
   return (
-    <div className="relative grid grid-flow-row auto-rows-auto lg:grid-flow-col lg:auto-cols-auto w-full h-full">
+    <div className="relative grid grid-flow-row auto-rows-auto lg:grid-flow-col lg:auto-cols-auto w-full h-fit">
       <div
         className={`relative border-t-2 border-offBlack h-[80vw] sm:h-[40vw] w-full lg:w-[40vw] lg:h-full xl:border-b-[1.18vw] border-b-[1.55vw] bg-offBlack ${
           blur && "blur-sm animate-unblur"
@@ -59,7 +59,7 @@ const Shelf: FunctionComponent<ShelfProps> = ({
         </div>
       </div>
       <div
-        className="relative w-full h-full flex flex-row overflow-x-scroll"
+        className="relative w-full h-full flex flex-row overflow-x-scroll overflow-y-clip"
         id="library"
       >
         {library.map((book: Library, index: number) => {

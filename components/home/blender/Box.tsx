@@ -39,9 +39,9 @@ const Box: FunctionComponent<BoxProps> = ({
                   currentPage={currentPage}
                 />
               </div>
-              <div className="relative row-start-3 w-full h-full px-8 pt-8 pb-1">
+              <div className="relative row-start-3 w-full h-full px-3  sm:px-8 pt-8 pb-1">
                 <div
-                  className={`relative w-full h-[40vw] ${
+                  className={`relative w-full h-[60vw] sm:h-[40vw] ${
                     blur && "blur-sm animate-unblur"
                   }`}
                 >

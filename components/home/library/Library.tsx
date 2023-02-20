@@ -24,7 +24,7 @@ const Library: FunctionComponent<LibraryProps> = ({
           blurDataURL={`/images/blurred/checked.png`}
         />
       </div>
-      <div className="row-start-2 w-full flex h-full">
+      <div className="row-start-2 w-full flex h-fit">
         <Shelf setRefactorModal={setRefactorModal} />
       </div>
     </div>

@@ -12,7 +12,7 @@ const Social: FunctionComponent<SocialProps> = ({
   reactionLoaded
 }): JSX.Element => {
   return (
-    <div className="bg-offBlack w-full h-full relative">
+    <div className="bg-offBlack w-full h-fit relative">
        <Grid
           queryWindowSize={queryWindowSize}
           publicationsFeed={publicationsFeed}
