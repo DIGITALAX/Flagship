@@ -46,7 +46,7 @@ const TV: FunctionComponent = (): JSX.Element => {
               rotate: 360,
             }}
             onClick={refreshImages}
-            className={`absolute bottom-4 right-4 w-fit col-fit col-start-4 row-start-1 place-self-end h-fit hover:rotate-180 cursor-sewingHS active:mix-blend-color-dodge w-6 h-6 z-10 md:w-10 md:h-10 xl:w-24 xl:h-24 ${
+            className={`absolute bottom-4 right-4 w-fit col-fit col-start-4 row-start-1 place-self-end h-fit hover:rotate-180 cursor-sewingHS active:mix-blend-color-dodge w-6 h-6 z-10 md:w-10 md:h-10 2xl:w-24 2xl:h-24 ${
               blur && "blur-sm animate-unblur"
             }`}
           >

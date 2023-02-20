@@ -5,7 +5,7 @@ const Glass: FunctionComponent = (): JSX.Element => {
   const [blur, setBlur] = useState<boolean>(true);
   return (
     <div className="relative w-full h-fit min-h-fit bg-diy py-3 border-y-4 border-deep 2xl:py-5 justify-center px-10 sm:px-40 min-w-full">
-      <div className="relative w-full h-fit flex flex-row gap-6">
+      <div className="relative w-full h-fit flex flex-row gap-6 justify-center">
         <div className="relative w-fit sm:w-full h-fit gap-2 sm:gap-8 flex flex-row self-center justify-start">
           <div className="relative w-fit h-fit">
             <div className="relative w-[10vw] h-[10vw] above:w-[14vw] above:h-[14vw] sm:w-14 sm:h-14 2xl:w-[6vw] 2xl:h-[6vw] rounded-full border-2 border-offBlack  hover:rotate-45 active:rotate-45 cursor-sewingHS">
