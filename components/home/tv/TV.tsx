@@ -19,7 +19,7 @@ const TV: FunctionComponent = (): JSX.Element => {
         >
           <source src="/videos/glitch.mp4" type="video/mp4"></source>
         </video>
-        <div className="relative flex flex-row w-full h-full gap-6 justify-center self-center items-center">
+        <div className="relative flex flex-row w-full h-full gap-6 justify-center self-center items-center py-10">
           {newImages.map((image: string, index: number) => {
             return (
               <Link href={"https://digifizzy.xyz"} key={index}>
