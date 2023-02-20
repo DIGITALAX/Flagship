@@ -4,7 +4,6 @@ import { FunctionComponent, useState } from "react";
 import { Gallery, GalleryProps } from "../../../types/general.types";
 
 const Gallery: FunctionComponent<GalleryProps> = ({
-  loading,
   currentImages,
   more,
   setExpressInterest,
@@ -17,7 +16,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
       className={`overflow-hidden ${
         more
           ? "h-full md:h-full lg:h-full"
-          : "h-[70vh] md:h-[100vh] lg:h-[155vh]"
+          : "h-[20vh] above:h-[40vh] sm:h-[60vh] md:h-[100vh] lg:h-[155vh]"
       } w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center relative content-evenly gap-5 items-center inline-flex 2xl:place-content-center`}
     >
       <div className="relative w-full h-full place-items-center">
@@ -60,7 +59,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                                   .toLowerCase()}`
                               )
                       }
-                      className="w-fit h-fit relative col-start-1 place-self-end"
+                      className="w-fit h-fit min-h-fit relative col-start-1 place-self-end"
                     >
                       <div
                         className="relative decoration-1 underline underline-offset-2 whitespace-nowrap mix-blend-screen hover:cursor-sewingHS w-fit h-fit text-[1.2vw] p-6"
@@ -82,7 +81,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
             return (
               <div
                 key={index}
-                className={`h-full w-full min-h-full flex relative row-start-${
+                className={`h-full w-full min-h-fit flex relative row-start-${
                   index + 1
                 } group`}
               >
@@ -137,7 +136,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
             return (
               <div
                 key={index}
-                className={`h-full w-full min-h-full flex relative row-start-${
+                className={`h-full w-full min-h-fit flex relative row-start-${
                   index + 1
                 } group`}
               >

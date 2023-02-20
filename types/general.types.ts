@@ -19,7 +19,6 @@ export interface Gallery {
 
 export type useGalleryResult = {
   currentImages: Gallery[];
-  loading: boolean;
   currentPage: number;
   paginateBackward: (e: number) => void;
   paginateForward: (e: number) => void;
@@ -31,7 +30,6 @@ export type useGalleryResult = {
 
 export type GalleryProps = {
   currentImages: Gallery[];
-  loading: boolean;
   more: boolean;
   setExpressInterest: (e: string) => void;
   queryWindowSize2XL: boolean;
@@ -42,28 +40,28 @@ export interface Blender {
   blurred: string;
 }
 
-export type BlenderProps = {
-  queryWindowSize400: boolean;
-};
-
 export type BoxProps = {
   currentImages: Blender[];
   currentPage: number;
-  loading: boolean;
   paginateBackward: (e: number) => void;
   paginateForward: (e: number) => void;
   pageBoundaryForward: boolean;
   pageBoundaryBackward: boolean;
+  items: string[];
 };
 
 export type useBoxResults = {
   currentImages: Blender[];
-  loading: boolean;
   currentPage: number;
   paginateBackward: (e: number) => void;
   paginateForward: (e: number) => void;
   pageBoundaryForward: boolean;
   pageBoundaryBackward: boolean;
+  items: string[];
+};
+
+export type DirectoryProps = {
+  items: string[];
 };
 
 export type useGalleryBoxProps = {
@@ -112,11 +110,7 @@ export type LibraryProps = {
   setRefactorModal: (e: boolean) => void;
 };
 
-export type LibraryLargeProps = {
-  setRefactorModal: (e: boolean) => void;
-};
-
-export type LibrarySmallProps = {
+export type ShelfProps = {
   setRefactorModal: (e: boolean) => void;
 };
 
@@ -136,7 +130,6 @@ export type SocialProps = {
   queryWindowSize: boolean;
   queryWindowSizeMobile: boolean;
   queryWindowSizeXL: boolean;
-  queryWindowSize300: boolean;
   reactionsFeed: any[];
   reactionLoaded: boolean[];
 };

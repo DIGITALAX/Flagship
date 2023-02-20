@@ -58,8 +58,6 @@ const heartColors = [
 // const { setItem, value } = useStickyState();
 function MyApp({ Component, pageProps }: AppProps) {
   let queryWindowSize2XL: boolean = useMediaQuery("(max-width:1600px)");
-  let queryWindowSize300: boolean = useMediaQuery("(max-width:300px)");
-  let queryWindowSize400: boolean = useMediaQuery("(max-width:400px)");
   const [color, setColor] = useState<string>(colors[0]);
   const [heartColor, setHeartColor] = useState<string>(colors[0]);
   const changeColor = () => {
@@ -183,7 +181,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <GlobalContext.Provider value={{ expressInterest, setExpressInterest }}>
           <div
             className={[
-              "min-h-full h-auto min-w-screen w-screen relative selection:bg-skyBlue selection:text-dull cursor-sewingS bg-mainBg",
+              "min-h-full h-auto min-w-screen w-screen relative selection:bg-skyBlue selection:text-dull cursor-sewingS bg-mainBg overflow-x-hidden",
               color ? `theme-${color}` : "theme-cream",
             ]
               .filter(Boolean)
@@ -199,8 +197,6 @@ function MyApp({ Component, pageProps }: AppProps) {
               {...pageProps}
               heartColor={heartColor}
               queryWindowSize2XL={queryWindowSize2XL}
-              queryWindowSize300={queryWindowSize300}
-              queryWindowSize400={queryWindowSize400}
               shop={shop}
             />
             <Footer handleRewind={handleRewind} />

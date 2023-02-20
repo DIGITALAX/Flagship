@@ -25,7 +25,7 @@ const Feed: FunctionComponent<FeedProps> = ({
         queryWindowSize
           ? "35rem"
           : !queryWindowSizeXL && !queryWindowSize
-          ? "100rem"
+          ? "80rem"
           : "50rem"
       }
     >

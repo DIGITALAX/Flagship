@@ -23,8 +23,6 @@ import CC0 from "../components/home/cc0/CC0";
 
 const Home: NextPage<HomeProps> = ({
   queryWindowSize2XL,
-  queryWindowSize300,
-  queryWindowSize400,
   shop,
 }) => {
   const [RefactorModal, setRefactorModal] = useState<boolean>(false);
@@ -61,7 +59,7 @@ const Home: NextPage<HomeProps> = ({
         queryWindowSize2XL={queryWindowSize2XL}
       />
       <Description />
-      <Blender queryWindowSize400={queryWindowSize400} />
+      <Blender />
       <Dials />
       <TV />
       <Glass />
@@ -70,7 +68,6 @@ const Home: NextPage<HomeProps> = ({
       <World />
       <Social
         reactionsFeed={reactionsFeed}
-        queryWindowSize300={queryWindowSize300}
         publicationsFeed={publicationsFeed}
         getMoreFeed={getMoreFeed}
         queryWindowSize={queryWindowSize}

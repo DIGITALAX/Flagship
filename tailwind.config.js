@@ -129,7 +129,8 @@ module.exports = {
         alm: "740px",
         over: "1490px",
         galaxy: "300px",
-        above: "350px"
+        above: "350px",
+        wide: "1280px",
       },
       cursor: {
         sewing: "url('/images/sewingCursor.png'), auto",

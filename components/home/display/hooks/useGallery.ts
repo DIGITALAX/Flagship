@@ -9,13 +9,11 @@ const useGallery = (): useGalleryResult => {
   const [images, setImages] = useState<Gallery[]>(
     tokens.slice(0, imagesPerPage)
   ); 
-  const [loading, setLoading] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageBoundaryBackward, setPageBoundaryBackward] = useState<boolean>();
   const [pageBoundaryForward, setPageBoundaryForward] = useState<boolean>();
 
   const fetchImages = (): void => {
-    setLoading(true);
     setPageBoundaryBackward(false);
     const res: Gallery[] = tokens;
     setImages(res);
@@ -106,7 +104,6 @@ const useGallery = (): useGalleryResult => {
 
   return {
     currentImages,
-    loading,
     currentPage,
     paginateBackward,
     paginateForward,

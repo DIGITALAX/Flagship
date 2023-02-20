@@ -4,7 +4,7 @@ import { FunctionComponent, useState } from "react";
 const Static: FunctionComponent = (): JSX.Element => {
   const [blur, setBlur] = useState<boolean>(true);
   return (
-    <div className="w-full relative grid grid-flow-row auto-rows-auto h-full place-items-center p-12 text-xs md:text-base">
+    <div className="w-full relative grid grid-flow-row auto-rows-auto h-full place-items-center py-12 px-2 sm:p-12 text-xs md:text-base">
       <div className="row-start-1 w-full h-fit font-lib text-mainText relative">
         <div className="w-full h-fit grid grid-flow-col auto-cols-auto relative">
           <div className="col-start-1 w-full h-fit relative text-left">212</div>

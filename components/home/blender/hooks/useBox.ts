@@ -7,7 +7,6 @@ const useBox = (): useBoxResults => {
   const [images, setImages] = useState<Blender[]>(
     blender.slice(0, imagesPerPage)
   );
-  const [loading, setLoading] = useState<boolean>(false);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageBoundaryBackward, setPageBoundaryBackward] =
     useState<boolean>(true);
@@ -15,7 +14,6 @@ const useBox = (): useBoxResults => {
     useState<boolean>(false);
 
   const fetchImages = (): void => {
-    setLoading(true);
     setPageBoundaryBackward(true);
     const res: Blender[] = blender;
     setImages(res);
@@ -60,14 +58,28 @@ const useBox = (): useBoxResults => {
     fetchImages();
   }, []);
 
+  const items: string[] = [
+    "Blender",
+    "plugin",
+    "synth",
+    "segmentation",
+    "open datasets",
+    "zero waste",
+    "packing",
+    "3d design",
+    "restitch",
+    "rematerialize",
+    "mint",
+  ];
+
   return {
     currentImages,
-    loading,
     currentPage,
     paginateBackward,
     paginateForward,
     pageBoundaryBackward,
     pageBoundaryForward,
+    items,
   };
 };
 

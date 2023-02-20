@@ -12,7 +12,6 @@ const Display: FunctionComponent<DisplayProps> = ({
 }): JSX.Element => {
   const {
     currentImages,
-    loading,
     currentPage,
     paginateBackward,
     paginateForward,
@@ -80,7 +79,6 @@ const Display: FunctionComponent<DisplayProps> = ({
         </div>
         <div className="relative h-full w-full row-start-2 flex pt-10">
           <Gallery
-            loading={loading}
             currentImages={currentImages}
             more={more}
             queryWindowSize2XL={queryWindowSize2XL}

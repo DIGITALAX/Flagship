@@ -1,21 +1,17 @@
 import Image from "next/image";
 import { FunctionComponent, useState } from "react";
-import { BlenderProps } from "../../../types/general.types";
 import Box from "./Box";
-import Box280 from "./Box280";
 import useBox from "./hooks/useBox";
 
-const Blender: FunctionComponent<BlenderProps> = ({
-  queryWindowSize400,
-}): JSX.Element => {
+const Blender: FunctionComponent = (): JSX.Element => {
   const {
     currentImages,
-    loading,
     currentPage,
     paginateBackward,
     paginateForward,
     pageBoundaryForward,
     pageBoundaryBackward,
+    items
   } = useBox();
   const [blur, setBlur] = useState<boolean>(true);
   return (
@@ -60,27 +56,15 @@ const Blender: FunctionComponent<BlenderProps> = ({
         </div>
       </div>
       <div className="relative row-start-2 w-full h-fit justify-center pt-10 sm:pt-20 self-center">
-        {queryWindowSize400 ? (
-          <Box280
-            currentImages={currentImages}
-            loading={loading}
-            currentPage={currentPage}
-            paginateBackward={paginateBackward}
-            paginateForward={paginateForward}
-            pageBoundaryForward={pageBoundaryForward}
-            pageBoundaryBackward={pageBoundaryBackward}
-          />
-        ) : (
-          <Box
-            currentImages={currentImages}
-            loading={loading}
-            currentPage={currentPage}
-            paginateBackward={paginateBackward}
-            paginateForward={paginateForward}
-            pageBoundaryForward={pageBoundaryForward}
-            pageBoundaryBackward={pageBoundaryBackward}
-          />
-        )}
+        <Box
+          currentImages={currentImages}
+          currentPage={currentPage}
+          paginateBackward={paginateBackward}
+          paginateForward={paginateForward}
+          pageBoundaryForward={pageBoundaryForward}
+          pageBoundaryBackward={pageBoundaryBackward}
+          items={items}
+        />
       </div>
     </div>
   );

@@ -4,16 +4,16 @@ import { FunctionComponent, useState } from "react";
 const Text: FunctionComponent = (): JSX.Element => {
   const [blur, setBlur] = useState<boolean>(true);
   return (
-    <div className="relative max-w-screen w-fit pb-8  h-full grid grid-flow-col auto-col-auto">
+    <div className="relative w-full pb-8 h-full grid grid-flow-col auto-col-auto gap-6">
       <div className="relative place-self-center w-fit lg:w-full h-full row-start-1 col-start-1 text-mainText lg:pl-4">
-        <div className="relative w-full h-full grid grid-flow-col auto-col-auto">
-          <div className="relative h-full w-6 grid grid-flow-col auto-cols-auto col-start-1 md:row-start-1 lg:pr-1">
-            <div className="relative col-start-1 w-full h-full border-t-2 border-b-2 border-r border-mainText"></div>
-            <div className="relative col-start-2 w-full h-full border-t-2 border-b-2 border-l border-mainText"></div>
+        <div className="relative w-full h-full grid sm:grid-flow-col sm:auto-col-auto grid-flow-row auto-rows-auto">
+          <div className="relative w-full h-full flex flex-row sm:flex-col items-center">
+            <div className="relative w-px h-6 sm:w-6 sm:h-px bg-black"></div>
+            <div className="relative w-full sm:w-px h-px sm:h-full bg-black justify-self-center"></div>
+            <div className="relative w-px h-6 sm:w-6 sm:h-px bg-black"></div>
           </div>
-
           <div
-            className={`relative w-fit place-self-center h-fit  md:row-start-1 col-start-2 font-libB text-xs whitespace-nowrap pr-14 pl-3 lg:pr-3 ${
+            className={`relative w-fit place-self-center h-fit  font-libB text-xs whitespace-nowrap pr-14 pl-3 lg:pr-3 sm:rotate-0 rotate-90 ${
               blur && "blur-sm animate-unblur"
             }`}
           >
@@ -26,15 +26,13 @@ const Text: FunctionComponent = (): JSX.Element => {
               blurDataURL={"/images/blurred/verttext1.png"}
             />
           </div>
-
-          <div className="relative w-96 text-center h-fit col-start-3 font-libB text-sm p-6 border border-mainText place-self-center md:row-start-1">
+          <div className="relative w-fit sm:w-96 text-center h-fit font-libB text-sm p-6 border border-mainText place-self-center break-word">
             With a public release some timeskip from now, fabric synth in
             Blender changes the narrative from “NFTs, lol, speculative altcoins
             with JPEGs“ to “We like the looks made for material use”
           </div>
-
           <div
-            className={`relative w-fit place-self-center h-fit col-start-4 font-libB text-xs whitespace-nowrap pr-1 pl-14 lg:pl-3 md:row-start-1 ${
+            className={`relative w-fit place-self-center h-fit font-libB text-xs whitespace-nowrap pr-1 pl-14 lg:pl-3 sm:rotate-0 rotate-90 ${
               blur && "blur-sm animate-unblur"
             }`}
           >
@@ -47,15 +45,15 @@ const Text: FunctionComponent = (): JSX.Element => {
               blurDataURL={"/images/blurred/verttext2.png"}
             />
           </div>
-
-          <div className="relative h-full w-6 grid grid-flow-col auto-cols-auto col-start-5 md:row-start-1">
-            <div className="relative col-start-1 w-full h-full border-t-2 border-b-2 border-r border-mainText"></div>
-            <div className="relative col-start-2 w-full h-full border-t-2 border-b-2 border-l border-mainText"></div>
+          <div className="relative w-full h-full flex flex-row sm:flex-col items-center">
+            <div className="relative w-px h-6 sm:w-6 sm:h-px bg-black"></div>
+            <div className="relative w-full sm:w-px h-px sm:h-full bg-black justify-self-center"></div>
+            <div className="relative w-px h-6 sm:w-6 sm:h-px bg-black"></div>
           </div>
         </div>
       </div>
-      <div className="relative w-full h-full row-start-2 col-start-1 lg:row-start-1 lg:col-start-2 text-mainText lg:pl-4 lg:pt-0 pt-12 lg:pr-0 pr-6">
-        <div className="relative w-fit h-fit text-right text-sm pl-4 font-gisL">
+      <div className="relative w-full h-full row-start-2 col-start-1 lg:row-start-1 lg:col-start-2 text-mainText lg:pt-0 pt-12 grid grid-flow-col auto-cols-auto">
+        <div className="relative w-fit h-fit text-right text-sm font-gisL justify-self-center">
           Today, fashion designers use CLO, a closed source and very limited
           tool for working with fabric. Blender can be a much more powerful and
           open source tool for working with fabric.

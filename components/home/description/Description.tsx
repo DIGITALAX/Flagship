@@ -1,17 +1,16 @@
 import { FunctionComponent } from "react";
-import useGallery from "../display/hooks/useGallery";
 
 const Description: FunctionComponent = (): JSX.Element => {
   return (
-    <div className="relative w-screen h-fit grid grid-flow-col auto-col-auto items-center justify-center bg-offBlack pt-10 pb-10">
+    <div className="relative w-full h-full min-h-fit grid grid-flow-row auto-rows-auto justify-center bg-offBlack p-8 gap-6">
       <div
         id="world"
-        className="text-center font-mag text-[4.6vw] sm:text-[3.4vw] whitespace-nowrap pt-3 pb-10 w-fit h-full relative col-start-1 row-start-1 leading-snug pl-[8vw] pr-[8vw] place-self-center"
+        className="text-center font-mag break-word pt-3 w-fit h-full relative place-self-center text-5xl"
       >
         Our worlds are run by interfaces,
         <br /> machine code, and APIs.
       </div>
-      <div className="relative h-fit text-skyBlue col-start-1 row-start-2 font-fut w-fit text-left pl-6 sm:pl-[19vw] text-xs pr-6 sm:pr-[19vw] place-self-center sm:text-sm 2xl:text-[1.3vw] 2xl:leading-loose">
+      <div className="relative h-full text-skyBlue font-fut w-fit text-left text-xs place-self-center text-xl break-word">
         Here cypherpunks write prompts, design across multiple dimensions by
         hand, and build the end to end decentralize-it-yourself network economy.
         <br />
