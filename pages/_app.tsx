@@ -64,11 +64,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     if (colors.indexOf(color) < 9) {
       setColor(colors[colors.indexOf(color) + 1]);
       setHeartColor(heartColors[colors.indexOf(color) + 1]);
-      localStorage.setItem("digi-theme-color", color);
+      localStorage.setItem("digi-theme-color", colors[colors.indexOf(color) + 1]);
     } else {
       setColor(colors[0]);
       setHeartColor(heartColors[0]);
-      localStorage.setItem("digi-theme-color", color);
+      localStorage.setItem("digi-theme-color", colors[0]);
     }
   };
   const [expressInterest, setExpressInterest] = useState(
