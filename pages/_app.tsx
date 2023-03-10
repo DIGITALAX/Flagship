@@ -64,11 +64,11 @@ function MyApp({ Component, pageProps }: AppProps) {
     if (colors.indexOf(color) < 9) {
       setColor(colors[colors.indexOf(color) + 1]);
       setHeartColor(heartColors[colors.indexOf(color) + 1]);
-      localStorage.setItem("theme-color", color);
+      localStorage.setItem("digi-theme-color", color);
     } else {
       setColor(colors[0]);
       setHeartColor(heartColors[0]);
-      localStorage.setItem("theme-color", color);
+      localStorage.setItem("digi-theme-color", color);
     }
   };
   const [expressInterest, setExpressInterest] = useState(
@@ -76,7 +76,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
   useEffect(() => {
     if (window) {
-      const storageColor = localStorage.getItem("theme-color");
+      const storageColor = localStorage.getItem("digi-theme-color");
       if (storageColor) {
         setColor(storageColor);
       }
