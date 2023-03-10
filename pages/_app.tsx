@@ -75,6 +75,12 @@ function MyApp({ Component, pageProps }: AppProps) {
     GlobalProfileContextDefault.expressInterest
   );
   useEffect(() => {
+    if (window) {
+      const storageColor = localStorage.getItem("theme-color");
+      if (storageColor) {
+        setColor(storageColor);
+      }
+    }
     console.log(`888       888                                    d8b 888                                                                  888                                           
     888   o   888                                    Y8P 888                                                                  888                                           
     888  d8b  888                                        888                                                                  888                                           
