@@ -4,7 +4,7 @@ import moment from "moment";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { FeedProps } from "../../../types/general.types";
 import Image from "next/image";
-import { AiFillEye, AiOutlineLoading, AiOutlineRetweet } from "react-icons/ai";
+import { AiFillEye, AiOutlineRetweet } from "react-icons/ai";
 import { BsCollection, BsSuitHeart } from "react-icons/bs";
 
 const Feed: FunctionComponent<FeedProps> = ({
@@ -12,9 +12,8 @@ const Feed: FunctionComponent<FeedProps> = ({
   getMoreFeed,
   queryWindowSize,
   queryWindowSizeXL,
-  reactionsFeed,
-  reactionLoaded,
 }): JSX.Element => {
+  console.log({ publicationsFeed });
   return (
     <InfiniteScroll
       dataLength={publicationsFeed?.length}
@@ -186,18 +185,11 @@ const Feed: FunctionComponent<FeedProps> = ({
                         <BsSuitHeart color={"red"} size={15} />
                       </div>
                       <div
-                        className={`relative w-fit h-fit col-start-2 text-black font-dosis text-xs place-self-center
-                            ${!reactionLoaded?.[index] && "animate-spin"}`}
+                        className={`relative w-fit h-fit col-start-2 text-black font-dosis text-xs place-self-center`}
                       >
-                        {reactionLoaded?.[index] ? (
-                          !reactionsFeed?.[index] ? (
-                            0
-                          ) : (
-                            reactionsFeed[index]
-                          )
-                        ) : (
-                          <AiOutlineLoading color="black" size={10} />
-                        )}
+                        {publication?.__typename === "Mirror"
+                          ? (publication as any)?.mirrorOf?.stats?.totalUpvotes
+                          : (publication as any)?.stats?.totalUpvotes}
                       </div>
                     </div>
                     <div

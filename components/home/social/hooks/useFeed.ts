@@ -2,14 +2,11 @@ import { useEffect, useState } from "react";
 import { feedTimeline } from "../../../../graphql/queries/explorePublications";
 import { useFeedResults } from "../../../../types/general.types";
 import { useMediaQuery } from "@material-ui/core";
-import lodash from "lodash";
-import whoReactedublications from "../../../../graphql/queries/whoReactedPublications";
+import hasReactedPost from "../../../../graphql/queries/hasReacted";
 
 const useFeed = (): useFeedResults => {
   const [publicationsFeed, setPublicationsFeed] = useState<any[]>([]);
   const [pageInfo, setPageInfo] = useState<any>([]);
-  const [reactionLoaded, setReactionLoaded] = useState<boolean[]>([]);
-  const [reactionsFeed, setReactionsFeed] = useState<any[]>([]);
   let queryWindowSize: boolean = useMediaQuery("(max-width:1024px)");
   let queryWindowSizeMobile: boolean = useMediaQuery("(max-width:950px)");
   let queryWindowSizeXL: boolean = useMediaQuery("(max-width:1600px)");
@@ -18,63 +15,23 @@ const useFeed = (): useFeedResults => {
     getFeedData();
   }, []);
 
-  const fetchReactions = async (pubId: string): Promise<any> => {
+  const checkPostReactions = async (
+    publicationObject: any,
+    lensProfile: string | undefined
+  ): Promise<any> => {
+    let hasReactedArr: any[] = [];
     try {
-      const reactions = await whoReactedublications({
-        publicationId: pubId,
-        limit: 50,
+      const hasReacted = await hasReactedPost(publicationObject, {
+        profileId: lensProfile,
       });
-      const upvoteArr = lodash.filter(
-        reactions?.data?.whoReactedPublication.items,
-        (item: any) => item.reaction === "UPVOTE"
-      );
-      return upvoteArr;
-    } catch (err: any) {
-      console.error(err.message);
-    }
-  };
-
-  const fetchMoreReactions = async (pubId: string, page: any): Promise<any> => {
-    try {
-      const reactions = await whoReactedublications({
-        publicationId: pubId,
-        limit: 50,
-        cursor: page?.next,
-      });
-      const reactionsValues = lodash.filter(
-        reactions?.data?.whoReactedPublication.items,
-        (item: any) => item.reaction === "UPVOTE"
-      );
-      return {
-        reactionsValues,
-        paginatedData: reactions?.data?.whoReactedPublication?.pageInfo,
-      };
-    } catch (err: any) {
-      console.error(err.message);
-    }
-  };
-
-  const checkPostReactions = async (arr: any[]): Promise<any> => {
-    let reactionsFeedArr: any[] = [];
-    try {
-      for (let pub = 0; pub < arr?.length; pub++) {
-        let reactions;
-        reactions = await fetchReactions(arr[pub]?.id);
-        let reactionsArray: any[] = reactions;
-        let loopReactionsArray: any[] = reactions;
-        let pageData: any = reactions?.data?.whoReactedPublication?.pageInfo;
-        while (loopReactionsArray.length === 50) {
-          const { reactionsValues, paginatedData } = await fetchMoreReactions(
-            arr[pub]?.id,
-            pageData
-          );
-          loopReactionsArray = reactionsValues;
-          pageData = paginatedData;
-          reactionsArray = [...reactionsArray, ...reactionsValues];
+      for (let i = 0; i < hasReacted.data.publications.items.length; i++) {
+        if (hasReacted.data.publications.items[i].reaction === "UPVOTE") {
+          hasReactedArr.push(true);
+        } else {
+          hasReactedArr.push(false);
         }
-        reactionsFeedArr.push(reactionsArray.length);
       }
-      return reactionsFeedArr;
+      return hasReactedArr;
     } catch (err: any) {
       console.error(err.message);
     }
@@ -83,7 +40,7 @@ const useFeed = (): useFeedResults => {
   const getFeedData = async (): Promise<any> => {
     try {
       const response = await feedTimeline({
-        profileId: "0x016305",
+        profileIds: ["0x016305", "0x01c6a9"],
         publicationTypes: ["POST", "COMMENT", "MIRROR"],
         limit: 5,
       });
@@ -93,9 +50,6 @@ const useFeed = (): useFeedResults => {
       );
       setPublicationsFeed(sortedArr);
       setPageInfo(response?.data.publications.pageInfo);
-      const reactionsResponse = await checkPostReactions(sortedArr);
-      setReactionsFeed(reactionsResponse);
-      setReactionLoaded(Array(sortedArr?.length).fill(true));
     } catch (err: any) {
       console.error(err.message);
     }
@@ -107,7 +61,7 @@ const useFeed = (): useFeedResults => {
     }
     try {
       const morePublications = await feedTimeline({
-        profileId: "0x016305",
+        profileIds: ["0x016305", "0x01c6a9"],
         publicationTypes: ["POST", "COMMENT", "MIRROR"],
         limit: 5,
         cursor: pageInfo?.next,
@@ -118,25 +72,6 @@ const useFeed = (): useFeedResults => {
       );
       setPublicationsFeed([...publicationsFeed, ...sortedArr]);
       setPageInfo(morePublications?.data.publications.pageInfo);
-      let reactionsResponse: any[];
-      if (reactionsFeed?.length !== publicationsFeed?.length) {
-        reactionsResponse = await checkPostReactions([
-          ...publicationsFeed?.slice(
-            -(publicationsFeed?.length - reactionsFeed?.length)
-          ),
-          ...sortedArr,
-        ]);
-      } else {
-        reactionsResponse = await checkPostReactions(sortedArr);
-      }
-      setReactionsFeed([
-        ...reactionsFeed,
-        ...reactionsResponse,
-      ]);
-      setReactionLoaded((prevReactionsLoaded) => [
-        ...prevReactionsLoaded,
-        ...Array(sortedArr?.length).fill(true),
-      ]);
     } catch (err: any) {
       console.error(err.message);
     }
@@ -148,8 +83,6 @@ const useFeed = (): useFeedResults => {
     queryWindowSize,
     queryWindowSizeMobile,
     queryWindowSizeXL,
-    reactionsFeed,
-    reactionLoaded,
   };
 };
 

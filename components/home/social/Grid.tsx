@@ -9,8 +9,6 @@ const Grid: FunctionComponent<GridProps> = ({
   queryWindowSize,
   queryWindowSizeMobile,
   queryWindowSizeXL,
-  reactionsFeed,
-  reactionLoaded,
 }): JSX.Element => {
   return (
     <div className="bg-offBlack w-full h-fit relative grid md:grid-flow-row md:auto-rows-auto grid-flow-col auto-cols-auto py-4">
@@ -70,8 +68,6 @@ const Grid: FunctionComponent<GridProps> = ({
           queryWindowSize={queryWindowSize}
           queryWindowSizeMobile={queryWindowSizeMobile}
           queryWindowSizeXL={queryWindowSizeXL}
-          reactionsFeed={reactionsFeed}
-          reactionLoaded={reactionLoaded}
         />
       </div>
     </div>
