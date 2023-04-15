@@ -13,7 +13,6 @@ const Feed: FunctionComponent<FeedProps> = ({
   queryWindowSize,
   queryWindowSizeXL,
 }): JSX.Element => {
-  console.log({ publicationsFeed });
   return (
     <InfiniteScroll
       dataLength={publicationsFeed?.length}
