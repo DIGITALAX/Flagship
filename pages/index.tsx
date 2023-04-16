@@ -103,7 +103,7 @@ const Home: NextPage<HomeProps> = ({ queryWindowSize2XL, shop }) => {
         <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center z-10">
           <div className="relative w-full h-full overflow-hidden">
             <div
-              className="relative w-20 h-20"
+              className="relative w-10 sm:w-20 w-10 sm:h-20"
               style={{ left: position.x, top: position.y }}
               ref={imageRef}
             >
