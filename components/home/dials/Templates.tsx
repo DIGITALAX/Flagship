@@ -1,12 +1,12 @@
 import Image from "next/image";
 import { FunctionComponent } from "react";
-import MarqueeBanner from "react-fast-marquee";
+import Marquee from "react-fast-marquee";
 import useTemplates from "./hooks/useTemplates";
 
 const Templates: FunctionComponent = (): JSX.Element => {
   const { collectionTemplates } = useTemplates();
   return (
-    <MarqueeBanner gradient={false} speed={30} direction={"right"}>
+    <Marquee gradient={false} speed={30} direction={"right"}>
       {collectionTemplates.map((image, index) => {
         return (
           <div
@@ -22,7 +22,7 @@ const Templates: FunctionComponent = (): JSX.Element => {
           </div>
         );
       })}
-    </MarqueeBanner>
+    </Marquee>
   );
 };
 
