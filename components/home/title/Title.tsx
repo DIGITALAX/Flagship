@@ -50,7 +50,7 @@ const Title: FunctionComponent = (): JSX.Element => {
             href={"https://www.themanufactory.xyz"}
           >
             <Image
-              src={`https://thedial.infura-ipfs.io/ipfs/QmXM6QSYCbMJ5eXJHuGqMTbCTkaDqth5c4NswX2nWTpenB`}
+              src={`https://thedial.infura-ipfs.io/ipfs/QmRpVNoo4LdwBrByfmUNpoB7nPrJrLUPdUeeeatqc4CDk7`}
               layout="fill"
               className={"w-full h-full rounded-full"}
               draggable={false}
