@@ -37,6 +37,7 @@ const Blender: FunctionComponent = (): JSX.Element => {
                       priority
                       onLoadingComplete={() => setBlur(false)}
                       blurDataURL={"/images/blurred/bar.png"}
+                      draggable={false}
                     />
                   </div>
                 </div>

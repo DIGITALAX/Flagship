@@ -22,6 +22,7 @@ const Library: FunctionComponent<LibraryProps> = ({
           priority
           onLoadingComplete={() => setBlur(false)}
           blurDataURL={`/images/blurred/checked.png`}
+          draggable={false}
         />
       </div>
       <div className="row-start-2 w-full flex h-fit">

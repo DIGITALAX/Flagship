@@ -51,6 +51,7 @@ const Box: FunctionComponent<BoxProps> = ({
                     priority
                     onLoadingComplete={() => setBlur(false)}
                     blurDataURL={"/images/blurred/imagelarge.png"}
+                    draggable={false}
                   />
                 </div>
               </div>

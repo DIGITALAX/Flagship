@@ -18,6 +18,7 @@ const Templates: FunctionComponent = (): JSX.Element => {
               objectFit={"contain"}
               layout={"fill"}
               objectPosition="top"
+              draggable={false}
             />
           </div>
         );

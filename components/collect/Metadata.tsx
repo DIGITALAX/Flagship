@@ -68,6 +68,7 @@ const Metadata: FunctionComponent<MetadataProps> = ({
                   layout="fill"
                   alt="Arrow"
                   priority
+                  draggable={false}
                 />
               </div>
               <div className="relative w-fit h-fit pl-3 pr-3 pt-0.5 pb-0.5 border-2 border-black rounded-lg col-start-2 text-bronze hover:bg-lightPurple cursor-sewingHS">
@@ -81,6 +82,7 @@ const Metadata: FunctionComponent<MetadataProps> = ({
                   layout="fill"
                   alt="Arrow"
                   priority
+                  draggable={false}
                 />
               </div>
               <div className="relative w-fit h-fit pl-3 pr-3 pt-0.5 pb-0.5 border-2 border-black rounded-lg col-start-2 text-midBlue hover:bg-lightPurple cursor-sewingHS">
@@ -94,6 +96,7 @@ const Metadata: FunctionComponent<MetadataProps> = ({
                   layout="fill"
                   alt="Arrow"
                   priority
+                  draggable={false}
                 />
               </div>
               <div className="relative w-fit h-fit pl-3 pr-3 pt-0.5 pb-0.5 border-2 border-black rounded-lg col-start-2 hover:bg-lightPurple cursor-sewingHS">
@@ -107,6 +110,7 @@ const Metadata: FunctionComponent<MetadataProps> = ({
                   layout="fill"
                   alt="Arrow"
                   priority
+                  draggable={false}
                 />
               </div>
               <div className="relative w-fit h-fit pl-3 pr-3 pt-0.5 pb-0.5 border-2 border-black text-pinkish rounded-lg col-start-2 hover:bg-lightPurple cursor-sewingHS">
@@ -131,6 +135,7 @@ const Metadata: FunctionComponent<MetadataProps> = ({
                           layout="fill"
                           alt="Profile Image"
                           priority
+                          draggable={false}
                         />
                       </a>
                     </Link>

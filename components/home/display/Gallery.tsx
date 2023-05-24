@@ -46,6 +46,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                     layout={queryWindowSize2XL ? "intrinsic" : "responsive"}
                     onLoadingComplete={() => setBlur(false)}
                     blurDataURL={token.blurred}
+                    draggable={false}
                   />
                   <div className="absolute bg-black top-0 grid grid-flow-col auto-cols-auto w-full bg-opacity-70 h-full font-lib text-midWhite invisible group-hover:visible group-active:visible">
                     <div
@@ -93,6 +94,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                   <Image
                     src={token.image}
                     width={queryWindowSize2XL ? 2 * token.width : token.width}
+                    draggable={false}
                     height={
                       queryWindowSize2XL ? 2 * token.height : token.height
                     }
@@ -153,6 +155,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                     }
                     objectPosition="center"
                     priority
+                    draggable={false}
                     layout={queryWindowSize2XL ? "intrinsic" : "responsive"}
                     onLoadingComplete={() => setBlur(false)}
                     blurDataURL={token.blurred}

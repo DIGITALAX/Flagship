@@ -13,7 +13,7 @@ const Grid: FunctionComponent<GridProps> = ({
   return (
     <div className="bg-offBlack w-full h-fit relative grid md:grid-flow-row md:auto-rows-auto grid-flow-col auto-cols-auto py-4">
       <div className="row-start-1 col-start-1 relative w-full h-full border-offBlack border-t-8 border-x-4 border-b-4 text-foot text-[4.6vw] lg:text-[5.6vw] xl:text-[4.6vw] font-thun">
-        <Image layout="fill" objectFit="cover" src={"/images/tele.png"} />
+        <Image layout="fill" objectFit="cover" src={"/images/tele.png"}      draggable={false} />
         <div className="relative grid grid-flow-col w-full h-full pb-56 md:pr-6 pr-2 lg:pr-10 xl:pr-40">
           <div className="relative col-start-1 w-fit h-fit pl-4 md:pl-10 pt-10 leading-normal">
             NEW SOCIAL <br /> INTEGRATIONS <br /> FOR <br />
@@ -33,6 +33,7 @@ const Grid: FunctionComponent<GridProps> = ({
           className="w-full h-full relative flex"
           objectPosition={"top"}
           src="/images/gridmain.png"
+          draggable={false}
         />
       </div>
       <div className="row-start-4 md:row-start-2 col-start-1 relative w-full wide:w-[20vw] min-w-fit pb-12 lg:pb-0 h-full border-offBlack border-l-8 border-t-8 border-r-8 md:border-r-4 border-b-0 text-darkG bg-grayL font-aud text-[4vw] sm:text-[2.5vw] lg:text-[3.2vw] xl:text-[2.8vw] leading-tight px-6 pt-6 break-word">
@@ -56,6 +57,7 @@ const Grid: FunctionComponent<GridProps> = ({
                 height={50}
                 src={"/images/inarilogo.png"}
                 className="justify-center"
+                draggable={false}
               />
             </div>
           </div>

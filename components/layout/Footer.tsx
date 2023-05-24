@@ -26,6 +26,7 @@ const Footer: FunctionComponent<FooterProps> = ({
                   priority
                   onLoadingComplete={() => setBlur(false)}
                   blurDataURL={"/images/blurred/footerstatic.png"}
+                  draggable={false}
                 />
                 <div className="relative w-full h-full grid grid-flow-row auto-rows-auto">
                   <div
@@ -100,6 +101,7 @@ const Footer: FunctionComponent<FooterProps> = ({
                 >
                   <Image
                     src="/images/footerblur.png"
+                    draggable={false}
                     layout="fill"
                     width={160}
                     height={20}
@@ -141,6 +143,7 @@ const Footer: FunctionComponent<FooterProps> = ({
                         priority
                         onLoadingComplete={() => setBlur(false)}
                         blurDataURL={"/images/blurred/mirror.png"}
+                        draggable={false}
                       />
                     </a>
                   </Link>
@@ -160,6 +163,7 @@ const Footer: FunctionComponent<FooterProps> = ({
                         height={28}
                         priority
                         onLoadingComplete={() => setBlur(false)}
+                        draggable={false}
                         blurDataURL={"/images/blurred/github.png"}
                       />
                     </a>
@@ -181,6 +185,7 @@ const Footer: FunctionComponent<FooterProps> = ({
                         priority
                         onLoadingComplete={() => setBlur(false)}
                         blurDataURL={"/images/blurred/lens.png"}
+                        draggable={false}
                       />
                     </a>
                   </Link>
@@ -207,6 +212,7 @@ const Footer: FunctionComponent<FooterProps> = ({
                         src={"/images/youtube.png"}
                         width={30}
                         height={20}
+                        draggable={false}
                         priority
                       />
                     </a>

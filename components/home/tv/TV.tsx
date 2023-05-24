@@ -36,6 +36,7 @@ const TV: FunctionComponent = (): JSX.Element => {
                     priority
                     onLoadingComplete={() => setBlur(false)}
                     blurDataURL={`/images/blurred/${image}.png`}
+                    draggable={false}
                   />
                 </a>
               </Link>
@@ -58,6 +59,7 @@ const TV: FunctionComponent = (): JSX.Element => {
               priority
               onLoadingComplete={() => setBlur(false)}
               blurDataURL={`/images/blurred/disk.png`}
+              draggable={false}
             />
           </motion.div>
         </div>

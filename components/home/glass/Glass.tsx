@@ -16,6 +16,7 @@ const Glass: FunctionComponent = (): JSX.Element => {
                 priority
                 onLoadingComplete={() => setBlur(false)}
                 blurDataURL={"/images/blurred/dial1.png"}
+                draggable={false}
               />
             </div>
           </div>
@@ -28,6 +29,7 @@ const Glass: FunctionComponent = (): JSX.Element => {
                 priority
                 onLoadingComplete={() => setBlur(false)}
                 blurDataURL={"/images/blurred/dial2.png"}
+                draggable={false}
               />
             </div>
           </div>
@@ -40,6 +42,7 @@ const Glass: FunctionComponent = (): JSX.Element => {
                 priority
                 onLoadingComplete={() => setBlur(false)}
                 blurDataURL={"/images/blurred/dial3.png"}
+                draggable={false}
               />
             </div>
           </div>
@@ -54,6 +57,7 @@ const Glass: FunctionComponent = (): JSX.Element => {
               priority
               onLoadingComplete={() => setBlur(false)}
               blurDataURL={"/images/blurred/diallarge.png"}
+              draggable={false}
             />
           </div>
         </div>

@@ -26,6 +26,7 @@ const Static: FunctionComponent = (): JSX.Element => {
             priority
             onLoadingComplete={() => setBlur(false)}
             blurDataURL={`/images/blurred/static.png`}
+            draggable={false}
           />
           <div className="relative w-full h-full grid grid-flow-col auto-cols-auto">
             <video

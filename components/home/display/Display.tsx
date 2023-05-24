@@ -52,6 +52,7 @@ const Display: FunctionComponent<DisplayProps> = ({
                       priority
                       onLoadingComplete={() => setBlur(false)}
                       blurDataURL={"/images/blurred/left.png"}
+                      draggable={false}
                     />
                   </div>
                   <div className="col-start-2 relative w-1.5 h-full bg-grayMid place-self-center"></div>
@@ -70,6 +71,7 @@ const Display: FunctionComponent<DisplayProps> = ({
                       priority
                       onLoadingComplete={() => setBlur(false)}
                       blurDataURL={"/images/blurred/right.png"}
+                      draggable={false}
                     />
                   </div>
                 </div>
@@ -119,6 +121,7 @@ const Display: FunctionComponent<DisplayProps> = ({
                 priority
                 onLoadingComplete={() => setBlur(false)}
                 blurDataURL={"/images/blurred/eye.png"}
+                draggable={false}
               />
             </div>
             <div className="col-start-2 relative w-fit h-fit font-firaL text-offWhite">

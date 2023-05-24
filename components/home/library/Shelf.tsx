@@ -36,6 +36,7 @@ const Shelf: FunctionComponent<ShelfProps> = ({
                   priority
                   onLoadingComplete={() => setBlur(false)}
                   blurDataURL={`/images/blurred/eye.png`}
+                  draggable={false}
                 />
               </a>
             </Link>
@@ -53,6 +54,7 @@ const Shelf: FunctionComponent<ShelfProps> = ({
                 priority
                 onLoadingComplete={() => setBlur(false)}
                 blurDataURL={`/images/blurred/eye.png`}
+                draggable={false}
               />
             </div>
           )}
@@ -94,6 +96,7 @@ const Shelf: FunctionComponent<ShelfProps> = ({
                       priority
                       onLoadingComplete={() => setBlur(false)}
                       blurDataURL={`/images/blurred/rounded.png`}
+                      draggable={false}
                     />
                     <div className="relative w-full h-full grid grid-flow-col auto-cols-auto">
                       <div className="relative col-start-1 w-fit h-fit place-self-center">
@@ -138,6 +141,7 @@ const Shelf: FunctionComponent<ShelfProps> = ({
             blurDataURL={`/images/blurred/numbers.png`}
             objectFit="contain"
             className="relative w-full h-full"
+            draggable={false}
           />
         </div>
         <div className="relative w-full h-full flex flex-row lg:flex-col items-center">
@@ -159,6 +163,7 @@ const Shelf: FunctionComponent<ShelfProps> = ({
             blurDataURL={`/images/blurred/player.png`}
             objectFit="contain"
             className="relative w-fit h-fit"
+            draggable={false}
           />
         </div>
       </div>

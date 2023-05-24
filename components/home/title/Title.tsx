@@ -1,9 +1,67 @@
+import Image from "next/image";
+import Link from "next/link";
 import { FunctionComponent } from "react";
 
 const Title: FunctionComponent = (): JSX.Element => {
   return (
-    <div className="font-mag text-mainText w-full grid grid-flow-row auto-rows-auto h-fit text-[16vw] max-w-screen relative pt-6">
-      <div className="place-self-center relative">DIGITALAX</div>
+    <div className="relative w-full h-fit flex flex-col items-center justify-center pt-6">
+      <div className="relative w-full h-fit gap-3 flex flex-row items-center justify-center">
+        <div
+          className="relative h-5 w-5 sm:h-8 sm:w-8 md:h-12 md:w-12 rounded-full border-mainText border-2 bg-mainText cursor-sewingHS"
+          id="buttons"
+        >
+          <Link
+            target="_blank"
+            rel="noreferrer"
+            href={"https://www.thedial.xyz"}
+          >
+            <Image
+              src={`https://thedial.infura-ipfs.io/ipfs/QmbF9Lt5KQ3m9xxnqSRD2nmcr5mgtf1V2ruRYcrMnrFpni`}
+              layout="fill"
+              className={"w-full h-full rounded-full"}
+              draggable={false}
+            />
+          </Link>
+        </div>
+        <div
+          className="relative h-5 w-5 sm:h-8 sm:w-8 md:h-12 md:w-12 rounded-full border-mainText border-2 bg-mainText cursor-sewingHS"
+          id="buttons"
+        >
+          <Link
+            target="_blank"
+            rel="noreferrer"
+            href={"https://www.chromadin.xyz"}
+          >
+            <Image
+              src={`https://thedial.infura-ipfs.io/ipfs/QmXM6QSYCbMJ5eXJHuGqMTbCTkaDqth5c4NswX2nWTpenB`}
+              layout="fill"
+              className={"w-full h-full rounded-full"}
+              draggable={false}
+            />
+          </Link>
+        </div>
+        <div
+          className="relative h-5 w-5 sm:h-8 sm:w-8 md:h-12 md:w-12 rounded-full border-mainText border-2 bg-mainText cursor-sewingHS"
+          id="buttons"
+        >
+          <Link
+            target="_blank"
+            rel="noreferrer"
+            href={"https://www.themanufactory.xyz"}
+          >
+            <Image
+              src={`https://thedial.infura-ipfs.io/ipfs/QmXM6QSYCbMJ5eXJHuGqMTbCTkaDqth5c4NswX2nWTpenB`}
+              layout="fill"
+              className={"w-full h-full rounded-full"}
+              draggable={false}
+            />
+          </Link>
+        </div>
+        {/* <div className="relative h-10 w-10 rounded-full border-mainText bg-mainText"></div> */}
+      </div>
+      <div className="font-mag text-mainText w-full flex h-fit text-[16vw] relative items-center justify-center ">
+        <div className="place-self-center relative">DIGITALAX</div>
+      </div>
     </div>
   );
 };

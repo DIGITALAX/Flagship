@@ -17,6 +17,7 @@ const Poster: FunctionComponent = (): JSX.Element => {
           priority
           onLoadingComplete={() => setBlur(false)}
           blurDataURL={`/images/blurred/latent.png`}
+          draggable={false}
         />
         <div className="relative w-full h-full grid grid-flow-col auto-cols-auto">
           <div className="relative w-full h-fit place-self-end col-start-1">

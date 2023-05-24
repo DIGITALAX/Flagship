@@ -89,6 +89,7 @@ const Feed: FunctionComponent<FeedProps> = ({
                   layout="fill"
                   objectFit="cover"
                   className="absolute w-full h-full rounded-lg"
+                  draggable={false}
                 />
                 <div className="relative w-fit h-fit grid grid-flow-col auto-cols-auto justify-self-center">
                   <div

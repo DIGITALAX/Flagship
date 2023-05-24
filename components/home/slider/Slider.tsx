@@ -107,6 +107,7 @@ const Slider: FunctionComponent = (): JSX.Element => {
                 objectPosition={"top"}
                 blurDataURL={`/images/blurred/${image}.png`}
                 onLoadingComplete={() => setBlur(false)}
+                draggable={false}
               />
             </div>
           );

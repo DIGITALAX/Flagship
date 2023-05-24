@@ -109,7 +109,7 @@ const TokenDetails: NextPage<TokenDetailsProps> = ({
     isSuccess,
     data,
   ]);
-  const router = useRouter()
+  const router = useRouter();
   return (
     <CollectContext.Provider
       value={{
@@ -184,7 +184,10 @@ const TokenDetails: NextPage<TokenDetailsProps> = ({
         )}
         <div className="grid grid-flow-row auto-rows-auto w-full h-full">
           <div className="relative row-start-1 w-full h-fit grid grid-flow-col auto-cols-auto pb-28 galaxy:pb-0">
-            <div onClick={() => router.back()} className="relative col-start-1 w-fit h-fit">
+            <div
+              onClick={() => router.back()}
+              className="relative col-start-1 w-fit h-fit"
+            >
               <div className="text-mainText font-fira left-7 self-center pt-8 pl-6 place-self-start h-fit w-fit top-7 opacity-80 hover:opacity-20 cursor-sewingHS row-start-1 pb-0 galaxy:pb-28">
                 <AiFillBackward
                   color={heartColor}
@@ -213,6 +216,7 @@ const TokenDetails: NextPage<TokenDetailsProps> = ({
                 layout="fill"
                 objectFit="contain"
                 unoptimized
+                draggable={false}
                 blurDataURL={token[0].blurred}
                 placeholder="blur"
                 loader={() =>

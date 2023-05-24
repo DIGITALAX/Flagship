@@ -48,6 +48,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                 priority
                 onLoadingComplete={() => setBlur(false)}
                 blurDataURL={"/images/blurred/diagram.png"}
+                draggable={false}
               />
             </div>
           </div>
@@ -134,6 +135,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                   height={20}
                   width={60}
                   priority
+                  draggable={false}
                 />
               </div>
               <div className="relative w-fit h-full whitespace-nowrap col-start-2 font-firaL">

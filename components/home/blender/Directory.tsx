@@ -26,6 +26,7 @@ const Directory: FunctionComponent<DirectoryProps> = ({
                 priority
                 onLoadingComplete={() => setBlur(false)}
                 blurDataURL={"/images/blurred/arrowdown.png"}
+                draggable={false}
               />
             </div>
             <div className="relative col-start-2 w-full h-fit">{items[0]}</div>
@@ -51,6 +52,7 @@ const Directory: FunctionComponent<DirectoryProps> = ({
                       priority
                       onLoadingComplete={() => setBlur(false)}
                       blurDataURL={"/images/blurred/arrowright.png"}
+                      draggable={false}
                     />
                   </div>
                   <div className="relative col-start-2 w-full h-fit">

@@ -24,6 +24,7 @@ const Text: FunctionComponent = (): JSX.Element => {
               priority
               onLoadingComplete={() => setBlur(false)}
               blurDataURL={"/images/blurred/verttext1.png"}
+              draggable={false}
             />
           </div>
           <div className="relative w-fit sm:w-96 text-center h-fit font-libB text-sm p-6 border border-mainText place-self-center break-word">
@@ -43,6 +44,7 @@ const Text: FunctionComponent = (): JSX.Element => {
               priority
               onLoadingComplete={() => setBlur(false)}
               blurDataURL={"/images/blurred/verttext2.png"}
+              draggable={false}
             />
           </div>
           <div className="relative w-full h-full flex flex-row sm:flex-col items-center">
