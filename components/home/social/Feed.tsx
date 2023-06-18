@@ -6,6 +6,7 @@ import { FeedProps } from "../../../types/general.types";
 import Image from "next/image";
 import { AiFillEye, AiOutlineRetweet } from "react-icons/ai";
 import { BsCollection, BsSuitHeart } from "react-icons/bs";
+import ReactPlayer from "react-player";
 
 const Feed: FunctionComponent<FeedProps> = ({
   publicationsFeed,
@@ -309,10 +310,28 @@ const Feed: FunctionComponent<FeedProps> = ({
                               className="rounded-md"
                               draggable={false}
                             />
+                          ) : formattedImageURL.includes("index") ? (
+                            <div className="rounded-md absolute w-full h-full object-cover bg-black">
+                              <ReactPlayer
+                                url={formattedImageURL}
+                                controls={true}
+                                muted={true}
+                                playsinline
+                                loop
+                                style={{
+                                  borderRadius: "0.375rem",
+                                  objectFit: "cover",
+                                }}
+                                width="100%"
+                                height="100%"
+                                className="rounded-md"
+                              />
+                            </div>
                           ) : (
                             <video
                               muted
                               controls
+                              loop
                               className="rounded-md absolute w-full h-full object-cover"
                             >
                               <source
