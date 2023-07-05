@@ -1,34 +1,34 @@
 [
   {
-    "name": "REALMS",
+    "name": "THE MANUFACTORY",
     "image": "/images/library/Realms.png",
     "number": "1",
     "id": "one",
-    "link": "",
+    "link": "https://themanufactory.xyz",
     "width": 25,
     "height": 80
   },
   {
-    "name": "MONA",
-    "image": "/images/library/Mona.png",
+    "name": "COIN OP",
+    "image": "/images/library/Diy.png",
     "number": "2",
     "id": "two",
+    "link": "https://coinop.themanufactory.xyz",
+    "width": 25,
+    "height": 60
+  },
+  {
+    "name": "MONA",
+    "image": "/images/library/Mona.png",
+    "number": "3",
+    "id": "three",
     "link": "",
     "width": 25,
     "height": 60
   },
   {
-    "name": "GLOBAL DESIGNER NETWORK",
-    "image": "/images/library/Gdn.png",
-    "number": "3",
-    "id": "three",
-    "link": "",
-    "width": 25,
-    "height": 320
-  },
-  {
-    "name": "GLOBAL MODELS SYNDICATE",
-    "image": "/images/library/Gms.png",
+    "name": "LIT LISTENER",
+    "image": "/images/library/Runways.png",
     "number": "4",
     "id": "four",
     "link": "",
@@ -36,10 +36,28 @@
     "height": 320
   },
   {
-    "name": "ENGINEERING",
-    "image": "/images/library/Engineering.png",
+    "name": "PKPs",
+    "image": "/images/library/Espa.png",
     "number": "5",
     "id": "five",
+    "link": "https://docs.irrevocable.dev",
+    "width": 25,
+    "height": 320
+  },
+  {
+    "name": "CHROMADIN",
+    "image": "/images/library/Gms.png",
+    "number": "6",
+    "id": "six",
+    "link": "https://chromadin.xyz",
+    "width": 25,
+    "height": 320
+  },
+  {
+    "name": "ENGINEERING",
+    "image": "/images/library/Engineering.png",
+    "number": "7",
+    "id": "seven",
     "link": "https://github.com/DIGITALAX/",
     "width": 25,
     "height": 150
@@ -47,8 +65,8 @@
   {
     "name": "PODE",
     "image": "/images/library/Pode.png",
-    "number": "6",
-    "id": "six",
+    "number": "8",
+    "id": "eight",
     "link": "",
     "width": 25,
     "height": 55
@@ -56,8 +74,8 @@
   {
     "name": "THE DLTA SYSTEM",
     "image": "/images/library/Dlta.png",
-    "number": "7",
-    "id": "seven",
+    "number": "9",
+    "id": "nine",
     "link": "",
     "width": 25,
     "height": 210
@@ -65,36 +83,18 @@
   {
     "name": "WEB3 FASHION WEEK",
     "image": "/images/library/Web3.png",
-    "number": "8",
-    "id": "eight",
+    "number": "10",
+    "id": "ten",
     "link": "",
     "width": 25,
     "height": 235
   },
   {
-    "name": "REALM RUNWAYS",
-    "image": "/images/library/Runways.png",
-    "number": "9",
-    "id": "nine",
-    "link": "",
-    "width": 25,
-    "height": 180
-  },
-  {
-    "name": "DIY SYNTH",
-    "image": "/images/library/Diy.png",
-    "number": "10",
-    "id": "ten",
-    "link": "https://diysynth.xyz",
-    "width": 25,
-    "height": 125
-  },
-  {
-    "name": "INARI SYNTH",
+    "name": "THE DIAL",
     "image": "/images/library/Inari.png",
     "number": "11",
     "id": "eleven",
-    "link": "https://inarisynth.xyz",
+    "link": "https://thedial.xyz",
     "width": 25,
     "height": 150
   },
@@ -108,11 +108,11 @@
     "height": 180
   },
   {
-    "name": "ROADMAP V3",
+    "name": "LEGEND",
     "image": "/images/library/Roadmap.png",
     "number": "13",
     "id": "thirteen",
-    "link": "",
+    "link": "https://legend.irrevocable.dev",
     "width": 25,
     "height": 140
   },
@@ -126,19 +126,10 @@
     "height": 250
   },
   {
-    "name": "ESPA",
-    "image": "/images/library/Espa.png",
-    "number": "15",
-    "id": "fifteen",
-    "link": "",
-    "width": 25,
-    "height": 55
-  },
-  {
     "name": "GOVERNANCE",
     "image": "/images/library/Gov.png",
-    "number": "16",
-    "id": "sixteen",
+    "number": "15",
+    "id": "fifteen",
     "link": "https://gov.digitalax.xyz",
     "width": 25,
     "height": 125
@@ -146,8 +137,8 @@
   {
     "name": "TRANSPARENCY REPORTS",
     "image": "/images/library/Transparency.png",
-    "number": "17",
-    "id": "seventeen",
+    "number": "16",
+    "id": "sixteen",
     "link": "https://primer.digitalax.xyz/transparency-reports",
     "width": 25,
     "height": 275
@@ -155,8 +146,8 @@
   {
     "name": "DASH",
     "image": "/images/library/Dash.png",
-    "number": "18",
-    "id": "eighteen",
+    "number": "17",
+    "id": "seventeen",
     "link": "",
     "width": 25,
     "height": 55
