@@ -110,7 +110,7 @@ const Feed: FunctionComponent<FeedProps> = ({
                     id="crt"
                     target={"_blank"}
                     rel="noreferrer"
-                    href={`/profile/${
+                    href={`https://www.chromadin.xyz/#chat?option=history&profile=${
                       publication?.__typename !== "Mirror"
                         ? publication?.profile?.handle?.split(".lens")[0]
                         : publication?.mirrorOf?.profile?.handle?.split(
@@ -353,7 +353,7 @@ const Feed: FunctionComponent<FeedProps> = ({
                   } grid grid-flow-col auto-cols-auto`}
                   target="_blank"
                   rel="noreferrer"
-                  href={`https://lenster.xyz/posts/${publication?.id}`}
+                  href={`https://www.chromadin.xyz/#chat?option=history&post=${publication?.id}`}
                 >
                   <div className="relative w-fit h-full col-start-1 row-start-1 xl:col-start-2 xl:pt-0 pt-3 justify-self-end self-center grid grid-flow-col auto-cols-auto font-dosis gap-1 cursor-sewingHS hover:opacity-70 active:scale-95 text-white">
                     <div className="relative w-fit h-fit self-end col-start-1 text-sm">
