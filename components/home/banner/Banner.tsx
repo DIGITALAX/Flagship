@@ -9,24 +9,23 @@ const Banner: FunctionComponent = (): JSX.Element => {
           <p className="mr-4 whitespace-nowrap w-fit h-fit">
             Collection of the Week{" "}
             <span className="font-firaM">
-              <span className="text-mevSlash font-fira">//</span> Revoke My
-              Timestamp <span className="text-mevSlash font-fira">//</span> 0.32
-              ETH
+              <span className="text-mevSlash font-fira">//</span> Decrypt
+              Authority <span className="text-mevSlash font-fira">//</span>{" "}
+              0.064 ETH
             </span>
           </p>
           <p className="mr-4 whitespace-nowrap w-fit h-fit">
             Collection of the Week{" "}
             <span className="font-firaM">
-              <span className="text-mevSlash font-fira">//</span> Revoke My
-              Timestamp <span className="text-mevSlash font-fira">//</span> 0.32
-              ETH
+              <span className="text-mevSlash font-fira">//</span> Gatekeeper{" "}
+              <span className="text-mevSlash font-fira">//</span> 0.064 ETH
             </span>
           </p>
           <p className="mr-4 whitespace-nowrap w-fit h-fit">
             Collection of the Week{" "}
             <span className="font-firaM">
-              <span className="text-mevSlash font-fira">//</span> Revoke My
-              Timestamp <span className="text-mevSlash font-fira">//</span> 0.32
+              <span className="text-mevSlash font-fira">//</span> Threshold
+              Cypher<span className="text-mevSlash font-fira">//</span> 0.064
               ETH
             </span>
           </p>

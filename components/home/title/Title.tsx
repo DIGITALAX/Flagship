@@ -20,6 +20,7 @@ const Title: FunctionComponent = (): JSX.Element => {
               layout="fill"
               className={"w-full h-full rounded-full"}
               draggable={false}
+              objectFit="cover"
             />
           </Link>
         </div>
@@ -37,6 +38,7 @@ const Title: FunctionComponent = (): JSX.Element => {
               layout="fill"
               className={"w-full h-full rounded-full"}
               draggable={false}
+              objectFit="cover"
             />
           </Link>
         </div>
@@ -54,6 +56,25 @@ const Title: FunctionComponent = (): JSX.Element => {
               layout="fill"
               className={"w-full h-full rounded-full"}
               draggable={false}
+              objectFit="cover"
+            />
+          </Link>
+        </div>
+        <div
+          className="relative h-5 w-5 sm:h-8 sm:w-8 md:h-12 md:w-12 rounded-full border-mainText border-2 bg-mainText cursor-sewingHS"
+          id="buttons"
+        >
+          <Link
+            target="_blank"
+            rel="noreferrer"
+            href={"https://listener.irrevocable.dev/"}
+          >
+            <Image
+              src={`https://thedial.infura-ipfs.io/ipfs/QmcY6zRcfQyr7pahRVaSwzT3J7ibiDNYwWUFkg9aFA4tE2`}
+              layout="fill"
+              className={"w-full h-full rounded-full"}
+              draggable={false}
+              objectFit="cover"
             />
           </Link>
         </div>

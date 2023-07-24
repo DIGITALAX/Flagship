@@ -51,20 +51,26 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                   <div className="absolute bg-black top-0 grid grid-flow-col auto-cols-auto w-full bg-opacity-70 h-full font-lib text-midWhite invisible group-hover:visible group-active:visible">
                     <div
                       onClick={
-                        !token.price
-                          ? () => router.push("/express-interest")
-                          : () =>
-                              router.push(
-                                `/collect/${token.name
-                                  .replaceAll(" ", "-")
-                                  .toLowerCase()}`
-                              )
+                        !token?.external
+                          ? !token.price
+                            ? () => router.push("/express-interest")
+                            : () =>
+                                router.push(
+                                  `/collect/${token.name
+                                    .replaceAll(" ", "-")
+                                    .toLowerCase()}`
+                                )
+                          : () => {}
                       }
                       className="w-fit h-fit min-h-fit relative col-start-1 place-self-end"
                     >
                       <div
                         className="relative decoration-1 underline underline-offset-2 whitespace-nowrap mix-blend-screen hover:cursor-sewingHS w-fit h-fit text-[1.2vw] p-6"
-                        onClick={() => setExpressInterest(token.name)}
+                        onClick={
+                          token?.external
+                            ? () => window.open(token?.external)
+                            : () => setExpressInterest(token.name)
+                        }
                       >
                         Collect NFT
                       </div>
@@ -92,7 +98,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                   }`}
                 >
                   <Image
-                    src={token.image}
+                    src={token?.image}
                     width={queryWindowSize2XL ? 2 * token.width : token.width}
                     draggable={false}
                     height={

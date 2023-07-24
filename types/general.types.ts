@@ -15,6 +15,7 @@ export interface Gallery {
   realm?: string;
   realmLink?: string;
   trueImage?: string;
+  external?: string;
 }
 
 export type useGalleryResult = {
