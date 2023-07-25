@@ -34,7 +34,7 @@ const Static: FunctionComponent = (): JSX.Element => {
               muted
               loop
               placeholder="blur"
-              className="relative max-w-none border-gray-900 border-8 w-[14vw] h-[18vw] object-cover flex place-self-center"
+              className="relative max-w-none border-gray-900 border-8 w-[14vw] h-[18vw] object-cover flex place-self-center bg-offBlack"
             >
               <source src="/videos/static.mp4" type="video/mp4"></source>
             </video>

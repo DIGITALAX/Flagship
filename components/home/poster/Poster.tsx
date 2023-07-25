@@ -6,7 +6,7 @@ const Poster: FunctionComponent = (): JSX.Element => {
   return (
     <div className="w-full relative sm:grid grid-flow-col auto-cols-auto min-h-[120vw] h-[180vh] place-items-center pb-20">
       <div
-        className={`h-full relative flex col-start-1 md:border-8 border-diy place-self-center border-2 ${
+        className={`h-full relative flex col-start-1 md:border-8 border-diy place-self-center bg-offBlack border-2 ${
           blur && "blur-sm animate-unblur"
         }`}
       >
@@ -42,7 +42,7 @@ const Poster: FunctionComponent = (): JSX.Element => {
               <div className="relative row-start-2 w-[74vw] h-[62vw] sm:w-72 sm:h-60 self-end pb-3 pl-10">
                 <div
                   id="crt"
-                  className="relative bg-offBlack w-full h-full rounded-xl"
+                  className="relative w-full h-full rounded-xl  bg-offBlack"
                 >
                   <video
                     autoPlay

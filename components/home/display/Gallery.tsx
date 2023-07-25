@@ -44,6 +44,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                     objectPosition="center"
                     priority
                     layout={queryWindowSize2XL ? "intrinsic" : "responsive"}
+                    className="bg-offBlack"
                     onLoadingComplete={() => setBlur(false)}
                     blurDataURL={token.blurred}
                     draggable={false}
