@@ -170,7 +170,7 @@ const Footer: FunctionComponent<FooterProps> = ({
                   </Link>
                 </div>
                 <div className="relative w-fit h-fit col-start-3">
-                  <Link href={"https://www.chromadin.xyz/#chat?option=history&profile=digitalax"}>
+                  <Link href={"https://www.chromadin.xyz/autograph/digitalax"}>
                     <a
                       target="_blank"
                       rel="noreferrer"
