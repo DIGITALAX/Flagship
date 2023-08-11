@@ -14,6 +14,7 @@ const Title: FunctionComponent = (): JSX.Element => {
             target="_blank"
             rel="noreferrer"
             href={"https://www.thedial.xyz"}
+            title="the dial"
           >
             <Image
               src={`https://thedial.infura-ipfs.io/ipfs/QmbF9Lt5KQ3m9xxnqSRD2nmcr5mgtf1V2ruRYcrMnrFpni`}
@@ -27,6 +28,7 @@ const Title: FunctionComponent = (): JSX.Element => {
         <div
           className="relative h-5 w-5 sm:h-8 sm:w-8 md:h-12 md:w-12 rounded-full border-mainText border-2 bg-mainText cursor-sewingHS"
           id="buttons"
+          title="chromadin"
         >
           <Link
             target="_blank"
@@ -50,6 +52,7 @@ const Title: FunctionComponent = (): JSX.Element => {
             target="_blank"
             rel="noreferrer"
             href={"https://coinop.themanufactory.xyz"}
+            title="coin op"
           >
             <Image
               src={`https://thedial.infura-ipfs.io/ipfs/QmRXrv2icSyRi5P7VEx9yWh66VQB9UiiYPSt2NDkuGAcB9`}
@@ -63,6 +66,7 @@ const Title: FunctionComponent = (): JSX.Element => {
         <div
           className="relative h-5 w-5 sm:h-8 sm:w-8 md:h-12 md:w-12 rounded-full border-mainText border-2 bg-mainText cursor-sewingHS"
           id="buttons"
+          title="the manufactory"
         >
           <Link
             target="_blank"
@@ -81,6 +85,7 @@ const Title: FunctionComponent = (): JSX.Element => {
         <div
           className="relative h-5 w-5 sm:h-8 sm:w-8 md:h-12 md:w-12 rounded-full border-mainText border-2 bg-mainText cursor-sewingHS"
           id="buttons"
+          title="lit listener"
         >
           <Link
             target="_blank"
