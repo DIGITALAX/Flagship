@@ -585,3 +585,16 @@ export type ImageLargeProps = {
   dispatch: Dispatch<AnyAction>;
   type: string;
 };
+
+export type CollectInputProps = {
+  id: string;
+  name: string;
+  step?: string;
+  min?: string;
+  placeholder?: string;
+  defaultValue?: string;
+  col?: string;
+  row?: string;
+  label?: string;
+  handleValueChange: (e: number) => void;
+};
