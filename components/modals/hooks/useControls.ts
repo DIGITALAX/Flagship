@@ -258,7 +258,7 @@ const useControls = () => {
           primaryType: "MirrorWithSig",
           message: omit(typedData?.value, ["__typename"]),
           account: address as `0x${string}`,
-        });
+        } as any);
 
         const broadcastResult: any = await broadcast({
           id: mirrorPost?.data?.createMirrorTypedData?.id,
