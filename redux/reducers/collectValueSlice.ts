@@ -1,5 +1,5 @@
-import { CollectValueType } from "@/components/Common/types/common.types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { CollectValueType } from "../../types/general.types";
 
 export interface CollectValueTypeState {
   type?: CollectValueType;
