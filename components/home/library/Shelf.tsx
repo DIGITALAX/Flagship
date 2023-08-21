@@ -21,25 +21,24 @@ const Shelf: FunctionComponent<ShelfProps> = ({
         <Image layout="fill" objectFit="cover" src={showImage} />
         <div className="relative w-full h-full grid grid-flow-col auto-cols-auto pr-4 pb-2">
           {link !== "" ? (
-            <Link href={link}>
-              <a
-                target={"_blank"}
-                rel="noreferrer"
-                className={`relative w-fit h-fit place-self-end cursor-sewingHS hover:scale-95 ${
-                  blur && "blur-sm animate-unblur"
-                }`}
-              >
-                <Image
-                  src={"/images/eye.png"}
-                  height={15}
-                  width={25}
-                  priority
-                  onLoadingComplete={() => setBlur(false)}
-                  blurDataURL={`/images/blurred/eye.png`}
-                  draggable={false}
-                />
-              </a>
-            </Link>
+            <a
+              target={"_blank"}
+              href={link}
+              rel="noreferrer"
+              className={`relative w-fit h-fit place-self-end cursor-sewingHS hover:scale-95 ${
+                blur && "blur-sm animate-unblur"
+              }`}
+            >
+              <Image
+                src={"/images/eye.png"}
+                height={15}
+                width={25}
+                priority
+                onLoadingComplete={() => setBlur(false)}
+                blurDataURL={`/images/blurred/eye.png`}
+                draggable={false}
+              />
+            </a>
           ) : (
             <div
               onClick={() => setRefactorModal(true)}

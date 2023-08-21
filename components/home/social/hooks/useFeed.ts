@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { feedTimeline } from "../../../../graphql/queries/explorePublications";
 import { useFeedResults } from "../../../../types/general.types";
 import { useMediaQuery } from "@material-ui/core";
-import hasReactedPost from "../../../../graphql/queries/hasReacted";
 
 const useFeed = (): useFeedResults => {
   const [publicationsFeed, setPublicationsFeed] = useState<any[]>([]);
@@ -14,28 +13,6 @@ const useFeed = (): useFeedResults => {
   useEffect(() => {
     getFeedData();
   }, []);
-
-  const checkPostReactions = async (
-    publicationObject: any,
-    lensProfile: string | undefined
-  ): Promise<any> => {
-    let hasReactedArr: any[] = [];
-    try {
-      const hasReacted = await hasReactedPost(publicationObject, {
-        profileId: lensProfile,
-      });
-      for (let i = 0; i < hasReacted.data.publications.items.length; i++) {
-        if (hasReacted.data.publications.items[i].reaction === "UPVOTE") {
-          hasReactedArr.push(true);
-        } else {
-          hasReactedArr.push(false);
-        }
-      }
-      return hasReactedArr;
-    } catch (err: any) {
-      console.error(err.message);
-    }
-  };
 
   const getFeedData = async (): Promise<any> => {
     try {

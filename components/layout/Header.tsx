@@ -1,17 +1,23 @@
 import Image from "next/image";
-import { useRouter } from "next/router";
 import { FunctionComponent, useState } from "react";
 import Marquee from "react-fast-marquee";
 import { HeaderProps } from "../../types/general.types";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+import { setVideoPlayer } from "../../redux/reducers/videoPlayerSlice";
 
 const Header: FunctionComponent<HeaderProps> = ({
   rewind,
   handleShop,
   changeColor,
   heartColor,
+  router,
 }): JSX.Element => {
   const [blur, setBlur] = useState<boolean>(true);
-  const router = useRouter();
+  const dispatch = useDispatch();
+  const videoPlayer = useSelector(
+    (state: RootState) => state.app.videoPlayerReducer.open
+  );
   return (
     <div
       ref={rewind}
@@ -66,7 +72,7 @@ const Header: FunctionComponent<HeaderProps> = ({
               onClick={
                 router.pathname == "/"
                   ? () => handleShop()
-                  : () => document.location.href="/#shop"
+                  : () => (document.location.href = "/#shop")
               }
             >
               <Marquee direction="right" speed={25} gradient={false}>
@@ -126,9 +132,10 @@ const Header: FunctionComponent<HeaderProps> = ({
           <div className="relative w-full h-fit row-start-3 place-self-start pr-5">
             <div className="relative w-fit h-fit grid grid-flow-col auto-cols-auto gap-2 pt-4">
               <div
-                className={`relative w-fit h-full col-start-1 place-self-end pt-2 hover:-rotate-12 ${
+                className={`relative w-fit h-full col-start-1 place-self-end pt-2 hover:-rotate-12 cursor-sewingHS ${
                   blur && "blur-sm animate-unblur"
                 }`}
+                onClick={() => dispatch(setVideoPlayer(!videoPlayer))}
               >
                 <Image
                   src="/images/header/arrow.svg"

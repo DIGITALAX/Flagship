@@ -2,6 +2,7 @@ import Image from "next/image";
 import { FunctionComponent } from "react";
 import Marquee from "react-fast-marquee";
 import useTemplates from "./hooks/useTemplates";
+import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 
 const Templates: FunctionComponent = (): JSX.Element => {
   const { collectionTemplates } = useTemplates();
@@ -14,7 +15,7 @@ const Templates: FunctionComponent = (): JSX.Element => {
             className="relative w-60 h-60 rounded-md mr-4 place-self-center"
           >
             <Image
-              src={`https://thedial.infura-ipfs.io/ipfs/${image}`}
+              src={`${INFURA_GATEWAY}/ipfs/${image}`}
               objectFit={"contain"}
               layout={"fill"}
               objectPosition="top"

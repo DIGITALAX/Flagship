@@ -13,18 +13,19 @@ import Static from "../components/home/static/Static";
 import TV from "../components/home/tv/TV";
 import World from "../components/home/world/World";
 import Title from "./../components/home/title/Title";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import Description from "../components/home/description/Description";
 import useFeed from "../components/home/social/hooks/useFeed";
 import { GlobalContext } from "./_app";
 import { HomeProps } from "../types/general.types";
 import RefactorElement from "../components/common/modals/RefactorElement";
 import CC0 from "../components/home/cc0/CC0";
+import { useDispatch } from "react-redux";
 
 const Home: NextPage<HomeProps> = ({ queryWindowSize2XL, shop }) => {
   const [RefactorModal, setRefactorModal] = useState<boolean>(false);
-
   const { setExpressInterest } = useContext(GlobalContext);
+  const dispatch = useDispatch();
   const {
     publicationsFeed,
     getMoreFeed,
@@ -137,6 +138,7 @@ const Home: NextPage<HomeProps> = ({ queryWindowSize2XL, shop }) => {
         queryWindowSize={queryWindowSize}
         queryWindowSizeMobile={queryWindowSizeMobile}
         queryWindowSizeXL={queryWindowSizeXL}
+        dispatch={dispatch}
       />
       <Library setRefactorModal={setRefactorModal} />
       <Slider />

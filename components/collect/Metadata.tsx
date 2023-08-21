@@ -127,18 +127,21 @@ const Metadata: FunctionComponent<MetadataProps> = ({
               <div className="relative col-start-1 w-fit h-fit">
                 <div className="relative h-10 w-16 border-r-4 border-t-2 border-b-2 border-l-2 border-offBlack rounded-md bg-lightWhite place-self-center grid grid-flow-col auto-cols-auto hover:rotate-6 cursor-sewingHS hover:mix-blend-exclusion">
                   <div className="relative w-full h-full col-start-1 place-self-center">
-                    <Link href={token[0].realmLink}>
-                      <a target={"_blank"} rel="noreferrer" className="cursor-sewingHS">
-                        <Image
-                          src={`/images/realm/${token[0].realm.toLowerCase()}.png`}
-                          objectFit="cover"
-                          layout="fill"
-                          alt="Profile Image"
-                          priority
-                          draggable={false}
-                        />
-                      </a>
-                    </Link>
+                    <a
+                      href={token[0].realmLink}
+                      target={"_blank"}
+                      rel="noreferrer"
+                      className="cursor-sewingHS"
+                    >
+                      <Image
+                        src={`/images/realm/${token[0].realm.toLowerCase()}.png`}
+                        objectFit="cover"
+                        layout="fill"
+                        alt="Profile Image"
+                        priority
+                        draggable={false}
+                      />
+                    </a>
                   </div>
                 </div>
               </div>

@@ -7,12 +7,15 @@ import Image from "next/image";
 import { AiFillEye, AiOutlineRetweet } from "react-icons/ai";
 import { BsCollection, BsSuitHeart } from "react-icons/bs";
 import ReactPlayer from "react-player";
+import { INFURA_GATEWAY } from "../../../lib/lens/constants";
+import { setImageViewer } from "../../../redux/reducers/imageViewerSlice";
 
 const Feed: FunctionComponent<FeedProps> = ({
   publicationsFeed,
   getMoreFeed,
   queryWindowSize,
   queryWindowSizeXL,
+  dispatch,
 }): JSX.Element => {
   return (
     <InfiniteScroll
@@ -57,11 +60,11 @@ const Feed: FunctionComponent<FeedProps> = ({
           } else {
             if (publication.__typename !== "Mirror") {
               const cut = publication.profile.picture.original.url.split("//");
-              profileImage = "https://thedial.infura-ipfs.io/ipfs/" + cut[1];
+              profileImage = `${INFURA_GATEWAY}/ipfs/` + cut[1];
             } else {
               const cut =
                 publication.mirrorOf.profile.picture.original.url.split("//");
-              profileImage = "https://thedial.infura-ipfs.io/ipfs/" + cut[1];
+              profileImage = `${INFURA_GATEWAY}/ipfs/` + cut[1];
             }
           }
         } else {
@@ -86,7 +89,7 @@ const Feed: FunctionComponent<FeedProps> = ({
                     `}
               >
                 <Image
-                  src={`https://thedial.infura-ipfs.io/ipfs/QmSjh6dsibg9yDfBwRfC5YSWFTmwpwPxRDTFG8DzLHzFyB`}
+                  src={`${INFURA_GATEWAY}/ipfs/QmSjh6dsibg9yDfBwRfC5YSWFTmwpwPxRDTFG8DzLHzFyB`}
                   layout="fill"
                   objectFit="cover"
                   className="absolute w-full h-full rounded-lg"
@@ -97,7 +100,7 @@ const Feed: FunctionComponent<FeedProps> = ({
                     className={`w-20 relative h-8 rounded-full flex justify-self-center`}
                   >
                     <Image
-                      src={`https://thedial.infura-ipfs.io/ipfs/QmfDmMCcgcseCFzGam9DbmDk5sQRbt6zrQVhvj4nTeuLGq`}
+                      src={`${INFURA_GATEWAY}/ipfs/QmfDmMCcgcseCFzGam9DbmDk5sQRbt6zrQVhvj4nTeuLGq`}
                       layout="fill"
                       alt="backdrop"
                       priority
@@ -283,7 +286,7 @@ const Feed: FunctionComponent<FeedProps> = ({
                     let formattedImageURL: string;
 
                     if (image.original.url.includes("ipfs://")) {
-                      formattedImageURL = `https://thedial.infura-ipfs.io/ipfs/${
+                      formattedImageURL = `${INFURA_GATEWAY}/ipfs/${
                         image.original.url?.split("://")[1]
                       }`;
                     } else {
@@ -291,14 +294,20 @@ const Feed: FunctionComponent<FeedProps> = ({
                     }
 
                     return (
-                      <a
+                      <div
                         key={index}
                         className={`relative w-60 h-60 border-2 border-black rounded-lg bg-spots grid grid-flow-col auto-cols-auto col-start-${
                           index + 1
                         } cursor-sewingHS hover:opacity-70 active:scale-95`}
-                        target="_blank"
-                        rel="noreferrer"
-                        href={formattedImageURL}
+                        onClick={() =>
+                          dispatch(
+                            setImageViewer({
+                              actionValue: true,
+                              actionImage: formattedImageURL,
+                              actionType: image?.original?.mimeType,
+                            })
+                          )
+                        }
                       >
                         <div className="relative w-full h-full col-start-1 flex">
                           {image?.original?.mimeType !== "video/mp4" ? (
@@ -341,7 +350,7 @@ const Feed: FunctionComponent<FeedProps> = ({
                             </video>
                           )}
                         </div>
-                      </a>
+                      </div>
                     );
                   })}
                 </div>

@@ -1,4 +1,11 @@
 /** @type {import('next').NextConfig} */
+
+const allowedOrigins = [
+  "https://api.lens.dev",
+  "https://thedial.infura-ipfs.io",
+  "https://vimeo.com",
+];
+
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
@@ -11,12 +18,14 @@ const nextConfig = {
     // your project has ESLint errors.
     ignoreDuringBuilds: true,
   },
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false, net: false, tls: false };
+    return config;
+  },
   images: {
-    // loader: "akamai",
     remotePatterns: [
       {
         protocol: "https",
-        // hostname: "**.ipfs.w3s.link",
         hostname: "thedial.infura-ipfs.io",
         pathname: "/ipfs/**",
       },
@@ -24,6 +33,28 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Access-Control-Allow-Origin",
+            value: allowedOrigins.join(","),
+          },
+          {
+            key: "Access-Control-Allow-Headers",
+            value:
+              "Origin, X-Requested-With, Content-Type, Accept, Authorization",
+          },
+          {
+            key: "Access-Control-Allow-Methods",
+            value: "GET, POST, PUT, DELETE, OPTIONS",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

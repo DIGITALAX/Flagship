@@ -110,6 +110,20 @@ class Document extends NextDocument {
             type="font/ttf"
             crossOrigin="anonymous"
           />
+          <link
+            rel="preload"
+            href="/fonts/Manaspace.ttf"
+            as="font"
+            crossOrigin="anonymous"
+            type="font/ttf"
+          />
+          <link
+            rel="preload"
+            href="/fonts/Vcr.ttf"
+            as="font"
+            crossOrigin="anonymous"
+            type="font/ttf"
+          />
           <style
             dangerouslySetInnerHTML={{
               __html: `
@@ -138,6 +152,11 @@ class Document extends NextDocument {
                 }
 
                 @font-face {
+                  font-family: "Vcr";
+                  src: url("./fonts/Vcr.ttf");
+                }
+
+                @font-face {
                   font-family: "Internal Rainbows";
                   font-weight: 400;
                   src: url("./fonts/Internal Rainbows.otf");
@@ -160,6 +179,12 @@ class Document extends NextDocument {
                   font-weight: 400;
                   src: url("./fonts/LiberationMono-Regular.ttf");
                 }
+
+                @font-face {
+                  font-family: "Manaspace";
+                  font-weight: 400;
+                  src: url("./fonts/Manaspace.ttf");
+                }  
 
                 @font-face {
                   font-family: "Liberation Mono Bold";

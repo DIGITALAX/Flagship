@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { FunctionComponent, useState } from "react";
 import useTV from "./hooks/useTv";
 import { motion } from "framer-motion";
@@ -22,24 +21,23 @@ const TV: FunctionComponent = (): JSX.Element => {
         <div className="relative flex flex-row w-full h-full gap-6 justify-center self-center items-center py-10">
           {newImages.map((image: string, index: number) => {
             return (
-              <Link href={"https://digifizzy.xyz"} key={index}>
-                <a
-                  target={"_blank"}
-                  rel="noreferrer"
-                  className={`relative w-[15vw] h-[25vw] lg:w-[20vw] lg:h-[30vw] place-self-center opacity-90 active:scale-95 cursor-sewingHS hover:opacity-70 ${
-                    blur && "blur-sm animate-unblur"
-                  }`}
-                >
-                  <Image
-                    src={`/images/digifizzy/${image}.png`}
-                    layout="fill"
-                    priority
-                    onLoadingComplete={() => setBlur(false)}
-                    blurDataURL={`/images/blurred/${image}.png`}
-                    draggable={false}
-                  />
-                </a>
-              </Link>
+              <a
+                key={index}
+                target={"_blank"}
+                rel="noreferrer"
+                className={`relative w-[15vw] h-[25vw] lg:w-[20vw] lg:h-[30vw] place-self-center opacity-90 active:scale-95 cursor-sewingHS hover:opacity-70 ${
+                  blur && "blur-sm animate-unblur"
+                }`}
+              >
+                <Image
+                  src={`/images/digifizzy/${image}.png`}
+                  layout="fill"
+                  priority
+                  onLoadingComplete={() => setBlur(false)}
+                  blurDataURL={`/images/blurred/${image}.png`}
+                  draggable={false}
+                />
+              </a>
             );
           })}
           <motion.div

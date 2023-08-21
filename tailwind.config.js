@@ -72,6 +72,8 @@ module.exports = {
         midBlue: "#709AF3",
         pinkish: "#B42AA1",
         shame: "#F6F5F0",
+        ama: "#FBDB86",
+        moda: "#CFB0FA",
       },
       fontFamily: {
         holo: "Nan Holo",
@@ -100,6 +102,8 @@ module.exports = {
         aud: "Audimat",
         jacklane: "Jack Lane",
         dosis: "Dosis Regular",
+        mana: "Manaspace",
+        vcr: "Vcr",
       },
       keyframes: {
         unblur: {
@@ -137,6 +141,21 @@ module.exports = {
         sewingH: "url('/images/sewingCursorH.png'), auto",
         sewingS: "url('/images/sewingCursorSmall.png'), auto",
         sewingHS: "url('/images/sewingCursorHSmall.png'), auto",
+      },
+      height: {
+        98: "28rem",
+        100: "36rem",
+        110: "38rem",
+        120: "50rem",
+        130: "55rem",
+        150: "70rem",
+        160: "95rem",
+      },
+      width: {
+        100: "30rem",
+        calc: "calc(100vw - 20rem - 20rem - 1rem)",
+        calc2: "calc(100vw - 10rem)",
+        calc3: "calc(100vw)",
       },
       backgroundImage: {
         spots:

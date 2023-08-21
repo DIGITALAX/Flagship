@@ -25,7 +25,27 @@ query Publications($publicationsRequest: PublicationsQueryRequest!, $reactionReq
 }
 `;
 
-const hasReactedPost = (publicationsRequest: any, reactionRequest: any) => {
+const HAS_REACTED_INDI = `
+query Publication($publicationRequest: PublicationQueryRequest!, $reactionRequest: ReactionFieldResolverRequest) {
+  publication(request: $publicationRequest) {
+    __typename 
+     ... on Post {
+      reaction(request: $reactionRequest)
+    }
+    ... on Comment {
+      reaction(request: $reactionRequest)
+    }
+    ... on Mirror {
+      reaction(request: $reactionRequest)
+    }
+  }
+}
+`;
+
+export const hasReactedPost = (
+  publicationsRequest: any,
+  reactionRequest: any
+) => {
   return authClient.query({
     query: gql(HAS_REACTED),
     variables: {
@@ -37,4 +57,17 @@ const hasReactedPost = (publicationsRequest: any, reactionRequest: any) => {
   });
 };
 
-export default hasReactedPost;
+export const hasReactedIndi = (
+  publicationRequest: any,
+  reactionRequest: any
+) => {
+  return authClient.query({
+    query: gql(HAS_REACTED_INDI),
+    variables: {
+      publicationRequest,
+      reactionRequest,
+    },
+    fetchPolicy: "no-cache",
+    errorPolicy: "all",
+  });
+};

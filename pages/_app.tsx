@@ -5,24 +5,35 @@ import Footer from "../components/layout/Footer";
 import { useMediaQuery } from "@material-ui/core";
 import "@rainbow-me/rainbowkit/styles.css";
 import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
-import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
-import { publicProvider } from "wagmi/providers/public";
+import { store } from "./../redux/store";
+import { Provider } from "react-redux";
+import { configureChains, createConfig, WagmiConfig } from "wagmi";
+import { polygon } from "wagmi/chains";
 import Header from "../components/layout/Header";
+import { alchemyProvider } from "wagmi/providers/alchemy";
+import { useRouter } from "next/router";
+import Modals from "../components/modals/Modals";
 
-const { chains, provider } = configureChains(
-  [chain.mainnet],
-  [publicProvider()]
+const { chains, publicClient, webSocketPublicClient } = configureChains(
+  [polygon],
+  [
+    alchemyProvider({
+      apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY as string,
+    }),
+  ]
 );
 
 const { connectors } = getDefaultWallets({
   appName: "DIGITALAX",
   chains,
+  projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID as string,
 });
 
-const wagmiClient = createClient({
+const config = createConfig({
   autoConnect: true,
+  publicClient,
+  webSocketPublicClient,
   connectors,
-  provider,
 });
 
 export const GlobalProfileContextDefault = {
@@ -58,13 +69,17 @@ const heartColors = [
 // const { setItem, value } = useStickyState();
 function MyApp({ Component, pageProps }: AppProps) {
   let queryWindowSize2XL: boolean = useMediaQuery("(max-width:1600px)");
+  const router = useRouter();
   const [color, setColor] = useState<string>(colors[0]);
   const [heartColor, setHeartColor] = useState<string>(colors[0]);
   const changeColor = () => {
     if (colors.indexOf(color) < 9) {
       setColor(colors[colors.indexOf(color) + 1]);
       setHeartColor(heartColors[colors.indexOf(color) + 1]);
-      localStorage.setItem("digi-theme-color", colors[colors.indexOf(color) + 1]);
+      localStorage.setItem(
+        "digi-theme-color",
+        colors[colors.indexOf(color) + 1]
+      );
     } else {
       setColor(colors[0]);
       setHeartColor(heartColors[0]);
@@ -182,34 +197,40 @@ function MyApp({ Component, pageProps }: AppProps) {
   };
 
   return (
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider chains={chains}>
-        <GlobalContext.Provider value={{ expressInterest, setExpressInterest }}>
-          <div
-            className={[
-              "min-h-full h-auto min-w-screen w-screen relative selection:bg-skyBlue selection:text-dull cursor-sewingS bg-mainBg overflow-x-hidden",
-              color ? `theme-${color}` : "theme-cream",
-            ]
-              .filter(Boolean)
-              .join(" ")}
+    <Provider store={store}>
+      <WagmiConfig config={config}>
+        <RainbowKitProvider chains={chains}>
+          <GlobalContext.Provider
+            value={{ expressInterest, setExpressInterest }}
           >
-            <Header
-              rewind={rewind}
-              changeColor={changeColor}
-              heartColor={heartColor}
-              handleShop={handleShop}
-            />
-            <Component
-              {...pageProps}
-              heartColor={heartColor}
-              queryWindowSize2XL={queryWindowSize2XL}
-              shop={shop}
-            />
-            <Footer handleRewind={handleRewind} />
-          </div>
-        </GlobalContext.Provider>
-      </RainbowKitProvider>
-    </WagmiConfig>
+            <div
+              className={[
+                "min-h-full h-auto min-w-screen w-screen relative selection:bg-skyBlue selection:text-dull cursor-sewingS bg-mainBg overflow-x-hidden",
+                color ? `theme-${color}` : "theme-cream",
+              ]
+                .filter(Boolean)
+                .join(" ")}
+            >
+              <Header
+                rewind={rewind}
+                changeColor={changeColor}
+                heartColor={heartColor}
+                handleShop={handleShop}
+                router={router}
+              />
+              <Component
+                {...pageProps}
+                heartColor={heartColor}
+                queryWindowSize2XL={queryWindowSize2XL}
+                shop={shop}
+              />
+              <Footer handleRewind={handleRewind} />
+              <Modals />
+            </div>
+          </GlobalContext.Provider>
+        </RainbowKitProvider>
+      </WagmiConfig>
+    </Provider>
   );
 }
 

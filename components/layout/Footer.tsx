@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { FunctionComponent, useState } from "react";
 import { BsTwitter } from "react-icons/bs";
 import { BiArrowToTop } from "react-icons/bi";
@@ -72,15 +71,14 @@ const Footer: FunctionComponent<FooterProps> = ({
         <div className="relative row-start-3 w-full h-full pt-4 pb-10 text-midWhite font-fut text-[2vw] galaxy:text-[1.4vw] sm:text-[1.2vw] md:text-[1vw] lg:text-[0.85vw] xl:text-[0.7vw] grid grid-flow-row auto-rows-auto pl-3 pr-3 sm:pl-0 sm:pr-10 text-center gap-3">
           <div className="relative row-start-1 w-fit h-fit place-self-center  ">
             Visual media used by this site is mirrored using IPFS{" "}
-            <Link href={"https://ipfs.digitalax.xyz/"}>
-              <a
-                target={"_blank"}
-                rel="noreferrer"
-                className="underline decoration-midWhite decoration-1 underline-offset-4 cursor-sewingHS hover:text-skyBlue"
-              >
-                here.
-              </a>
-            </Link>
+            <a
+              target={"_blank"}
+              href={"https://ipfs.digitalax.xyz/"}
+              rel="noreferrer"
+              className="underline decoration-midWhite decoration-1 underline-offset-4 cursor-sewingHS hover:text-skyBlue"
+            >
+              here.
+            </a>
           </div>
           <div className="relative row-start-2 w-fit h-fit place-self-center pt-2">
             <sup>*</sup>Some US based ISPs may block these links, we’re looking
@@ -128,95 +126,90 @@ const Footer: FunctionComponent<FooterProps> = ({
             <div className="col-start-1 row-start-2 sm:row-start-1 sm:col-start-3 h-full w-fit relative place-self-center sm:pb-0 pb-8 pl-6 sm:pl-0 sm:place-self-end pr-4 md:pr-14 pt-6">
               <div className="row-start-2 grid grid-flow-col auto-cols-auto relative h-fit w-fit gap-3">
                 <div className="relative w-fit h-fit col-start-1 place-self-end">
-                  <Link href={"https://blog.digitalax.xyz/"}>
-                    <a
-                      target="_blank"
-                      rel="noreferrer"
-                      className={`cursor-sewingHS h-fit relative pr-1 ${
-                        blur && "blur-sm animate-unblur"
-                      }`}
-                    >
-                      <Image
-                        src={"/images/mirror.png"}
-                        width={21}
-                        height={26}
-                        priority
-                        onLoadingComplete={() => setBlur(false)}
-                        blurDataURL={"/images/blurred/mirror.png"}
-                        draggable={false}
-                      />
-                    </a>
-                  </Link>
+                  <a
+                    href={"https://blog.digitalax.xyz/"}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`cursor-sewingHS h-fit relative pr-1 ${
+                      blur && "blur-sm animate-unblur"
+                    }`}
+                  >
+                    <Image
+                      src={"/images/mirror.png"}
+                      width={21}
+                      height={26}
+                      priority
+                      onLoadingComplete={() => setBlur(false)}
+                      blurDataURL={"/images/blurred/mirror.png"}
+                      draggable={false}
+                    />
+                  </a>
                 </div>
                 <div className="relative w-fit h-fit col-start-2 place-self-end">
-                  <Link href={"https://github.com/digitalax"}>
-                    <a
-                      target="_blank"
-                      rel="noreferrer"
-                      className={`cursor-sewingHS h-fit relative pr-1 ${
-                        blur && "blur-sm animate-unblur"
-                      }`}
-                    >
-                      <Image
-                        src={"/images/github.png"}
-                        width={29}
-                        height={28}
-                        priority
-                        onLoadingComplete={() => setBlur(false)}
-                        draggable={false}
-                        blurDataURL={"/images/blurred/github.png"}
-                      />
-                    </a>
-                  </Link>
+                  <a
+                    href={"https://github.com/digitalax"}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`cursor-sewingHS h-fit relative pr-1 ${
+                      blur && "blur-sm animate-unblur"
+                    }`}
+                  >
+                    <Image
+                      src={"/images/github.png"}
+                      width={29}
+                      height={28}
+                      priority
+                      onLoadingComplete={() => setBlur(false)}
+                      draggable={false}
+                      blurDataURL={"/images/blurred/github.png"}
+                    />
+                  </a>
                 </div>
                 <div className="relative w-fit h-fit col-start-3">
-                  <Link href={"https://www.chromadin.xyz/autograph/digitalax"}>
-                    <a
-                      target="_blank"
-                      rel="noreferrer"
-                      className={`cursor-sewingHS h-fit relative ${
-                        blur && "blur-sm animate-unblur"
-                      }`}
-                    >
-                      <Image
-                        src={"/images/lens.png"}
-                        width={30}
-                        height={30}
-                        priority
-                        onLoadingComplete={() => setBlur(false)}
-                        blurDataURL={"/images/blurred/lens.png"}
-                        draggable={false}
-                      />
-                    </a>
-                  </Link>
+                  <a
+                    href={"https://www.chromadin.xyz/autograph/digitalax"}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`cursor-sewingHS h-fit relative ${
+                      blur && "blur-sm animate-unblur"
+                    }`}
+                  >
+                    <Image
+                      src={"/images/lens.png"}
+                      width={30}
+                      height={30}
+                      priority
+                      onLoadingComplete={() => setBlur(false)}
+                      blurDataURL={"/images/blurred/lens.png"}
+                      draggable={false}
+                    />
+                  </a>
                 </div>
                 <div className="relative w-fit h-fit col-start-4">
-                  <Link href={"https://twitter.com/digitalax_"}>
-                    <a
-                      target="_blank"
-                      rel="noreferrer"
-                      className="cursor-sewingHS h-fit relative"
-                    >
-                      <BsTwitter size={30} color={"#FFDCFF"} />
-                    </a>
-                  </Link>
+                  <a
+                    href={"https://twitter.com/digitalax_"}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="cursor-sewingHS h-fit relative"
+                  >
+                    <BsTwitter size={30} color={"#FFDCFF"} />
+                  </a>
                 </div>
                 <div className="relative w-fit h-fit col-start-5 place-self-center">
-                  <Link href={"https://youtube.com/@digitalax"}>
-                    <a
-                      target="_blank"
-                      rel="noreferrer"
-                      className="cursor-sewingHS h-fit relative"
-                    >
-                      <Image
-                        src={"/images/youtube.png"}
-                        width={30}
-                        height={20}
-                        draggable={false}
-                        priority
-                      />
-                    </a>
-                  </Link>
+                  <a
+                    href={"https://youtube.com/@digitalax"}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="cursor-sewingHS h-fit relative"
+                  >
+                    <Image
+                      src={"/images/youtube.png"}
+                      width={30}
+                      height={20}
+                      draggable={false}
+                      priority
+                    />
+                  </a>
                 </div>
               </div>
             </div>

@@ -8,6 +8,7 @@ const Social: FunctionComponent<SocialProps> = ({
   queryWindowSize,
   queryWindowSizeMobile,
   queryWindowSizeXL,
+  dispatch
 }): JSX.Element => {
   return (
     <div className="bg-offBlack w-full h-fit relative">
@@ -17,6 +18,7 @@ const Social: FunctionComponent<SocialProps> = ({
         getMoreFeed={getMoreFeed}
         queryWindowSizeMobile={queryWindowSizeMobile}
         queryWindowSizeXL={queryWindowSizeXL}
+        dispatch={dispatch}
       />
     </div>
   );
