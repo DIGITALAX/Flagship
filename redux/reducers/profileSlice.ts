@@ -1,5 +1,5 @@
-import { Profile } from "@/components/Common/types/lens.types";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Profile } from "../../types/lens.types";
 
 export interface ProfileState {
   profile: Profile | undefined;
