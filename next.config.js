@@ -7,7 +7,7 @@ const allowedOrigins = [
 ];
 
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   experimental: {
     scrollRestoration: true,
