@@ -155,7 +155,7 @@ const useFollowers = () => {
         transport: custom((window as any).ethereum),
       });
 
-      const signature: any = await clientWallet.signTypedData({
+      const signature: any = await (clientWallet as any).signTypedData({
         domain: omit(typedData?.domain, ["__typename"]),
         types: omit(typedData?.types, ["__typename"]),
         primaryType: "FollowWithSig",
