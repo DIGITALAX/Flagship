@@ -61,16 +61,16 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
 }): JSX.Element => {
   return (
     <Draggable
-      cancel=".frame, .expand"
+      cancel=".frame, .expand, .close"
       enableUserSelectHack={false}
       nodeRef={videoRef as any}
     >
       <div
-        className={`absolute z-20 h-fit cursor-grab active:cursor-grabbing items-center justify-center rounded-lg top-40 left-1/3 flex flex-col xl:w-1/3 sm:w-1/2 w-full`}
+        className={`absolute z-20 h-fit cursor-grab active:cursor-grabbing items-center justify-center rounded-lg top-40 left-0 sm:left-1/3 flex flex-col xl:w-1/3 sm:w-1/2 w-full`}
         ref={videoRef as any}
       >
         <div
-          className={`relative h-96 md:h-98 flex flex-col gap-4 items-center justify-center w-full sm:px-8 pb-8 sm:pt-4 border-4 border-black rounded-lg w-full`}
+          className={`relative h-96 md:h-98 flex flex-col gap-4 items-center justify-center w-full px-3 pt-2 sm:px-8 pb-8 sm:pt-4 border-4 border-black rounded-lg w-full`}
           id="videoplayer"
         >
           <div className="relative w-full h-fit flex flex-row items-center">
@@ -86,7 +86,7 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
               />
             </div>
             <div
-              className="relative w-fit h-fit justify-end cursor-pointer ml-auto"
+              className="close"
               onClick={() => dispatch(setVideoPlayer(false))}
             >
               <Image

@@ -561,6 +561,15 @@ body {
   cursor: pointer;
 }
 
+.close {
+  position: relative;
+  display: flex;
+  justify-items: end;
+  width: fit-content;
+  height: fit-content;
+  margin-left: auto;
+}
+
 input[type="range"] {
   background-color: black;
   outline: none;
