@@ -570,7 +570,7 @@ body {
   margin-left: auto;
 }
 
-input[type="range"] {
+input[type="range"] {  
   background-color: black;
   outline: none;
   -webkit-appearance: none;
