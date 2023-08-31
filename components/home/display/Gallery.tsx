@@ -115,14 +115,16 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                     <div
                       className="w-fit h-fit relative col-start-1 place-self-end"
                       onClick={
-                        !token.price
-                          ? () => router.push("/express-interest")
-                          : () =>
-                              router.push(
-                                `/collect/${token.name
-                                  .replaceAll(" ", "-")
-                                  .toLowerCase()}`
-                              )
+                        !token?.external
+                          ? !token.price
+                            ? () => router.push("/express-interest")
+                            : () =>
+                                router.push(
+                                  `/collect/${token.name
+                                    .replaceAll(" ", "-")
+                                    .toLowerCase()}`
+                                )
+                          : () => {}
                       }
                     >
                       <div
@@ -171,14 +173,16 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                     <div
                       className="w-fit h-fit relative col-start-1 place-self-end"
                       onClick={
-                        !token.price
-                          ? () => router.push("/express-interest")
-                          : () =>
-                              router.push(
-                                `/collect/${token.name
-                                  .replaceAll(" ", "-")
-                                  .toLowerCase()}`
-                              )
+                        !token?.external
+                          ? !token.price
+                            ? () => router.push("/express-interest")
+                            : () =>
+                                router.push(
+                                  `/collect/${token.name
+                                    .replaceAll(" ", "-")
+                                    .toLowerCase()}`
+                                )
+                          : () => {}
                       }
                     >
                       <div
