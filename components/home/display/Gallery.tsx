@@ -129,7 +129,11 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                     >
                       <div
                         className="relative decoration-1 underline underline-offset-2 whitespace-nowrap mix-blend-screen hover:cursor-sewingHS w-fit h-fit text-[1.2vw] p-6"
-                        onClick={() => setExpressInterest(token.name)}
+                        onClick={
+                          token?.external
+                            ? () => window.open(token?.external)
+                            : () => setExpressInterest(token.name)
+                        }
                       >
                         Collect NFT
                       </div>
@@ -187,7 +191,11 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                     >
                       <div
                         className="relative decoration-1 underline underline-offset-2 whitespace-nowrap mix-blend-screen hover:cursor-sewingHS w-fit h-fit text-[1.2vw] p-6"
-                        onClick={() => setExpressInterest(token.name)}
+                        onClick={
+                          token?.external
+                            ? () => window.open(token?.external)
+                            : () => setExpressInterest(token.name)
+                        }
                       >
                         Collect NFT
                       </div>
