@@ -262,16 +262,18 @@ const Feed: FunctionComponent<FeedProps> = ({
                     publication?.__typename === "Mirror"
                       ? "row-start-2"
                       : "row-start-1"
-                  } relative w-full h-fit text-left font-dosis grid grid-flow-row auto-rows-auto gap-6 text-sm sm:text-base self-center justify-self-start text-white break-word`}
-                >
-                  {(publication as any)?.__typename !== "Mirror"
-                    ? (publication as any)?.metadata?.description
-                      ? (publication as any)?.metadata?.description
-                      : (publication as any)?.metadata?.content
-                    : (publication as any)?.mirrorOf?.metadata?.description
-                    ? (publication as any)?.mirrorOf?.metadata?.description
-                    : (publication as any)?.mirrorOf?.metadata?.content}
-                </div>
+                  } relative w-5/6 h-fit text-left font-dosis grid grid-flow-row auto-rows-auto gap-6 text-sm sm:text-base self-center justify-self-start text-white break-all`}
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      (publication as any)?.__typename !== "Mirror"
+                        ? (publication as any)?.metadata?.description
+                          ? (publication as any)?.metadata?.description
+                          : (publication as any)?.metadata?.content
+                        : (publication as any)?.mirrorOf?.metadata?.description
+                        ? (publication as any)?.mirrorOf?.metadata?.description
+                        : (publication as any)?.mirrorOf?.metadata?.content,
+                  }}
+                ></div>
                 <div
                   className={`relative w-full h-fit grid grid-flow-col auto-cols-auto gap-3 rounded-lg overflow-x-scroll   ${
                     publication?.__typename === "Mirror"

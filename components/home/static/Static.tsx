@@ -41,8 +41,10 @@ const Static: FunctionComponent = (): JSX.Element => {
           </div>
         </div>
       </div>
-      <div className="row-start-3 w-full h-fit text-center font-lib text-mainText relative pt-20 text-lg font-libB 2xl:text-[1.8vw]">
+      <div className="row-start-3 w-full h-fit text-center font-lib text-mainText flex items-center justify-center relative pt-20 text-lg font-libB 2xl:text-[1.8vw]" >
+        <div className="relative w-fit h-fit flex items-center justify-center cursor-sewingHS" onClick={() => window.open("https://www.themanufactory.xyz/")}>
         x005.m-3 – MICROFACTORY LOCAL CO•OP
+        </div>
       </div>
     </div>
   );
