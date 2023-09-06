@@ -9,23 +9,11 @@ import { FollowerOnlyState } from "../redux/reducers/followerOnlySlice";
 import { PostCollectValuesState } from "../redux/reducers/postCollectValuesSlice";
 
 export interface Gallery {
-  name: string;
   image: string;
   blurred: string;
   width: number;
   height: number;
-  price?: number;
-  amount?: number;
-  collection?: string;
-  description?: string;
-  graph?: string;
-  edition?: string;
-  contract?: string;
-  type?: string;
-  realm?: string;
-  realmLink?: string;
-  trueImage?: string;
-  external?: string;
+  external: string;
 }
 
 export type useGalleryResult = {

@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { useRouter } from "next/router";
 import { FunctionComponent, useState } from "react";
 import { Gallery, GalleryProps } from "../../../types/general.types";
+import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 
 const Gallery: FunctionComponent<GalleryProps> = ({
   currentImages,
@@ -10,7 +10,6 @@ const Gallery: FunctionComponent<GalleryProps> = ({
   queryWindowSize2XL,
 }): JSX.Element => {
   const [blur, setBlur] = useState<boolean>(true);
-  const router = useRouter();
   return (
     <div
       className={`overflow-hidden ${
@@ -35,7 +34,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                   }`}
                 >
                   <Image
-                    src={token.image}
+                    src={`${INFURA_GATEWAY}/ipfs/${token.image}`}
                     width={queryWindowSize2XL ? 2 * token.width : token.width}
                     height={
                       queryWindowSize2XL ? 2 * token.height : token.height
@@ -50,28 +49,10 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                     draggable={false}
                   />
                   <div className="absolute bg-black top-0 grid grid-flow-col auto-cols-auto w-full bg-opacity-70 h-full font-lib text-midWhite invisible group-hover:visible group-active:visible">
-                    <div
-                      onClick={
-                        !token?.external
-                          ? !token.price
-                            ? () => router.push("/express-interest")
-                            : () =>
-                                router.push(
-                                  `/collect/${token.name
-                                    .replaceAll(" ", "-")
-                                    .toLowerCase()}`
-                                )
-                          : () => {}
-                      }
-                      className="w-fit h-fit min-h-fit relative col-start-1 place-self-end"
-                    >
+                    <div className="w-fit h-fit min-h-fit relative col-start-1 place-self-end">
                       <div
                         className="relative decoration-1 underline underline-offset-2 whitespace-nowrap mix-blend-screen hover:cursor-sewingHS w-fit h-fit text-[1.2vw] p-6"
-                        onClick={
-                          token?.external
-                            ? () => window.open(token?.external)
-                            : () => setExpressInterest(token.name)
-                        }
+                        onClick={() => window.open(token?.external)}
                       >
                         Collect NFT
                       </div>
@@ -99,7 +80,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                   }`}
                 >
                   <Image
-                    src={token?.image}
+                    src={`${INFURA_GATEWAY}/ipfs/${token.image}`}
                     width={queryWindowSize2XL ? 2 * token.width : token.width}
                     draggable={false}
                     height={
@@ -108,32 +89,15 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                     objectPosition="center"
                     priority
                     layout={queryWindowSize2XL ? "intrinsic" : "responsive"}
+                    objectFit="cover"
                     onLoadingComplete={() => setBlur(false)}
                     blurDataURL={token.blurred}
                   />
                   <div className="absolute bg-black top-0 grid grid-flow-col auto-cols-auto w-full bg-opacity-70 h-full font-lib text-midWhite invisible group-hover:visible group-active:visible">
-                    <div
-                      className="w-fit h-fit relative col-start-1 place-self-end"
-                      onClick={
-                        !token?.external
-                          ? !token.price
-                            ? () => router.push("/express-interest")
-                            : () =>
-                                router.push(
-                                  `/collect/${token.name
-                                    .replaceAll(" ", "-")
-                                    .toLowerCase()}`
-                                )
-                          : () => {}
-                      }
-                    >
+                    <div className="w-fit h-fit relative col-start-1 place-self-end">
                       <div
                         className="relative decoration-1 underline underline-offset-2 whitespace-nowrap mix-blend-screen hover:cursor-sewingHS w-fit h-fit text-[1.2vw] p-6"
-                        onClick={
-                          token?.external
-                            ? () => window.open(token?.external)
-                            : () => setExpressInterest(token.name)
-                        }
+                        onClick={() => window.open(token?.external)}
                       >
                         Collect NFT
                       </div>
@@ -161,11 +125,12 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                   }`}
                 >
                   <Image
-                    src={token.image}
+                    src={`${INFURA_GATEWAY}/ipfs/${token.image}`}
                     width={!queryWindowSize2XL ? 2 * token.width : token.width}
                     height={
                       !queryWindowSize2XL ? 2 * token.height : token.height
                     }
+                    objectFit="cover"
                     objectPosition="center"
                     priority
                     draggable={false}
@@ -174,28 +139,10 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                     blurDataURL={token.blurred}
                   />
                   <div className="absolute bg-black top-0 grid grid-flow-col auto-cols-auto w-full bg-opacity-70 h-full font-lib text-midWhite invisible group-hover:visible group-active:visible">
-                    <div
-                      className="w-fit h-fit relative col-start-1 place-self-end"
-                      onClick={
-                        !token?.external
-                          ? !token.price
-                            ? () => router.push("/express-interest")
-                            : () =>
-                                router.push(
-                                  `/collect/${token.name
-                                    .replaceAll(" ", "-")
-                                    .toLowerCase()}`
-                                )
-                          : () => {}
-                      }
-                    >
+                    <div className="w-fit h-fit relative col-start-1 place-self-end">
                       <div
                         className="relative decoration-1 underline underline-offset-2 whitespace-nowrap mix-blend-screen hover:cursor-sewingHS w-fit h-fit text-[1.2vw] p-6"
-                        onClick={
-                          token?.external
-                            ? () => window.open(token?.external)
-                            : () => setExpressInterest(token.name)
-                        }
+                        onClick={() => window.open(token?.external)}
                       >
                         Collect NFT
                       </div>
