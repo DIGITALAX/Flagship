@@ -57,11 +57,25 @@ const Static: FunctionComponent = (): JSX.Element => {
             id="scrollMicro"
           >
             {[
-              ["QmZ5Xnu4Y8vo2yr3R67ouf2ZYK7NrQCiiQFt6MEnri94PF", "w111th"],
+              ["QmRvJQiQaeExbGds6SZDcv2Tz7sVF71NW3UKMuDTzYb3QJ", "f3manifesto"],
+              [
+                "Qmd1oiVbG21L3mx4ZWBmPmv9RK7RTrUvW4nX81fCphZ8w6",
+                "futurememory",
+              ],
               ["QmPVLYbYJyQotkd8dZTWYcLh8yy8kdbdTptU3DWe4MmKdK", "hiro_lens"],
-              ["QmQHdxXYev989zkK1Wtem245XusViRKZELzZR7bGpRU8iH", "re_de"],
+              [
+                "QmQkdx8SmRoyJGah6xUTWt7MX45kCNjXG3UbmtBNmDgbq9",
+                "syntheticfutures",
+              ],
+              ["QmbG7GpD3Z7G5Jb4bUBP6z1bNWtXFX7MKSCxipd88hdF5E", "put2_"],
               ["QmV7wtTuWsdvJEdL43Tvqv1LMPzvEjtvEAFsU64Qgbaod2", "stryke"],
-              ["QmQkdx8SmRoyJGah6xUTWt7MX45kCNjXG3UbmtBNmDgbq9", "syntheticfutures"],
+              ["QmfEU1pC8VEpHS6on69r189JaRC4TVrC1YBzV4JETk8QvH", "0xqbit"],
+              ["QmbCVtS9ckd6pz8oAx6tRTsNjWEA9v3DKD6Y5zuaMSUC4u", "verbandden"],
+              ["QmNU6dKghcYNTUNbc4kYTG5BQgEFm58JNt5Ch7GP2aRxgs", "dos2048"],
+              ["QmZ5Xnu4Y8vo2yr3R67ouf2ZYK7NrQCiiQFt6MEnri94PF", "w111th"],
+              ["QmafTkiaae4nujF6sGbzLJYscGv6ZbRyFmYHv3NV6ukMSM", "yawp11"],
+              ["QmQuKdSrUf2fPX6u8H3FSfADzQ1n9VbwkrVZ7ZpuTzm5jy", "skecz98"],
+              ["QmQHdxXYev989zkK1Wtem245XusViRKZELzZR7bGpRU8iH", "re_de"],
             ].map((image: string[], index: number) => {
               return (
                 <a
