@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FunctionComponent, useState } from "react";
+import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 
 const Static: FunctionComponent = (): JSX.Element => {
   const [blur, setBlur] = useState<boolean>(true);
@@ -41,9 +42,57 @@ const Static: FunctionComponent = (): JSX.Element => {
           </div>
         </div>
       </div>
-      <div className="row-start-3 w-full h-fit text-center font-lib text-mainText flex items-center justify-center relative pt-20 text-lg font-libB 2xl:text-[1.8vw]" >
-        <div className="relative w-fit h-fit flex items-center justify-center cursor-sewingHS" onClick={() => window.open("https://www.themanufactory.xyz/")}>
-        x005.m-3 – MICROFACTORY LOCAL CO•OP
+      <div className="row-start-3 w-full h-fit text-center font-lib text-mainText flex items-center justify-center relative pt-20 text-lg font-libB 2xl:text-[1.8vw]">
+        <div
+          className="relative w-fit h-fit flex items-center justify-center cursor-sewingHS"
+          onClick={() => window.open("https://www.themanufactory.xyz/")}
+        >
+          x005.m-3 – MICROFACTORY LOCAL CO•OP
+        </div>
+      </div>
+      <div className="relative flex flex-col w-full h-fit items-center justify-center text-mainText pt-10 text-center gap-2">
+        <div className="relative px-1.5 sm:px-0 w-full sm:w-1/2 h-fit flex items-center justify-center bg-mainBg text-xs sm:text-sm md:text-base">
+          <div
+            className="relative h-full flex flex-row py-4 px-2 gap-10 overflow-x-scroll items-center justify-start"
+            id="scrollMicro"
+          >
+            {[
+              ["QmZ5Xnu4Y8vo2yr3R67ouf2ZYK7NrQCiiQFt6MEnri94PF", "w111th"],
+              ["QmPVLYbYJyQotkd8dZTWYcLh8yy8kdbdTptU3DWe4MmKdK", "hiro_lens"],
+              ["QmQHdxXYev989zkK1Wtem245XusViRKZELzZR7bGpRU8iH", "re_de"],
+              ["QmV7wtTuWsdvJEdL43Tvqv1LMPzvEjtvEAFsU64Qgbaod2", "stryke"],
+              ["QmQkdx8SmRoyJGah6xUTWt7MX45kCNjXG3UbmtBNmDgbq9", "syntheticfutures"],
+            ].map((image: string[], index: number) => {
+              return (
+                <a
+                  className="flex-shrink-0 relative w-20 h-20 md:h-28 md:w-28 2xl:w-32 2xl:h-32 cursor-sewingHS"
+                  draggable={false}
+                  key={index}
+                  target="_blank"
+                  rel="noreferrer"
+                  href={`https://www.chromadin.xyz/autograph/${image[1]}`}
+                >
+                  <div className="relative w-full h-full flex flex-col items-center justify-center">
+                    <Image
+                      layout="fill"
+                      objectFit="contain"
+                      src={`${INFURA_GATEWAY}/ipfs/${image[0]}`}
+                      draggable={false}
+                    />
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+        <div className="relative flex flex-col gap-2 items-center justify-center w-full h-fit">
+          <div className="relative px-1.5 sm:px-0 w-full sm:w-1/2 h-fit flex items-center justify-center font-gisL">
+            In a world where authenticity is currency, each microbrand is a
+            sovereign mint of cultural capital. Web3 commerce isn't built by
+            monopolistic conglomerates, but assembled, piece by piece, by the
+            microbrands that understand the intricate dance of AI, NFTs, and
+            social resonance.
+          </div>
         </div>
       </div>
     </div>

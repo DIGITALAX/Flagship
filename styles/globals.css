@@ -472,10 +472,6 @@ body {
   width: 1vw;
 }
 
-#library::-webkit-scrollbar {
-  width: 0.05rem;
-}
-
 #library::-webkit-scrollbar-track {
   background-color: #131313;
 }
@@ -570,7 +566,7 @@ body {
   margin-left: auto;
 }
 
-input[type="range"] {  
+input[type="range"] {
   background-color: black;
   outline: none;
   -webkit-appearance: none;
@@ -643,4 +639,21 @@ input[type="range"]::-ms-thumb {
   border-radius: 50%;
   background: #3694ff;
   cursor: pointer;
+}
+
+input:focus {
+  outline-color: #b620e0;
+}
+
+#scrollMicro::-webkit-scrollbar {
+  width: 1vw;
+  height: 2px;
+}
+
+#scrollMicro::-webkit-scrollbar-track {
+  background-color: #131313;
+}
+
+#scrollMicro::-webkit-scrollbar-thumb {
+  background-color: #b620e0;
 }

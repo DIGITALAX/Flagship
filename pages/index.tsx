@@ -13,7 +13,7 @@ import Static from "../components/home/static/Static";
 import TV from "../components/home/tv/TV";
 import World from "../components/home/world/World";
 import Title from "./../components/home/title/Title";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Description from "../components/home/description/Description";
 import useFeed from "../components/home/social/hooks/useFeed";
 import { GlobalContext } from "./_app";
@@ -33,6 +33,14 @@ const Home: NextPage<HomeProps> = ({ queryWindowSize2XL, shop }) => {
     queryWindowSizeMobile,
     queryWindowSizeXL,
   } = useFeed();
+
+  useEffect(() => {
+    const scrollElement = document.getElementById("scrollMicro");
+    if (scrollElement) {
+      scrollElement.scrollLeft =
+        (scrollElement.scrollWidth - scrollElement.clientWidth) / 2;
+    }
+  }, []);
 
   // const [position, setPosition] = useState({ x: 0, y: 0 });
   // const [direction, setDirection] = useState({ x: 1, y: 1 });

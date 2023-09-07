@@ -31,6 +31,7 @@ const Feed: FunctionComponent<FeedProps> = ({
           : "50rem"
       }
       className="relative w-full h-full gap-6 grid grid-flow-row auto-rows-auto"
+      
     >
       {publicationsFeed?.map((publication: any, index: number) => {
         let profileImage: string;
