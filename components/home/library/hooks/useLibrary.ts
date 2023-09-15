@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { useLibraryResult } from "../../../../types/general.types";
 
 const useLibrary = (): useLibraryResult => {
-  const [showImage, setShowImage] = useState<string>("/images/library/og.png");
+  const [showImage, setShowImage] = useState<string>("QmRjGGc591f9wKXth3to3MLSj5puDbeJgh9PTjWSyuW5uP");
   const [link, setLink] = useState<string>("https://docs.digitalax.xyz");
 
   const lastBook = useRef<null | HTMLDivElement>(null);

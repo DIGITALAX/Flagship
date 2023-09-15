@@ -41,7 +41,6 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                     layout={queryWindowSize2XL ? "intrinsic" : "responsive"}
                     className="bg-offBlack"
                     onLoadingComplete={() => setBlur(false)}
-                    blurDataURL={token.blurred}
                     draggable={false}
                   />
                   <div className="absolute bg-black top-0 grid grid-flow-col auto-cols-auto w-full bg-opacity-70 h-full font-lib text-midWhite invisible group-hover:visible group-active:visible">
@@ -85,7 +84,6 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                        layout={queryWindowSize2XL ? "intrinsic" : "responsive"}
                        className="bg-offBlack"
                        onLoadingComplete={() => setBlur(false)}
-                       blurDataURL={token.blurred}
                        draggable={false}
                   />
                   <div className="absolute bg-black top-0 grid grid-flow-col auto-cols-auto w-full bg-opacity-70 h-full font-lib text-midWhite invisible group-hover:visible group-active:visible">
@@ -129,7 +127,6 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                      layout={queryWindowSize2XL ? "intrinsic" : "responsive"}
                      className="bg-offBlack"
                      onLoadingComplete={() => setBlur(false)}
-                     blurDataURL={token.blurred}
                      draggable={false}
                   />
                   <div className="absolute bg-black top-0 grid grid-flow-col auto-cols-auto w-full bg-opacity-70 h-full font-lib text-midWhite invisible group-hover:visible group-active:visible">

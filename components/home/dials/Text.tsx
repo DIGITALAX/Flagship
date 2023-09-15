@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FunctionComponent, useState } from "react";
+import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 
 const Text: FunctionComponent = (): JSX.Element => {
   const [blur, setBlur] = useState<boolean>(true);
@@ -20,10 +21,9 @@ const Text: FunctionComponent = (): JSX.Element => {
             <Image
               height={100}
               width={10}
-              src="/images/verttext1.png"
+              src={`${INFURA_GATEWAY}/ipfs/QmNMLRCxVeubxtYNzaTaVciTKcBYtSp1c1UaN2yFDhduiD`}
               priority
               onLoadingComplete={() => setBlur(false)}
-              blurDataURL={"/images/blurred/verttext1.png"}
               draggable={false}
             />
           </div>
@@ -40,10 +40,9 @@ const Text: FunctionComponent = (): JSX.Element => {
             <Image
               height={70}
               width={10}
-              src="/images/verttext2.png"
+              src={`${INFURA_GATEWAY}/ipfs/QmWoJ4fvb9uojxiPKadtY83r8jTAuSiPKEZZrcb5jqDFRq`}
               priority
               onLoadingComplete={() => setBlur(false)}
-              blurDataURL={"/images/blurred/verttext2.png"}
               draggable={false}
             />
           </div>

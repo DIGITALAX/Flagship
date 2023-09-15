@@ -2,6 +2,7 @@ import Image from "next/image";
 import { FunctionComponent } from "react";
 import { GridProps } from "../../../types/general.types";
 import Feed from "./Feed";
+import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 
 const Grid: FunctionComponent<GridProps> = ({
   getMoreFeed,
@@ -9,12 +10,17 @@ const Grid: FunctionComponent<GridProps> = ({
   queryWindowSize,
   queryWindowSizeMobile,
   queryWindowSizeXL,
-  dispatch
+  dispatch,
 }): JSX.Element => {
   return (
     <div className="bg-offBlack w-full h-fit relative grid md:grid-flow-row md:auto-rows-auto grid-flow-col auto-cols-auto py-4">
       <div className="row-start-1 col-start-1 relative w-full h-full border-offBlack border-t-8 border-x-4 border-b-4 text-foot text-[4.6vw] lg:text-[5.6vw] xl:text-[4.6vw] font-thun">
-        <Image layout="fill" objectFit="cover" src={"/images/tele.png"}      draggable={false} />
+        <Image
+          layout="fill"
+          objectFit="cover"
+          src={`${INFURA_GATEWAY}/ipfs/QmSD1oBGb7wXrT4BJVxShL1DEWDAyXx4hwjLZg76Hq82vL`}
+          draggable={false}
+        />
         <div className="relative grid grid-flow-col w-full h-full pb-56 md:pr-6 pr-2 lg:pr-10 xl:pr-40">
           <div className="relative col-start-1 w-fit h-fit pl-4 md:pl-10 pt-10 leading-normal">
             NEW SOCIAL <br /> INTEGRATIONS <br /> FOR <br />
@@ -33,7 +39,7 @@ const Grid: FunctionComponent<GridProps> = ({
           layout="fill"
           className="w-full h-full relative flex"
           objectPosition={"top"}
-          src="/images/gridmain.png"
+          src={`${INFURA_GATEWAY}/ipfs/Qme8xXmkD3ktvzK2NeopaDQEHu5ALrsgZfHy9TchwULdgP`}
           draggable={false}
         />
       </div>
@@ -56,7 +62,7 @@ const Grid: FunctionComponent<GridProps> = ({
               <Image
                 width={40}
                 height={50}
-                src={"/images/inarilogo.png"}
+                src={`${INFURA_GATEWAY}/ipfs/QmZ8bkkHce5sv1PjmhpYNPZDTyAQ5cskjFPvYg1KQ1YWKQ`}
                 className="justify-center"
                 draggable={false}
               />
@@ -64,7 +70,10 @@ const Grid: FunctionComponent<GridProps> = ({
           </div>
         </div>
       </div>
-      <div className="row-start-6 md:row-start-2 col-start-1 md:col-start-3 relative w-full h-fit lg:h-full bg-offWhite border-offBlack border-t-8 galaxy:border-l-4 border-b-0" id="scrollMicro">
+      <div
+        className="row-start-6 md:row-start-2 col-start-1 md:col-start-3 relative w-full h-fit lg:h-full bg-offWhite border-offBlack border-t-8 galaxy:border-l-4 border-b-0"
+        id="scrollMicro"
+      >
         <Feed
           publicationsFeed={publicationsFeed}
           getMoreFeed={getMoreFeed}
@@ -72,7 +81,6 @@ const Grid: FunctionComponent<GridProps> = ({
           queryWindowSizeMobile={queryWindowSizeMobile}
           queryWindowSizeXL={queryWindowSizeXL}
           dispatch={dispatch}
-          
         />
       </div>
     </div>

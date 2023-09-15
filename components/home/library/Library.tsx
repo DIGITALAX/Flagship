@@ -2,6 +2,7 @@ import Image from "next/image";
 import { FunctionComponent, useState } from "react";
 import { LibraryProps } from "../../../types/general.types";
 import Shelf from "./Shelf";
+import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 
 const Library: FunctionComponent<LibraryProps> = ({
   setRefactorModal,
@@ -15,13 +16,12 @@ const Library: FunctionComponent<LibraryProps> = ({
         }`}
       >
         <Image
-          src="/images/checked.png"
+          src={`${INFURA_GATEWAY}/ipfs/QmbZ1CkPk3rtXuUubP8JyP9qzGxJkaLj29bASqiuZMd9eA`}
           layout="fill"
           objectFit="cover"
           className="h-10"
           priority
           onLoadingComplete={() => setBlur(false)}
-          blurDataURL={`/images/blurred/checked.png`}
           draggable={false}
         />
       </div>

@@ -3,6 +3,7 @@ import { FunctionComponent, useState } from "react";
 import { BsTwitter } from "react-icons/bs";
 import { BiArrowToTop } from "react-icons/bi";
 import { FooterProps } from "../../types/general.types";
+import { INFURA_GATEWAY } from "../../lib/lens/constants";
 
 const Footer: FunctionComponent<FooterProps> = ({
   handleRewind,
@@ -21,10 +22,9 @@ const Footer: FunctionComponent<FooterProps> = ({
               >
                 <Image
                   layout="fill"
-                  src="/images/footerstatic.png"
+                  src={`${INFURA_GATEWAY}/ipfs/QmSvQQsELrcEaGrQ2L2Lak8F2hgMeiBxw7MwhCrog6snDj`}
                   priority
                   onLoadingComplete={() => setBlur(false)}
-                  blurDataURL={"/images/blurred/footerstatic.png"}
                   draggable={false}
                 />
                 <div className="relative w-full h-full grid grid-flow-row auto-rows-auto">
@@ -98,14 +98,13 @@ const Footer: FunctionComponent<FooterProps> = ({
                   }`}
                 >
                   <Image
-                    src="/images/footerblur.png"
+                    src={`${INFURA_GATEWAY}/ipfs/QmXbwk3dg9GKWhjVTQGsrt6dKARFCyqNz71ssUo2SGx1zc`}
                     draggable={false}
                     layout="fill"
                     width={160}
                     height={20}
                     priority
                     onLoadingComplete={() => setBlur(false)}
-                    blurDataURL={"/images/blurred/footerblur.png"}
                   />
                 </div>
               </div>
@@ -135,12 +134,11 @@ const Footer: FunctionComponent<FooterProps> = ({
                     }`}
                   >
                     <Image
-                      src={"/images/mirror.png"}
+                      src={`${INFURA_GATEWAY}/ipfs/QmWVdyGgXbPL5SiRnQwALHvWzAnyiXBos1oB4TVTqg7saV`}
                       width={21}
                       height={26}
                       priority
                       onLoadingComplete={() => setBlur(false)}
-                      blurDataURL={"/images/blurred/mirror.png"}
                       draggable={false}
                     />
                   </a>
@@ -155,13 +153,12 @@ const Footer: FunctionComponent<FooterProps> = ({
                     }`}
                   >
                     <Image
-                      src={"/images/github.png"}
+                      src={`${INFURA_GATEWAY}/ipfs/QmP5349vcKLNXUhtLyZWQXB8vEbFwRcKLzzB93vxkLsvpw`}
                       width={29}
                       height={28}
                       priority
                       onLoadingComplete={() => setBlur(false)}
                       draggable={false}
-                      blurDataURL={"/images/blurred/github.png"}
                     />
                   </a>
                 </div>
@@ -175,12 +172,11 @@ const Footer: FunctionComponent<FooterProps> = ({
                     }`}
                   >
                     <Image
-                      src={"/images/lens.png"}
+                      src={`${INFURA_GATEWAY}/ipfs/QmeA7R3J8FrhZuMmiFFrVqNmWzKkJCbP51pajFrYdEGBVX`}
                       width={30}
                       height={30}
                       priority
                       onLoadingComplete={() => setBlur(false)}
-                      blurDataURL={"/images/blurred/lens.png"}
                       draggable={false}
                     />
                   </a>
@@ -203,7 +199,7 @@ const Footer: FunctionComponent<FooterProps> = ({
                     className="cursor-sewingHS h-fit relative"
                   >
                     <Image
-                      src={"/images/youtube.png"}
+                      src={`${INFURA_GATEWAY}/ipfs/Qmchp1UWTavZBxq9mTbjASESgRRmsFNXzmxzaMzRSf9aax`}
                       width={30}
                       height={20}
                       draggable={false}

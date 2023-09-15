@@ -10,7 +10,6 @@ import { PostCollectValuesState } from "../redux/reducers/postCollectValuesSlice
 
 export interface Gallery {
   image: string;
-  blurred: string;
   width: number;
   height: number;
   external: string;
@@ -36,7 +35,6 @@ export type GalleryProps = {
 
 export interface Blender {
   image: string;
-  blurred: string;
 }
 
 export type BoxProps = {

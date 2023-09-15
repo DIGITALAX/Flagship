@@ -2,6 +2,7 @@ import Image from "next/image";
 import { FunctionComponent, useState } from "react";
 import Box from "./Box";
 import useBox from "./hooks/useBox";
+import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 
 const Blender: FunctionComponent = (): JSX.Element => {
   const {
@@ -33,10 +34,9 @@ const Blender: FunctionComponent = (): JSX.Element => {
                     <Image
                       height={15}
                       width={60}
-                      src={"/images/bar.png"}
+                      src={`${INFURA_GATEWAY}/ipfs/QmUcmM6bagB18xKFhSgqpBPxvMuuD7VkTW89on5guyLYsE`}
                       priority
                       onLoadingComplete={() => setBlur(false)}
-                      blurDataURL={"/images/blurred/bar.png"}
                       draggable={false}
                     />
                   </div>

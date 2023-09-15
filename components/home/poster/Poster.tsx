@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FunctionComponent, useState } from "react";
+import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 
 const Poster: FunctionComponent = (): JSX.Element => {
   const [blur, setBlur] = useState<boolean>(true);
@@ -13,10 +14,9 @@ const Poster: FunctionComponent = (): JSX.Element => {
         <Image
           layout="fill"
           objectFit="cover"
-          src="/images/latent.png"
+          src={`${INFURA_GATEWAY}/ipfs/QmXnDtWEvHA2PNZeQWxVd1KotF5JGvfBp4hbcvgTuE3pdk`}
           priority
           onLoadingComplete={() => setBlur(false)}
-          blurDataURL={`/images/blurred/latent.png`}
           draggable={false}
         />
         <div className="relative w-full h-full grid grid-flow-col auto-cols-auto">
@@ -32,7 +32,7 @@ const Poster: FunctionComponent = (): JSX.Element => {
                     muted
                     loop
                     id="crt"
-                    placeholder="blur"
+                    
                     className="relative p-0.5 h-full w-full object-cover rounded-xl flex"
                   >
                     <source src="/videos/crt1.mp4" type="video/mp4"></source>
@@ -49,7 +49,7 @@ const Poster: FunctionComponent = (): JSX.Element => {
                     muted
                     loop
                     id="crt"
-                    placeholder="blur"
+                    
                     className="relative p-0.5 h-full w-full object-cover rounded-xl flex"
                   >
                     <source src="/videos/crt2.mp4" type="video/mp4"></source>
@@ -65,7 +65,7 @@ const Poster: FunctionComponent = (): JSX.Element => {
                     autoPlay
                     muted
                     loop
-                    placeholder="blur"
+                    
                     className="relative p-0.5 h-full w-full object-cover rounded-xl flex"
                   >
                     <source src="/videos/crt3.mp4" type="video/mp4"></source>

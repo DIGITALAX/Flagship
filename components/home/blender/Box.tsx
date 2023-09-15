@@ -4,6 +4,7 @@ import { BoxProps } from "../../../types/general.types";
 import Directory from "./Directory";
 import Gallery from "./Gallery";
 import Paginate from "./Paginate";
+import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 
 const Box: FunctionComponent<BoxProps> = ({
   currentImages,
@@ -46,11 +47,10 @@ const Box: FunctionComponent<BoxProps> = ({
                   }`}
                 >
                   <Image
-                    src="/images/blender/imagelarge.png"
+                    src={`${INFURA_GATEWAY}/ipfs/Qmb1qasXpS7hthiXxNnmctgYqAP4kzxFWYMt7RQBtAmgMc`}
                     layout="fill"
                     priority
                     onLoadingComplete={() => setBlur(false)}
-                    blurDataURL={"/images/blurred/imagelarge.png"}
                     draggable={false}
                   />
                 </div>

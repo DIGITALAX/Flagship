@@ -31,7 +31,6 @@ const Feed: FunctionComponent<FeedProps> = ({
           : "50rem"
       }
       className="relative w-full h-full gap-6 grid grid-flow-row auto-rows-auto"
-      
     >
       {publicationsFeed?.map((publication: any, index: number) => {
         let profileImage: string;
@@ -41,7 +40,7 @@ const Feed: FunctionComponent<FeedProps> = ({
           publication?.profile?.picture.original?.url.includes("object") ||
           publication?.profile?.picture.original?.url === undefined
         ) {
-          profileImage = "/images/inaripfp.png";
+          profileImage = `${INFURA_GATEWAY}/ipfs/QmQYkPgJdb68Ca59XqRuvr5s4KXzGUdyKAEANBd9LAhZVZ`;
         } else if (publication.profile.picture.original) {
           if (
             publication?.profile?.picture?.original?.url?.includes("http") ||

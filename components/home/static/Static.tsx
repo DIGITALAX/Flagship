@@ -21,12 +21,11 @@ const Static: FunctionComponent = (): JSX.Element => {
           }`}
         >
           <Image
-            src="/images/static.png"
+            src={`${INFURA_GATEWAY}/ipfs/Qme1kXGZZWYQQVWRXYarxdHn97PwKorxyyXm8g237Fav8u`}
             layout="fill"
             className="w-full rounded-sm"
             priority
             onLoadingComplete={() => setBlur(false)}
-            blurDataURL={`/images/blurred/static.png`}
             draggable={false}
           />
           <div className="relative w-full h-full grid grid-flow-col auto-cols-auto">
@@ -34,7 +33,7 @@ const Static: FunctionComponent = (): JSX.Element => {
               autoPlay
               muted
               loop
-              placeholder="blur"
+              
               className="relative max-w-none border-gray-900 border-8 w-[14vw] h-[18vw] object-cover flex place-self-center bg-offBlack"
             >
               <source src="/videos/static.mp4" type="video/mp4"></source>

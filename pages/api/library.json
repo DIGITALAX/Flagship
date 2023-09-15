@@ -1,7 +1,7 @@
 [
   {
     "name": "THE MANUFACTORY",
-    "image": "/images/library/Realms.png",
+    "image": "QmVQs31SSv6GzaYfvRcziPkisVFbvXxK9SAbDYvFSG7gj3",
     "number": "1",
     "id": "one",
     "link": "https://themanufactory.xyz",
@@ -10,7 +10,7 @@
   },
   {
     "name": "COIN OP",
-    "image": "/images/library/Diy.png",
+    "image": "QmPDvX3Gs8xreaNwDi3fPUmwg37niWb6TaADrLVUTn2y2Y",
     "number": "2",
     "id": "two",
     "link": "https://coinop.themanufactory.xyz",
@@ -19,7 +19,7 @@
   },
   {
     "name": "MONA",
-    "image": "/images/library/Mona.png",
+    "image": "QmPB3KnfK1SbW3B8eLeKmss1HtM3u2ZXqgPNSYDahp2rqA",
     "number": "3",
     "id": "three",
     "link": "",
@@ -28,7 +28,7 @@
   },
   {
     "name": "LIT LISTENER",
-    "image": "/images/library/Runways.png",
+    "image": "QmdDJzGxzNGamFZQRnL8dN6PHtTFV1eFhiB9hVc84JfNAd",
     "number": "4",
     "id": "four",
     "link": "https://listener.irrevocable.dev",
@@ -37,7 +37,7 @@
   },
   {
     "name": "PKPs",
-    "image": "/images/library/Espa.png",
+    "image": "QmewB33fdwgapHxEB6TJMyikF6bb8jJjYjGE4AEvMR44sH",
     "number": "5",
     "id": "five",
     "link": "https://docs.irrevocable.dev",
@@ -46,7 +46,7 @@
   },
   {
     "name": "CHROMADIN",
-    "image": "/images/library/Gms.png",
+    "image": "QmVQ1NGyfHmMCD48aWbs7yAgeC8ch6oWm8kSYeikuagXp8",
     "number": "6",
     "id": "six",
     "link": "https://chromadin.xyz",
@@ -55,7 +55,7 @@
   },
   {
     "name": "ENGINEERING",
-    "image": "/images/library/Engineering.png",
+    "image": "QmUaSzTcuoPWqHmdU4pu58maAZ3876JddCeRqPKTMVJ8DC",
     "number": "7",
     "id": "seven",
     "link": "https://github.com/DIGITALAX/",
@@ -64,7 +64,7 @@
   },
   {
     "name": "PODE",
-    "image": "/images/library/Pode.png",
+    "image": "Qmd8qLv5EPueqkfqcMA8wAzCSBoL9JQtaXKNtqL7fXPsbC",
     "number": "8",
     "id": "eight",
     "link": "",
@@ -73,7 +73,7 @@
   },
   {
     "name": "THE DLTA SYSTEM",
-    "image": "/images/library/Dlta.png",
+    "image": "QmQ653nDvRjK7rhxjvQsExHBjV6nECs6nyVtwaGgeZgm4P",
     "number": "9",
     "id": "nine",
     "link": "",
@@ -82,7 +82,7 @@
   },
   {
     "name": "WEB3 FASHION WEEK",
-    "image": "/images/library/Web3.png",
+    "image": "QmYYyC17q2XfGLdx5TBiTACE7MdmaxXhCcQUXXaN1afENu",
     "number": "10",
     "id": "ten",
     "link": "",
@@ -91,7 +91,7 @@
   },
   {
     "name": "THE DIAL",
-    "image": "/images/library/Inari.png",
+    "image": "QmZ1hBVXHWK37h8bPKGqpLGogWwYVTTYTfkPp5DTmvK1ZT",
     "number": "11",
     "id": "eleven",
     "link": "https://thedial.xyz",
@@ -100,7 +100,7 @@
   },
   {
     "name": "WHITEPAPER V3",
-    "image": "/images/library/Whitepaper.png",
+    "image": "QmXBoTMp9NKviigEfuVLtMvP3HsNRQUpQ7f9VpJzmry5dr",
     "number": "12",
     "id": "twelve",
     "link": "https://digitalax.xyz/whitepaper",
@@ -109,7 +109,7 @@
   },
   {
     "name": "LEGEND",
-    "image": "/images/library/Roadmap.png",
+    "image": "QmfUUvVP14gUbV9iG3WYNEudCDhEE4c91uCxcWGLjp7w1G",
     "number": "13",
     "id": "thirteen",
     "link": "https://legend.irrevocable.dev",
@@ -118,7 +118,7 @@
   },
   {
     "name": "LOOK: FASHION LOOT",
-    "image": "/images/library/Look.png",
+    "image": "QmPRaPTK9pq511nwNFEHpVW22qrdpcNaHy7gaULDddztDy",
     "number": "14",
     "id": "fourteen",
     "link": "",
@@ -127,7 +127,7 @@
   },
   {
     "name": "GOVERNANCE",
-    "image": "/images/library/Gov.png",
+    "image": "QmRmedYiKhi4TNXS3r3zvad8q35SncnVtLFzToRRhDD3Xp",
     "number": "15",
     "id": "fifteen",
     "link": "https://gov.digitalax.xyz",
@@ -136,7 +136,7 @@
   },
   {
     "name": "TRANSPARENCY REPORTS",
-    "image": "/images/library/Transparency.png",
+    "image": "QmPaQy4y1PCxhsvewbP2BdRmbWhwupZvqDQkCqNVdm6sCg",
     "number": "16",
     "id": "sixteen",
     "link": "https://primer.digitalax.xyz/transparency-reports",
@@ -145,7 +145,7 @@
   },
   {
     "name": "DASH",
-    "image": "/images/library/Dash.png",
+    "image": "QmRGM54ZDRK4TWnTdtvgn7V3ZTCTyANANzE6cmbJwC87te",
     "number": "17",
     "id": "seventeen",
     "link": "",
@@ -153,3 +153,5 @@
     "height": 55
   }
 ]
+
+

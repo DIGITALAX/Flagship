@@ -1,9 +1,9 @@
 import Image from "next/image";
-import Link from "next/link";
 import { FunctionComponent, useState } from "react";
 import { ShelfProps, Library } from "../../../types/general.types";
 import library from "./../../../pages/api/library.json";
 import useLibrary from "./hooks/useLibrary";
+import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 
 const Shelf: FunctionComponent<ShelfProps> = ({
   setRefactorModal,
@@ -18,7 +18,11 @@ const Shelf: FunctionComponent<ShelfProps> = ({
           blur && "blur-sm animate-unblur"
         }`}
       >
-        <Image layout="fill" objectFit="cover" src={showImage} />
+        <Image
+          layout="fill"
+          objectFit="cover"
+          src={`${INFURA_GATEWAY}/ipfs/${showImage}`}
+        />
         <div className="relative w-full h-full grid grid-flow-col auto-cols-auto pr-4 pb-2">
           {link !== "" ? (
             <a
@@ -30,12 +34,11 @@ const Shelf: FunctionComponent<ShelfProps> = ({
               }`}
             >
               <Image
-                src={"/images/eye.png"}
+                src={`${INFURA_GATEWAY}/ipfs/QmbDMPggX1dz6VC4c8hNNT4td62ArBaCiDCG2mewNqFZN2`}
                 height={15}
                 width={25}
                 priority
                 onLoadingComplete={() => setBlur(false)}
-                blurDataURL={`/images/blurred/eye.png`}
                 draggable={false}
               />
             </a>
@@ -47,12 +50,11 @@ const Shelf: FunctionComponent<ShelfProps> = ({
               }`}
             >
               <Image
-                src={"/images/eye.png"}
+                src={`${INFURA_GATEWAY}/ipfs/QmbDMPggX1dz6VC4c8hNNT4td62ArBaCiDCG2mewNqFZN2`}
                 height={15}
                 width={25}
                 priority
                 onLoadingComplete={() => setBlur(false)}
-                blurDataURL={`/images/blurred/eye.png`}
                 draggable={false}
               />
             </div>
@@ -89,12 +91,11 @@ const Shelf: FunctionComponent<ShelfProps> = ({
                     id="circle"
                   >
                     <Image
-                      src={"/images/library/rounded.png"}
+                      src={`${INFURA_GATEWAY}/ipfs/QmWjDJUU55GTA1oLzKLWKwJW8REbZ7m39kr2Pc38HgiZ5t`}
                       layout="fill"
                       className="opacity-50"
                       priority
                       onLoadingComplete={() => setBlur(false)}
-                      blurDataURL={`/images/blurred/rounded.png`}
                       draggable={false}
                     />
                     <div className="relative w-full h-full grid grid-flow-col auto-cols-auto">
@@ -133,11 +134,10 @@ const Shelf: FunctionComponent<ShelfProps> = ({
           }`}
         >
           <Image
-            src="/images/library/Numbers.png"
+            src={`${INFURA_GATEWAY}/ipfs/QmdqGRG1tr9mPSCWNUGPiHq1pGpLkhgyFg8o6SN9LKrd8o`}
             layout="fill"
             priority
             onLoadingComplete={() => setBlur(false)}
-            blurDataURL={`/images/blurred/numbers.png`}
             objectFit="contain"
             className="relative w-full h-full"
             draggable={false}
@@ -155,11 +155,10 @@ const Shelf: FunctionComponent<ShelfProps> = ({
           onClick={() => handleLastBook()}
         >
           <Image
-            src="/images/library/player.png"
+            src={`${INFURA_GATEWAY}/ipfs/QmP2nsKxT7rvPxdkhCfsTPWuDvLGCDmb2KMhUJ2pYqftPQ`}
             layout="fill"
             priority
             onLoadingComplete={() => setBlur(false)}
-            blurDataURL={`/images/blurred/player.png`}
             objectFit="contain"
             className="relative w-fit h-fit"
             draggable={false}

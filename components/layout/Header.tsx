@@ -5,6 +5,7 @@ import { HeaderProps } from "../../types/general.types";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { setVideoPlayer } from "../../redux/reducers/videoPlayerSlice";
+import { INFURA_GATEWAY } from "../../lib/lens/constants";
 
 const Header: FunctionComponent<HeaderProps> = ({
   rewind,
@@ -49,11 +50,10 @@ const Header: FunctionComponent<HeaderProps> = ({
               <Image
                 width={50}
                 height={70}
-                src="/images/header/diagram.png"
+                src={`${INFURA_GATEWAY}/ipfs/QmQyKKVUGthP3hzHgFq482RR7v4c2aKu3uv8zbYW1ysqzj`}
                 objectFit="cover"
                 priority
                 onLoadingComplete={() => setBlur(false)}
-                blurDataURL={"/images/blurred/diagram.png"}
                 draggable={false}
               />
             </div>
@@ -138,7 +138,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                 onClick={() => dispatch(setVideoPlayer(!videoPlayer))}
               >
                 <Image
-                  src="/images/header/arrow.svg"
+                  src={`${INFURA_GATEWAY}/ipfs/QmYVHgyAQLxcoP5o23n3jXNnA9N9C93WqpM2heAegty7hU`}
                   height={20}
                   width={60}
                   priority

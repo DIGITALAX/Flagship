@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { FunctionComponent, useState } from "react";
 import { DirectoryProps } from "../../../types/general.types";
+import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 
 const Directory: FunctionComponent<DirectoryProps> = ({
   items,
@@ -22,10 +23,9 @@ const Directory: FunctionComponent<DirectoryProps> = ({
               <Image
                 height={20}
                 width={20}
-                src="/images/arrowdown.png"
+                src={`${INFURA_GATEWAY}/ipfs/QmW5crWDqbtPECQDief39xyMKZCCTBRV3YbTwpLmepC1aR`}
                 priority
                 onLoadingComplete={() => setBlur(false)}
-                blurDataURL={"/images/blurred/arrowdown.png"}
                 draggable={false}
               />
             </div>
@@ -48,10 +48,9 @@ const Directory: FunctionComponent<DirectoryProps> = ({
                     <Image
                       height={20}
                       width={20}
-                      src="/images/arrowright.png"
+                      src={`${INFURA_GATEWAY}/ipfs/QmPKWsvnkYgpuyNuPw7DtBKKBkbJtuG7YLi7U56BqSazwy`}
                       priority
                       onLoadingComplete={() => setBlur(false)}
-                      blurDataURL={"/images/blurred/arrowright.png"}
                       draggable={false}
                     />
                   </div>

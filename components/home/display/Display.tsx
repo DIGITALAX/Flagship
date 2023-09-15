@@ -4,6 +4,7 @@ import { FunctionComponent, useState } from "react";
 import { DisplayProps } from "../../../types/general.types";
 import Gallery from "./Gallery";
 import useGallery from "./hooks/useGallery";
+import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 
 const Display: FunctionComponent<DisplayProps> = ({
   shop,
@@ -45,13 +46,12 @@ const Display: FunctionComponent<DisplayProps> = ({
                     onClick={() => paginateBackward(currentPage)}
                   >
                     <Image
-                      src="/images/left.png"
+                      src={`${INFURA_GATEWAY}/ipfs/QmV8P1Hx2mAx6TQeE6S9nvCuByK8p5wYKmX38a6WaDcfD6`}
                       height={30}
                       width={30}
                       className={`${!pageBoundaryBackward && "opacity-50"}`}
                       priority
                       onLoadingComplete={() => setBlur(false)}
-                      blurDataURL={"/images/blurred/left.png"}
                       draggable={false}
                     />
                   </div>
@@ -64,13 +64,12 @@ const Display: FunctionComponent<DisplayProps> = ({
                     onClick={() => paginateForward(currentPage)}
                   >
                     <Image
-                      src="/images/right.png"
+                      src={`${INFURA_GATEWAY}/ipfs/QmfLgTmhWRefCb6jHFP1Em1hKQWzxq2QDXcXrT1cqZMZx9`}
                       height={30}
                       width={30}
                       className={`${!pageBoundaryForward && "opacity-50"}`}
                       priority
                       onLoadingComplete={() => setBlur(false)}
-                      blurDataURL={"/images/blurred/right.png"}
                       draggable={false}
                     />
                   </div>
@@ -115,12 +114,11 @@ const Display: FunctionComponent<DisplayProps> = ({
               }`}
             >
               <Image
-                src={"/images/eye.png"}
+                src={`${INFURA_GATEWAY}/ipfs/QmbDMPggX1dz6VC4c8hNNT4td62ArBaCiDCG2mewNqFZN2`}
                 height={10}
                 width={20}
                 priority
                 onLoadingComplete={() => setBlur(false)}
-                blurDataURL={"/images/blurred/eye.png"}
                 draggable={false}
               />
             </div>
