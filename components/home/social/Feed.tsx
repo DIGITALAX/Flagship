@@ -9,6 +9,7 @@ import { BsCollection, BsSuitHeart } from "react-icons/bs";
 import ReactPlayer from "react-player";
 import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 import { setImageViewer } from "../../../redux/reducers/imageViewerSlice";
+import descriptionRegex from "../../../lib/lens/helpers/descriptionRegex";
 
 const Feed: FunctionComponent<FeedProps> = ({
   publicationsFeed,
@@ -263,15 +264,19 @@ const Feed: FunctionComponent<FeedProps> = ({
                       ? "row-start-2"
                       : "row-start-1"
                   } relative w-5/6 h-fit text-left font-dosis grid grid-flow-row auto-rows-auto gap-6 text-sm sm:text-base self-center justify-self-start text-white break-all`}
+                  style={{
+                    whiteSpace: "pre-line",
+                  }}
                   dangerouslySetInnerHTML={{
-                    __html:
+                    __html: descriptionRegex(
                       (publication as any)?.__typename !== "Mirror"
                         ? (publication as any)?.metadata?.description
                           ? (publication as any)?.metadata?.description
                           : (publication as any)?.metadata?.content
                         : (publication as any)?.mirrorOf?.metadata?.description
                         ? (publication as any)?.mirrorOf?.metadata?.description
-                        : (publication as any)?.mirrorOf?.metadata?.content,
+                        : (publication as any)?.mirrorOf?.metadata?.content
+                    ),
                   }}
                 ></div>
                 <div

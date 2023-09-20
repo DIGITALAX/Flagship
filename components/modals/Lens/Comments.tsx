@@ -142,7 +142,7 @@ const Comments: FunctionComponent<CommentsProps> = ({
                         </a>
                         <div className="relative w-full h-full text-verde flex flex-col">
                           <div
-                            className="relative w-full h-full text-white flex"
+                            className="relative w-full h-full text-white flex whitespace-preline"
                             dangerouslySetInnerHTML={{
                               __html: descriptionRegex(
                                 comment?.metadata?.content
