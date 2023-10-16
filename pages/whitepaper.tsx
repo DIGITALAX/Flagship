@@ -20,11 +20,7 @@ const Whitepaper: NextPage = (): JSX.Element => {
         <meta name="twitter:url" content="https://digitalax.xyz/whitepaper" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="canonical" href="https://digitalax.xyz/whitepaper" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="true"
-        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
       </Head>
       <embed
         className="w-full h-full"
