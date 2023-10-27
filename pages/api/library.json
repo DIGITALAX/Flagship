@@ -22,7 +22,7 @@
     "image": "QmPB3KnfK1SbW3B8eLeKmss1HtM3u2ZXqgPNSYDahp2rqA",
     "number": "3",
     "id": "three",
-    "link": "",
+    "link": "https://etherscan.io/token/0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A",
     "width": 25,
     "height": 60
   },
@@ -54,10 +54,28 @@
     "height": 320
   },
   {
-    "name": "ENGINEERING",
-    "image": "QmUaSzTcuoPWqHmdU4pu58maAZ3876JddCeRqPKTMVJ8DC",
+    "name": "ON-CHAIN QUESTS",
+    "image": "QmQk9TqFivUqc6ktosoZVVih9o1uiY3r5Z7F3GCC1FpaJS",
     "number": "7",
     "id": "seven",
+    "link": "https://kinora.irrevocable.dev",
+    "width": 25,
+    "height": 320
+  },
+  {
+    "name": "KINORA",
+    "image": "QmNmK82BkospCqyQjzHySwzEZXpzu4KwzDSWMtpppNW8tk",
+    "number": "8",
+    "id": "eight",
+    "link": "https://codex.irrevocable.dev",
+    "width": 25,
+    "height": 320
+  },
+  {
+    "name": "ENGINEERING",
+    "image": "QmUaSzTcuoPWqHmdU4pu58maAZ3876JddCeRqPKTMVJ8DC",
+    "number": "9",
+    "id": "nine",
     "link": "https://github.com/DIGITALAX/",
     "width": 25,
     "height": 150
@@ -65,8 +83,8 @@
   {
     "name": "PODE",
     "image": "Qmd8qLv5EPueqkfqcMA8wAzCSBoL9JQtaXKNtqL7fXPsbC",
-    "number": "8",
-    "id": "eight",
+    "number": "10",
+    "id": "ten",
     "link": "",
     "width": 25,
     "height": 55
@@ -74,8 +92,8 @@
   {
     "name": "THE DLTA SYSTEM",
     "image": "QmQ653nDvRjK7rhxjvQsExHBjV6nECs6nyVtwaGgeZgm4P",
-    "number": "9",
-    "id": "nine",
+    "number": "11",
+    "id": "eleven",
     "link": "",
     "width": 25,
     "height": 210
@@ -83,8 +101,8 @@
   {
     "name": "WEB3 FASHION WEEK",
     "image": "QmYYyC17q2XfGLdx5TBiTACE7MdmaxXhCcQUXXaN1afENu",
-    "number": "10",
-    "id": "ten",
+    "number": "12",
+    "id": "twelve",
     "link": "",
     "width": 25,
     "height": 235
@@ -92,8 +110,8 @@
   {
     "name": "THE DIAL",
     "image": "QmZ1hBVXHWK37h8bPKGqpLGogWwYVTTYTfkPp5DTmvK1ZT",
-    "number": "11",
-    "id": "eleven",
+    "number": "13",
+    "id": "thirteen",
     "link": "https://thedial.xyz",
     "width": 25,
     "height": 150
@@ -101,8 +119,8 @@
   {
     "name": "WHITEPAPER V3",
     "image": "QmXBoTMp9NKviigEfuVLtMvP3HsNRQUpQ7f9VpJzmry5dr",
-    "number": "12",
-    "id": "twelve",
+    "number": "14",
+    "id": "fourteen",
     "link": "https://digitalax.xyz/whitepaper",
     "width": 25,
     "height": 180
@@ -110,8 +128,8 @@
   {
     "name": "LEGEND",
     "image": "QmfUUvVP14gUbV9iG3WYNEudCDhEE4c91uCxcWGLjp7w1G",
-    "number": "13",
-    "id": "thirteen",
+    "number": "15",
+    "id": "fifteen",
     "link": "https://legend.irrevocable.dev",
     "width": 25,
     "height": 140
@@ -119,8 +137,8 @@
   {
     "name": "LOOK: FASHION LOOT",
     "image": "QmPRaPTK9pq511nwNFEHpVW22qrdpcNaHy7gaULDddztDy",
-    "number": "14",
-    "id": "fourteen",
+    "number": "16",
+    "id": "sixteen",
     "link": "",
     "width": 25,
     "height": 250
@@ -128,8 +146,8 @@
   {
     "name": "GOVERNANCE",
     "image": "QmRmedYiKhi4TNXS3r3zvad8q35SncnVtLFzToRRhDD3Xp",
-    "number": "15",
-    "id": "fifteen",
+    "number": "17",
+    "id": "seventeen",
     "link": "https://gov.digitalax.xyz",
     "width": 25,
     "height": 125
@@ -137,8 +155,8 @@
   {
     "name": "TRANSPARENCY REPORTS",
     "image": "QmPaQy4y1PCxhsvewbP2BdRmbWhwupZvqDQkCqNVdm6sCg",
-    "number": "16",
-    "id": "sixteen",
+    "number": "18",
+    "id": "eighteen",
     "link": "https://primer.digitalax.xyz/transparency-reports",
     "width": 25,
     "height": 275
@@ -146,12 +164,10 @@
   {
     "name": "DASH",
     "image": "QmRGM54ZDRK4TWnTdtvgn7V3ZTCTyANANzE6cmbJwC87te",
-    "number": "17",
-    "id": "seventeen",
+    "number": "19",
+    "id": "nineteen",
     "link": "",
     "width": 25,
     "height": 55
   }
 ]
-
-
