@@ -1,20 +1,14 @@
-import { gql } from "@apollo/client";
+import { FetchResult } from "@apollo/client";
+import { ApprovedModuleAllowanceAmountDocument, ApprovedModuleAllowanceAmountQuery, ApprovedModuleAllowanceAmountRequest } from "../../types/generated";
 import { apolloClient } from "../../lib/lens/client";
 
-const APPROVED_ALLOWANCE = `query ApprovedModuleAllowanceAmount($request: ApprovedModuleAllowanceAmountRequest!) {
-    approvedModuleAllowanceAmount(request: $request) {
-      currency
-      module
-      contractAddress
-      allowance
-    }
-  }`;
-
-const approvedModuleAllowance = (request: any) => {
-  return apolloClient.query({
-    query: gql(APPROVED_ALLOWANCE),
+const approvedModuleAllowance = async (
+  request: ApprovedModuleAllowanceAmountRequest
+): Promise<FetchResult<ApprovedModuleAllowanceAmountQuery>> => {
+  return await apolloClient.query({
+    query: ApprovedModuleAllowanceAmountDocument,
     variables: {
-      request: request,
+      request,
     },
     fetchPolicy: "network-only",
   });

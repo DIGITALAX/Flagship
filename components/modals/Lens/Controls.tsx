@@ -21,7 +21,6 @@ const Controls: FunctionComponent<ControlsProps> = ({
   likeVideo,
   collectVideo,
   mirrorVideo,
-  authStatus,
   profileId,
   likeLoading,
   mirrorLoading,
@@ -37,11 +36,11 @@ const Controls: FunctionComponent<ControlsProps> = ({
   dispatch,
   hasMore,
   fetchMoreVideos,
-  videoLoading,
-  setVideoLoading,
   handleLensSignIn,
   connected,
   openConnectModal,
+  setVideoLoading,
+  videoLoading,
 }): JSX.Element => {
   const currentIndex = lodash.findIndex(dispatchVideos, { id: mainVideo.id });
   return (
@@ -58,7 +57,7 @@ const Controls: FunctionComponent<ControlsProps> = ({
       </div>
       <div className="relative w-full h-full flex flex-col items-center justify-center">
         <div
-          className="relative w-full h-2 bg-white/40 rounded-sm cursor-pointer"
+          className="relative w-full h-2 bg-white/40 rounded-sm cursor-sewingHS"
           ref={progressRef}
           onClick={(e: any) => handleSeek(e)}
         >
@@ -75,11 +74,11 @@ const Controls: FunctionComponent<ControlsProps> = ({
       >
         <div className="relative flex flex-row w-fit h-fit gap-2 items-center justify-center">
           <div
-            className={`cursor-pointer relative ${
+            className={`cursor-sewingHS relative ${
               likeLoading && "animate-spin"
             }`}
             onClick={
-              profileId && authStatus
+              profileId
                 ? () => {
                     handleHeart();
                     likeVideo();
@@ -113,15 +112,15 @@ const Controls: FunctionComponent<ControlsProps> = ({
         </div>
         <div className="relative flex flex-row w-fit h-fit gap-2 items-center justify-center">
           <div
-            className={`cursor-pointer relative ${
+            className={`cursor-sewingHS relative ${
               collectLoading && "animate-spin"
             }`}
             onClick={
-              profileId && authStatus
+              profileId
                 ? () => collectVideo()
                 : !connected
                 ? openConnectModal
-                : connected && !profileId && !authStatus
+                : connected && !profileId
                 ? () => handleLensSignIn()
                 : () => {}
             }
@@ -152,15 +151,15 @@ const Controls: FunctionComponent<ControlsProps> = ({
         </div>
         <div className="relative flex flex-row w-fit h-fit gap-2 items-center justify-center">
           <div
-            className={`cursor-pointer relative ${
+            className={`cursor-sewingHS relative ${
               mirrorLoading && "animate-spin"
             }`}
             onClick={
-              profileId && authStatus
+              profileId
                 ? () => mirrorVideo()
                 : !connected
                 ? openConnectModal
-                : connected && !profileId && !authStatus
+                : connected && !profileId
                 ? () => handleLensSignIn()
                 : () => {}
             }
@@ -190,7 +189,7 @@ const Controls: FunctionComponent<ControlsProps> = ({
           </div>
         </div>
         <div
-          className="relative cursor-pointer rotate-180"
+          className="relative cursor-sewingHS rotate-180"
           onClick={() =>
             dispatch(
               setMainVideo({
@@ -248,7 +247,7 @@ const Controls: FunctionComponent<ControlsProps> = ({
           />
         </div>
         <div
-          className="relative cursor-pointer"
+          className="relative cursor-sewingHS"
           onClick={() =>
             dispatch(
               setVideoSync({
@@ -277,7 +276,7 @@ const Controls: FunctionComponent<ControlsProps> = ({
           />
         </div>
         <div
-          className={`relative cursor-pointer ${
+          className={`relative cursor-sewingHS ${
             videoLoading && "animate-spin"
           }`}
           onClick={
@@ -350,7 +349,7 @@ const Controls: FunctionComponent<ControlsProps> = ({
           )}
         </div>
         <div
-          className="relative cursor-pointer"
+          className="relative cursor-sewingHS"
           onClick={() => setVolumeOpen(!volumeOpen)}
         >
           <Image

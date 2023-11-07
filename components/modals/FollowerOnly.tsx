@@ -1,11 +1,11 @@
 import { FunctionComponent } from "react";
 import { ImCross } from "react-icons/im";
-import Image from "next/image";
 import { AiOutlineLoading } from "react-icons/ai";
-import { setFollowerOnly } from "../../redux/reducers/followerOnlySlice";
-import { INFURA_GATEWAY } from "../../lib/lens/constants";
 import createProfilePicture from "../../lib/lens/helpers/createProfilePicture";
 import { FollowerOnlyProps } from "../../types/general.types";
+import { setFollowerOnly } from "../../redux/reducers/followerOnlySlice";
+import Image from "next/image";
+import { INFURA_GATEWAY } from "../../lib/lens/constants";
 
 const FollowerOnly: FunctionComponent<FollowerOnlyProps> = ({
   profile,
@@ -16,15 +16,15 @@ const FollowerOnly: FunctionComponent<FollowerOnlyProps> = ({
   dispatch,
   followDetails,
 }): JSX.Element => {
-  const profileImage = createProfilePicture(profile);
+  const profileImage = createProfilePicture(profile?.metadata?.picture);
   return (
     <div className="inset-0 justify-center fixed z-50 bg-opacity-50 backdrop-blur-sm overflow-y-hidden grid grid-flow-col auto-cols-auto w-full h-auto">
       <div
-        className="relative w-full md:w-[22rem] h-fit col-start-1 place-self-center rounded-lg p-px bg-black flex flex-col border border-white"
+        className="relative w-full md:w-[22rem] h-fit col-start-1 place-self-center rounded-lg p-px bg-offBlack flex flex-col border border-white"
         id="modal"
       >
         <div
-          className="relative w-full h-fit justify-end pr-3 pt-3 cursor-pointer flex"
+          className="relative w-full h-fit justify-end pr-3 pt-3 cursor-sewingHS flex"
           onClick={() =>
             dispatch(
               setFollowerOnly({
@@ -40,7 +40,7 @@ const FollowerOnly: FunctionComponent<FollowerOnlyProps> = ({
         </div>
         <div className="relative w-full h-fit flex flex-col p-3 items-center justify-center gap-3">
           {followDetails.id !== "" && (
-            <div className="relative w-full h-fit flex items-center text-center text-white font-vcr justify-center">
+            <div className="relative w-full h-fit flex items-center text-center text-white font-earl justify-center">
               Only followers can Collect
             </div>
           )}
@@ -68,18 +68,18 @@ const FollowerOnly: FunctionComponent<FollowerOnlyProps> = ({
                 />
               )}
             </div>
-            <div className="relative w-fit h-full text-white font-vcr flex items-center justify-center">
-              @{profile?.handle?.split(".lens")[0]}
+            <div className="relative w-fit h-full text-white font-dosis flex items-center justify-center">
+              {profile?.handle?.suggestedFormatted?.localName}
             </div>
           </div>
           {profile?.followModule?.type === "RevertFollowModule" ? (
-            <div className="relative w-3/4 text-white font-vcr text-center flex items-center">
+            <div className="relative w-3/4 text-white font-dosis text-center flex items-center">
               User is not accepting new followers ATM
             </div>
           ) : (
             <div className="relative w-full h-full flex flex-col gap-3">
               {profile?.followModule?.type === "FeeFollowModule" && (
-                <div className="relative w-full h-fit flex flex-row font-vcr text-white text-sm items-center justify-center gap-2">
+                <div className="relative w-full h-fit flex flex-row font-earl text-white text-sm items-center justify-center gap-2">
                   <div className="relative w-fit h-fit flex items-center justify-center">
                     {(profile?.followModule as any)?.amount?.value}
                   </div>
@@ -89,17 +89,14 @@ const FollowerOnly: FunctionComponent<FollowerOnlyProps> = ({
                 </div>
               )}
               <div
-                className={`relative w-28 h-10 rounded-md grid grid-flow-col auto-cols-auto text-white font-vcr text-xs place-self-center text-center bg-moda row-start-2 ${
-                  !profile?.isFollowing &&
-                  "cursor-pointer hover:opacity-70 active:scale-95"
-                }`}
+                className={`relative w-28 h-10 rounded-md grid grid-flow-col auto-cols-auto text-white font-earl text-xs place-self-center text-center bg-moda cursor-sewingHS hover:opacity-70 active:scale-95 row-start-2`}
               >
                 <div
                   className={`relative w-fit h-fit col-start-1 place-self-center text-center ${
                     followLoading && "animate-spin"
                   }`}
                   onClick={
-                    profile?.isFollowing
+                    !profile?.operations?.isFollowedByMe
                       ? () => {}
                       : profile?.followModule?.type === "FeeFollowModule" &&
                         !approved
@@ -112,7 +109,7 @@ const FollowerOnly: FunctionComponent<FollowerOnlyProps> = ({
                   ) : profile?.followModule?.type === "FeeFollowModule" &&
                     !approved ? (
                     "Approve"
-                  ) : profile?.isFollowing ? (
+                  ) : profile?.operations?.isFollowedByMe ? (
                     "Following Profile"
                   ) : (
                     "Follow Profile"

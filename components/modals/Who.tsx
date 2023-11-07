@@ -1,11 +1,12 @@
 import { FunctionComponent } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { ImCross } from "react-icons/im";
+import { WhoProps } from "../../types/general.types";
+import { setReactionState } from "../../redux/reducers/reactionStateSlice";
+import { Profile } from "../../types/generated";
+import createProfilePicture from "../../lib/lens/helpers/createProfilePicture";
 import Image from "next/image";
 import { AiOutlineLoading } from "react-icons/ai";
-import { setReactionState } from "../../redux/reducers/reactionStateSlice";
-import createProfilePicture from "../../lib/lens/helpers/createProfilePicture";
-import { WhoProps } from "../../types/general.types";
 
 const Who: FunctionComponent<WhoProps> = ({
   loading,
@@ -17,11 +18,11 @@ const Who: FunctionComponent<WhoProps> = ({
 }): JSX.Element => {
   return (
     <div className="inset-0 justify-center fixed z-20 bg-opacity-50 backdrop-blur-sm overflow-y-hidden grid grid-flow-col auto-cols-auto w-full h-auto">
-      <div className="relative w-full md:w-[40vw] lg:w-[25vw] h-fit col-start-1 place-self-center bg-black rounded-lg">
+      <div className="relative w-full md:w-[40vw] lg:w-[25vw] h-fit col-start-1 place-self-center bg-offBlack rounded-lg">
         <div className="relative w-full row-start-2 h-fit rounded-xl grid grid-flow-col auto-cols-auto">
           <div className="relative w-full h-full col-start-1 rounded-xl place-self-center">
             <div className="relative w-full h-full flex flex-col items-center justify-center gap-4 pb-8">
-              <div className="relative w-fit h-fit items-end justify-end ml-auto pr-3 pt-3 cursor-pointer flex">
+              <div className="relative w-fit h-fit items-end justify-end ml-auto pr-3 pt-3 cursor-sewingHS flex">
                 <ImCross
                   color="white"
                   size={10}
@@ -49,33 +50,18 @@ const Who: FunctionComponent<WhoProps> = ({
                         height={"10rem"}
                         className="relative w-full h-fit flex flex-col px-4 gap-2 overflow-y-scroll"
                       >
-                        {accounts?.map((reacter: any, index: number) => {
+                        {accounts?.map((account: any, index: number) => {
+                          const reacter: Profile =
+                            type === 0 ? account.profile : account;
+
                           const profileImage = createProfilePicture(
-                            type === 0
-                              ? reacter?.profile
-                              : type === 1
-                              ? reacter.defaultProfile
-                              : reacter
+                            reacter?.metadata?.picture
                           );
 
                           return (
                             <div
                               key={index}
-                              className="relative w-full h-fit p-2 drop-shadow-lg flex flex-row bg-gradient-to-r from-black via-gray-600 to-black auto-cols-auto rounded-lg border border-black font-vcr text-white cursor-pointer text-sm"
-                              onClick={() =>
-                                window.open(
-                                  `https://chromadin.xyz/#chat?option=history&profile=${
-                                    type === 0
-                                      ? reacter?.profile?.handle?.split(
-                                          ".lens"
-                                        )[0]
-                                      : type === 1 &&
-                                        reacter?.defaultProfile?.handle?.split(
-                                          ".lens"
-                                        )[0]
-                                  }`
-                                )
-                              }
+                              className="relative w-full h-fit p-2 drop-shadow-lg flex flex-row bg-gradient-to-r from-offBlack via-gray-600 to-black auto-cols-auto rounded-lg border border-black font-dosis text-white cursor-sewingHS"
                             >
                               <div className="relative w-fit h-fit flex flex-row gap-6">
                                 <div
@@ -97,17 +83,10 @@ const Who: FunctionComponent<WhoProps> = ({
                                   id="handle"
                                   className="relative w-fit h-fit justify-center flex"
                                 >
-                                  @
-                                  {type == 1
-                                    ? reacter.defaultProfile
-                                      ? reacter.defaultProfile?.handle?.split(
-                                          ".lens"
-                                        )[0]
-                                      : reacter.address.slice(0, 13)
-                                    : (type === 0
-                                        ? reacter?.profile
-                                        : reacter
-                                      )?.handle?.split(".lens")[0]}
+                                  {
+                                    reacter?.handle?.suggestedFormatted
+                                      ?.localName
+                                  }
                                 </div>
                               </div>
                             </div>

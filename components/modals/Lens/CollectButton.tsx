@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import lodash, { isString } from "lodash";
-import { Erc20 } from "../../../types/lens.types";
+import { Erc20 } from "../../../types/generated";
 import { CollectButtonProps } from "../../../types/general.types";
 
 const CollectButton: FunctionComponent<CollectButtonProps> = ({
@@ -36,7 +36,7 @@ const CollectButton: FunctionComponent<CollectButtonProps> = ({
       <div
         className={`relative w-20 px-3 rounded-t-lg border border-white bg-oscurazul h-10 py-2 ${
           !openDropdown && "rounded-b-lg"
-        } row-start-2 cursor-pointer flex gap-3`}
+        } row-start-2 cursor-sewingHS flex gap-3`}
         onClick={() => {
           handleOpenDropdown(!openDropdown);
         }}
@@ -49,7 +49,7 @@ const CollectButton: FunctionComponent<CollectButtonProps> = ({
           </div>
         </div>
       </div>
-      <div className="absolute row-start-3 flex flex-col w-32 h-fit cursor-pointer z-1">
+      <div className="absolute row-start-3 flex flex-col w-32 h-fit cursor-sewingHS z-1">
         {openDropdown &&
           lodash
             .filter(newValues, (item) => item !== selectValue)
@@ -59,7 +59,7 @@ const CollectButton: FunctionComponent<CollectButtonProps> = ({
                   key={index}
                   className={`relative w-20 h-10 px-1 ${
                     index === newValues?.length - 2 && "rounded-b-lg"
-                  } ${newValues} col-start-1 bg-oscurazul border border-white grid grid-flow-col auto-cols-auto gap-3 cursor-pointer justify-self-center`}
+                  } ${newValues} col-start-1 bg-oscurazul border border-white grid grid-flow-col auto-cols-auto gap-3 cursor-sewingHS justify-self-center`}
                   onClick={() => {
                     handleOpenDropdown(!openDropdown);
                     openDropdown && selectFunction(item);

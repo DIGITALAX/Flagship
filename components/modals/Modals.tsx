@@ -16,6 +16,8 @@ import useFollowers from "./hooks/useFollowers";
 import useSignIn from "./hooks/useSignIn";
 import Index from "./Index";
 import ImageLarge from "./ImageLarge";
+import FollowSuper from "./FollowSuper";
+import useSuperCreator from "./hooks/useSuperCreator";
 
 const Modals = () => {
   const videoRef = useRef<HTMLDivElement>(null);
@@ -40,6 +42,9 @@ const Modals = () => {
   );
   const connected = useSelector(
     (state: RootState) => state.app.walletConnectedReducer.value
+  );
+  const superFollow = useSelector(
+    (state: RootState) => state.app.superFollowReducer
   );
   const indexModal = useSelector(
     (state: RootState) => state.app.indexModalReducer
@@ -85,7 +90,7 @@ const Modals = () => {
   }, []);
 
   const { address } = useAccount();
-  const { handleLensSignIn } = useSignIn();
+  const { handleLensSignIn, signInLoading } = useSignIn();
   const { openConnectModal } = useConnectModal();
   const {
     collectInfoLoading: controlsCollectInfoLoading,
@@ -100,7 +105,6 @@ const Modals = () => {
     collectVideo,
     mirrorVideo,
     likeVideo,
-    authStatus,
     profileId,
     mirrorCommentLoading,
     likeCommentLoading,
@@ -113,6 +117,8 @@ const Modals = () => {
     handleSeek,
     fullVideoRef,
   } = useControls();
+  const { followSuper, superCreatorLoading, canvasRef, rain, quickProfiles } =
+    useSuperCreator();
   const {
     fetchMoreVideos,
     videoLoading: channelVideoLoading,
@@ -123,8 +129,6 @@ const Modals = () => {
     getMorePostComments,
     commentsLoading,
     hasMoreComments,
-    hasMirrored,
-    hasReacted,
     commentsOpen,
     setCommentsOpen,
   } = useInteractions();
@@ -144,8 +148,8 @@ const Modals = () => {
   } = useWho();
 
   const {
-    followerProfile: profile,
     followProfile,
+    profile,
     followLoading,
     approved,
     approveCurrency: approveFollowCurrency,
@@ -181,7 +185,6 @@ const Modals = () => {
           likeLoading={likeLoading}
           collectLoading={collectLoading}
           mirrorLoading={mirrorLoading}
-          authStatus={authStatus}
           profileId={profileId}
           progressRef={progressRef}
           handleSeek={handleSeek}
@@ -196,12 +199,26 @@ const Modals = () => {
           mirrorCommentLoading={mirrorCommentLoading}
           likeCommentLoading={likeCommentLoading}
           hasMoreComments={hasMoreComments}
-          hasMirrored={hasMirrored}
-          hasReacted={hasReacted}
           getMorePostComments={getMorePostComments}
           commentsOpen={commentsOpen}
           setCommentsOpen={setCommentsOpen}
           handleLensSignIn={handleLensSignIn}
+          lensProfile={lensProfile}
+        />
+      )}
+      {superFollow?.open && (
+        <FollowSuper
+          dispatch={dispatch}
+          followSuper={followSuper}
+          quickProfiles={quickProfiles}
+          rain={rain}
+          superCreatorLoading={superCreatorLoading}
+          canvasRef={canvasRef}
+          handleLensSignIn={handleLensSignIn}
+          signInLoading={signInLoading}
+          openConnectModal={openConnectModal}
+          connected={connected}
+          lensProfile={lensProfile?.id}
         />
       )}
       {reaction.open && (

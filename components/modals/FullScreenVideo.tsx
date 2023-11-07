@@ -21,7 +21,6 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
   fetchMoreVideos,
   videoLoading,
   setVideoLoading,
-  authStatus,
   profileId,
   likeAmount,
   formatTime,
@@ -50,14 +49,13 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
   collectCommentLoading,
   mirrorCommentLoading,
   likeCommentLoading,
-  hasMirrored,
-  hasReacted,
   commentId,
   commentsOpen,
   setCommentsOpen,
   handleLensSignIn,
   connected,
-  openConnectModal
+  openConnectModal,
+  lensProfile
 }): JSX.Element => {
   return (
     <Draggable
@@ -128,7 +126,6 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
               likeVideo={likeVideo}
               collectVideo={collectVideo}
               mirrorVideo={mirrorVideo}
-              authStatus={authStatus}
               profileId={profileId}
               likeLoading={likeLoading}
               mirrorLoading={mirrorLoading}
@@ -170,9 +167,8 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
               mirrorCommentLoading={mirrorCommentLoading}
               collectCommentLoading={collectCommentLoading}
               dispatch={dispatch}
-              hasMirrored={hasMirrored}
-              hasReacted={hasReacted}
               commentId={commentId}
+              lensProfile={lensProfile}
             />
           </div>
         )}

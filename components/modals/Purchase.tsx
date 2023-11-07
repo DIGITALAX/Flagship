@@ -27,7 +27,7 @@ const Purchase: FunctionComponent<PurchaseProps> = ({
         id="modal"
       >
         <div
-          className="relative w-full h-fit justify-end pr-3 pt-3 cursor-pointer flex"
+          className="relative w-full h-fit justify-end pr-3 pt-3 cursor-sewingHS flex"
           onClick={() =>
             dispatch(
               setPurchase({

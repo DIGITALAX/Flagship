@@ -1,8 +1,8 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Publication } from "../../types/lens.types";
+import { Post } from "../../types/generated";
 
 export interface ChannelsState {
-  value: Publication[];
+  value: Post[];
 }
 
 const initialChannelsState: ChannelsState = {
@@ -13,10 +13,7 @@ export const channelsSlice = createSlice({
   name: "channels",
   initialState: initialChannelsState,
   reducers: {
-    setChannelsRedux: (
-      state: ChannelsState,
-      action: PayloadAction<Publication[]>
-    ) => {
+    setChannelsRedux: (state: ChannelsState, action: PayloadAction<Post[]>) => {
       state.value = action.payload;
     },
   },

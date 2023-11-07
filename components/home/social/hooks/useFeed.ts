@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
-import { feedTimeline } from "../../../../graphql/queries/explorePublications";
 import { useFeedResults } from "../../../../types/general.types";
 import { useMediaQuery } from "@material-ui/core";
+import { profilePublications } from "../../../../graphql/queries/getPublications";
+import {
+  LimitType,
+  Mirror,
+  Post,
+  PublicationType,
+  Quote,
+} from "../../../../types/generated";
 
 const useFeed = (): useFeedResults => {
-  const [publicationsFeed, setPublicationsFeed] = useState<any[]>([]);
+  const [publicationsFeed, setPublicationsFeed] = useState<(Post | Quote | Mirror)[]>([]);
   const [pageInfo, setPageInfo] = useState<any>([]);
   let queryWindowSize: boolean = useMediaQuery("(max-width:1024px)");
   let queryWindowSizeMobile: boolean = useMediaQuery("(max-width:950px)");
@@ -16,17 +23,26 @@ const useFeed = (): useFeedResults => {
 
   const getFeedData = async (): Promise<any> => {
     try {
-      const response = await feedTimeline({
-        profileIds: ["0x016305", "0x01c6a9"],
-        publicationTypes: ["POST", "COMMENT", "MIRROR"],
-        limit: 5,
+      const response = await profilePublications({
+        where: {
+          from: ["0x016305", "0x01c6a9"],
+          publicationTypes: [
+            PublicationType.Mirror,
+            PublicationType.Quote,
+            PublicationType.Post,
+          ],
+        },
+        limit: LimitType.Ten,
       });
-      const arr: any[] = [...response?.data.publications.items];
-      const sortedArr: any[] = arr.sort(
-        (a: any, b: any) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
+      const arr: (Post | Quote | Mirror)[] = [
+        ...(response?.data?.publications.items || []),
+      ] as (Post | Quote | Mirror)[];
+      const sortedArr: (Post | Quote | Mirror)[] = arr.sort(
+        (a: Post | Quote | Mirror, b: Post | Quote | Mirror) =>
+          Date.parse(b.createdAt) - Date.parse(a.createdAt)
       );
       setPublicationsFeed(sortedArr);
-      setPageInfo(response?.data.publications.pageInfo);
+      setPageInfo(response?.data?.publications.pageInfo);
     } catch (err: any) {
       console.error(err.message);
     }
@@ -37,18 +53,27 @@ const useFeed = (): useFeedResults => {
       return;
     }
     try {
-      const morePublications = await feedTimeline({
-        profileIds: ["0x016305", "0x01c6a9"],
-        publicationTypes: ["POST", "COMMENT", "MIRROR"],
-        limit: 5,
+      const morePublications = await profilePublications({
+        where: {
+          from: ["0x016305", "0x01c6a9"],
+          publicationTypes: [
+            PublicationType.Mirror,
+            PublicationType.Quote,
+            PublicationType.Post,
+          ],
+        },
+        limit: LimitType.Ten,
         cursor: pageInfo?.next,
       });
-      const arr = [...morePublications?.data.publications.items];
+      const arr: (Post | Quote | Mirror)[] = [
+        ...(morePublications?.data?.publications.items || []),
+      ] as (Post | Quote | Mirror)[];
       const sortedArr = arr.sort(
-        (a: any, b: any) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
+        (a: Post | Quote | Mirror, b: Post | Quote | Mirror) =>
+          Date.parse(b.createdAt) - Date.parse(a.createdAt)
       );
       setPublicationsFeed([...publicationsFeed, ...sortedArr]);
-      setPageInfo(morePublications?.data.publications.pageInfo);
+      setPageInfo(morePublications?.data?.publications.pageInfo);
     } catch (err: any) {
       console.error(err.message);
     }

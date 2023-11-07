@@ -1,35 +1,27 @@
+import { FollowModuleInput } from "../../../types/generated";
+
 const createFollowModule = (
-    type: string | undefined,
-    value: number,
-    currency: string | undefined,
-    id: string
-  ): any => {
-    let followModule: any;
-    if (type === "FreeFollowModule" || !type) {
-      followModule = null;
-    } else if (type === "RevertFollowModule") {
-      followModule = {
-        revertFollowModule: true,
-      };
-    } else if (type === "ProfileFollowModule") {
-      followModule = {
-        profileFollowModule: {
-          profileId: id,
-        },
-      };
-    } else {
-      followModule = {
-        feeFollowModule: {
+  type: string | undefined,
+  value: number,
+  currency: string | undefined,
+  recipient: string
+): FollowModuleInput => {
+  let followModule: FollowModuleInput = {
+    freeFollowModule: type === "FreeFollowModule" || !type ? true : undefined,
+    revertFollowModule: type === "RevertFollowModule" ? true : undefined,
+
+    feeFollowModule: value
+      ? {
           amount: {
             currency,
             value: String(Number(value).toFixed(2)),
           },
-        },
-      };
-    }
-  
-    return followModule;
+          recipient,
+        }
+      : undefined,
   };
-  
-  export default createFollowModule;
-  
+
+  return followModule;
+};
+
+export default createFollowModule;

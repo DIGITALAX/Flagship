@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 import { setVideoPlayer } from "../../redux/reducers/videoPlayerSlice";
 import { INFURA_GATEWAY } from "../../lib/lens/constants";
+import { setSuperFollow } from "../../redux/reducers/superFollowSlice";
 
 const Header: FunctionComponent<HeaderProps> = ({
   rewind,
@@ -41,7 +42,10 @@ const Header: FunctionComponent<HeaderProps> = ({
       </div>
       <div className="relative col-start-1 row-start-2 md:col-start-2 w-full md:row-start-1 text-center min-h-full h-full justify-self-center">
         <div className="grid grid-row-flow auto-rows-auto relative md:w-fit h-fit justify-center w-full">
-          <div className="relative w-10 h-16 row-start-1 place-self-center pb-2">
+          <div
+            className="relative w-10 h-16 row-start-1 place-self-center pb-2 cursor-sewingHS"
+            onClick={() => dispatch(setSuperFollow(true))}
+          >
             <div
               className={`border border-2 border-mainText w-full h-full min-h-full relative flex ${
                 blur && "blur-sm animate-unblur"

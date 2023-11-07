@@ -42,56 +42,6 @@ const Home: NextPage<HomeProps> = ({ queryWindowSize2XL, shop }) => {
     }
   }, []);
 
-  // const [position, setPosition] = useState({ x: 0, y: 0 });
-  // const [direction, setDirection] = useState({ x: 1, y: 1 });
-
-  // const imageRef = useRef<HTMLDivElement>(null);
-  // const parentRef = useRef<HTMLDivElement>(null);
-
-  // useEffect(() => {
-  //   if (imageRef.current && parentRef.current) {
-  //     const intervalId = setInterval(() => {
-  //       setPosition((prevPosition) => {
-  //         const imageWidth = imageRef.current!.offsetWidth;
-  //         const imageHeight = imageRef.current!.offsetHeight;
-  //         const parentWidth = parentRef.current!.offsetWidth;
-  //         const parentHeight = parentRef.current!.offsetHeight;
-  //         const offsetX = imageWidth;
-  //         const offsetY = imageHeight;
-  //         const nextX = prevPosition.x + direction.x * 1.5;
-  //         const nextY = prevPosition.y + direction.y * 1.5;
-  //         const minX = 0;
-  //         const minY = 0;
-  //         const maxX = parentWidth - imageWidth;
-  //         const maxY = parentHeight - imageHeight;
-
-  //         let nextDirection = { x: direction.x, y: direction.y };
-  //         if (nextX <= minX) {
-  //           nextDirection.x = 1;
-  //         } else if (nextX >= maxX) {
-  //           nextDirection.x = -1;
-  //         }
-
-  //         if (nextY <= minY) {
-  //           nextDirection.y = 1;
-  //         } else if (nextY >= maxY) {
-  //           nextDirection.y = -1;
-  //         }
-
-  //         const boundedX = Math.max(minX, Math.min(maxX, nextX));
-  //         const boundedY = Math.max(minY, Math.min(maxY, nextY));
-
-  //         setDirection(nextDirection);
-  //         return { x: boundedX, y: boundedY };
-  //       });
-  //     }, 2);
-
-  //     return () => {
-  //       clearInterval(intervalId);
-  //     };
-  //   }
-  // }, [position, direction, imageRef, parentRef]);
-
   return (
     <div className="min-w-screen min-h-full h-full flex flex-col bg-mainBg">
       <Head>
@@ -102,30 +52,12 @@ const Home: NextPage<HomeProps> = ({ queryWindowSize2XL, shop }) => {
         />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:site_name" content="DIGITALAX" />
-        <meta property="og:image" content="https://digitalax.xyz/card.png/" />
+        <meta property="og:image" content="https://www.digitalax.xyz/card.png/" />
         <meta property="og:type" content="website" />
       </Head>
       <div className="relative w-full h-fit flex flex-col">
         <Title />
         <Banner />
-        {/* <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center z-10">
-          <div className="relative w-full h-full overflow-hidden">
-            <div
-              className="relative w-10 sm:w-20 w-10 sm:h-20"
-              style={{ left: position.x, top: position.y }}
-              ref={imageRef}
-            >
-              <a
-                className="h-full w-full relative cursor-sewingHS"
-                target="_blank"
-                rel="noreferrer"
-                href="https://www.chromadin.xyz"
-              >
-                <Image src="/images/radio.png" width={100} height={100} />
-              </a>
-            </div>
-          </div>
-        </div> */}
       </div>
       <Display
         shop={shop}

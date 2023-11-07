@@ -1,26 +1,18 @@
-import { FetchResult, gql } from "@apollo/client";
+import { FetchResult } from "@apollo/client";
 import { authClient } from "../../lib/lens/client";
-
-const AUTHENTICATE_LOGIN = `
-mutation Authenticate($request: SignedAuthChallenge!) { 
-  authenticate(request: $request) {
-    accessToken
-    refreshToken
-  }
-}
-`;
+import {
+  AuthenticateDocument,
+  AuthenticateMutation,
+  SignedAuthChallenge,
+} from "../../types/generated";
 
 const authenticate = async (
-  address: string | undefined,
-  signature: string
-): Promise<FetchResult<any, Record<string, any>, Record<string, any>>> => {
-  return authClient.mutate({
-    mutation: gql(AUTHENTICATE_LOGIN),
+  request: SignedAuthChallenge
+): Promise<FetchResult<AuthenticateMutation>> => {
+  return await authClient.mutate({
+    mutation: AuthenticateDocument,
     variables: {
-      request: {
-        address,
-        signature,
-      },
+      request,
     },
   });
 };

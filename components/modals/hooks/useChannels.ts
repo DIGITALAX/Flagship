@@ -1,27 +1,27 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import lodash from "lodash";
-import { ApolloQueryResult } from "@apollo/client";
+import { FetchResult } from "@apollo/client";
 import json from "./../../../public/videos/local.json";
 import { RootState } from "../../../redux/store";
 import { setVideoSync } from "../../../redux/reducers/videoSyncSlice";
-import {
-  profilePublications,
-  profilePublicationsAuth,
-} from "../../../graphql/queries/whoComment";
 import { setHasMoreVideosRedux } from "../../../redux/reducers/hasMoreVideoSlice";
 import { setChannelsRedux } from "../../../redux/reducers/channelsSlice";
 import { setVideoCount } from "../../../redux/reducers/videoCountSlice";
-import { Publication } from "../../../types/lens.types";
 import { setMainVideo } from "../../../redux/reducers/mainVideoSlice";
-import checkIfMirrored from "../../../lib/lens/helpers/checkIfMirrored";
-import checkPostReactions from "../../../lib/lens/helpers/checkPostReactions";
 import { setReactId } from "../../../redux/reducers/reactIdSlice";
+import {
+  LimitType,
+  Post,
+  PublicationType,
+  PublicationsQuery,
+} from "../../../types/generated";
+import {
+  profilePublications,
+  profilePublicationsAuth,
+} from "../../../graphql/queries/getPublications";
 
 const useChannels = () => {
-  const authStatus = useSelector(
-    (state: RootState) => state.app.authStatusReducer.value
-  );
   const mainVideo = useSelector(
     (state: RootState) => state.app.mainVideoReducer
   );
@@ -60,33 +60,32 @@ const useChannels = () => {
         actionVideosLoading: true,
       })
     );
-    let data: ApolloQueryResult<any>,
-      hasReactedArr: any[] = [],
-      hasMirroredArr: any[] = [],
-      sortedArr: any[] = [];
+    let data: FetchResult<PublicationsQuery>,
+      sortedArr: Post[] = [];
     try {
-      if (authStatus && lensProfile) {
-        data = await profilePublicationsAuth(
-          {
-            profileId: "0x01c6a9",
-            publicationTypes: ["POST"],
-            limit: 10,
+      if (lensProfile) {
+        data = await profilePublicationsAuth({
+          limit: LimitType.Ten,
+          where: {
+            publicationTypes: [PublicationType.Post],
+            from: ["0x01c6a9"],
           },
-          lensProfile
-        );
+        });
       } else {
         data = await profilePublications({
-          profileId: "0x01c6a9",
-          publicationTypes: ["POST"],
-          limit: 10,
+          limit: LimitType.Ten,
+          where: {
+            publicationTypes: [PublicationType.Post],
+            from: ["0x01c6a9"],
+          },
         });
       }
       if (!data || !data?.data || data?.data.publications?.items?.length < 1) {
         return;
       }
-      const arr: any[] = [...data?.data.publications?.items];
+      const arr: Post[] = [...data?.data.publications?.items] as Post[];
       sortedArr = arr.sort(
-        (a: any, b: any) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
+        (a: Post, b: Post) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
       );
       if (sortedArr?.length < 10) {
         dispatch(setHasMoreVideosRedux(false));
@@ -97,33 +96,18 @@ const useChannels = () => {
       dispatch(setChannelsRedux(sortedArr));
       dispatch(
         setVideoCount({
-          actionLike: sortedArr.map(
-            (obj: Publication) => obj.stats.totalUpvotes
-          ),
-          actionMirror: sortedArr.map(
-            (obj: Publication) => obj.stats.totalAmountOfMirrors
-          ),
+          actionLike: sortedArr.map((obj: Post) => obj.stats.reactions),
+          actionMirror: sortedArr.map((obj: Post) => obj.stats.mirrors),
           actionCollect: sortedArr.map(
-            (obj: Publication) => obj.stats.totalAmountOfCollects
+            (obj: Post) => obj.stats.countOpenActions
           ),
         })
       );
-      if (authStatus && lensProfile) {
-        hasReactedArr = await checkPostReactions(
-          {
-            profileId: "0x01c6a9",
-            publicationTypes: ["POST"],
-            limit: 10,
-          },
-          lensProfile
-        );
-        hasMirroredArr = await checkIfMirrored(sortedArr, lensProfile);
-      }
       dispatch(
         setMainVideo({
-          actionCollected: sortedArr[0]?.hasCollectedByMe,
-          actionLiked: hasReactedArr?.[0],
-          actionMirrored: hasMirroredArr?.[0],
+          actionCollected: sortedArr[0].operations.actedOn,
+          actionLiked: sortedArr[0].operations.hasReacted,
+          actionMirrored: sortedArr[0].operations.hasMirrored,
           actionId: sortedArr[0].id,
           actionLocal: `${json[0].link}`,
         })
@@ -137,10 +121,14 @@ const useChannels = () => {
         actionDuration: videoSync.duration,
         actionCurrentTime: videoSync.currentTime,
         actionIsPlaying: videoSync.isPlaying,
-        actionLikedArray: hasReactedArr?.length > 0 ? hasReactedArr : [],
-        actionMirroredArray: hasMirroredArr?.length > 0 ? hasMirroredArr : [],
+        actionLikedArray: sortedArr?.map(
+          (obj: Post) => obj.operations.hasReacted
+        ),
+        actionMirroredArray: sortedArr?.map(
+          (obj: Post) => obj.operations.hasMirrored
+        ),
         actionCollectedArray: sortedArr?.map(
-          (obj: Publication) => obj?.hasCollectedByMe
+          (obj: Post) => obj.operations.hasActed?.isFinalisedOnchain
         ),
         actionVideosLoading: false,
       })
@@ -148,36 +136,37 @@ const useChannels = () => {
   };
 
   const fetchMoreVideos = async () => {
-    let data: ApolloQueryResult<any>,
-      hasReactedArr: any[] = [],
-      hasMirroredArr: any[] = [],
-      sortedArr: any[] = [];
+    let data: FetchResult<PublicationsQuery>,
+      sortedArr: Post[] = [];
     if (!paginated?.next) {
       dispatch(setHasMoreVideosRedux(false));
       return;
     }
     try {
-      if (authStatus && lensProfile) {
-        data = await profilePublicationsAuth(
-          {
-            profileId: "0x01c6a9",
-            publicationTypes: ["POST"],
-            limit: 10,
-            cursor: paginated?.next,
+      if (lensProfile) {
+        data = await profilePublicationsAuth({
+          limit: LimitType.Ten,
+          where: {
+            publicationTypes: [PublicationType.Post],
+            from: ["0x01c6a9"],
           },
-          lensProfile
-        );
+          cursor: paginated?.next,
+        });
       } else {
         data = await profilePublications({
-          profileId: "0x01c6a9",
-          publicationTypes: ["POST"],
-          limit: 10,
+          limit: LimitType.Ten,
+          where: {
+            publicationTypes: [PublicationType.Post],
+            from: ["0x01c6a9"],
+          },
           cursor: paginated?.next,
         });
       }
-      const arr: any[] = [...data?.data.publications?.items];
+      const arr: Post[] = [
+        ...(data?.data?.publications?.items || []),
+      ] as Post[];
       sortedArr = arr.sort(
-        (a: any, b: any) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
+        (a: Post, b: Post) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
       );
 
       if (sortedArr?.length < 10) {
@@ -185,40 +174,24 @@ const useChannels = () => {
       } else {
         dispatch(setHasMoreVideosRedux(true));
       }
-      setPaginated(data?.data.publications?.pageInfo);
+      setPaginated(data?.data?.publications?.pageInfo);
       dispatch(setChannelsRedux([...channelsDispatched, ...sortedArr]));
       dispatch(
         setVideoCount({
           actionLike: [
             ...videoCount.like,
-            ...sortedArr.map((obj: Publication) => obj.stats.totalUpvotes),
+            ...sortedArr.map((obj: Post) => obj.stats.reactions),
           ],
           actionMirror: [
             ...videoCount.mirror,
-            ...sortedArr.map(
-              (obj: Publication) => obj.stats.totalAmountOfMirrors
-            ),
+            ...sortedArr.map((obj: Post) => obj.stats.mirrors),
           ],
           actionCollect: [
             ...videoCount.collect,
-            ...sortedArr.map(
-              (obj: Publication) => obj.stats.totalAmountOfCollects
-            ),
+            ...sortedArr.map((obj: Post) => obj.stats.countOpenActions),
           ],
         })
       );
-      if (authStatus && lensProfile) {
-        hasReactedArr = await checkPostReactions(
-          {
-            profileId: "0x01c6a9",
-            publicationTypes: ["POST"],
-            limit: 10,
-            cursor: paginated?.next,
-          },
-          lensProfile
-        );
-        hasMirroredArr = await checkIfMirrored(sortedArr, lensProfile);
-      }
     } catch (err: any) {
       console.error(err.message);
     }
@@ -230,15 +203,17 @@ const useChannels = () => {
         actionIsPlaying: videoSync.isPlaying,
         actionLikedArray: [
           ...videoSync.likedArray,
-          ...(hasReactedArr?.length > 0 ? hasReactedArr : []),
+          ...sortedArr?.map((obj) => obj.operations.hasReacted),
         ],
         actionMirroredArray: [
           ...videoSync.mirroredArray,
-          ...(hasMirroredArr?.length > 0 ? hasMirroredArr : []),
+          ...sortedArr?.map((obj) => obj.operations.hasMirrored),
         ],
         actionCollectedArray: [
           ...videoSync.collectedArray,
-          ...sortedArr?.map((obj: Publication) => obj?.hasCollectedByMe),
+          ...sortedArr?.map(
+            (obj) => obj.operations.hasActed?.isFinalisedOnchain
+          ),
         ],
         actionVideosLoading: videoSync.videosLoading,
       })
@@ -247,56 +222,44 @@ const useChannels = () => {
       videos: [...channelsDispatched, ...sortedArr],
       mirrors: [
         ...videoSync.mirroredArray,
-        ...(hasMirroredArr?.length > 0 ? hasMirroredArr : []),
+        ...sortedArr?.map((obj) => obj.operations.hasMirrored),
       ],
       collects: [
         ...videoSync.collectedArray,
-        ...sortedArr?.map((obj: Publication) => obj?.hasCollectedByMe),
+        ...sortedArr?.map((obj) => obj.operations.hasActed?.isFinalisedOnchain),
       ],
       likes: [
         ...videoSync.likedArray,
-        ...(hasReactedArr?.length > 0 ? hasReactedArr : []),
+        ...sortedArr?.map((obj) => obj.operations.hasReacted),
       ],
     };
   };
 
   const refetchInteractions = async () => {
-    let data: ApolloQueryResult<any>;
+    let data: FetchResult<PublicationsQuery>;
     try {
-      if (authStatus && lensProfile) {
-        data = await profilePublicationsAuth(
-          {
-            profileId: "0x01c6a9",
-            publicationTypes: ["POST"],
-            limit: 10,
+      if (lensProfile) {
+        data = await profilePublicationsAuth({
+          limit: LimitType.Ten,
+          where: {
+            publicationTypes: [PublicationType.Post],
+            from: ["0x01c6a9"],
           },
-          lensProfile
-        );
+        });
       } else {
         data = await profilePublications({
-          profileId: "0x01c6a9",
-          publicationTypes: ["POST"],
-          limit: 10,
+          limit: LimitType.Ten,
+          where: {
+            publicationTypes: [PublicationType.Post],
+            from: ["0x01c6a9"],
+          },
         });
       }
-      const arr: any[] = [...data?.data.publications?.items];
-      const sortedArr: any[] = arr.sort(
-        (a: any, b: any) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
-      );
-      const hasReactedArr = await checkPostReactions(
-        {
-          profileId: "0x01c6a9",
-          publicationTypes: ["POST"],
-          limit: 10,
-        },
-        lensProfile
-      );
-      const hasMirroredArr = await checkIfMirrored(
-        channelsDispatched,
-        lensProfile
-      );
-      const hasCollectedArr = sortedArr.map(
-        (obj: Publication) => obj.hasCollectedByMe
+      const arr: Post[] = [
+        ...(data?.data?.publications?.items || []),
+      ] as Post[];
+      const sortedArr: Post[] = arr.sort(
+        (a: Post, b: Post) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
       );
       dispatch(
         setVideoSync({
@@ -304,22 +267,22 @@ const useChannels = () => {
           actionDuration: videoSync.duration,
           actionCurrentTime: videoSync.currentTime,
           actionIsPlaying: videoSync.isPlaying,
-          actionLikedArray: hasReactedArr,
-          actionMirroredArray: hasMirroredArr,
-          actionCollectedArray: hasCollectedArr,
+          actionLikedArray: sortedArr.map((obj: Post) => obj.stats.comments),
+          actionMirroredArray: sortedArr.map(
+            (obj: Post) => obj.operations.hasMirrored
+          ),
+          actionCollectedArray: sortedArr.map(
+            (obj: Post) => obj.operations.hasActed?.isFinalisedOnchain
+          ),
           actionVideosLoading: videoSync.videosLoading,
         })
       );
       dispatch(
         setVideoCount({
-          actionLike: sortedArr.map(
-            (obj: Publication) => obj.stats.totalUpvotes
-          ),
-          actionMirror: sortedArr.map(
-            (obj: Publication) => obj.stats.totalAmountOfMirrors
-          ),
+          actionLike: sortedArr.map((obj: Post) => obj.stats.reactions),
+          actionMirror: sortedArr.map((obj: Post) => obj.stats.mirrors),
           actionCollect: sortedArr.map(
-            (obj: Publication) => obj.stats.totalAmountOfCollects
+            (obj: Post) => obj.stats.countOpenActions
           ),
         })
       );
@@ -329,9 +292,15 @@ const useChannels = () => {
         });
         dispatch(
           setMainVideo({
-            actionCollected: hasCollectedArr?.[currentIndex],
-            actionLiked: hasReactedArr?.[currentIndex],
-            actionMirrored: hasMirroredArr?.[currentIndex],
+            actionCollected: sortedArr.map(
+              (obj: Post) => obj.operations.hasActed?.isFinalisedOnchain
+            )?.[currentIndex],
+            actionLiked: sortedArr.map(
+              (obj: Post) => obj.operations.hasReacted
+            )?.[currentIndex],
+            actionMirrored: sortedArr.map(
+              (obj: Post) => obj.operations.hasMirrored
+            )?.[currentIndex],
             actionId: mainVideo.id,
             actionLocal: mainVideo.local,
           })

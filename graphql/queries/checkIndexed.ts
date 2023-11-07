@@ -1,124 +1,52 @@
-import { gql } from "@apollo/client";
+import { FetchResult } from "@apollo/client";
+import {
+  LensTransactionFailureType,
+  LensTransactionStatusDocument,
+  LensTransactionStatusQuery,
+  LensTransactionStatusRequest,
+  LensTransactionStatusType,
+} from "../../types/generated";
 import { apolloClient } from "../../lib/lens/client";
 
-const INDEXED = `
-query HasTxHashBeenIndexed($request: HasTxHashBeenIndexedRequest!) {
-    hasTxHashBeenIndexed(request: $request) {
-      ... on TransactionIndexedResult {
-        indexed
-        txReceipt {
-          to
-          from
-          contractAddress
-          transactionIndex
-          root
-          gasUsed
-          logsBloom
-          blockHash
-          transactionHash
-          blockNumber
-          confirmations
-          cumulativeGasUsed
-          effectiveGasPrice
-          byzantium
-          type
-          status
-          logs {
-            blockNumber
-            blockHash
-            transactionIndex
-            removed
-            address
-            data
-            topics
-            transactionHash
-            logIndex
-          }
-        }
-        metadataStatus {
-          status
-          reason
-        }
-      }
-      ... on TransactionError {
-        reason
-        txReceipt {
-          to
-          from
-          contractAddress
-          transactionIndex
-          root
-          gasUsed
-          logsBloom
-          blockHash
-          transactionHash
-          blockNumber
-          confirmations
-          cumulativeGasUsed
-          effectiveGasPrice
-          byzantium
-          type
-          status
-          logs {
-            blockNumber
-            blockHash
-            transactionIndex
-            removed
-            address
-            data
-            topics
-            transactionHash
-            logIndex
-          }
-        }
-      },
-      __typename
-    }
-  }
-`;
-
-export const checkIndexed = (txHash?: string) => {
-  return apolloClient.query({
-    query: gql(INDEXED),
+const getIndexed = async (
+  request: LensTransactionStatusRequest
+): Promise<FetchResult<LensTransactionStatusQuery>> => {
+  return await apolloClient.query({
+    query: LensTransactionStatusDocument,
     variables: {
-      request: {
-        txHash,
-      },
+      request: request,
     },
-    fetchPolicy: "network-only",
+    fetchPolicy: "no-cache",
   });
 };
 
-const pollUntilIndexed = async (txHash: string, success: boolean) => {
+const pollUntilIndexed = async (
+  request: LensTransactionStatusRequest
+): Promise<boolean | LensTransactionFailureType> => {
   let count = 0;
-  while (true) {
+  while (count < 100) {
     try {
-      const response: any = await checkIndexed(txHash);
-      if (
-        response?.data?.hasTxHashBeenIndexed?.__typename ===
-        "TransactionIndexedResult"
-      ) {
-        if (
-          (response?.data?.hasTxHashBeenIndexed?.metadataStatus?.status ===
-            "SUCCESS" &&
-            success) ||
-          (response?.data?.hasTxHashBeenIndexed?.indexed && !success)
-        ) {
-          return true;
-        } else {
-          if (response?.data?.hasTxHashBeenIndexed?.indexed === false) {
-            if (count == 2) {
-              return false;
-            }
-          }
+      const { data } = await getIndexed(request);
+      if (data && data.lensTransactionStatus) {
+        switch (data.lensTransactionStatus.status) {
+          case LensTransactionStatusType.Failed:
+            return data.lensTransactionStatus.reason!;
+          case LensTransactionStatusType.Complete:
+            return true;
+          case LensTransactionStatusType.Processing:
+          case LensTransactionStatusType.OptimisticallyUpdated:
+            count += 1;
+            await new Promise((resolve) => setTimeout(resolve, 6000));
+            break;
+          default:
+            throw new Error("Unexpected status");
         }
       }
-      count += 1;
-      await new Promise((resolve) => setTimeout(resolve, 6000));
     } catch (err: any) {
       console.error(err.message);
     }
   }
+  return false;
 };
 
 export default pollUntilIndexed;

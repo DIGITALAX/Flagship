@@ -12,12 +12,12 @@ const ImageLarge: FunctionComponent<ImageLargeProps> = ({
   return (
     <div className="inset-0 justify-center fixed z-60 bg-opacity-50 backdrop-blur-sm overflow-y-hidden grid grid-flow-col auto-cols-auto w-full h-auto">
       <div
-        className="relative w-screen h-full col-start-1 justify-self-center grid grid-flow-col auto-cols-auto self-start cursor-pointer"
+        className="relative w-screen h-full col-start-1 justify-self-center grid grid-flow-col auto-cols-auto self-start cursor-sewingHS"
         onClick={() =>
           dispatch(
             setImageViewer({
               actionType: "",
-              actionOpen: false,
+              actionValue: false,
               actionImage: "",
             })
           )
@@ -45,7 +45,8 @@ const ImageLarge: FunctionComponent<ImageLargeProps> = ({
               >
                 <source src={mainImage} />
               </audio>
-            ) : mainImage.includes("index") ? (
+            ) : mainImage?.includes("index") ||
+              mainImage?.includes("gw.ipfs-lens.dev") ? (
               <div className="rounded-md absolute w-full h-full object-cover">
                 <ReactPlayer
                   url={mainImage}

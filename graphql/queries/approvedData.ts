@@ -1,19 +1,18 @@
-import { gql } from "@apollo/client";
+import { FetchResult } from "@apollo/client";
+import {
+  GenerateModuleCurrencyApprovalDataDocument,
+  GenerateModuleCurrencyApprovalDataQuery,
+  GenerateModuleCurrencyApprovalDataRequest,
+} from "../../types/generated";
 import { apolloClient } from "../../lib/lens/client";
 
-export const APPROVE_DATA = `query GenerateModuleCurrencyApprovalData($request: GenerateModuleCurrencyApprovalDataRequest!) {
-    generateModuleCurrencyApprovalData(request: $request) {
-      to
-      from
-      data
-    }
-  }`;
-
-const approvedData = (request: any) => {
-  return apolloClient.query({
-    query: gql(APPROVE_DATA),
+const approvedData = async (
+  request: GenerateModuleCurrencyApprovalDataRequest
+): Promise<FetchResult<GenerateModuleCurrencyApprovalDataQuery>> => {
+  return await apolloClient.query({
+    query: GenerateModuleCurrencyApprovalDataDocument,
     variables: {
-      request: request,
+      request,
     },
     fetchPolicy: "network-only",
   });

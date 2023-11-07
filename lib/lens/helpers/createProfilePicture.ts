@@ -1,32 +1,34 @@
+import { Maybe } from "graphql/jsutils/Maybe";
+import { NftImage, ProfilePicture } from "../../../types/generated";
 import { INFURA_GATEWAY } from "../constants";
 
-const createProfilePicture = (publication: any, mirror?: boolean): string => {
+const createProfilePicture = (
+  publication: Maybe<ProfilePicture> | undefined
+): string => {
   let profileImage: string;
-  let formattedPrefix: any;
-  if (!mirror) {
-    formattedPrefix = publication?.picture;
-  } else {
-    if (publication?.__typename === "Mirror") {
-      formattedPrefix = publication?.mirrorOf?.profile?.picture;
-    } else if (
-      publication?.__typename === "Post" ||
-      publication?.__typename === "Comment"
-    ) {
-      formattedPrefix = publication?.profile?.picture;
-    }
+
+  if (!publication) {
+    return "";
   }
-  if (!formattedPrefix?.original) {
-    profileImage = "";
-  } else if (formattedPrefix?.original) {
-    if (formattedPrefix?.original?.url.includes("http")) {
-      profileImage = formattedPrefix?.original.url;
+
+  if (publication?.__typename === "ImageSet") {
+    if (publication?.raw?.uri) {
+      profileImage = `${INFURA_GATEWAY}/ipfs/${
+        publication?.raw?.uri?.split("ipfs://")[1]
+      }`;
     } else {
-      const cut = formattedPrefix?.original?.url.split("://");
-      profileImage = `${INFURA_GATEWAY}/ipfs/${cut[1]}`;
+      profileImage = publication?.optimized?.uri;
     }
   } else {
-    profileImage = formattedPrefix?.uri;
+    if ((publication as NftImage)?.image?.raw?.uri) {
+      profileImage = `${INFURA_GATEWAY}/ipfs/${
+        (publication as NftImage)?.image?.raw?.uri?.split("ipfs://")[1]
+      }`;
+    } else {
+      profileImage = (publication as NftImage)?.image?.optimized?.uri;
+    }
   }
+
   return profileImage;
 };
 

@@ -1,19 +1,24 @@
 import { useEffect, useState } from "react";
-import lodash from "lodash";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
-import whoReactedublications from "../../../graphql/queries/whoReactedPublications";
-import { whoMirroredPublications } from "../../../graphql/queries/whoMirroredPublications";
-import whoCollectedPublications from "../../../graphql/queries/whoCollectedPublications";
+import {
+  LimitType,
+  Profile,
+  ProfileWhoReactedResult,
+  PublicationReactionType,
+} from "../../../types/generated";
+import { whoActed } from "../../../graphql/queries/whoActed";
+import getProfiles from "../../../graphql/queries/getProfiles";
+import { whoReacted } from "../../../graphql/queries/reactor";
 
 const useWho = () => {
   const [reactInfoLoading, setReactInfoLoading] = useState<boolean>(false);
-  const [reacters, setReacters] = useState<any[]>([]);
+  const [reacters, setReacters] = useState<ProfileWhoReactedResult[]>([]);
   const [reactionPageInfo, setReactionPageInfo] = useState<any>();
-  const [mirrorers, setMirrorers] = useState<any[]>([]);
+  const [mirrorers, setMirrorers] = useState<Profile[]>([]);
   const [mirrorInfoLoading, setMirrorInfoLoading] = useState<any>();
   const [mirrorPageInfo, setMirrorPageInfo] = useState<any>();
-  const [collectors, setCollectors] = useState<any[]>([]);
+  const [collectors, setCollectors] = useState<Profile[]>([]);
   const [collectInfoLoading, setCollectInfoLoading] = useState<any>();
   const [collectPageInfo, setCollectPageInfo] = useState<any>();
   const [hasMoreReact, setHasMoreReact] = useState<boolean>(true);
@@ -30,24 +35,23 @@ const useWho = () => {
   const getPostReactions = async (): Promise<void> => {
     setReactInfoLoading(true);
     try {
-      const reactions = await whoReactedublications({
-        publicationId: pubId,
-        limit: 10,
+      const reactions = await whoReacted({
+        for: pubId,
+        limit: LimitType.Ten,
+        where: {
+          anyOf: [PublicationReactionType.Upvote],
+        },
       });
-      const upvoteArr = lodash.filter(
-        reactions?.data?.whoReactedPublication.items,
-        (item) => item.reaction === "UPVOTE"
-      );
-      const arr: any[] = [...upvoteArr];
-      const sortedArr: any[] = arr.sort(
-        (a: any, b: any) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
-      );
-      if (sortedArr?.length < 10) {
+
+      const arr: ProfileWhoReactedResult[] = [
+        ...(reactions?.data?.whoReactedPublication.items || []),
+      ] as ProfileWhoReactedResult[];
+      if (arr?.length < 10) {
         setHasMoreReact(false);
       } else {
         setHasMoreReact(true);
       }
-      setReacters(sortedArr);
+      setReacters(arr as ProfileWhoReactedResult[]);
       setReactionPageInfo(reactions?.data?.whoReactedPublication?.pageInfo);
     } catch (err: any) {
       console.error(err.message);
@@ -62,22 +66,26 @@ const useWho = () => {
         setHasMoreReact(false);
         return;
       }
-      const reactions = await whoReactedublications({
-        publicationId: pubId,
-        limit: 10,
+      const reactions = await whoReacted({
+        for: pubId,
+        limit: LimitType.Ten,
+        where: {
+          anyOf: [PublicationReactionType.Upvote],
+        },
         cursor: reactionPageInfo?.next,
       });
-      const arr: any[] = [...reactions?.data?.whoReactedPublication?.items];
-      const sortedArr: any[] = arr.sort(
-        (a: any, b: any) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
-      );
-      if (sortedArr?.length < 10) {
+
+      const arr: ProfileWhoReactedResult[] = [
+        ...(reactions?.data?.whoReactedPublication?.items || []),
+      ] as ProfileWhoReactedResult[];
+
+      if (arr?.length < 10) {
         setHasMoreReact(false);
       } else {
         setHasMoreReact(true);
       }
-      setReacters([...reacters, ...sortedArr]);
-      setReactionPageInfo(reactions?.data.whoReactedPublication.pageInfo);
+      setReacters([...reacters, ...arr]);
+      setReactionPageInfo(reactions?.data?.whoReactedPublication?.pageInfo);
     } catch (err: any) {
       console.error(err.message);
     }
@@ -86,21 +94,24 @@ const useWho = () => {
   const getPostMirrors = async (): Promise<void> => {
     setMirrorInfoLoading(true);
     try {
-      const mirrors = await whoMirroredPublications({
-        whoMirroredPublicationId: pubId,
-        limit: 10,
+      const mirrors = await getProfiles({
+        where: {
+          whoMirroredPublication: pubId,
+        },
+        limit: LimitType.Ten,
       });
-      const arr: any[] = [...mirrors.data.profiles.items];
-      const sortedArr: any[] = arr.sort(
-        (a: any, b: any) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
-      );
-      if (sortedArr?.length < 10) {
+
+      const arr: Profile[] = [
+        ...(mirrors.data?.profiles?.items || []),
+      ] as Profile[];
+
+      if (arr?.length < 10) {
         setHasMoreMirror(false);
       } else {
         setHasMoreMirror(true);
       }
-      setMirrorers(sortedArr);
-      setMirrorPageInfo(mirrors?.data.profiles.pageInfo);
+      setMirrorers(arr);
+      setMirrorPageInfo(mirrors?.data?.profiles.pageInfo);
     } catch (err: any) {
       console.error(err.message);
     }
@@ -114,22 +125,25 @@ const useWho = () => {
         setHasMoreMirror(false);
         return;
       }
-      const mirrors = await whoMirroredPublications({
-        whoMirroredPublicationId: pubId,
-        limit: 10,
+      const mirrors = await getProfiles({
+        where: {
+          whoMirroredPublication: pubId,
+        },
+        limit: LimitType.Ten,
         cursor: mirrorPageInfo?.next,
       });
-      const arr: any[] = [...mirrors.data.profiles.items];
-      const sortedArr: any[] = arr.sort(
-        (a: any, b: any) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
-      );
-      if (sortedArr?.length < 10) {
+
+      const arr: Profile[] = [
+        ...(mirrors?.data?.profiles?.items || []),
+      ] as Profile[];
+
+      if (arr?.length < 10) {
         setHasMoreMirror(false);
       } else {
         setHasMoreMirror(true);
       }
-      setMirrorers([...mirrorers, ...sortedArr]);
-      setMirrorPageInfo(mirrors?.data.profiles.pageInfo);
+      setMirrorers([...mirrorers, ...arr]);
+      setMirrorPageInfo(mirrors?.data?.profiles.pageInfo);
     } catch (err: any) {
       console.error(err.message);
     }
@@ -138,21 +152,21 @@ const useWho = () => {
   const getPostCollects = async (): Promise<void> => {
     setCollectInfoLoading(true);
     try {
-      const collects = await whoCollectedPublications({
-        publicationId: pubId,
-        limit: 10,
+      const collects = await whoActed({
+        on: pubId,
+        limit: LimitType.Ten,
       });
-      const arr: any[] = [...collects.data.whoCollectedPublication.items];
-      const sortedArr: any[] = arr.sort(
-        (a: any, b: any) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
-      );
-      if (sortedArr?.length < 10) {
+      const arr: Profile[] = [
+        ...(collects.data?.whoActedOnPublication?.items || []),
+      ] as Profile[];
+
+      if (arr?.length < 10) {
         setHasMoreCollect(false);
       } else {
         setHasMoreCollect(true);
       }
-      setCollectors(sortedArr);
-      setCollectPageInfo(collects?.data.whoCollectedPublication.pageInfo);
+      setCollectors(arr);
+      setCollectPageInfo(collects?.data?.whoActedOnPublication.pageInfo);
     } catch (err: any) {
       console.error(err.message);
     }
@@ -166,22 +180,21 @@ const useWho = () => {
         setHasMoreCollect(false);
         return;
       }
-      const collects = await whoCollectedPublications({
-        publicationId: pubId,
-        limit: 10,
+      const collects = await whoActed({
+        on: pubId,
+        limit: LimitType.Ten,
         cursor: collectPageInfo?.next,
       });
-      const arr: any[] = [...collects.data.whoCollectedPublication.items];
-      const sortedArr: any[] = arr.sort(
-        (a: any, b: any) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
-      );
-      if (sortedArr?.length < 10) {
+      const arr: Profile[] = [
+        ...(collects.data?.whoActedOnPublication?.items || []),
+      ] as Profile[];
+      if (arr?.length < 10) {
         setHasMoreCollect(false);
       } else {
         setHasMoreCollect(true);
       }
-      setCollectors([...collectors, ...sortedArr]);
-      setCollectPageInfo(collects?.data.whoCollectedPublication.pageInfo);
+      setCollectors([...collectors, ...arr]);
+      setCollectPageInfo(collects?.data?.whoActedOnPublication?.pageInfo);
     } catch (err: any) {
       console.error(err.message);
     }

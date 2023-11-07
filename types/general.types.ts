@@ -1,5 +1,13 @@
 import { NextRouter } from "next/router";
-import { Erc20, Profile, Publication } from "./lens.types";
+import {
+  Comment,
+  Erc20,
+  FollowModule,
+  Mirror,
+  Post,
+  Profile,
+  Quote,
+} from "./generated";
 import { Dispatch, FormEvent, MouseEvent, Ref } from "react";
 import { AnyAction } from "redux";
 import ReactPlayer from "react-player";
@@ -113,7 +121,7 @@ export type ShelfProps = {
 };
 
 export type FeedProps = {
-  publicationsFeed: any[];
+  publicationsFeed: (Post | Quote | Mirror)[];
   getMoreFeed: () => Promise<any>;
   queryWindowSize: boolean;
   queryWindowSizeMobile: boolean;
@@ -122,7 +130,7 @@ export type FeedProps = {
 };
 
 export type SocialProps = {
-  publicationsFeed: any[];
+  publicationsFeed: (Post | Quote | Mirror)[];
   getMoreFeed: () => Promise<any>;
   queryWindowSize: boolean;
   queryWindowSizeMobile: boolean;
@@ -131,7 +139,7 @@ export type SocialProps = {
 };
 
 export type useFeedResults = {
-  publicationsFeed: any[];
+  publicationsFeed: (Post | Quote | Mirror)[];
   getMoreFeed: () => Promise<any>;
   queryWindowSize: boolean;
   queryWindowSizeMobile: boolean;
@@ -139,7 +147,7 @@ export type useFeedResults = {
 };
 
 export type GridProps = {
-  publicationsFeed: any[];
+  publicationsFeed: (Post | Quote | Mirror)[];
   getMoreFeed: () => Promise<any>;
   queryWindowSize: boolean;
   queryWindowSizeMobile: boolean;
@@ -148,7 +156,7 @@ export type GridProps = {
 };
 
 export type GridSmallProps = {
-  publicationsFeed: any[];
+  publicationsFeed: (Post | Quote | Mirror)[];
   getMoreFeed: () => Promise<any>;
   queryWindowSize: boolean;
   queryWindowSizeMobile: boolean;
@@ -265,8 +273,8 @@ export interface ApprovalArgs {
 }
 
 export type CommentsProps = {
-  commentors: Publication[];
-  video: Publication;
+  commentors: Comment[];
+  video: Post;
   getMorePostComments: () => Promise<void>;
   commentsLoading: boolean;
   hasMoreComments: boolean;
@@ -277,9 +285,8 @@ export type CommentsProps = {
   collectComment: (id?: string) => Promise<void>;
   mirrorComment: (id?: string) => Promise<void>;
   dispatch: Dispatch<AnyAction>;
-  hasMirrored: boolean[];
-  hasReacted: boolean[];
   commentId: string;
+  lensProfile: Profile | undefined;
 };
 
 export type NoHandleProps = {
@@ -291,7 +298,7 @@ export type PlayerProps = {
   mainVideo: MainVideoState;
   volume: number;
   wrapperRef: Ref<HTMLDivElement>;
-  dispatchVideos: Publication[];
+  dispatchVideos: Post[];
   videoSync: VideoSyncState;
   dispatch: Dispatch<AnyAction>;
   hasMore: boolean;
@@ -354,7 +361,7 @@ export type ComponentProps = {
   mainVideo: MainVideoState;
   isPlaying: boolean;
   volume: number;
-  dispatchVideos: Publication[];
+  dispatchVideos: Post[];
   videoSync: VideoSyncState;
   dispatch: Dispatch<AnyAction>;
   hasMore: boolean;
@@ -393,16 +400,16 @@ export type FullScreenVideoProps = {
   videoRef: Ref<HTMLDivElement>;
   streamRef: Ref<ReactPlayer>;
   wrapperRef: Ref<HTMLDivElement>;
-  dispatchVideos: Publication[];
+  dispatchVideos: Post[];
   videoSync: VideoSyncState;
   mirrorLoading: boolean;
   collectLoading: boolean;
   likeLoading: boolean;
-  authStatus: boolean;
   profileId: string;
+  lensProfile: Profile | undefined;
   hasMore: boolean;
   connected: boolean;
-  commentors: Publication[];
+  commentors: Comment[];
   handleLensSignIn: () => Promise<void>;
   fetchMoreVideos: () => Promise<
     | { videos: any[]; mirrors: any[]; collects: boolean[]; likes: any[] }
@@ -435,8 +442,6 @@ export type FullScreenVideoProps = {
   mirrorCommentLoading: boolean[];
   likeCommentLoading: boolean[];
   collectCommentLoading: boolean[];
-  hasMirrored: boolean[];
-  hasReacted: boolean[];
   commentId: string;
   commentsOpen: boolean;
   setCommentsOpen: (e: boolean) => void;
@@ -480,14 +485,13 @@ export type ControlsProps = {
   mirrorLoading: boolean;
   collectLoading: boolean;
   likeLoading: boolean;
-  authStatus: boolean;
   profileId: string;
   mainVideo: MainVideoState;
   progressRef: Ref<HTMLDivElement>;
   handleSeek: (
     e: MouseEvent<HTMLDivElement, MouseEvent<Element, MouseEvent>>
   ) => void;
-  dispatchVideos: Publication[];
+  dispatchVideos: Post[];
   collectAmount: number[];
   mirrorAmount: number[];
   likeAmount: number[];
@@ -583,4 +587,57 @@ export type CollectInputProps = {
   row?: string;
   label?: string;
   handleValueChange: (e: number) => void;
+};
+
+export type QuoteProps = {
+  publication: Comment | Post | Quote;
+};
+
+export type ProfileSideBarProps = {
+  publication: Post | Mirror | Quote;
+  dispatch: Dispatch<AnyAction>;
+};
+
+export interface QuickProfilesInterface {
+  handle: string;
+  id: string;
+  image: string;
+  followModule: FollowModule;
+  name: string;
+  ownedBy: string;
+}
+
+export type QuickProfilesProps = {
+  quickProfiles: QuickProfilesInterface[];
+};
+
+export type SuperFollowProps = {
+  dispatch: Dispatch<AnyAction>;
+  followSuper: () => Promise<void>;
+  quickProfiles: QuickProfilesInterface[];
+  superCreatorLoading: boolean;
+  rain: boolean;
+  canvasRef: Ref<HTMLCanvasElement>;
+  handleLensSignIn: () => Promise<void>;
+  signInLoading: boolean;
+  openConnectModal: (() => void) | undefined;
+  lensProfile: boolean;
+  connected: boolean;
+};
+
+export type ReactionProps = {
+  textColor: string;
+  commentColor: string;
+  mirrorColor: string;
+  collectColor: string;
+  heartColor: string;
+  hasCollected: boolean | undefined;
+  hasMirrored: boolean | undefined;
+  hasReacted: boolean | undefined;
+  dispatch: Dispatch<AnyAction>;
+  publication: Post | Quote | Mirror;
+  reactAmount: number;
+  collectAmount: number;
+  mirrorAmount: number;
+  commentAmount: number;
 };

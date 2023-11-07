@@ -657,3 +657,31 @@ input:focus {
 #scrollMicro::-webkit-scrollbar-thumb {
   background-color: #b620e0;
 }
+
+#backdrop:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.2);
+  filter: blur(5px);
+}
+
+#raincode {
+  background: linear-gradient(#fc9cf3, #b9d9ff, #0091ff, #fd99dc) !important;
+}
+
+#hozScroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+#hozScroll::-webkit-scrollbar-track:active {
+  background-color: transparent !important;
+}
+
+#hozScroll::-webkit-scrollbar-thumb:active {
+  background-color: transparent !important;
+}

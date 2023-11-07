@@ -1,41 +1,54 @@
 import { AnyAction, Dispatch } from "redux";
+import {
+  ApprovalAllowance,
+  FollowModuleType,
+  OpenActionModuleType,
+  ReferenceModuleType,
+} from "../../../types/generated";
 import approvedModuleAllowance from "../../../graphql/queries/approvedAllowance";
-import { ApprovedAllowanceAmount } from "../../../types/lens.types";
 import approvedData from "../../../graphql/queries/approvedData";
 import { setApprovalArgs } from "../../../redux/reducers/approvalArgsSlice";
 
 const checkApproved = async (
   currencyAddress: string,
-  collectModule: string | null,
-  followModule: string | null,
-  referenceModule: string | null,
+  collectModule: OpenActionModuleType | null,
+  followModule: FollowModuleType | null,
+  referenceModule: ReferenceModuleType | null,
   value: string,
   dispatch: Dispatch<AnyAction>,
   address: string | undefined,
   profileId: string
-): Promise<ApprovedAllowanceAmount | void> => {
+): Promise<ApprovalAllowance | void> => {
   if (!currencyAddress || !address || !profileId) {
     return;
   }
   try {
     const response = await approvedModuleAllowance({
       currencies: [currencyAddress],
-      collectModules: collectModule ? [collectModule] : [],
+      openActionModules: collectModule ? [collectModule] : [],
       followModules: followModule ? [followModule] : [],
       referenceModules: referenceModule ? [referenceModule] : [],
     });
     let approvalArgs: any;
     if (collectModule) {
       approvalArgs = await approvedData({
-        currency: currencyAddress,
-        value: value,
-        collectModule: collectModule,
+        allowance: {
+          currency: currencyAddress,
+          value,
+        },
+        module: {
+          openActionModule: collectModule,
+        },
       });
     } else if (followModule) {
       approvalArgs = await approvedData({
-        currency: currencyAddress,
-        value: value,
-        followModule: followModule,
+        allowance: {
+          currency: currencyAddress,
+          value,
+        },
+        module: {
+          followModule: followModule,
+        },
       });
     }
     dispatch(

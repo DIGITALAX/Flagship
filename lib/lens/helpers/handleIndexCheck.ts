@@ -1,15 +1,12 @@
 import { AnyAction, Dispatch } from "redux";
-import { setIndexModal } from "../../../redux/reducers/indexModalSlice";
 import pollUntilIndexed from "../../../graphql/queries/checkIndexed";
+import { setIndexModal } from "../../../redux/reducers/indexModalSlice";
 
-
-const handleIndexCheck = async (
-  tx: any,
-  dispatch: Dispatch<AnyAction>,
-  success: boolean
-) => {
+const handleIndexCheck = async (tx: string, dispatch: Dispatch<AnyAction>) => {
   try {
-    const indexedStatus = await pollUntilIndexed(tx, success);
+    const indexedStatus = await pollUntilIndexed({
+      forTxHash: tx,
+    });
     if (indexedStatus) {
       dispatch(
         setIndexModal({

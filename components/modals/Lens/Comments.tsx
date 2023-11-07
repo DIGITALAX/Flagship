@@ -1,19 +1,25 @@
 import { FunctionComponent } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import moment from "moment";
-import Image from "next/image";
 import { AiFillFastBackward, AiOutlineLoading } from "react-icons/ai";
 import ReactPlayer from "react-player";
-import FetchMoreLoading from "./FetchMoreLoading";
+import {
+  Comment,
+  ImageMetadataV3,
+  NftImage,
+  PublicationMetadataMedia,
+  TextOnlyMetadataV3,
+  VideoMetadataV3,
+} from "../../../types/generated";
+import Image from "next/image";
 import { INFURA_GATEWAY } from "../../../lib/lens/constants";
+import { CommentsProps } from "../../../types/general.types";
 import { setSecondaryComment } from "../../../redux/reducers/secondaryCommentSlice";
-import { setReactionState } from "../../../redux/reducers/reactionStateSlice";
-import { setFollowerOnly } from "../../../redux/reducers/followerOnlySlice";
-import { setPurchase } from "../../../redux/reducers/purchaseSlice";
+import FetchMoreLoading from "./FetchMoreLoading";
 import createProfilePicture from "../../../lib/lens/helpers/createProfilePicture";
 import descriptionRegex from "../../../lib/lens/helpers/descriptionRegex";
-import { MediaSet } from "../../../types/lens.types";
-import { CommentsProps } from "../../../types/general.types";
+import { setPurchase } from "../../../redux/reducers/purchaseSlice";
+import { setFollowerOnly } from "../../../redux/reducers/followerOnlySlice";
 
 const Comments: FunctionComponent<CommentsProps> = ({
   commentors,
@@ -28,13 +34,12 @@ const Comments: FunctionComponent<CommentsProps> = ({
   collectComment,
   likeComment,
   dispatch,
-  hasMirrored,
-  hasReacted,
   commentId,
+  lensProfile,
 }): JSX.Element => {
   return (
     <div className="relative w-full h-full flex flex-col bg-verde">
-      <div className="relative w-full h-28 bg-black">
+      <div className="relative w-full h-28  bg-offBlack">
         <div className="relative p-2 w-full h-full border border-white flex flex-col items-center gap-2 overflow-y-scroll">
           <div className="relative w-full h-fit flex flex-row items-center justify-start gap-2">
             <div className="relative w-fit h-1/2 flex justify-start">
@@ -47,28 +52,36 @@ const Comments: FunctionComponent<CommentsProps> = ({
               />
             </div>
             <div
-              className="relative w-full h-fit text-sm font-vcr flex justify-start break-words"
+              className="relative w-full h-fit text-lg font-vcr flex justify-start break-words"
               id={`record1`}
             >
-              {video?.metadata?.content?.split("\n\n")[0]}
+              {(video?.metadata as VideoMetadataV3)?.title?.includes(
+                "Post by @chromadin.lens"
+              )
+                ? (video?.metadata as VideoMetadataV3)?.content.split("\n\n")[0]
+                : (video?.metadata as VideoMetadataV3)?.title}
             </div>
           </div>
           <div
-            className="relative w-full h-full flex font-vcr text-xs text-white whitespace-preline"
+            className="relative w-full h-full flex font-vcr text-sm text-white whitespace-preline"
             dangerouslySetInnerHTML={{
-              __html: video?.metadata?.content
-                ?.split("\n\n")
-                .slice(1)
-                .join("<br><br>"),
+              __html: (video?.metadata as VideoMetadataV3)?.content?.includes(
+                "\n\n"
+              )
+                ? (video?.metadata as VideoMetadataV3)?.content
+                    ?.split("\n\n")
+                    ?.slice(1)
+                    ?.join("<br><br>")
+                : (video?.metadata as VideoMetadataV3)?.content,
             }}
           />
         </div>
       </div>
-      <div className="relative w-full h-[24rem] border-white border bg-black overflow-y-scroll">
+      <div className="relative w-full h-[15rem] xl:h-[27.7rem] border-white border bg-offBlack overflow-y-scroll">
         {commentId !== "" && (
-          <div className="sticky z-0 w-full h-10 flex flex-col items-center justify-start px-3 bg-black">
+          <div className="sticky z-0 w-full h-10 flex flex-col items-center justify-start px-3 bg-offBlack">
             <div
-              className="relative w-full h-full flex items-center cursor-pointer"
+              className="relative w-full h-full flex items-center cursor-sewingHS"
               onClick={() => {
                 dispatch(setSecondaryComment(""));
               }}
@@ -83,8 +96,10 @@ const Comments: FunctionComponent<CommentsProps> = ({
           </div>
         ) : !commentsLoading && commentors?.length < 1 ? (
           <div className="relative text-white font-vcr w-full h-full justify-center items-center py-3 flex text-center">
-            <div className="relative w-3/4 h-full items-start justify-center flex text-sm">
-              {"No comments yet :)"}
+            <div className="relative w-3/4 h-full items-start justify-center flex">
+              {commentId !== ""
+                ? "Reply to this comment in the message box"
+                : "Be the first to comment on this stream :)"}
             </div>
           </div>
         ) : (
@@ -92,27 +107,22 @@ const Comments: FunctionComponent<CommentsProps> = ({
             <InfiniteScroll
               className={`relative row-start-1 w-full h-full overflow-y-scroll`}
               hasMore={hasMoreComments}
-              height={"18rem"}
+              height={"27.7rem"}
               loader={<FetchMoreLoading size="3" />}
               dataLength={commentors?.length}
               next={getMorePostComments}
             >
               <div className="relative w-full h-fit grid grid-flow-row auto-rows-auto gap-3">
-                {commentors?.map((comment: any, index: number) => {
-                  const profileImage = createProfilePicture(comment, true);
+                {commentors?.map((comment: Comment, index: number) => {
+                  const profileImage = createProfilePicture(
+                    comment?.by?.metadata?.picture
+                  );
                   return (
                     <div
                       key={index}
-                      className="relative w-full h-fit flex flex-row font-vcr text-xs items-start gap-3 p-3"
+                      className="relative w-full h-fit flex flex-row font-vcr text-sm items-start gap-3 p-3"
                     >
-                      <a
-                        href={`https://www.chromadin.xyz/#chat?option=history&profile=${
-                          comment?.profile?.handle?.split(".lens")[0]
-                        }`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="relative w-fit h-full flex items-start justify-start cursor-pointer"
-                      >
+                      <div className="relative w-fit h-full flex items-start justify-start cursor-sewingHS">
                         <div
                           className="relative w-6 h-6 border border-white"
                           id="crt"
@@ -128,45 +138,60 @@ const Comments: FunctionComponent<CommentsProps> = ({
                             />
                           )}
                         </div>
-                      </a>
+                      </div>
                       <div className="relative w-full h-full flex flex-col gap-2">
-                        <a
-                          href={`https://www.chromadin.xyz/#chat?option=history&profile=${
-                            comment?.profile?.handle?.split(".lens")[0]
-                          }`}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="relative w-full h-full text-ama justify-start flex cursor-pointer"
-                        >
-                          @{comment?.profile?.handle?.split(".lens")[0]}
-                        </a>
+                        <div className="relative w-full h-full text-ama justify-start flex cursor-sewingHS">
+                          {comment?.by?.handle?.suggestedFormatted?.localName}
+                        </div>
                         <div className="relative w-full h-full text-verde flex flex-col">
                           <div
-                            className="relative w-full h-full text-white flex whitespace-preline"
+                            className="relative w-full h-full flex"
                             dangerouslySetInnerHTML={{
                               __html: descriptionRegex(
-                                comment?.metadata?.content
+                                (comment?.metadata as TextOnlyMetadataV3)
+                                  ?.content
                               ),
                             }}
                           ></div>
                           <div className="relative w-44 h-fit overflow-x-scroll grid grid-flow-col auto-cols-auto gap-3 z-10">
-                            {comment?.metadata?.media?.map(
-                              (media: MediaSet, index: number) => {
+                            {(
+                              comment?.metadata as ImageMetadataV3
+                            )?.attachments?.map(
+                              (
+                                media: PublicationMetadataMedia,
+                                index: number
+                              ) => {
                                 let formattedImageURL: string;
-                                if (media?.original?.url?.includes("ipfs://")) {
-                                  formattedImageURL = `${INFURA_GATEWAY}/ipfs/${
-                                    media?.original?.url?.split("://")[1]
-                                  }`;
+                                const mediaType =
+                                  media.__typename ===
+                                  "PublicationMetadataMediaImage"
+                                    ? media?.image
+                                    : media.__typename ===
+                                      "PublicationMetadataMediaVideo"
+                                    ? media?.video
+                                    : undefined;
+                                if (mediaType) {
+                                  formattedImageURL = mediaType.optimized?.uri
+                                    ? mediaType.optimized?.uri
+                                    : mediaType?.raw?.uri?.includes("ipfs://")
+                                    ? `${INFURA_GATEWAY}/ipfs/${
+                                        mediaType?.raw?.uri.split("ipfs://")[1]
+                                      }`
+                                    : mediaType?.raw?.uri;
                                 } else {
-                                  formattedImageURL = media?.original?.url;
+                                  return;
                                 }
+
                                 return (
                                   <div
                                     key={index}
                                     className="relative w-24 h-24 grid grid-flow-col auto-cols-auto"
                                   >
-                                    {!media?.original?.mimeType.includes(
-                                      "video"
+                                    {(
+                                      media.__typename ===
+                                      "PublicationMetadataMediaImage"
+                                        ? media
+                                        : (media as NftImage).image
                                     ) ? (
                                       <Image
                                         src={formattedImageURL}
@@ -175,7 +200,10 @@ const Comments: FunctionComponent<CommentsProps> = ({
                                         draggable={false}
                                         className="rounded-lg"
                                       />
-                                    ) : formattedImageURL.includes("index") ? (
+                                    ) : formattedImageURL?.includes("index") ||
+                                      formattedImageURL?.includes(
+                                        "gw.ipfs-lens.dev"
+                                      ) ? (
                                       <div className="rounded-md absolute w-full h-full object-cover">
                                         <ReactPlayer
                                           url={formattedImageURL}
@@ -220,7 +248,10 @@ const Comments: FunctionComponent<CommentsProps> = ({
                       <div className="relative grid grid-rows-2 w-full h-full gap-2 items-end justify-end flex-wrap">
                         <div className="relative w-full h-full grid grid-cols-2 gap-2 items-center justify-end">
                           <div
-                            className={`relative w-full h-full grid grid-flow-col auto-cols-auto items-center justify-end flex-row gap-2 cursor-pointer`}
+                            className={`relative w-full h-full grid grid-flow-col auto-cols-auto items-center justify-end flex-row gap-2 ${
+                              lensProfile && "cursor-sewingHS"
+                            }`}
+                            onClick={() => likeComment(comment?.id)}
                           >
                             {likeCommentLoading[index] ? (
                               <AiOutlineLoading
@@ -231,14 +262,13 @@ const Comments: FunctionComponent<CommentsProps> = ({
                                 }
                                 `}
                               />
-                            ) : hasReacted?.[index] ? (
+                            ) : commentors?.[index]?.operations?.hasReacted ? (
                               <Image
                                 src={`${INFURA_GATEWAY}/ipfs/Qmc3KCKWRgN8iKwwAPM5pYkAYNeVwWu3moa5RDMDTBV6ZS`}
                                 width={12}
                                 height={12}
                                 alt="mirror"
                                 draggable={false}
-                                onClick={() => likeComment(comment?.id)}
                               />
                             ) : (
                               <Image
@@ -247,28 +277,17 @@ const Comments: FunctionComponent<CommentsProps> = ({
                                 height={12}
                                 alt="backward"
                                 draggable={false}
-                                onClick={() => likeComment(comment?.id)}
                               />
                             )}
-                            <div
-                              className="relative w-fit h-fit font-vcr text-xs text-white flex"
-                              onClick={() =>
-                                comment?.stats?.totalUpvotes > 0 &&
-                                dispatch(
-                                  setReactionState({
-                                    actionOpen: true,
-                                    actionType: "heart",
-                                    actionValue: comment?.id,
-                                    actionResponseReact: hasReacted,
-                                  })
-                                )
-                              }
-                            >
-                              {comment?.stats?.totalUpvotes}
+                            <div className="relative w-fit h-fit font-dosis text-xs text-white flex">
+                              {comment?.stats?.reactions}
                             </div>
                           </div>
                           <div
-                            className={`relative w-full h-full grid grid-flow-col auto-cols-auto items-center justify-end flex-row gap-2 cursor-pointer`}
+                            className={`relative w-full h-full grid grid-flow-col auto-cols-auto items-center justify-end flex-row gap-2 cursor-sewingHS`}
+                            onClick={() =>
+                              dispatch(setSecondaryComment(comment?.id))
+                            }
                           >
                             <Image
                               src={`${INFURA_GATEWAY}/ipfs/QmeuR9Fzv8QF9R6ntjGKB78GteQgmEcXhBfVPhsTyWbumA`}
@@ -276,18 +295,54 @@ const Comments: FunctionComponent<CommentsProps> = ({
                               height={12}
                               alt="backward"
                               draggable={false}
-                              onClick={() =>
-                                dispatch(setSecondaryComment(comment?.id))
-                              }
                             />
-                            <div className="relative w-fit h-fit font-vcr text-xs text-white flex">
-                              {comment?.stats?.totalAmountOfComments}
+                            <div className="relative w-fit h-fit font-dosis text-xs text-white flex">
+                              {comment?.stats?.comments}
                             </div>
                           </div>
                         </div>
                         <div className="relative w-full h-full grid grid-cols-2 gap-2 items-center justify-end">
                           <div
-                            className={`relative w-full h-full grid grid-flow-col auto-cols-auto items-center justify-end flex-row gap-2`}
+                            className={`relative w-full h-full grid grid-flow-col auto-cols-auto items-center justify-end flex-row gap-2 ${
+                              comment?.openActionModules?.[0]?.__typename ===
+                                "SimpleCollectOpenActionSettings" &&
+                              lensProfile &&
+                              "cursor-sewingHS"
+                            }`}
+                            onClick={
+                              comment?.openActionModules?.[0]?.__typename ===
+                              "SimpleCollectOpenActionSettings"
+                                ? Number(
+                                    comment.openActionModules[0]?.amount?.value
+                                  ) > 0 &&
+                                  (!comment.openActionModules[0]
+                                    ?.followerOnly ||
+                                    (comment.openActionModules[0]
+                                      ?.followerOnly &&
+                                      lensProfile?.operations?.isFollowedByMe))
+                                  ? () => collectComment(comment?.id)
+                                  : comment?.openActionModules[0]
+                                      ?.followerOnly &&
+                                    !lensProfile?.operations?.isFollowedByMe
+                                  ? () =>
+                                      dispatch(
+                                        setFollowerOnly({
+                                          actionOpen: true,
+                                          actionId: comment?.id,
+                                          actionFollowerId: comment?.by?.id,
+                                          actionIndex: index,
+                                        })
+                                      )
+                                  : () =>
+                                      dispatch(
+                                        setPurchase({
+                                          actionOpen: true,
+                                          actionId: comment?.id,
+                                          actionIndex: index,
+                                        })
+                                      )
+                                : () => {}
+                            }
                           >
                             {collectCommentLoading[index] ? (
                               <AiOutlineLoading
@@ -299,54 +354,13 @@ const Comments: FunctionComponent<CommentsProps> = ({
                                 }
                                 `}
                               />
-                            ) : comment?.hasCollectedByMe ? (
+                            ) : comment?.operations?.actedOn ? (
                               <Image
                                 src={`${INFURA_GATEWAY}/ipfs/QmXG1mnHdBDXMzMZ9t1wE1Tqo8DRXQ1oNLUxpETdUw17HU`}
                                 width={12}
                                 height={12}
                                 alt="collect"
                                 draggable={false}
-                                onClick={
-                                  comment?.collectModule?.type ===
-                                  "RevertCollectModule"
-                                    ? () => {}
-                                    : comment?.collectModule?.followerOnly &&
-                                      !comment?.profile?.isFollowedByMe
-                                    ? () =>
-                                        dispatch(
-                                          setFollowerOnly({
-                                            actionOpen: true,
-                                            actionFollowerId:
-                                              comment?.profile?.id,
-                                            actionId: comment?.id,
-                                            actionIndex: index,
-                                          })
-                                        )
-                                    : comment?.collectModule?.type ===
-                                        "FreeCollectModule" ||
-                                      ((comment?.collectModule?.__typename ===
-                                        "SimpleCollectModuleSettings" ||
-                                        comment?.collectModule?.type ===
-                                          "SimpleCollectModule") &&
-                                        !comment?.collectModule?.amount &&
-                                        !comment?.collectModule
-                                          ?.optionalCollectLimit &&
-                                        !comment?.collectModule
-                                          ?.optionalEndTimestamp)
-                                    ? () => collectComment(comment?.id)
-                                    : () =>
-                                        dispatch(
-                                          setPurchase({
-                                            actionOpen: true,
-                                            actionId: comment?.id,
-                                            actionIndex: index,
-                                          })
-                                        )
-                                }
-                                className={`${
-                                  comment?.collectModule?.type !==
-                                    "RevertCollectModule" && "cursor-pointer"
-                                }`}
                               />
                             ) : (
                               <Image
@@ -355,67 +369,17 @@ const Comments: FunctionComponent<CommentsProps> = ({
                                 height={12}
                                 alt="collect"
                                 draggable={false}
-                                className={`${
-                                  comment?.collectModule?.type !==
-                                    "RevertCollectModule" && "cursor-pointer"
-                                }`}
-                                onClick={
-                                  comment?.collectModule?.type ===
-                                  "RevertCollectModule"
-                                    ? () => {}
-                                    : comment?.collectModule?.followerOnly &&
-                                      !comment?.profile?.isFollowedByMe
-                                    ? () =>
-                                        dispatch(
-                                          setFollowerOnly({
-                                            actionOpen: true,
-                                            actionFollowerId:
-                                              comment?.profile?.id,
-                                            actionId: comment?.id,
-                                            actionIndex: index,
-                                          })
-                                        )
-                                    : comment?.collectModule?.type ===
-                                        "FreeCollectModule" ||
-                                      ((comment?.collectModule?.__typename ===
-                                        "SimpleCollectModuleSettings" ||
-                                        comment?.collectModule?.type ===
-                                          "SimpleCollectModule") &&
-                                        !comment?.collectModule?.amount &&
-                                        !comment?.collectModule
-                                          ?.optionalCollectLimit &&
-                                        !comment?.collectModule
-                                          ?.optionalEndTimestamp)
-                                    ? () => collectComment(comment?.id)
-                                    : () =>
-                                        dispatch(
-                                          setPurchase({
-                                            actionOpen: true,
-                                            actionId: comment?.id,
-                                            actionIndex: index,
-                                          })
-                                        )
-                                }
                               />
                             )}
-                            <div
-                              className="relative w-fit h-fit font-vcr text-xs text-white cursor-pointer"
-                              onClick={() =>
-                                comment?.stats?.totalAmountOfCollects > 0 &&
-                                dispatch(
-                                  setReactionState({
-                                    actionOpen: true,
-                                    actionType: "collect",
-                                    actionValue: comment?.id,
-                                  })
-                                )
-                              }
-                            >
-                              {comment?.stats?.totalAmountOfCollects}
+                            <div className="relative w-fit h-fit font-dosis text-xs text-white">
+                              {comment?.stats?.countOpenActions}
                             </div>
                           </div>
                           <div
-                            className={`relative w-full h-full grid grid-flow-col auto-cols-auto items-center justify-end flex-row gap-2 cursor-pointer`}
+                            className={`relative w-full h-full grid grid-flow-col auto-cols-auto items-center justify-end flex-row gap-2 ${
+                              lensProfile && "cursor-sewingHS"
+                            }`}
+                            onClick={() => mirrorComment(comment?.id)}
                           >
                             {mirrorCommentLoading?.[index] ? (
                               <AiOutlineLoading
@@ -427,14 +391,13 @@ const Comments: FunctionComponent<CommentsProps> = ({
                                 }
                                 `}
                               />
-                            ) : hasMirrored?.[index] ? (
+                            ) : commentors?.[index]?.operations?.hasMirrored ? (
                               <Image
                                 src={`${INFURA_GATEWAY}/ipfs/QmcMNSnbKvUfx3B3iHBd9deZCDf7E4J8W6UtyNer3xoMsB`}
                                 width={12}
                                 height={12}
                                 alt="mirror"
                                 draggable={false}
-                                onClick={() => mirrorComment(comment?.id)}
                               />
                             ) : (
                               <Image
@@ -443,29 +406,10 @@ const Comments: FunctionComponent<CommentsProps> = ({
                                 height={12}
                                 alt="mirror"
                                 draggable={false}
-                                onClick={() => mirrorComment(comment?.id)}
                               />
                             )}
-                            <div
-                              className="relative w-fit h-fit font-vcr text-xs text-white"
-                              onClick={() =>
-                                comment?.stats?.totalAmountOfMirrors > 0 &&
-                                dispatch(
-                                  setReactionState({
-                                    actionOpen: true,
-                                    actionType: "mirror",
-                                    actionValue: comment?.id,
-                                    actionResponseMirror: hasMirrored,
-                                    actionFollower:
-                                      comment.referenceModule?.type ===
-                                      "FollowerOnlyReferenceModule"
-                                        ? true
-                                        : false,
-                                  })
-                                )
-                              }
-                            >
-                              {comment?.stats?.totalAmountOfMirrors}
+                            <div className="relative w-fit h-fit font-dosis text-xs text-white">
+                              {comment?.stats?.mirrors}
                             </div>
                           </div>
                         </div>

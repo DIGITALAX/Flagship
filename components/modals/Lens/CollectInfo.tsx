@@ -69,7 +69,7 @@ const CollectInfo: FunctionComponent<CollectInfoProps> = ({
         )}
         <div
           className={`relative w-20 h-10 rounded-md grid grid-flow-col auto-cols-auto text-white font-vcr text-xs place-self-center text-center bg-moda ${
-            canClick && "cursor-pointer hover:opacity-70 active:scale-95"
+            canClick && "cursor-sewingHS hover:opacity-70 active:scale-95"
           } row-start-2`}
         >
           {collectLoading || approvalLoading ? (

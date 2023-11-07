@@ -1,15 +1,14 @@
-import { gql } from "@apollo/client";
+import { FetchResult } from "@apollo/client";
+import { AddReactionDocument, AddReactionMutation, ReactionRequest } from "../../types/generated";
 import { apolloClient } from "../../lib/lens/client";
 
-export const ADD_REACTION = `mutation AddReaction($request: ReactionRequest!) {
-    addReaction(request: $request)
-  }`;
-
-const addReaction = (request: any) => {
-  return apolloClient.mutate({
-    mutation: gql(ADD_REACTION),
+const addReaction = async (
+  request: ReactionRequest
+): Promise<FetchResult<AddReactionMutation>> => {
+  return await apolloClient.mutate({
+    mutation: AddReactionDocument,
     variables: {
-      request: request,
+      request,
     },
     fetchPolicy: "no-cache",
   });

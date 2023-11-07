@@ -1,39 +1,18 @@
-import { gql } from "@apollo/client";
+import { FetchResult } from "@apollo/client";
+import {
+  ActOnOpenActionRequest,
+  CreateActOnOpenActionTypedDataDocument,
+  CreateActOnOpenActionTypedDataMutation,
+} from "../../types/generated";
 import { apolloClient } from "../../lib/lens/client";
 
-export const COLLECT_POST = `mutation CreateCollectTypedData($request: CreateCollectRequest!) {
-    createCollectTypedData(request: $request) {
-      id
-      expiresAt
-      typedData {
-        types {
-          CollectWithSig {
-            name
-            type
-          }
-        }
-        domain {
-          name
-          chainId
-          version
-          verifyingContract
-        }
-        value {
-          nonce
-          deadline
-          profileId
-          pubId
-          data
-        }
-      }
-    }
-  }`;
-
-const collect = (createCollectTypedData: any) => {
-  return apolloClient.mutate({
-    mutation: gql(COLLECT_POST),
+const collect = async (
+  request: ActOnOpenActionRequest
+): Promise<FetchResult<CreateActOnOpenActionTypedDataMutation>> => {
+  return await apolloClient.mutate({
+    mutation: CreateActOnOpenActionTypedDataDocument,
     variables: {
-      request: createCollectTypedData,
+      request,
     },
   });
 };

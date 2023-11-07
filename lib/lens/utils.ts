@@ -71,14 +71,15 @@ export const refreshAuth = async (): Promise<string | undefined | null> => {
   try {
     const currentRefreshToken = getAuthenticationToken()?.refreshToken;
     if (!currentRefreshToken) return null;
-    const response = await refresh(currentRefreshToken);
-    setAuthenticationToken({ token: response.data.refresh });
+    const response = await refresh({
+      refreshToken: currentRefreshToken,
+    });
+    setAuthenticationToken({ token: response?.data?.refresh! });
     return response?.data?.refresh?.accessToken;
   } catch (err: any) {
     console.error(err.message);
   }
 };
-
 export const setAddress = (value: string) => {
   if (typeof window !== "undefined") {
     localStorage.setItem(ADDRESS_CHROMADIN, JSON.stringify(value));

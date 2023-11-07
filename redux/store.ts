@@ -10,12 +10,10 @@ import videoPlayerReducer from "./reducers/videoPlayerSlice";
 import mainVideoReducer from "./reducers/mainVideoSlice";
 import secondaryCommentReducer from "./reducers/secondaryCommentSlice";
 import videoSyncReducer from "./reducers/videoSyncSlice";
-import canCommentReducer from "./reducers/canCommentSlice";
 import reactIdReducer from "./reducers/reactIdSlice";
 import seekReducer from "./reducers/seekSlice";
 import postCollectValuesReducer from "./reducers/postCollectValuesSlice";
 import purchaseReducer from "./reducers/purchaseSlice";
-import authStatusReducer from "./reducers/authStatusSlice";
 import reactionStateReducer from "./reducers/reactionStateSlice";
 import followerOnlyReducer from "./reducers/followerOnlySlice";
 import channelsReducer from "./reducers/channelsSlice";
@@ -23,26 +21,25 @@ import videoCountReducer from "./reducers/videoCountSlice";
 import hasMoreVideoReducer from "./reducers/hasMoreVideoSlice";
 import indexModalReducer from "./reducers/indexModalSlice";
 import approvalArgsReducer from "./reducers/approvalArgsSlice";
-import dispatcherReducer from "./reducers/dispatcherSlice";
 import imageViewerReducer from "./reducers/imageViewerSlice";
+import superFollowReducer from "./reducers/superFollowSlice";
 
 const reducer = combineReducers({
   modalOpenReducer,
   profileReducer,
   noHandleReducer,
+  superFollowReducer,
   collectValueReducer,
   collectOpenReducer,
   walletConnectedReducer,
   videoPlayerReducer,
   mainVideoReducer,
   secondaryCommentReducer,
-  canCommentReducer,
   videoSyncReducer,
   reactIdReducer,
   seekReducer,
   postCollectValuesReducer,
   purchaseReducer,
-  authStatusReducer,
   reactionStateReducer,
   followerOnlyReducer,
   channelsReducer,
@@ -50,8 +47,7 @@ const reducer = combineReducers({
   hasMoreVideoReducer,
   indexModalReducer,
   approvalArgsReducer,
-  dispatcherReducer,
-  imageViewerReducer
+  imageViewerReducer,
 });
 
 export const store = configureStore({

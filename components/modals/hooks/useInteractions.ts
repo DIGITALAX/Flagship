@@ -1,30 +1,22 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  CommentOrderingTypes,
-  CommentRankingFilter,
-  Publication,
-} from "../../../types/lens.types";
+  Comment,
+  CommentRankingFilterType,
+  LimitType,
+  PublicationsQuery,
+} from "../../../types/generated";
 import { RootState } from "../../../redux/store";
+import { FetchResult } from "@apollo/client";
 import {
-  whoCommentedPublications,
-  whoCommentedPublicationsAuth,
-} from "../../../graphql/queries/whoComment";
-import whoCollectedPublications from "../../../graphql/queries/whoCollectedPublications";
-import canCommentPub from "../../../graphql/queries/canCommentPub";
-import { setCanComment } from "../../../redux/reducers/canCommentSlice";
-import checkIfMirrored from "../../../lib/lens/helpers/checkIfMirrored";
-import checkPostReactions from "../../../lib/lens/helpers/checkPostReactions";
+  profilePublications,
+  profilePublicationsAuth,
+} from "../../../graphql/queries/getPublications";
 
 const useInteractions = () => {
   const [commentsLoading, setCommentsLoading] = useState<boolean>(false);
   const [paginated, setPaginated] = useState<any>();
-  const [commentors, setCommentors] = useState<Publication[]>([]);
-  const [hasMirrored, setHasMirrored] = useState<boolean[]>([]);
-  const [hasReacted, setHasReacted] = useState<boolean[]>([]);
-  const [collectors, setCollectors] = useState<any[]>([]);
-  const [collectPageInfo, setCollectPageInfo] = useState<any>();
-  const [hasMoreCollects, setHasMoreCollects] = useState<boolean>(true);
+  const [commentors, setCommentors] = useState<Comment[]>([]);
   const [hasMoreComments, setHasMoreComments] = useState<boolean>(true);
   const [commentsOpen, setCommentsOpen] = useState<boolean>(false);
   const dispatch = useDispatch();
@@ -42,51 +34,47 @@ const useInteractions = () => {
   const getPostComments = async (): Promise<void> => {
     setCommentsLoading(true);
     try {
-      let comments: any;
+      let comments: FetchResult<PublicationsQuery>;
 
       if (profileId) {
-        comments = await whoCommentedPublicationsAuth({
-          commentsOf: commentId !== "" ? commentId : mainVideo.id,
-          limit: 20,
-          commentsOfOrdering: CommentOrderingTypes.Ranking,
-          commentsRankingFilter: CommentRankingFilter.Relevant,
+        comments = await profilePublicationsAuth({
+          where: {
+            commentOn: {
+              id: commentId !== "" ? commentId : mainVideo.id,
+              ranking: {
+                filter: CommentRankingFilterType.Relevant,
+              },
+            },
+          },
+          limit: LimitType.TwentyFive,
         });
       } else {
-        comments = await whoCommentedPublications({
-          commentsOf: commentId !== "" ? commentId : mainVideo.id,
-          limit: 20,
-          commentsOfOrdering: CommentOrderingTypes.Ranking,
-          commentsRankingFilter: CommentRankingFilter.Relevant,
+        comments = await profilePublications({
+          where: {
+            commentOn: {
+              id: commentId !== "" ? commentId : mainVideo.id,
+              ranking: {
+                filter: CommentRankingFilterType.Relevant,
+              },
+            },
+          },
+          limit: LimitType.TwentyFive,
         });
       }
       if (!comments || !comments?.data || !comments?.data?.publications) {
         setCommentsLoading(false);
         return;
       }
-      const sortedArr: any[] = [...comments?.data?.publications?.items];
-      if (sortedArr?.length < 20) {
+      const sortedArr: Comment[] = [
+        ...comments?.data?.publications?.items,
+      ] as Comment[];
+      if (sortedArr?.length < 25) {
         setHasMoreComments(false);
       } else {
         setHasMoreComments(true);
       }
       setCommentors(sortedArr);
       setPaginated(comments?.data?.publications?.pageInfo);
-      if (profileId) {
-        const hasMirroredArr = await checkIfMirrored(sortedArr, profileId);
-        setHasMirrored(hasMirroredArr);
-        const response = await checkPostReactions(
-          {
-            commentsOf: commentId !== "" ? commentId : mainVideo.id,
-            limit: 20,
-            commentsOfOrdering: CommentOrderingTypes.Ranking,
-            commentsRankingFilter: CommentRankingFilter.Relevant,
-          },
-          profileId,
-          undefined,
-          true
-        );
-        setHasReacted(response);
-      }
     } catch (err: any) {
       console.error(err.message);
     }
@@ -100,22 +88,32 @@ const useInteractions = () => {
         setHasMoreComments(false);
         return;
       }
-      let comments: any;
+      let comments: FetchResult<PublicationsQuery>;
       if (profileId) {
-        comments = await whoCommentedPublicationsAuth({
-          commentsOf: commentId !== "" ? commentId : mainVideo.id,
-          limit: 20,
+        comments = await profilePublicationsAuth({
+          where: {
+            commentOn: {
+              id: commentId !== "" ? commentId : mainVideo.id,
+              ranking: {
+                filter: CommentRankingFilterType.Relevant,
+              },
+            },
+          },
+          limit: LimitType.TwentyFive,
           cursor: paginated?.next,
-          commentsOfOrdering: CommentOrderingTypes.Ranking,
-          commentsRankingFilter: CommentRankingFilter.Relevant,
         });
       } else {
-        comments = await whoCommentedPublications({
-          commentsOf: commentId !== "" ? commentId : mainVideo.id,
-          limit: 20,
+        comments = await profilePublications({
+          where: {
+            commentOn: {
+              id: commentId !== "" ? commentId : mainVideo.id,
+              ranking: {
+                filter: CommentRankingFilterType.Relevant,
+              },
+            },
+          },
+          limit: LimitType.TwentyFive,
           cursor: paginated?.next,
-          commentsOfOrdering: CommentOrderingTypes.Ranking,
-          commentsRankingFilter: CommentRankingFilter.Relevant,
         });
       }
       if (
@@ -128,82 +126,18 @@ const useInteractions = () => {
         setCommentsLoading(false);
         return;
       }
-      const sortedArr: any[] = [...comments?.data?.publications?.items];
-      if (sortedArr?.length < 20) {
+      const sortedArr: Comment[] = [
+        ...comments?.data?.publications?.items,
+      ] as Comment[];
+      if (sortedArr?.length < 25) {
         setHasMoreComments(false);
       }
       setCommentors([...commentors, ...sortedArr]);
       setPaginated(comments?.data?.publications?.pageInfo);
-      if (profileId) {
-        const hasMirroredArr = await checkIfMirrored(sortedArr, profileId);
-        setHasMirrored([...hasMirrored, ...hasMirroredArr]);
-        const hasReactedArr = await checkPostReactions(
-          {
-            commentsOf: commentId !== "" ? commentId : mainVideo.id,
-            limit: 20,
-            cursor: paginated?.next,
-            commentsOfOrdering: CommentOrderingTypes.Ranking,
-            commentsRankingFilter: CommentRankingFilter.Relevant,
-          },
-          profileId,
-          undefined,
-          true
-        );
-        setHasReacted([...hasReacted, ...hasReactedArr]);
-      }
     } catch (err: any) {
       console.error(err.message);
     }
   };
-
-  const getMorePostCollects = async (): Promise<void> => {
-    if (!collectPageInfo?.next) {
-      setHasMoreCollects(false);
-      return;
-    }
-    try {
-      const collects = await whoCollectedPublications({
-        publicationId: mainVideo?.id,
-        limit: 30,
-        cursor: collectPageInfo?.next,
-      });
-      const arr: any[] = [...collects.data.whoCollectedPublication.items];
-      const sortedArr: any[] = arr.sort(
-        (a: any, b: any) => Date.parse(b.createdAt) - Date.parse(a.createdAt)
-      );
-      if (sortedArr?.length < 2) {
-        setHasMoreCollects(false);
-      }
-      setCollectors([...collectors, ...sortedArr]);
-      setCollectPageInfo(collects?.data?.whoCollectedPublication?.pageInfo);
-    } catch (err: any) {
-      console.error(err.message);
-    }
-  };
-
-  const canComment = async () => {
-    try {
-      const res = await canCommentPub(
-        {
-          publicationId: commentId,
-        },
-        profileId
-      );
-      if (!res.data.publication.canComment.result) {
-        dispatch(setCanComment(false));
-      }
-    } catch (err: any) {
-      console.error(err.message);
-    }
-  };
-
-  useEffect(() => {
-    if (commentId !== "" && profileId) {
-      canComment();
-    } else {
-      dispatch(setCanComment(true));
-    }
-  }, [commentId]);
 
   useEffect(() => {
     if (mainVideo.id) {
@@ -220,10 +154,7 @@ const useInteractions = () => {
     commentors,
     getMorePostComments,
     commentsLoading,
-    hasMoreCollects,
     hasMoreComments,
-    hasMirrored,
-    hasReacted,
     commentsOpen,
     setCommentsOpen,
   };

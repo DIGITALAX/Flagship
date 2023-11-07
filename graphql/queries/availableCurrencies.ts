@@ -1,4 +1,4 @@
-import { Erc20 } from "../../types/lens.types";
+import { Erc20, LimitType } from "../../types/generated";
 import getEnabledCurrencies from "./enabledCurrencies";
 
 const availableCurrencies = async (
@@ -7,13 +7,15 @@ const availableCurrencies = async (
   presetCurrency?: string
 ): Promise<void> => {
   try {
-    const response = await getEnabledCurrencies();
+    const response = await getEnabledCurrencies({
+      limit: LimitType.TwentyFive,
+    });
     if (response && response.data) {
-      setEnabledCurrencies(response.data.enabledModuleCurrencies);
+      setEnabledCurrencies(response.data.currencies.items);
       setEnabledCurrency(
         presetCurrency
           ? presetCurrency
-          : response.data.enabledModuleCurrencies[0]?.symbol
+          : response.data.currencies.items[0]?.symbol
       );
     }
   } catch (err: any) {

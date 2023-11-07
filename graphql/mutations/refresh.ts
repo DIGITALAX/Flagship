@@ -1,22 +1,14 @@
-import { gql } from "@apollo/client";
+import { FetchResult } from "@apollo/client";
+import { RefreshDocument, RefreshMutation, RefreshRequest } from "../../types/generated";
 import { authClient } from "../../lib/lens/client";
 
-const REFRESH_LOGIN = `
-mutation Refresh($request: RefreshRequest!) {
-  refresh(request: $request) {
-    accessToken
-    refreshToken
-  }
-}
-`;
-
-const refresh = async (refreshToken: string): Promise<any> => {
-  return authClient.mutate({
-    mutation: gql(REFRESH_LOGIN),
+const refresh = async (
+  request: RefreshRequest
+): Promise<FetchResult<RefreshMutation>> => {
+  return await authClient.mutate({
+    mutation: RefreshDocument,
     variables: {
-      request: {
-        refreshToken,
-      },
+      request,
     },
   });
 };

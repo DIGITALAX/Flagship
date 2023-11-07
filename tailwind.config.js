@@ -25,6 +25,8 @@ module.exports = {
         grad1: "#8BCDF4",
         grad2: "#C9F5FD",
         grad3: "#C6F8FE",
+        ama: "#FBDB86",
+        verde: "#25EC68",
         borderBlue: "#B8F3FF",
         darkP: "#462D4A",
         foot: "#F7F8E8",
@@ -135,6 +137,7 @@ module.exports = {
         galaxy: "300px",
         above: "350px",
         wide: "1280px",
+        preG: "480px",
       },
       cursor: {
         sewing: "url('/images/sewingCursor.png'), auto",

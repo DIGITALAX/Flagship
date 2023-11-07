@@ -6,7 +6,7 @@ class Document extends NextDocument {
     return (
       <Html>
         <Head>
-          <meta name="og:image" content="https://digitalax.xyz/card.png/" />
+          <meta name="og:image" content="https://www.digitalax.xyz/card.png/" />
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"

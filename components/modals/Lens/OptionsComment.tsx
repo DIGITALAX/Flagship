@@ -20,7 +20,7 @@ const OptionsComment: FunctionComponent<OptionsCommentProps> = ({
   return (
     <div className="relative w-fit h-fit flex flex-row gap-2 pl-2">
       <div
-        className={`relative w-4 h-4 items-center flex cursor-pointer ${
+        className={`relative w-4 h-4 items-center flex cursor-sewingHS ${
           postImages?.length === 4 && "opacity-20"
         }`}
         onClick={() => {
@@ -40,7 +40,7 @@ const OptionsComment: FunctionComponent<OptionsCommentProps> = ({
           !commentLoading &&
           !imageLoading &&
           (!postImages?.length || (postImages as any)?.length < 4) &&
-          "cursor-pointer active:scale-95"
+          "cursor-sewingHS active:scale-95"
         } ${imageLoading && "animate-spin"} ${
           postImages?.length === 4 && "opacity-20"
         }`}
@@ -79,7 +79,7 @@ const OptionsComment: FunctionComponent<OptionsCommentProps> = ({
           !commentLoading &&
           !videoLoading &&
           (!postImages?.length || (postImages as any)?.length < 4) &&
-          "cursor-pointer active:scale-95"
+          "cursor-sewingHS active:scale-95"
         } ${videoLoading && "animate-spin"} ${
           postImages?.length === 4 && "opacity-20"
         }`}
@@ -114,7 +114,7 @@ const OptionsComment: FunctionComponent<OptionsCommentProps> = ({
         />
       </label>
       <div
-        className="relative w-4 h-4 items-center flex cursor-pointer"
+        className="relative w-4 h-4 items-center flex cursor-sewingHS"
         onClick={() => {
           setGifOpen(false);
           dispatch(setCollectOpen(!collectOpen));

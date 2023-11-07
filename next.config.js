@@ -66,6 +66,19 @@ const nextConfig = {
           },
         ],
       },
+      {
+        source: "/fonts/:font*(.woff|.woff2|.ttf|.eot)",
+        headers: [
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "*",
+          },
+          {
+            key: "Vary",
+            value: "Origin",
+          },
+        ],
+      },
     ];
   },
 };

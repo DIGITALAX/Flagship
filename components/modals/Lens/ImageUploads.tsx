@@ -50,7 +50,7 @@ const ImageUploads: FunctionComponent<ImageUploadsProps> = ({
                 )}
                 <div
                   className={`relative w-fit h-fit col-start-1 justify-self-end self-start p-px ${
-                    !commentLoading && "cursor-pointer active:scale-95"
+                    !commentLoading && "cursor-sewingHS active:scale-95"
                   }`}
                   onClick={() => {
                     !commentLoading ? handleRemoveImage(image, true) : {};

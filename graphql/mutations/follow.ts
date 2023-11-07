@@ -1,40 +1,18 @@
-import { gql } from "@apollo/client";
+import { FetchResult } from "@apollo/client";
+import {
+  CreateFollowTypedDataDocument,
+  CreateFollowTypedDataMutation,
+  FollowRequest,
+} from "../../types/generated";
 import { apolloClient } from "../../lib/lens/client";
 
-export const FOLLOW_DATA = `
-mutation CreateFollowTypedData($request: FollowRequest!) {
-  createFollowTypedData(request: $request) {
-    id
-    expiresAt
-    typedData {
-      domain {
-        name
-        chainId
-        version
-        verifyingContract
-      }
-      types {
-        FollowWithSig {
-          name
-          type
-        }
-      }
-      value {
-        nonce
-        deadline
-        profileIds
-        datas
-      }
-    }
-  }
-}
-`;
-
-const createFollowTypedData = (CreateFollowRequest: any) => {
-  return apolloClient.mutate({
-    mutation: gql(FOLLOW_DATA),
+const createFollowTypedData = async (
+  request: FollowRequest
+): Promise<FetchResult<CreateFollowTypedDataMutation>> => {
+  return await apolloClient.mutate({
+    mutation: CreateFollowTypedDataDocument,
     variables: {
-      request: CreateFollowRequest,
+      request,
     },
     fetchPolicy: "no-cache",
   });

@@ -1,21 +1,20 @@
-import { gql } from "@apollo/client";
+import { FetchResult } from "@apollo/client";
 import { authClient } from "../../lib/lens/client";
+import {
+  ChallengeDocument,
+  ChallengeQuery,
+  ChallengeRequest,
+} from "../../types/generated";
 
-const GET_CHALLENGE = `
-  query($request: ChallengeRequest!) {
-    challenge(request: $request) { text }
-  }
-`;
-
-export const generateChallenge = (address?: string) => {
-  return authClient.query({
-    query: gql(GET_CHALLENGE),
+export const generateChallenge = async (
+  request: ChallengeRequest
+): Promise<FetchResult<ChallengeQuery>> => {
+  return await authClient.query({
+    query: ChallengeDocument,
     variables: {
-      request: {
-        address,
-      },
+      request,
     },
-    fetchPolicy: "no-cache"
+    fetchPolicy: "no-cache",
   });
 };
 export default generateChallenge;
