@@ -153,7 +153,7 @@ const Comments: FunctionComponent<CommentsProps> = ({
                               ),
                             }}
                           ></div>
-                          <div className="relative w-44 h-fit overflow-x-scroll grid grid-flow-col auto-cols-auto gap-3 z-10">
+                          <div className="relative w-44 h-fit overflow-x-scroll grid grid-flow-col auto-cols-auto gap-3 z-10" id="hozScroll">
                             {(
                               comment?.metadata as ImageMetadataV3
                             )?.attachments?.map(

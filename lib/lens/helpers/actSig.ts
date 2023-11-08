@@ -3,7 +3,6 @@ import { omit } from "lodash";
 import { AnyAction, Dispatch } from "redux";
 import { PublicClient, WalletClient } from "viem";
 import { polygon } from "viem/chains";
-import { splitSignature } from "ethers/lib/utils";
 import handleIndexCheck from "./handleIndexCheck";
 import collect from "../../../graphql/mutations/collect";
 import { ActOnOpenActionInput, RelaySuccess } from "../../../types/generated";
@@ -41,11 +40,10 @@ const actSig = async (
       signature,
     });
     if (broadcastResult?.data?.broadcastOnchain?.__typename == "RelayError") {
-      const { v, r, s } = splitSignature(signature);
       const { request } = await publicClient.simulateContract({
         address: LENS_HUB_PROXY_ADDRESS_MATIC,
         abi: LensHubProxy,
-        functionName: "actWithSig",
+        functionName: "act",
         chain: polygon,
         args: [
           {
@@ -57,13 +55,6 @@ const actSig = async (
             referrerPubIds: typedData?.value.referrerPubIds,
             actionModuleAddress: typedData?.value.actionModuleAddress,
             actionModuleData: typedData?.value.actionModuleData,
-          },
-          {
-            v,
-            r,
-            s,
-            deadline: typedData?.value.deadline,
-            signer: address,
           },
         ],
         account: address,
