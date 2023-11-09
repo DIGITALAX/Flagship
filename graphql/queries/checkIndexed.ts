@@ -1,7 +1,6 @@
 import { FetchResult } from "@apollo/client";
 import {
   LensTransactionStatusType,
-  LensTransactionFailureType,
   LensTransactionStatusDocument,
   LensTransactionStatusQuery,
   LensTransactionStatusRequest,
@@ -22,14 +21,14 @@ const getIndexed = async (
 
 const pollUntilIndexed = async (
   request: LensTransactionStatusRequest
-): Promise<boolean | LensTransactionFailureType> => {
+): Promise<boolean> => {
   let count = 0;
   while (count < 5) {
     const { data } = await getIndexed(request);
     if (data && data.lensTransactionStatus) {
       switch (data.lensTransactionStatus.status) {
         case LensTransactionStatusType.Failed:
-          return data.lensTransactionStatus.reason!;
+          return false;
         case LensTransactionStatusType.Complete:
           return true;
         case LensTransactionStatusType.Processing:
