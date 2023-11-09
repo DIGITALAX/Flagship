@@ -96,7 +96,6 @@ const useSuperCreator = () => {
           quickProfiles[i]?.followModule?.type as any,
           (quickProfiles[i]?.followModule as any)?.amount?.value,
           (quickProfiles[i]?.followModule as any)?.amount?.asset?.address,
-          quickProfiles[i].ownedBy
         );
 
         followers.push({

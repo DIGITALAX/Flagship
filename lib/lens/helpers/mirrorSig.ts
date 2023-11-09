@@ -20,7 +20,6 @@ const mirrorSig = async (
   try {
     const mirrorPost = await mirror({
       mirrorOn,
-      mirrorReferenceModuleData: {},
     });
 
     const typedData = mirrorPost?.data?.createOnchainMirrorTypedData.typedData;

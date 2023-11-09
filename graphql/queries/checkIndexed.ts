@@ -24,7 +24,7 @@ const pollUntilIndexed = async (
   request: LensTransactionStatusRequest
 ): Promise<boolean | LensTransactionFailureType> => {
   let count = 0;
-  while (count < 100) {
+  while (count < 5) {
     try {
       const { data } = await getIndexed(request);
       if (data && data.lensTransactionStatus) {

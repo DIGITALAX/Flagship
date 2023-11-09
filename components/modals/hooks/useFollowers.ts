@@ -123,7 +123,6 @@ const useFollowers = () => {
       profile?.followModule?.type as any,
       (profile?.followModule as any)?.amount?.value,
       (profile?.followModule as any)?.amount?.asset?.address,
-      profile?.ownedBy?.address
     );
 
     try {
