@@ -15,13 +15,13 @@ import {
   getOneProfileAuth,
 } from "../../../graphql/queries/getProfile";
 import checkApproved from "../../../lib/lens/helpers/checkApproved";
-import pollUntilIndexed from "../../../graphql/queries/checkIndexed";
 import createFollowModule from "../../../lib/lens/helpers/createFollowModules";
 import followSig from "../../../lib/lens/helpers/followSig";
 import { setIndexModal } from "../../../redux/reducers/indexModalSlice";
 import { setModalOpen } from "../../../redux/reducers/modalOpenSlice";
 import getDefaultProfile from "../../../graphql/queries/getDefaultProfile";
 import { setFollowerOnly } from "../../../redux/reducers/followerOnlySlice";
+import handleIndexCheck from "../../../lib/lens/helpers/handleIndexCheck";
 
 const useFollowers = () => {
   const publicClient = createPublicClient({
@@ -91,10 +91,13 @@ const useFollowers = () => {
         account: approvalArgs?.from as `0x${string}`,
         value: BigInt(approvalArgs?.data as string),
       });
-      await publicClient.waitForTransactionReceipt({ hash: res });
-      await pollUntilIndexed({
-        forTxHash: res,
-      });
+      const tx = await publicClient.waitForTransactionReceipt({ hash: res });
+      await handleIndexCheck(
+        {
+          forTxHash: tx.transactionHash,
+        },
+        dispatch
+      );
       await approvedFollow();
     } catch (err: any) {
       setFollowLoading(false);

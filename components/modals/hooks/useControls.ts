@@ -16,7 +16,6 @@ import {
 } from "../../../graphql/queries/getPublication";
 import checkApproved from "../../../lib/lens/helpers/checkApproved";
 import { setPostCollectValues } from "../../../redux/reducers/postCollectValuesSlice";
-import pollUntilIndexed from "../../../graphql/queries/checkIndexed";
 import { setSeek } from "../../../redux/reducers/seekSlice";
 import { FetchResult } from "@apollo/client";
 import {
@@ -30,6 +29,7 @@ import {
 import mirrorSig from "../../../lib/lens/helpers/mirrorSig";
 import actSig from "../../../lib/lens/helpers/actSig";
 import { setModalOpen } from "../../../redux/reducers/modalOpenSlice";
+import handleIndexCheck from "../../../lib/lens/helpers/handleIndexCheck";
 
 const useControls = () => {
   const publicClient = createPublicClient({
@@ -373,10 +373,13 @@ const useControls = () => {
         account: approvalArgs?.from as `0x${string}`,
         value: BigInt(approvalArgs?.data as string),
       });
-      await publicClient.waitForTransactionReceipt({ hash: res });
-      await pollUntilIndexed({
-        forTxHash: res,
-      });
+      const tx = await publicClient.waitForTransactionReceipt({ hash: res });
+      await handleIndexCheck(
+        {
+          forTxHash: tx.transactionHash,
+        },
+        dispatch
+      );
       await getCollectInfo();
     } catch (err: any) {
       setApprovalLoading(false);

@@ -57,14 +57,16 @@ const mirrorSig = async (
         account: address,
       });
       const res = await clientWallet.writeContract(request);
-      await publicClient.waitForTransactionReceipt({ hash: res });
+      const tx = await publicClient.waitForTransactionReceipt({ hash: res });
       dispatch(
         setIndexModal({
           actionValue: true,
           actionMessage: "Indexing Interaction",
         })
       );
-      await handleIndexCheck(res, dispatch);
+      await handleIndexCheck( {
+        forTxHash: tx.transactionHash,
+      }, dispatch);
     } else {
       dispatch(
         setIndexModal({

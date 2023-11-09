@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useFeedResults } from "../../../../types/general.types";
 import { useMediaQuery } from "@material-ui/core";
-import { profilePublications } from "../../../../graphql/queries/getPublications";
+import { getPublications } from "../../../../graphql/queries/getPublications";
 import {
   LimitType,
   Mirror,
@@ -23,7 +23,7 @@ const useFeed = (): useFeedResults => {
 
   const getFeedData = async (): Promise<any> => {
     try {
-      const response = await profilePublications({
+      const response = await getPublications({
         where: {
           from: ["0x016305", "0x01c6a9"],
           publicationTypes: [
@@ -53,7 +53,7 @@ const useFeed = (): useFeedResults => {
       return;
     }
     try {
-      const morePublications = await profilePublications({
+      const morePublications = await getPublications({
         where: {
           from: ["0x016305", "0x01c6a9"],
           publicationTypes: [

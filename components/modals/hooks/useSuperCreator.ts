@@ -10,8 +10,6 @@ import createFollowModule from "../../../lib/lens/helpers/createFollowModules";
 import followSig from "../../../lib/lens/helpers/followSig";
 import { setModalOpen } from "../../../redux/reducers/modalOpenSlice";
 import { setIndexModal } from "../../../redux/reducers/indexModalSlice";
-import handleIndexCheck from "../../../lib/lens/helpers/handleIndexCheck";
-import { setSuperFollow } from "../../../redux/reducers/superFollowSlice";
 import { LENS_CREATORS } from "../../../lib/lens/constants";
 import createProfilePicture from "../../../lib/lens/helpers/createProfilePicture";
 import getProfiles from "../../../graphql/queries/getProfiles";
@@ -77,10 +75,8 @@ const useSuperCreator = () => {
   };
 
   const followSuper = async () => {
-    if (!profile || !connected) return;
     setSuperCreatorLoading(true);
 
-    let res: `0x${string}` = "0x";
     const batchSize = 15;
     const numBatches = Math.ceil(LENS_CREATORS.length / batchSize);
     for (let batchIndex = 0; batchIndex < numBatches; batchIndex++) {
@@ -95,7 +91,7 @@ const useSuperCreator = () => {
         const followModule = createFollowModule(
           quickProfiles[i]?.followModule?.type as any,
           (quickProfiles[i]?.followModule as any)?.amount?.value,
-          (quickProfiles[i]?.followModule as any)?.amount?.asset?.address,
+          (quickProfiles[i]?.followModule as any)?.amount?.asset?.address
         );
 
         followers.push({
@@ -131,18 +127,6 @@ const useSuperCreator = () => {
         console.error(err.message);
       }
     }
-
-    try {
-      setSuperCreatorLoading(false);
-      await handleIndexCheck(res, dispatch);
-      await refetchProfile();
-      setSuperCreatorLoading(false);
-      setRain(true);
-      setTimeout(() => {
-        setRain(false);
-        dispatch(setSuperFollow(false));
-      }, 4000);
-    } catch (err: any) {}
     setSuperCreatorLoading(false);
   };
 

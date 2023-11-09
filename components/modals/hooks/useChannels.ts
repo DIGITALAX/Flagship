@@ -17,8 +17,8 @@ import {
   PublicationsQuery,
 } from "../../../types/generated";
 import {
-  profilePublications,
-  profilePublicationsAuth,
+  getPublications,
+  getPublicationsAuth,
 } from "../../../graphql/queries/getPublications";
 
 const useChannels = () => {
@@ -64,7 +64,7 @@ const useChannels = () => {
       sortedArr: Post[] = [];
     try {
       if (lensProfile) {
-        data = await profilePublicationsAuth({
+        data = await getPublicationsAuth({
           limit: LimitType.Ten,
           where: {
             publicationTypes: [PublicationType.Post],
@@ -72,7 +72,7 @@ const useChannels = () => {
           },
         });
       } else {
-        data = await profilePublications({
+        data = await getPublications({
           limit: LimitType.Ten,
           where: {
             publicationTypes: [PublicationType.Post],
@@ -144,7 +144,7 @@ const useChannels = () => {
     }
     try {
       if (lensProfile) {
-        data = await profilePublicationsAuth({
+        data = await getPublicationsAuth({
           limit: LimitType.Ten,
           where: {
             publicationTypes: [PublicationType.Post],
@@ -153,7 +153,7 @@ const useChannels = () => {
           cursor: paginated?.next,
         });
       } else {
-        data = await profilePublications({
+        data = await getPublications({
           limit: LimitType.Ten,
           where: {
             publicationTypes: [PublicationType.Post],
@@ -239,7 +239,7 @@ const useChannels = () => {
     let data: FetchResult<PublicationsQuery>;
     try {
       if (lensProfile) {
-        data = await profilePublicationsAuth({
+        data = await getPublicationsAuth({
           limit: LimitType.Ten,
           where: {
             publicationTypes: [PublicationType.Post],
@@ -247,7 +247,7 @@ const useChannels = () => {
           },
         });
       } else {
-        data = await profilePublications({
+        data = await getPublications({
           limit: LimitType.Ten,
           where: {
             publicationTypes: [PublicationType.Post],

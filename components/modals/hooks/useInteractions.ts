@@ -9,8 +9,8 @@ import {
 import { RootState } from "../../../redux/store";
 import { FetchResult } from "@apollo/client";
 import {
-  profilePublications,
-  profilePublicationsAuth,
+  getPublications,
+  getPublicationsAuth,
 } from "../../../graphql/queries/getPublications";
 
 const useInteractions = () => {
@@ -37,7 +37,7 @@ const useInteractions = () => {
       let comments: FetchResult<PublicationsQuery>;
 
       if (profileId) {
-        comments = await profilePublicationsAuth({
+        comments = await getPublicationsAuth({
           where: {
             commentOn: {
               id: commentId !== "" ? commentId : mainVideo.id,
@@ -49,7 +49,7 @@ const useInteractions = () => {
           limit: LimitType.TwentyFive,
         });
       } else {
-        comments = await profilePublications({
+        comments = await getPublications({
           where: {
             commentOn: {
               id: commentId !== "" ? commentId : mainVideo.id,
@@ -90,7 +90,7 @@ const useInteractions = () => {
       }
       let comments: FetchResult<PublicationsQuery>;
       if (profileId) {
-        comments = await profilePublicationsAuth({
+        comments = await getPublicationsAuth({
           where: {
             commentOn: {
               id: commentId !== "" ? commentId : mainVideo.id,
@@ -103,7 +103,7 @@ const useInteractions = () => {
           cursor: paginated?.next,
         });
       } else {
-        comments = await profilePublications({
+        comments = await getPublications({
           where: {
             commentOn: {
               id: commentId !== "" ? commentId : mainVideo.id,
