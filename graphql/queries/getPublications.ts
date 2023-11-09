@@ -18,7 +18,7 @@ export const getPublicationsAuth = async (
     errorPolicy: "all",
   });
 
-  if (data.error || (data.error as any).name) {
+  if (data?.error) {
     return await authClient.query({
       query: PublicationsDocument,
       variables: {
