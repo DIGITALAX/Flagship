@@ -3,12 +3,12 @@ import { FollowModuleRedeemInput } from "../../../types/generated";
 const createFollowModule = (
   type: string | undefined,
   value: number,
-  currency: string | undefined,
+  currency: string | undefined
 ): FollowModuleRedeemInput | undefined => {
-  let module: FollowModuleRedeemInput | undefined;
+  let followModule: FollowModuleRedeemInput | undefined;
 
   if (value && currency && type !== "FreeFollowModule") {
-    module = {
+    followModule = {
       feeFollowModule: {
         amount: {
           currency,
@@ -18,7 +18,7 @@ const createFollowModule = (
     };
   }
 
-  return module;
+  return followModule;
 };
 
 export default createFollowModule;
