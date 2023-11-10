@@ -64,7 +64,7 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
       nodeRef={videoRef as any}
     >
       <div
-        className={`absolute z-20 h-fit cursor-grab active:cursor-grabbing items-center justify-center rounded-lg top-40 left-0 sm:left-1/3 flex flex-col xl:w-1/3 sm:w-1/2 w-full`}
+        className={`fixed z-20 h-fit cursor-grab active:cursor-grabbing items-center justify-center rounded-lg top-40 left-0 sm:left-10 flex flex-col xl:w-1/3 sm:w-1/2 w-full`}
         ref={videoRef as any}
       >
         <div
