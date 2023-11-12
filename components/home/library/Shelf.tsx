@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { FunctionComponent, useState } from "react";
 import { ShelfProps, Library } from "../../../types/general.types";
 import library from "./../../../pages/api/library.json";

@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import { ImCross } from "react-icons/im";
 import { setNoHandle } from "../../redux/reducers/noHandleSlice";
 import { NoHandleProps } from "../../types/general.types";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { INFURA_GATEWAY } from "../../lib/lens/constants";
 
 const NoHandle: FunctionComponent<NoHandleProps> = ({

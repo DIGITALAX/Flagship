@@ -1,5 +1,5 @@
 import { FunctionComponent, useState } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Marquee from "react-fast-marquee";
 import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 

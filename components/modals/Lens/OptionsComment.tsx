@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { FormEvent, FunctionComponent } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 import { setCollectOpen } from "../../../redux/reducers/collectOpenSlice";

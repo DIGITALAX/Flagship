@@ -18,12 +18,22 @@ import Index from "./Index";
 import ImageLarge from "./ImageLarge";
 import FollowSuper from "./FollowSuper";
 import useSuperCreator from "./hooks/useSuperCreator";
+import { polygonMumbai } from "viem/chains";
+import { createPublicClient, http } from "viem";
 
 const Modals = () => {
+  const publicClient = createPublicClient({
+    chain: polygonMumbai,
+    transport: http(),
+  });
+  const { address, isConnected } = useAccount();
   const videoRef = useRef<HTMLDivElement>(null);
   const dispatch = useDispatch();
   const videoSync = useSelector(
     (state: RootState) => state.app.videoSyncReducer
+  );
+  const reactId = useSelector(
+    (state: RootState) => state.app.reactIdReducer.value
   );
   const lensProfile = useSelector(
     (state: RootState) => state.app.profileReducer.profile
@@ -58,11 +68,16 @@ const Modals = () => {
   const reactions = useSelector(
     (state: RootState) => state.app.videoCountReducer
   );
+  const rain = useSelector((state: RootState) => state.app.rainReducer.value);
   const followersModal = useSelector(
     (state: RootState) => state.app.followerOnlyReducer
   );
+  const seek = useSelector((state: RootState) => state.app.seekReducer.seek);
   const purchaseModal = useSelector(
     (state: RootState) => state.app.purchaseReducer
+  );
+  const approvalArgs = useSelector(
+    (state: RootState) => state.app.approvalArgsReducer.args
   );
   const hasMore = useSelector(
     (state: RootState) => state.app.hasMoreVideoReducer.value
@@ -89,8 +104,19 @@ const Modals = () => {
     };
   }, []);
 
-  const { address } = useAccount();
-  const { handleLensSignIn, signInLoading } = useSignIn();
+  const { handleLensSignIn, signInLoading } = useSignIn(
+    dispatch,
+    isConnected,
+    address
+  );
+  const {
+    commentors,
+    getMorePostComments,
+    commentsLoading,
+    hasMoreComments,
+    commentsOpen,
+    setCommentsOpen,
+  } = useInteractions(lensProfile, mainVideo, commentId, indexModal);
   const { openConnectModal } = useConnectModal();
   const {
     collectInfoLoading: controlsCollectInfoLoading,
@@ -105,7 +131,6 @@ const Modals = () => {
     collectVideo,
     mirrorVideo,
     likeVideo,
-    profileId,
     mirrorCommentLoading,
     likeCommentLoading,
     collectCommentLoading,
@@ -116,22 +141,34 @@ const Modals = () => {
     progressRef,
     handleSeek,
     fullVideoRef,
-  } = useControls();
-  const { followSuper, superCreatorLoading, canvasRef, rain, quickProfiles } =
-    useSuperCreator();
+  } = useControls(
+    address,
+    dispatch,
+    commentors,
+    seek,
+    lensProfile,
+    videoSync,
+    fullScreenVideo,
+    mainVideo,
+    approvalArgs,
+    purchaseModal
+  );
+  const { followSuper, superCreatorLoading, canvasRef, quickProfiles } =
+    useSuperCreator(publicClient, dispatch, address, rain);
   const {
     fetchMoreVideos,
     videoLoading: channelVideoLoading,
     setVideoLoading,
-  } = useChannels();
-  const {
-    commentors,
-    getMorePostComments,
-    commentsLoading,
-    hasMoreComments,
-    commentsOpen,
-    setCommentsOpen,
-  } = useInteractions();
+  } = useChannels(
+    dispatch,
+    mainVideo,
+    lensProfile,
+    dispatchVideos,
+    indexModal?.message,
+    reactId,
+    videoSync,
+    reactions
+  );
   const {
     reacters,
     mirrorers,
@@ -145,7 +182,7 @@ const Modals = () => {
     hasMoreReact,
     hasMoreCollect,
     hasMoreMirror,
-  } = useWho();
+  } = useWho(reaction);
 
   const {
     followProfile,
@@ -153,7 +190,7 @@ const Modals = () => {
     followLoading,
     approved,
     approveCurrency: approveFollowCurrency,
-  } = useFollowers();
+  } = useFollowers(publicClient, dispatch, address, approvalArgs, lensProfile, followersModal);
   return (
     <>
       {fullScreenVideo.open && (
@@ -185,7 +222,6 @@ const Modals = () => {
           likeLoading={likeLoading}
           collectLoading={collectLoading}
           mirrorLoading={mirrorLoading}
-          profileId={profileId}
           progressRef={progressRef}
           handleSeek={handleSeek}
           collectAmount={reactions.collect}

@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import { FaRegCommentDots } from "react-icons/fa";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { FeedProps } from "../../../types/general.types";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { AiFillEye, AiOutlineRetweet } from "react-icons/ai";
 import ReactPlayer from "react-player";
 import descriptionRegex from "../../../lib/lens/helpers/descriptionRegex";

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { FormEvent, FunctionComponent } from "react";
 import { AiOutlineLoading } from "react-icons/ai";
 import lodash from "lodash";
@@ -21,7 +21,6 @@ const Controls: FunctionComponent<ControlsProps> = ({
   likeVideo,
   collectVideo,
   mirrorVideo,
-  profileId,
   likeLoading,
   mirrorLoading,
   collectLoading,
@@ -41,6 +40,7 @@ const Controls: FunctionComponent<ControlsProps> = ({
   openConnectModal,
   setVideoLoading,
   videoLoading,
+  lensProfile,
 }): JSX.Element => {
   const currentIndex = lodash.findIndex(dispatchVideos, { id: mainVideo.id });
   return (
@@ -78,7 +78,7 @@ const Controls: FunctionComponent<ControlsProps> = ({
               likeLoading && "animate-spin"
             }`}
             onClick={
-              profileId
+              lensProfile?.id
                 ? () => {
                     handleHeart();
                     likeVideo();
@@ -116,11 +116,11 @@ const Controls: FunctionComponent<ControlsProps> = ({
               collectLoading && "animate-spin"
             }`}
             onClick={
-              profileId
+              lensProfile?.id
                 ? () => collectVideo()
                 : !connected
                 ? openConnectModal
-                : connected && !profileId
+                : connected && !lensProfile?.id
                 ? () => handleLensSignIn()
                 : () => {}
             }
@@ -155,11 +155,11 @@ const Controls: FunctionComponent<ControlsProps> = ({
               mirrorLoading && "animate-spin"
             }`}
             onClick={
-              profileId
+              lensProfile?.id
                 ? () => mirrorVideo()
                 : !connected
                 ? openConnectModal
-                : connected && !profileId
+                : connected && !lensProfile?.id
                 ? () => handleLensSignIn()
                 : () => {}
             }

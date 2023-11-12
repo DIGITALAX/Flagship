@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import ReactPlayer from "react-player";
 import moment from "moment";
 import createProfilePicture from "../../../lib/lens/helpers/createProfilePicture";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 import { FaRegCommentDots } from "react-icons/fa";
 import { PublicationMetadataMedia, Comment } from "../../../types/generated";

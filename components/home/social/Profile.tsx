@@ -1,5 +1,5 @@
 import moment from "moment";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 import createProfilePicture from "../../../lib/lens/helpers/createProfilePicture";
 import { FunctionComponent } from "react";

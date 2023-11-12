@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useAccount } from "wagmi";
-import { createPublicClient, createWalletClient, custom, http } from "viem";
+import {
+  PublicClient,
+  createWalletClient,
+  custom,
+} from "viem";
 import { polygon } from "viem/chains";
 import { FetchResult } from "@apollo/client";
 import {
@@ -9,7 +11,6 @@ import {
   Profile,
   ProfileQuery,
 } from "../../../types/generated";
-import { RootState } from "../../../redux/store";
 import {
   getOneProfile,
   getOneProfileAuth,
@@ -20,33 +21,27 @@ import followSig from "../../../lib/lens/helpers/followSig";
 import { setIndexModal } from "../../../redux/reducers/indexModalSlice";
 import { setModalOpen } from "../../../redux/reducers/modalOpenSlice";
 import getDefaultProfile from "../../../graphql/queries/getDefaultProfile";
-import { setFollowerOnly } from "../../../redux/reducers/followerOnlySlice";
+import { FollowerOnlyState, setFollowerOnly } from "../../../redux/reducers/followerOnlySlice";
 import handleIndexCheck from "../../../lib/lens/helpers/handleIndexCheck";
+import { Dispatch, AnyAction } from "redux";
+import { ApprovalArgs } from "../../../types/general.types";
 
-const useFollowers = () => {
-  const publicClient = createPublicClient({
-    chain: polygon,
-    transport: http(),
-  });
-  const dispatch = useDispatch();
-  const { address } = useAccount();
+const useFollowers = (
+  publicClient: PublicClient,
+  dispatch: Dispatch<AnyAction>,
+  address: `0x${string}` | undefined,
+  approvalArgs: ApprovalArgs | undefined,
+  lensProfile: Profile | undefined,
+  followerId: FollowerOnlyState
+) => {
   const [profile, setProfile] = useState<Profile | undefined>();
   const [followLoading, setFollowLoading] = useState<boolean>(false);
-  const followerId = useSelector(
-    (state: RootState) => state.app.followerOnlyReducer
-  );
-  const approvalArgs = useSelector(
-    (state: RootState) => state.app.approvalArgsReducer.args
-  );
   const [approved, setApproved] = useState<boolean>(false);
-  const profileId = useSelector(
-    (state: RootState) => state.app.profileReducer.profile?.id
-  );
 
   const getProfile = async (): Promise<void> => {
     try {
       let prof: FetchResult<ProfileQuery>;
-      if (profileId) {
+      if (lensProfile?.id) {
         prof = await getOneProfileAuth({
           forProfileId: followerId?.followerId,
         });
@@ -71,7 +66,7 @@ const useFollowers = () => {
       (profile?.followModule as any)?.amount?.value,
       dispatch,
       address,
-      profileId
+      lensProfile?.id
     );
     const isApproved = parseInt(approvalData?.allowance?.value as string, 16);
     setApproved(
@@ -116,7 +111,7 @@ const useFollowers = () => {
   };
 
   const followProfile = async (): Promise<void> => {
-    if (!profileId) {
+    if (!lensProfile?.id) {
       return;
     }
 
@@ -125,7 +120,7 @@ const useFollowers = () => {
     const followModule = createFollowModule(
       profile?.followModule?.type as any,
       (profile?.followModule as any)?.amount?.value,
-      (profile?.followModule as any)?.amount?.asset?.address,
+      (profile?.followModule as any)?.amount?.asset?.address
     );
 
     try {

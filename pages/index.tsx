@@ -21,8 +21,9 @@ import { HomeProps } from "../types/general.types";
 import RefactorElement from "../components/common/modals/RefactorElement";
 import CC0 from "../components/home/cc0/CC0";
 import { useDispatch } from "react-redux";
+import useGallery from "../components/home/display/hooks/useGallery";
 
-const Home: NextPage<HomeProps> = ({ queryWindowSize2XL, shop }) => {
+const Home: NextPage<HomeProps> = ({ queryWindowSize2XL, shop, router }) => {
   const [RefactorModal, setRefactorModal] = useState<boolean>(false);
   const { setExpressInterest } = useContext(GlobalContext);
   const dispatch = useDispatch();
@@ -33,7 +34,18 @@ const Home: NextPage<HomeProps> = ({ queryWindowSize2XL, shop }) => {
     queryWindowSizeMobile,
     queryWindowSizeXL,
   } = useFeed();
-
+  const {
+    currentImages,
+    currentPage,
+    paginateBackward,
+    paginateForward,
+    pageBoundaryForward,
+    pageBoundaryBackward,
+    setMore,
+    more,
+    setBlur,
+    blur,
+  } = useGallery(router);
   useEffect(() => {
     const scrollElement = document.getElementById("scrollMicro");
     if (scrollElement) {
@@ -52,7 +64,10 @@ const Home: NextPage<HomeProps> = ({ queryWindowSize2XL, shop }) => {
         />
         <link rel="icon" href="/favicon.ico" />
         <meta property="og:site_name" content="DIGITALAX" />
-        <meta property="og:image" content="https://www.digitalax.xyz/card.png/" />
+        <meta
+          property="og:image"
+          content="https://www.digitalax.xyz/card.png/"
+        />
         <meta property="og:type" content="website" />
       </Head>
       <div className="relative w-full h-fit flex flex-col">
@@ -60,9 +75,20 @@ const Home: NextPage<HomeProps> = ({ queryWindowSize2XL, shop }) => {
         <Banner />
       </div>
       <Display
+        blur={blur}
+        setBlur={setBlur}
         shop={shop}
         setExpressInterest={setExpressInterest}
         queryWindowSize2XL={queryWindowSize2XL}
+        currentImages={currentImages}
+        currentPage={currentPage}
+        paginateBackward={paginateBackward}
+        pageBoundaryBackward={pageBoundaryBackward}
+        pageBoundaryForward={pageBoundaryForward}
+        paginateForward={paginateForward}
+        router={router}
+        setMore={setMore}
+        more={more}
       />
       <Description />
       <Blender />

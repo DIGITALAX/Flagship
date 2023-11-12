@@ -1,14 +1,14 @@
-import { useRouter } from "next/router";
+import { NextRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { Gallery, useGalleryResult } from "../../../../types/general.types";
 import tokens from "./../../../../pages/api/tokens.json";
 
-const useGallery = (): useGalleryResult => {
-  const router = useRouter();
+const useGallery = (router: NextRouter): useGalleryResult => {
   const imagesPerPage: number = 18;
+  const [blur, setBlur] = useState<boolean>(true);
   const [images, setImages] = useState<Gallery[]>(
     tokens.slice(0, imagesPerPage)
-  ); 
+  );
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [pageBoundaryBackward, setPageBoundaryBackward] = useState<boolean>();
   const [pageBoundaryForward, setPageBoundaryForward] = useState<boolean>();
@@ -32,7 +32,6 @@ const useGallery = (): useGalleryResult => {
   for (let i: number = 1; i <= totalPages; i++) {
     pageNumbers.push(i);
   }
-  
 
   const paginateBackward = (pageNumber: number): void => {
     if (pageNumber > pageNumbers[0]) {
@@ -111,6 +110,8 @@ const useGallery = (): useGalleryResult => {
     pageBoundaryForward,
     setMore,
     more,
+    blur,
+    setBlur,
   };
 };
 

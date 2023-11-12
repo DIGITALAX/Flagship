@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
-import { useAccount, useSignMessage } from "wagmi";
+import { useSignMessage } from "wagmi";
 import generateChallenge from "../../../graphql/queries/generateChallenge";
 import authenticate from "../../../graphql/mutations/authenticate";
 import getDefaultProfile from "../../../graphql/queries/getDefaultProfile";
@@ -17,12 +16,14 @@ import { setNoHandle } from "../../../redux/reducers/noHandleSlice";
 import { setProfile } from "../../../redux/reducers/profileSlice";
 import { setWalletConnected } from "../../../redux/reducers/walletConnectedSlice";
 import { Profile } from "../../../types/generated";
+import { AnyAction, Dispatch } from "redux";
 
-const useSignIn = () => {
-  const dispatch = useDispatch();
-  const { address, isConnected } = useAccount();
+const useSignIn = (
+  dispatch: Dispatch<AnyAction>,
+  isConnected: boolean,
+  address: `0x${string}` | undefined
+) => {
   const [signInLoading, setSignInLoading] = useState<boolean>(false);
-
   const { signMessageAsync } = useSignMessage();
 
   const handleLensSignIn = async (): Promise<void> => {

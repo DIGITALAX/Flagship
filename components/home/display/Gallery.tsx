@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { FunctionComponent, useState } from "react";
 import { Gallery, GalleryProps } from "../../../types/general.types";
 import { INFURA_GATEWAY } from "../../../lib/lens/constants";

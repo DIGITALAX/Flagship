@@ -32,6 +32,8 @@ export type useGalleryResult = {
   pageBoundaryBackward: boolean | undefined;
   more: boolean;
   setMore: (e: boolean) => void;
+  blur: boolean;
+  setBlur: (e: boolean) => void;
 };
 
 export type GalleryProps = {
@@ -168,6 +170,17 @@ export type DisplayProps = {
   shop: any;
   setExpressInterest: (e: string) => void;
   queryWindowSize2XL: boolean;
+  currentImages: Gallery[];
+  currentPage: number;
+  paginateBackward: (e: number) => void;
+  paginateForward: (e: number) => void;
+  pageBoundaryForward: boolean | undefined;
+  pageBoundaryBackward: boolean | undefined;
+  setMore: (e: boolean) => void;
+  more: boolean;
+  blur: boolean;
+  setBlur: (e: boolean) => void;
+  router: NextRouter;
 };
 
 export type useFormResults = {
@@ -181,6 +194,7 @@ export type HomeProps = {
   queryWindowSize300: boolean;
   queryWindowSize400: boolean;
   shop: any;
+  router: NextRouter;
 };
 
 export type RefactorElementProps = {
@@ -405,7 +419,6 @@ export type FullScreenVideoProps = {
   mirrorLoading: boolean;
   collectLoading: boolean;
   likeLoading: boolean;
-  profileId: string;
   lensProfile: Profile | undefined;
   hasMore: boolean;
   connected: boolean;
@@ -468,6 +481,7 @@ export type WhoProps = {
 
 export type ControlsProps = {
   videoSync: VideoSyncState;
+  lensProfile: Profile | undefined;
   formatTime: (time: number) => string;
   volume: number;
   connected: boolean;
@@ -485,7 +499,6 @@ export type ControlsProps = {
   mirrorLoading: boolean;
   collectLoading: boolean;
   likeLoading: boolean;
-  profileId: string;
   mainVideo: MainVideoState;
   progressRef: Ref<HTMLDivElement>;
   handleSeek: (

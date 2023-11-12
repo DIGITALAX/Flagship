@@ -223,6 +223,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                 heartColor={heartColor}
                 queryWindowSize2XL={queryWindowSize2XL}
                 shop={shop}
+                router={router}
               />
               <Footer handleRewind={handleRewind} />
               <Modals />

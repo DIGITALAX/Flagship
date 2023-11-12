@@ -2,7 +2,7 @@ import { FunctionComponent } from "react";
 import { ImCross } from "react-icons/im";
 import { AiOutlineLoading } from "react-icons/ai";
 import { INFURA_GATEWAY } from "../../lib/lens/constants";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { setSuperFollow } from "../../redux/reducers/superFollowSlice";
 import { SuperFollowProps } from "../../types/general.types";
 import QuickProfiles from "../common/modals/QuickProfiles";

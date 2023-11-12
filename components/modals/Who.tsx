@@ -5,7 +5,7 @@ import { WhoProps } from "../../types/general.types";
 import { setReactionState } from "../../redux/reducers/reactionStateSlice";
 import { Profile } from "../../types/generated";
 import createProfilePicture from "../../lib/lens/helpers/createProfilePicture";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { AiOutlineLoading } from "react-icons/ai";
 
 const Who: FunctionComponent<WhoProps> = ({

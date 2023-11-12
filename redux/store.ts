@@ -13,6 +13,7 @@ import videoSyncReducer from "./reducers/videoSyncSlice";
 import reactIdReducer from "./reducers/reactIdSlice";
 import seekReducer from "./reducers/seekSlice";
 import postCollectValuesReducer from "./reducers/postCollectValuesSlice";
+import rainReducer from "./reducers/rainSlice";
 import purchaseReducer from "./reducers/purchaseSlice";
 import reactionStateReducer from "./reducers/reactionStateSlice";
 import followerOnlyReducer from "./reducers/followerOnlySlice";
@@ -48,6 +49,7 @@ const reducer = combineReducers({
   indexModalReducer,
   approvalArgsReducer,
   imageViewerReducer,
+  rainReducer
 });
 
 export const store = configureStore({

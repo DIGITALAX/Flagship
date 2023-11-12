@@ -5,6 +5,8 @@ const allowedOrigins = [
   "https://api.lens.dev",
   "https://thedial.infura-ipfs.io",
   "https://vimeo.com",
+  "https://arweave.net/",
+  "https://api-v2.lens.dev/",
 ];
 
 const nextConfig = {
@@ -39,7 +41,12 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "thedial.infura-ipfs.io",
+        hostname: "chromadin.infura-ipfs.io",
+        pathname: "/ipfs/**",
+      },
+      {
+        protocol: "https",
+        hostname: "gw.ipfs-lens.dev",
         pathname: "/ipfs/**",
       },
     ],

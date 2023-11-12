@@ -3,7 +3,7 @@ import {
   QuickProfilesInterface,
   QuickProfilesProps,
 } from "../../../types/general.types";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const QuickProfiles: FunctionComponent<QuickProfilesProps> = ({
   quickProfiles,

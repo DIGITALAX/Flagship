@@ -1,8 +1,6 @@
 import { MutableRefObject, useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { createPublicClient, createWalletClient, custom, http } from "viem";
+import { PublicClient, createWalletClient, custom, http } from "viem";
 import { polygon } from "viem/chains";
-import { useAccount } from "wagmi";
 import getDefaultProfile from "../../../graphql/queries/getDefaultProfile";
 import { setProfile } from "../../../redux/reducers/profileSlice";
 import { Profile } from "../../../types/generated";
@@ -14,27 +12,20 @@ import { LENS_CREATORS } from "../../../lib/lens/constants";
 import createProfilePicture from "../../../lib/lens/helpers/createProfilePicture";
 import getProfiles from "../../../graphql/queries/getProfiles";
 import { QuickProfilesInterface } from "../../../types/general.types";
-import { RootState } from "../../../redux/store";
+import { AnyAction, Dispatch } from "redux";
+import { setRainRedux } from "../../../redux/reducers/rainSlice";
 
-const useSuperCreator = () => {
-  const publicClient = createPublicClient({
-    chain: polygon,
-    transport: http(),
-  });
-  const profile = useSelector(
-    (state: RootState) => state.app.profileReducer.profile
-  );
-  const connected = useSelector(
-    (state: RootState) => state.app.walletConnectedReducer.value
-  );
-  const [rain, setRain] = useState<boolean>(false);
+const useSuperCreator = (
+  publicClient: PublicClient,
+  dispatch: Dispatch<AnyAction>,
+  address: `0x${string}` | undefined,
+  rain: boolean
+) => {
   const [quickProfiles, setQuickProfiles] = useState<QuickProfilesInterface[]>(
     []
   );
   const [superCreatorLoading, setSuperCreatorLoading] =
     useState<boolean>(false);
-  const dispatch = useDispatch();
-  const { address } = useAccount();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<MutableRefObject<number | null>>(null);
 
@@ -113,6 +104,8 @@ const useSuperCreator = () => {
           address as `0x${string}`,
           dispatch
         );
+
+        dispatch(setRainRedux(true));
       } catch (err: any) {
         if (err.message.includes("You do not have enough")) {
           dispatch(

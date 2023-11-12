@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { FunctionComponent, useState } from "react";
 import useTV from "./hooks/useTv";
 import { motion } from "framer-motion";

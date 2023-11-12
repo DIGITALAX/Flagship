@@ -4,7 +4,7 @@ import { AiOutlineLoading } from "react-icons/ai";
 import createProfilePicture from "../../lib/lens/helpers/createProfilePicture";
 import { FollowerOnlyProps } from "../../types/general.types";
 import { setFollowerOnly } from "../../redux/reducers/followerOnlySlice";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { INFURA_GATEWAY } from "../../lib/lens/constants";
 
 const FollowerOnly: FunctionComponent<FollowerOnlyProps> = ({

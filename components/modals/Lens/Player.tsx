@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react";
 import dynamic from "next/dynamic";
 import FetchMoreLoading from "./FetchMoreLoading";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 import { PlayerProps } from "../../../types/general.types";
 

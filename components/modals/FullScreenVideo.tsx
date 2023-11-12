@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { FunctionComponent } from "react";
 import Draggable from "react-draggable";
 import lodash from "lodash";
@@ -21,7 +21,6 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
   fetchMoreVideos,
   videoLoading,
   setVideoLoading,
-  profileId,
   likeAmount,
   formatTime,
   volume,
@@ -55,7 +54,7 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
   handleLensSignIn,
   connected,
   openConnectModal,
-  lensProfile
+  lensProfile,
 }): JSX.Element => {
   return (
     <Draggable
@@ -113,6 +112,7 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
           </div>
           <div className="frame">
             <Controls
+              lensProfile={lensProfile}
               connected={connected}
               formatTime={formatTime}
               volume={volume}
@@ -126,7 +126,6 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
               likeVideo={likeVideo}
               collectVideo={collectVideo}
               mirrorVideo={mirrorVideo}
-              profileId={profileId}
               likeLoading={likeLoading}
               mirrorLoading={mirrorLoading}
               collectLoading={collectLoading}

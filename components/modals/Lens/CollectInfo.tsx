@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { FunctionComponent, useEffect } from "react";
 import moment from "moment";
 import { AiOutlineLoading } from "react-icons/ai";

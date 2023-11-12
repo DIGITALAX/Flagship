@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { FunctionComponent, useState } from "react";
 import Marquee from "react-fast-marquee";
 import { HeaderProps } from "../../types/general.types";

@@ -1,19 +1,15 @@
 import { useEffect, useMemo, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useAccount } from "wagmi";
-import { RootState } from "../../../redux/store";
 import availableCurrencies from "../../../graphql/queries/availableCurrencies";
-import { Erc20 } from "../../../types/generated";
+import { Erc20, Profile } from "../../../types/generated";
 import handleSetCollectValues from "../../../lib/lens/helpers/handleSetCollectValues";
+import { AnyAction, Dispatch } from "redux";
 
-const useCollectOptions = () => {
-  const dispatch = useDispatch();
-  const profileId = useSelector(
-    (state: RootState) => state.app.profileReducer.profile?.id
-  );
-  const collectOpen = useSelector(
-    (state: RootState) => state.app.collectOpenReducer.value
-  );
+const useCollectOptions = (
+  dispatch: Dispatch<AnyAction>,
+  lensProfile: Profile | undefined,
+  collectOpen: boolean,
+  address: `0x${string}`
+) => {
   const [enabledCurrencies, setEnabledCurrencies] = useState<Erc20[]>([]);
   const [audienceType, setAudienceType] = useState<string>("everyone");
   const [enabledCurrency, setEnabledCurrency] = useState<string>();
@@ -32,7 +28,6 @@ const useCollectOptions = () => {
   const [limit, setLimit] = useState<number>(1);
   const [value, setValue] = useState<number>(0);
   const [referral, setReferral] = useState<number>(0);
-  const { address } = useAccount();
   const audienceTypes: string[] = ["followers", "everyone"];
   const [collectNotif, setCollectNotif] = useState<string>("");
 
@@ -76,7 +71,7 @@ const useCollectOptions = () => {
   };
 
   useEffect(() => {
-    if (address && profileId) {
+    if (address && lensProfile?.id) {
       handleCollectValues();
     }
   }, [

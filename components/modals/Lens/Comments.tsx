@@ -11,7 +11,7 @@ import {
   TextOnlyMetadataV3,
   VideoMetadataV3,
 } from "../../../types/generated";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 import { CommentsProps } from "../../../types/general.types";
 import { setSecondaryComment } from "../../../redux/reducers/secondaryCommentSlice";

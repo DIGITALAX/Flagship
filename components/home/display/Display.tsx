@@ -1,28 +1,25 @@
-import Image from "next/image";
-import { useRouter } from "next/router";
-import { FunctionComponent, useState } from "react";
+import Image from "next/legacy/image";
+import { FunctionComponent } from "react";
 import { DisplayProps } from "../../../types/general.types";
 import Gallery from "./Gallery";
-import useGallery from "./hooks/useGallery";
 import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 
 const Display: FunctionComponent<DisplayProps> = ({
   shop,
   setExpressInterest,
   queryWindowSize2XL,
+  router,
+  currentImages,
+  currentPage,
+  paginateBackward,
+  paginateForward,
+  pageBoundaryForward,
+  pageBoundaryBackward,
+  setMore,
+  more,
+  blur,
+  setBlur,
 }): JSX.Element => {
-  const {
-    currentImages,
-    currentPage,
-    paginateBackward,
-    paginateForward,
-    pageBoundaryForward,
-    pageBoundaryBackward,
-    setMore,
-    more,
-  } = useGallery();
-  const router = useRouter();
-  const [blur, setBlur] = useState<boolean>(true);
   return (
     <div className="relative flex bg-offBlack w-full min-w-full h-fit min-h-fit">
       <div className="grid grid-flow-rows auto-row-auto w-full min-w-full p-4">

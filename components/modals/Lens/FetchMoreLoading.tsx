@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
 import { INFURA_GATEWAY } from "../../../lib/lens/constants";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { LoadingProps } from "../../../types/general.types";
 
 const FetchMoreLoading: FunctionComponent<LoadingProps> = ({

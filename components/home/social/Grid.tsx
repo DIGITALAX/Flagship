@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { FunctionComponent } from "react";
 import { GridProps } from "../../../types/general.types";
 import Feed from "./Feed";
