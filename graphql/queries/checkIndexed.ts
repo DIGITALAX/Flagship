@@ -24,23 +24,26 @@ const pollUntilIndexed = async (
 ): Promise<boolean> => {
   let count = 0;
   while (count < 5) {
-    const { data } = await getIndexed(request);
-    if (data && data.lensTransactionStatus) {
-      switch (data.lensTransactionStatus.status) {
-        case LensTransactionStatusType.Failed:
-          return false;
-        case LensTransactionStatusType.Complete:
-          return true;
-        case LensTransactionStatusType.Processing:
-        case LensTransactionStatusType.OptimisticallyUpdated:
-          count += 1;
-          await new Promise((resolve) => setTimeout(resolve, 6000));
-          break;
-        default:
-          throw new Error("Unexpected status");
+    try {
+      const { data } = await getIndexed(request);
+      if (data && data.lensTransactionStatus) {
+        switch (data.lensTransactionStatus.status) {
+          case LensTransactionStatusType.Failed:
+            return false;
+          case LensTransactionStatusType.Complete:
+            return true;
+          case LensTransactionStatusType.Processing:
+          case LensTransactionStatusType.OptimisticallyUpdated:
+            count += 1;
+            await new Promise((resolve) => setTimeout(resolve, 6000));
+            break;
+          default:
+            throw new Error("Unexpected status");
+        }
       }
-    } else {
-      return false;
+    } catch (err: any) {
+      count += 1;
+      console.error(err.message);
     }
   }
   return false;
