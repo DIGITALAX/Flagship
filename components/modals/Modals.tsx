@@ -24,7 +24,9 @@ import { createPublicClient, http } from "viem";
 const Modals = () => {
   const publicClient = createPublicClient({
     chain: polygonMumbai,
-    transport: http(),
+    transport: http(
+      `https://polygon-mainnet.g.alchemy.com/v2/${process.env.NEXT_PUBLIC_ALCHEMY_API_KEY}`
+    ),
   });
   const { address, isConnected } = useAccount();
   const videoRef = useRef<HTMLDivElement>(null);
