@@ -1,4 +1,4 @@
-const webpack = require('webpack');
+const webpack = require("webpack");
 /** @type {import('next').NextConfig} */
 
 const allowedOrigins = [
@@ -54,13 +54,15 @@ const nextConfig = {
   },
   trailingSlash: true,
   async headers() {
-    return [
-      {
+    let headersConfig = [];
+
+    allowedOrigins.forEach((origin) => {
+      headersConfig.push({
         source: "/(.*)",
         headers: [
           {
             key: "Access-Control-Allow-Origin",
-            value: allowedOrigins.join(","),
+            value: origin,
           },
           {
             key: "Access-Control-Allow-Headers",
@@ -72,21 +74,10 @@ const nextConfig = {
             value: "GET, POST, PUT, DELETE, OPTIONS",
           },
         ],
-      },
-      {
-        source: "/fonts/:font*(.woff|.woff2|.ttf|.eot)",
-        headers: [
-          {
-            key: "Access-Control-Allow-Origin",
-            value: "*",
-          },
-          {
-            key: "Vary",
-            value: "Origin",
-          },
-        ],
-      },
-    ];
+      });
+    });
+
+    return headersConfig;
   },
 };
 
