@@ -83,7 +83,7 @@ const Static: FunctionComponent = (): JSX.Element => {
                   key={index}
                   target="_blank"
                   rel="noreferrer"
-                  href={`https://www.chromadin.xyz/autograph/${image[1]}`}
+                  href={`https://www.cypher.digitalax.xyz/autograph/${image[1]}`}
                 >
                   <div className="relative w-full h-full flex flex-col items-center justify-center">
                     <Image

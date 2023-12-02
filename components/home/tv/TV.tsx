@@ -14,7 +14,6 @@ const TV: FunctionComponent = (): JSX.Element => {
           autoPlay
           muted
           loop
-          
           className="absolute h-full w-full object-cover rounded-3xl flex border-8 border-offBlack flex"
         >
           <source src="/videos/glitch.mp4" type="video/mp4"></source>
@@ -52,8 +51,6 @@ const TV: FunctionComponent = (): JSX.Element => {
             <Image
               src={`${INFURA_GATEWAY}/ipfs/QmYdpBCKCGp2rMgWaDePE8UeuCUPywuWTJ9qEE9XwrJmBU`}
               layout="fill"
-              width={50}
-              height={50}
               priority
               onLoadingComplete={() => setBlur(false)}
               draggable={false}

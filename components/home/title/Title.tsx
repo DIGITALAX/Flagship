@@ -1,6 +1,7 @@
 import Image from "next/legacy/image";
 import { FunctionComponent } from "react";
 import { INFURA_GATEWAY } from "../../../lib/lens/constants";
+import Link from "next/link";
 
 const Title: FunctionComponent = (): JSX.Element => {
   return (
@@ -106,7 +107,24 @@ const Title: FunctionComponent = (): JSX.Element => {
             />
           </a>
         </div>
-        {/* <div className="relative h-10 w-10 rounded-full border-mainText bg-mainText"></div> */}
+      </div>
+      <div className="relative sm:pt-auto pt-8 md:absolute w-fit h-fit flex-col sm:flex-row gap-2 flex items-center justify-start md:left-0 md:top-8 z-10 lg:top-4 xl:top-16 sm:mr-auto sm:pl-7 lg:pl-10 sm:text-left text-center">
+        <div className="relative w-32 xl:w-40 break-words h-fit flex items-center justify-center text-xxs lg:text-xs font-gisL">
+          Unbundling fashion is a challenge.
+          <br />
+          <br />
+          Find your way through the maze starting here.
+        </div>
+        <Link
+          className="relative sm:-right-1 lg:right-3 xl:right-0 bottom-0 sm:bottom-6 w-5 h-5 lg:w-6 lg:h-6 flex items-center justify-center cursor-sewingHS active:scale-95"
+          href={`https://cypher.digitalax.xyz`}
+        >
+          <Image
+            src={`${INFURA_GATEWAY}/ipfs/QmYbjMNQAVuQSWNNQ5AKbQtt4Dxw2ax4SvLNwKhCNDniL2`}
+            layout="fill"
+            draggable={false}
+          />
+        </Link>
       </div>
       <div className="font-mag text-mainText w-full flex h-fit text-[16vw] relative items-center justify-center ">
         <div className="place-self-center relative">DIGITALAX</div>

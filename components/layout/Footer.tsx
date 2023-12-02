@@ -101,8 +101,6 @@ const Footer: FunctionComponent<FooterProps> = ({
                     src={`${INFURA_GATEWAY}/ipfs/QmXbwk3dg9GKWhjVTQGsrt6dKARFCyqNz71ssUo2SGx1zc`}
                     draggable={false}
                     layout="fill"
-                    width={160}
-                    height={20}
                     priority
                     onLoadingComplete={() => setBlur(false)}
                   />
@@ -164,7 +162,7 @@ const Footer: FunctionComponent<FooterProps> = ({
                 </div>
                 <div className="relative w-fit h-fit col-start-3">
                   <a
-                    href={"https://www.chromadin.xyz/autograph/digitalax"}
+                    href={"https://www.cypher.digitalax.xyz/autograph/digitalax"}
                     target="_blank"
                     rel="noreferrer"
                     className={`cursor-sewingHS h-fit relative ${
