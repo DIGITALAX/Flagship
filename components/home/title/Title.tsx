@@ -109,7 +109,7 @@ const Title: FunctionComponent = (): JSX.Element => {
         </div>
       </div>
       <div className="relative sm:pt-auto pt-8 md:absolute w-fit h-fit flex-col sm:flex-row gap-2 flex items-center justify-start md:left-0 md:top-8 z-10 lg:top-4 xl:top-16 sm:mr-auto sm:pl-7 lg:pl-10 sm:text-left text-center">
-        <div className="relative w-32 xl:w-40 break-words h-fit flex items-center justify-center text-xxs lg:text-xs font-gisL">
+        <div className="relative w-32 xl:w-40 break-words h-fit flex items-center justify-center text-xxs lg:text-xs font-gisL text-mainText">
           Unbundling fashion is a challenge.
           <br />
           <br />
