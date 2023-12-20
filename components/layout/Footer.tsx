@@ -162,7 +162,7 @@ const Footer: FunctionComponent<FooterProps> = ({
                 </div>
                 <div className="relative w-fit h-fit col-start-3">
                   <a
-                    href={"https://www.cypher.digitalax.xyz/autograph/digitalax"}
+                    href={"https://cypher.digitalax.xyz/autograph/digitalax"}
                     target="_blank"
                     rel="noreferrer"
                     className={`cursor-sewingHS h-fit relative ${
