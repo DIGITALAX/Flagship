@@ -6,7 +6,6 @@ import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 const Gallery: FunctionComponent<GalleryProps> = ({
   currentImages,
   more,
-  setExpressInterest,
   queryWindowSize2XL,
 }): JSX.Element => {
   const [blur, setBlur] = useState<boolean>(true);

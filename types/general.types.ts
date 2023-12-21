@@ -39,7 +39,6 @@ export type useGalleryResult = {
 export type GalleryProps = {
   currentImages: Gallery[];
   more: boolean;
-  setExpressInterest: (e: string) => void;
   queryWindowSize2XL: boolean;
 };
 
@@ -129,6 +128,7 @@ export type FeedProps = {
   queryWindowSizeMobile: boolean;
   queryWindowSizeXL: boolean;
   dispatch: Dispatch<AnyAction>;
+  feedLoading: boolean;
 };
 
 export type SocialProps = {
@@ -138,6 +138,7 @@ export type SocialProps = {
   queryWindowSizeMobile: boolean;
   queryWindowSizeXL: boolean;
   dispatch: Dispatch<AnyAction>;
+  feedLoading: boolean;
 };
 
 export type useFeedResults = {
@@ -146,6 +147,7 @@ export type useFeedResults = {
   queryWindowSize: boolean;
   queryWindowSizeMobile: boolean;
   queryWindowSizeXL: boolean;
+  feedLoading: boolean;
 };
 
 export type GridProps = {
@@ -155,6 +157,7 @@ export type GridProps = {
   queryWindowSizeMobile: boolean;
   queryWindowSizeXL: boolean;
   dispatch: Dispatch<AnyAction>;
+  feedLoading: boolean;
 };
 
 export type GridSmallProps = {
@@ -168,7 +171,6 @@ export type GridSmallProps = {
 
 export type DisplayProps = {
   shop: any;
-  setExpressInterest: (e: string) => void;
   queryWindowSize2XL: boolean;
   currentImages: Gallery[];
   currentPage: number;

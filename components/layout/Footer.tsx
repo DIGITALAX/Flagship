@@ -14,7 +14,7 @@ const Footer: FunctionComponent<FooterProps> = ({
       <div className="relative grid auto-rows-auto grid-flow-row w-full h-full pt-12">
         <div className="relative row-start-1 w-full h-full">
           <div className="relative grid auto-cols-auto grid-flow-col h-full w-full">
-            <div className="col-start-1 w-full md:w-fit lg:h-full lg:w-full relative md:pl-6 row-start-1 p-2 md:pb-0 pb-8">
+            <div className="col-start-1 w-full md:w-fit lg:h-full lg:w-full relative md:pl-6 row-start-1 px-2 md:pb-0 pb-8">
               <div
                 className={`relative flex border-2 w-full h-fit lg:h-full pb-2 ${
                   blur && "blur-sm animate-unblur"

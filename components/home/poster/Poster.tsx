@@ -72,7 +72,7 @@ const Poster: FunctionComponent = (): JSX.Element => {
                   </video>
                 </div>
               </div>
-              <div className="relative row-start-4 w-full h-fit pt-10 sm:pt-10 pb-8">
+              <div className="relative row-start-4 w-full h-fit pt-10 pb-8">
                 <div className="relative text-diyText text-[8.1vw] whitespace-nowrap text-center pl-3 pr-3 sm:pl-10 sm:pr-10 w-full font-mag bg-diy pt-3 pb-3">
                   LATENT THREADS
                 </div>

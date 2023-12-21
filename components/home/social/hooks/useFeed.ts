@@ -11,7 +11,10 @@ import {
 } from "../../../../types/generated";
 
 const useFeed = (): useFeedResults => {
-  const [publicationsFeed, setPublicationsFeed] = useState<(Post | Quote | Mirror)[]>([]);
+  const [publicationsFeed, setPublicationsFeed] = useState<
+    (Post | Quote | Mirror)[]
+  >([]);
+  const [feedLoading, setFeedLoading] = useState<boolean>(false);
   const [pageInfo, setPageInfo] = useState<any>([]);
   let queryWindowSize: boolean = useMediaQuery("(max-width:1024px)");
   let queryWindowSizeMobile: boolean = useMediaQuery("(max-width:950px)");
@@ -22,6 +25,7 @@ const useFeed = (): useFeedResults => {
   }, []);
 
   const getFeedData = async (): Promise<any> => {
+    setFeedLoading(true);
     try {
       const response = await getPublications({
         where: {
@@ -46,6 +50,7 @@ const useFeed = (): useFeedResults => {
     } catch (err: any) {
       console.error(err.message);
     }
+    setFeedLoading(false);
   };
 
   const getMoreFeed = async (): Promise<any> => {
@@ -85,6 +90,7 @@ const useFeed = (): useFeedResults => {
     queryWindowSize,
     queryWindowSizeMobile,
     queryWindowSizeXL,
+    feedLoading,
   };
 };
 

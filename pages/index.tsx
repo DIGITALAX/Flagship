@@ -13,10 +13,9 @@ import Static from "../components/home/static/Static";
 import TV from "../components/home/tv/TV";
 import World from "../components/home/world/World";
 import Title from "./../components/home/title/Title";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Description from "../components/home/description/Description";
 import useFeed from "../components/home/social/hooks/useFeed";
-import { GlobalContext } from "./_app";
 import { HomeProps } from "../types/general.types";
 import RefactorElement from "../components/common/modals/RefactorElement";
 import CC0 from "../components/home/cc0/CC0";
@@ -25,7 +24,6 @@ import useGallery from "../components/home/display/hooks/useGallery";
 
 const Home: NextPage<HomeProps> = ({ queryWindowSize2XL, shop, router }) => {
   const [RefactorModal, setRefactorModal] = useState<boolean>(false);
-  const { setExpressInterest } = useContext(GlobalContext);
   const dispatch = useDispatch();
   const {
     publicationsFeed,
@@ -33,6 +31,7 @@ const Home: NextPage<HomeProps> = ({ queryWindowSize2XL, shop, router }) => {
     queryWindowSize,
     queryWindowSizeMobile,
     queryWindowSizeXL,
+    feedLoading,
   } = useFeed();
   const {
     currentImages,
@@ -78,7 +77,6 @@ const Home: NextPage<HomeProps> = ({ queryWindowSize2XL, shop, router }) => {
         blur={blur}
         setBlur={setBlur}
         shop={shop}
-        setExpressInterest={setExpressInterest}
         queryWindowSize2XL={queryWindowSize2XL}
         currentImages={currentImages}
         currentPage={currentPage}
@@ -105,6 +103,7 @@ const Home: NextPage<HomeProps> = ({ queryWindowSize2XL, shop, router }) => {
         queryWindowSizeMobile={queryWindowSizeMobile}
         queryWindowSizeXL={queryWindowSizeXL}
         dispatch={dispatch}
+        feedLoading={feedLoading}
       />
       <Library setRefactorModal={setRefactorModal} />
       <Slider />

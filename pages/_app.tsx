@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { createContext, useEffect, useRef, useState } from "react";
+import {  useEffect, useRef, useState } from "react";
 import Footer from "../components/layout/Footer";
 import { useMediaQuery } from "@material-ui/core";
 import "@rainbow-me/rainbowkit/styles.css";
@@ -36,12 +36,6 @@ const config = createConfig({
   connectors,
 });
 
-export const GlobalProfileContextDefault = {
-  expressInterest: "",
-  setExpressInterest: (expressInterest: string) => {},
-};
-
-export const GlobalContext = createContext(GlobalProfileContextDefault);
 const colors = [
   "cream",
   "dark",
@@ -86,9 +80,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       localStorage.setItem("digi-theme-color", colors[0]);
     }
   };
-  const [expressInterest, setExpressInterest] = useState(
-    GlobalProfileContextDefault.expressInterest
-  );
   useEffect(() => {
     if (window) {
       const storageColor = localStorage.getItem("digi-theme-color");
@@ -200,35 +191,31 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Provider store={store}>
       <WagmiConfig config={config}>
         <RainbowKitProvider chains={chains}>
-          <GlobalContext.Provider
-            value={{ expressInterest, setExpressInterest }}
+          <div
+            className={[
+              "min-h-full h-auto min-w-screen w-screen relative selection:bg-skyBlue selection:text-dull cursor-sewingS bg-mainBg overflow-x-hidden",
+              color ? `theme-${color}` : "theme-cream",
+            ]
+              .filter(Boolean)
+              .join(" ")}
           >
-            <div
-              className={[
-                "min-h-full h-auto min-w-screen w-screen relative selection:bg-skyBlue selection:text-dull cursor-sewingS bg-mainBg overflow-x-hidden",
-                color ? `theme-${color}` : "theme-cream",
-              ]
-                .filter(Boolean)
-                .join(" ")}
-            >
-              <Header
-                rewind={rewind}
-                changeColor={changeColor}
-                heartColor={heartColor}
-                handleShop={handleShop}
-                router={router}
-              />
-              <Component
-                {...pageProps}
-                heartColor={heartColor}
-                queryWindowSize2XL={queryWindowSize2XL}
-                shop={shop}
-                router={router}
-              />
-              <Footer handleRewind={handleRewind} />
-              <Modals />
-            </div>
-          </GlobalContext.Provider>
+            <Header
+              rewind={rewind}
+              changeColor={changeColor}
+              heartColor={heartColor}
+              handleShop={handleShop}
+              router={router}
+            />
+            <Component
+              {...pageProps}
+              heartColor={heartColor}
+              queryWindowSize2XL={queryWindowSize2XL}
+              shop={shop}
+              router={router}
+            />
+            <Footer handleRewind={handleRewind} />
+            <Modals />
+          </div>
         </RainbowKitProvider>
       </WagmiConfig>
     </Provider>

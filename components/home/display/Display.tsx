@@ -6,7 +6,6 @@ import { INFURA_GATEWAY } from "../../../lib/lens/constants";
 
 const Display: FunctionComponent<DisplayProps> = ({
   shop,
-  setExpressInterest,
   queryWindowSize2XL,
   router,
   currentImages,
@@ -80,7 +79,6 @@ const Display: FunctionComponent<DisplayProps> = ({
             currentImages={currentImages}
             more={more}
             queryWindowSize2XL={queryWindowSize2XL}
-            setExpressInterest={setExpressInterest}
           />
         </div>
         <div className="relative w-full h-fit pt-10 pb-2 flex justify-center cursor-sewingHS hover:opacity-70 active:opacity-70">

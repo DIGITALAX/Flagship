@@ -123,6 +123,7 @@ const Title: FunctionComponent = (): JSX.Element => {
             src={`${INFURA_GATEWAY}/ipfs/QmYbjMNQAVuQSWNNQ5AKbQtt4Dxw2ax4SvLNwKhCNDniL2`}
             layout="fill"
             draggable={false}
+            priority
           />
         </Link>
       </div>
