@@ -61,12 +61,12 @@ const Static: FunctionComponent = (): JSX.Element => {
                 "Qmd1oiVbG21L3mx4ZWBmPmv9RK7RTrUvW4nX81fCphZ8w6",
                 "futurememory",
               ],
-              ["QmPVLYbYJyQotkd8dZTWYcLh8yy8kdbdTptU3DWe4MmKdK", "hiro_lens"],
+              ["QmPVLYbYJyQotkd8dZTWYcLh8yy8kdbdTptU3DWe4MmKdK", "hiro"],
               [
                 "QmQkdx8SmRoyJGah6xUTWt7MX45kCNjXG3UbmtBNmDgbq9",
-                "syntheticfutures",
+                "synthetic futures",
               ],
-              ["QmbG7GpD3Z7G5Jb4bUBP6z1bNWtXFX7MKSCxipd88hdF5E", "put2_"],
+              ["QmbG7GpD3Z7G5Jb4bUBP6z1bNWtXFX7MKSCxipd88hdF5E", "put2"],
               ["QmV7wtTuWsdvJEdL43Tvqv1LMPzvEjtvEAFsU64Qgbaod2", "stryke"],
               ["QmfEU1pC8VEpHS6on69r189JaRC4TVrC1YBzV4JETk8QvH", "0xqbit"],
               ["QmbCVtS9ckd6pz8oAx6tRTsNjWEA9v3DKD6Y5zuaMSUC4u", "verbandden"],
@@ -83,7 +83,7 @@ const Static: FunctionComponent = (): JSX.Element => {
                   key={index}
                   target="_blank"
                   rel="noreferrer"
-                  href={`https://cypher.digitalax.xyz/autograph/${image[1]}`}
+                  href={`https://cypher.digitalax.xyz/item/microbrand/${image[1]}`}
                 >
                   <div className="relative w-full h-full flex flex-col items-center justify-center">
                     <Image
