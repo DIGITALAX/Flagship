@@ -14,6 +14,7 @@ import getProfiles from "../../../graphql/queries/getProfiles";
 import { QuickProfilesInterface } from "../../../types/general.types";
 import { AnyAction, Dispatch } from "redux";
 import { setRainRedux } from "../../../redux/reducers/rainSlice";
+import { setSuperFollow } from "@/redux/reducers/superFollowSlice";
 
 const useSuperCreator = (
   publicClient: PublicClient,
@@ -54,17 +55,6 @@ const useSuperCreator = (
     }
   };
 
-  const refetchProfile = async (): Promise<void> => {
-    try {
-      const profile = await getDefaultProfile({
-        for: address,
-      });
-      dispatch(setProfile(profile?.data?.defaultProfile as Profile));
-    } catch (err: any) {
-      console.error(err.message);
-    }
-  };
-
   const followSuper = async () => {
     setSuperCreatorLoading(true);
 
@@ -97,7 +87,7 @@ const useSuperCreator = (
           transport: custom((window as any).ethereum),
         });
 
-        await followSig(
+        const complete = await followSig(
           followers,
           clientWallet,
           publicClient,
@@ -105,7 +95,11 @@ const useSuperCreator = (
           dispatch
         );
 
-        dispatch(setRainRedux(true));
+        if (complete) {
+          dispatch(setRainRedux(true));
+        } else {
+          dispatch(setIndexModal("Unsuccessful. Please Try Again."));
+        }
       } catch (err: any) {
         if (err.message.includes("You do not have enough")) {
           dispatch(
@@ -125,6 +119,10 @@ const useSuperCreator = (
 
   useEffect(() => {
     if (rain) {
+      const timeoutId = setTimeout(() => {
+        dispatch(setRainRedux(false));
+        dispatch(setSuperFollow(false));
+      }, 3000);
       const canvas = canvasRef.current;
       const context = canvas?.getContext("2d");
       const width = window.innerWidth;
@@ -197,6 +195,7 @@ const useSuperCreator = (
         fadeOut();
 
         return () => {
+          clearTimeout(timeoutId);
           cancelAnimationFrame(animationRef.current as any);
         };
       }

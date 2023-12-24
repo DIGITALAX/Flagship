@@ -7,20 +7,17 @@ export const LENS_HUB_PROXY_ADDRESS_MATIC: `0x${string}` =
 
 
 export const LENS_CREATORS: string[] = [
-  "0x01cc42",
   "0x84ec",
   "0x0197d6",
   "0x016305",
   "0x015ed3",
-  "0x01bbee",
-  "0x012a99",
+
+
   "0x01c96b",
   "0x01c97e",
   "0x01c6a9",
-  "0xf6b0",
   "0x01cd7c",
   "0x01cd7e",
-  "0xaeea",
   "0x01df77",
   "0x01dfaa",
   "0x01dfa9",

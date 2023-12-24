@@ -25,17 +25,14 @@ const FollowSuper: FunctionComponent<SuperFollowProps> = ({
       className="inset-0 justify-center fixed z-20 bg-opacity-50 backdrop-blur-sm overflow-y-hidden grid grid-flow-col auto-cols-auto w-full h-auto overflow-x-scroll"
       id="hozScroll"
     >
-      <div
-        className="relative w-full lg:w-[30vw] h-fit col-start-1 place-self-center bg-offBlack rounded-lg border-2 border-ama"
-        id="backdrop"
-      >
+      <div className="relative w-full lg:w-[30vw] h-fit col-start-1 place-self-center bg-mainBg border border-mainText rounded-lg">
         <div className="relative w-full row-start-2 h-fit rounded-xl grid grid-flow-col auto-cols-auto">
           <div className="relative w-full h-full col-start-1 rounded-xl place-self-center">
             <div className="relative w-full h-full grid grid-flow-row auto-rows-auto gap-4 pb-8">
               <div className="relative w-fit h-fit row-start-1 self-center justify-self-end pr-3 pt-3 cursor-sewingHS">
                 <ImCross
-                  color="white"
-                  size={15}
+                  color="#FBDB86"
+                  size={12}
                   onClick={() => dispatch(setSuperFollow(false))}
                 />
               </div>
@@ -43,7 +40,7 @@ const FollowSuper: FunctionComponent<SuperFollowProps> = ({
                 className="relative w-full h-fit flex flex-col items-center justify-center px-4 gap-10 overflow-x-scroll"
                 id="hozScroll"
               >
-                <div className="relative w-3/4 h-fit flex items-center w-full h-fit gap-1.5 flex-col justify-center text-white font-dosis">
+                <div className="relative w-3/4 h-fit flex items-center w-full h-fit gap-1.5 flex-col justify-center text-mainText font-dosis">
                   <div className="relative w-full h-fit justify-center items-center text-lg text-center">
                     Sign All Autographs with One Click!
                   </div>
@@ -74,15 +71,15 @@ const FollowSuper: FunctionComponent<SuperFollowProps> = ({
                   />
                   <div
                     className={`relative text-ama w-20 h-8 flex items-center justify-center ${
-                      superCreatorLoading && "animate-spin"
+                      (superCreatorLoading || signInLoading) && "animate-spin"
                     }`}
                   >
-                    {!connected && !lensProfile ? (
+                    {superCreatorLoading || signInLoading ? (
+                      <AiOutlineLoading color={"white"} size={15} />
+                    ) : !connected && !lensProfile ? (
                       "Connect"
                     ) : connected && !lensProfile ? (
                       "Sign In"
-                    ) : superCreatorLoading || signInLoading ? (
-                      <AiOutlineLoading color={"white"} size={15} />
                     ) : rain ? (
                       "Followed!"
                     ) : (

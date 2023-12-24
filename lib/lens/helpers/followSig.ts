@@ -18,7 +18,7 @@ const followSig = async (
   clearFollow?: () => void,
   refetchProfile?: () => Promise<void>,
   setFollowLoading?: (e: boolean) => void
-) => {
+): Promise<boolean> => {
   try {
     const response = await createFollowTypedData({
       follow,
@@ -57,10 +57,15 @@ const followSig = async (
       clearFollow && clearFollow();
       const tx = await publicClient.waitForTransactionReceipt({ hash: res });
 
-      await handleIndexCheck( {
-        forTxHash: tx.transactionHash,
-      }, dispatch);
+      await handleIndexCheck(
+        {
+          forTxHash: tx.transactionHash,
+        },
+        dispatch
+      );
       refetchProfile && (await refetchProfile());
+
+      return true;
     } else {
       clearFollow && clearFollow();
       setFollowLoading && setFollowLoading(false);
@@ -71,9 +76,11 @@ const followSig = async (
         );
         refetchProfile && (await refetchProfile());
       }, 7000);
+      return true;
     }
   } catch (err: any) {
     console.error(err.message);
+    return false;
   }
 };
 

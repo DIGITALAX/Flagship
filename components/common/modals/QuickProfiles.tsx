@@ -22,8 +22,13 @@ const QuickProfiles: FunctionComponent<QuickProfilesProps> = ({
             return (
               <div
                 key={index}
-                className="relative rounded-full hover:opacity-70 h-10 w-10"
+                className="relative rounded-full hover:opacity-70 h-10 w-10 cursor-sewingHS"
                 id="crt"
+                onClick={() =>
+                  window.open(
+                    `https://cypher.digitalax.xyz/autograph/${profile?.handle}`
+                  )
+                }
               >
                 {profile?.image && (
                   <Image
