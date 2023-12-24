@@ -33,7 +33,6 @@ const Static: FunctionComponent = (): JSX.Element => {
               autoPlay
               muted
               loop
-              
               className="relative max-w-none border-gray-900 border-8 w-[14vw] h-[18vw] object-cover flex place-self-center bg-offBlack"
             >
               <source src="/videos/static.mp4" type="video/mp4"></source>
@@ -75,6 +74,7 @@ const Static: FunctionComponent = (): JSX.Element => {
               ["QmafTkiaae4nujF6sGbzLJYscGv6ZbRyFmYHv3NV6ukMSM", "yawp11"],
               ["QmQuKdSrUf2fPX6u8H3FSfADzQ1n9VbwkrVZ7ZpuTzm5jy", "skecz98"],
               ["QmQHdxXYev989zkK1Wtem245XusViRKZELzZR7bGpRU8iH", "re_de"],
+              ["QmZEbmji9qNHUCVeGgMqXDWLpQXC68hm8WmyWr4or5CNa3", "e2evhs"],
             ].map((image: string[], index: number) => {
               return (
                 <a
