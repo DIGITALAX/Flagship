@@ -83,7 +83,10 @@ const Static: FunctionComponent = (): JSX.Element => {
                   key={index}
                   target="_blank"
                   rel="noreferrer"
-                  href={`https://cypher.digitalax.xyz/item/microbrand/${image[1]}`}
+                  href={`https://cypher.digitalax.xyz/item/microbrand/${image[1]?.replaceAll(
+                    " ",
+                    "_"
+                  )}`}
                 >
                   <div className="relative w-full h-full flex flex-col items-center justify-center">
                     <Image
