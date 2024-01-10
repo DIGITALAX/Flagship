@@ -3,29 +3,28 @@ import Marquee from "react-fast-marquee";
 
 const Banner: FunctionComponent = (): JSX.Element => {
   return (
-    <div className="pt-8 pb-8 relative grid grid-flow-row auto-rows-auto w-full h-fit">
+    <div className="pt-3 pb-8 relative grid grid-flow-row auto-rows-auto w-full h-fit">
       <div className="bg-mainText w-full h-fit pt-1 pb-1 sm:pt-3 sm:pb-3 font-fira text-md md:text-[1.7vw] text-mevText whitespace-nowrap overflow-x-hidden">
         <Marquee gradient={false} speed={30} direction={"right"}>
           <p className="mr-4 whitespace-nowrap w-fit h-fit">
             Collection of the Week{" "}
             <span className="font-firaM">
-              <span className="text-mevSlash font-fira">//</span> Decrypt
-              Authority <span className="text-mevSlash font-fira">//</span>{" "}
-              0.064 ETH
+              <span className="text-mevSlash font-fira">//</span> I&apos;m An
+              Autonomist <span className="text-mevSlash font-fira">//</span>{" "}
+              0.01 ETH
             </span>
           </p>
           <p className="mr-4 whitespace-nowrap w-fit h-fit">
             Collection of the Week{" "}
             <span className="font-firaM">
-              <span className="text-mevSlash font-fira">//</span> Gatekeeper{" "}
-              <span className="text-mevSlash font-fira">//</span> 0.064 ETH
+              <span className="text-mevSlash font-fira">//</span> Logic and Language{" "}
+              <span className="text-mevSlash font-fira">//</span> 0.01 ETH
             </span>
           </p>
           <p className="mr-4 whitespace-nowrap w-fit h-fit">
             Collection of the Week{" "}
             <span className="font-firaM">
-              <span className="text-mevSlash font-fira">//</span> Threshold
-              Cypher<span className="text-mevSlash font-fira">//</span> 0.064
+              <span className="text-mevSlash font-fira">//</span> I&apos;m surrounded by the Low Hum of Engines<span className="text-mevSlash font-fira">//</span> 0.01
               ETH
             </span>
           </p>
