@@ -46,6 +46,7 @@ const Title: FunctionComponent = (): JSX.Element => {
               className={"w-full h-full rounded-full"}
               draggable={false}
               objectFit="cover"
+              priority
             />
           </a>
         </div>
@@ -66,6 +67,7 @@ const Title: FunctionComponent = (): JSX.Element => {
               className={"w-full h-full rounded-full"}
               draggable={false}
               objectFit="cover"
+              priority
             />
           </a>
         </div>
@@ -86,6 +88,7 @@ const Title: FunctionComponent = (): JSX.Element => {
               className={"w-full h-full rounded-full"}
               draggable={false}
               objectFit="cover"
+              priority
             />
           </a>
         </div>
@@ -106,6 +109,7 @@ const Title: FunctionComponent = (): JSX.Element => {
               className={"w-full h-full rounded-full"}
               draggable={false}
               objectFit="cover"
+              priority
             />
           </a>
         </div>
@@ -126,6 +130,7 @@ const Title: FunctionComponent = (): JSX.Element => {
               className={"w-full h-full rounded-full"}
               draggable={false}
               objectFit="cover"
+              priority
             />
           </a>
         </div>
@@ -146,6 +151,7 @@ const Title: FunctionComponent = (): JSX.Element => {
               className={"w-full h-full rounded-full"}
               draggable={false}
               objectFit="cover"
+              priority
             />
           </a>
         </div>
