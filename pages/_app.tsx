@@ -1,6 +1,6 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import {  useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Footer from "../components/layout/Footer";
 import { useMediaQuery } from "@material-ui/core";
 import "@rainbow-me/rainbowkit/styles.css";
@@ -63,6 +63,9 @@ const heartColors = [
 // const { setItem, value } = useStickyState();
 function MyApp({ Component, pageProps }: AppProps) {
   let queryWindowSize2XL: boolean = useMediaQuery("(max-width:1600px)");
+  let queryWindowInbetween = useMediaQuery(
+    "(min-width: 640px) and (max-width: 1024px)"
+  );
   const router = useRouter();
   const [color, setColor] = useState<string>(colors[0]);
   const [heartColor, setHeartColor] = useState<string>(colors[0]);
@@ -210,6 +213,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               {...pageProps}
               heartColor={heartColor}
               queryWindowSize2XL={queryWindowSize2XL}
+              queryWindowInbetween={queryWindowInbetween}
               shop={shop}
               router={router}
             />

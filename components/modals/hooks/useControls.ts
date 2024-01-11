@@ -30,7 +30,6 @@ import {
 import mirrorSig from "../../../lib/lens/helpers/mirrorSig";
 import actSig from "../../../lib/lens/helpers/actSig";
 import { setModalOpen } from "../../../redux/reducers/modalOpenSlice";
-import handleIndexCheck from "../../../lib/lens/helpers/handleIndexCheck";
 import { AnyAction, Dispatch } from "redux";
 import { ApprovalArgs } from "../../../types/general.types";
 import { PurchaseState } from "../../../redux/reducers/purchaseSlice";
@@ -370,15 +369,10 @@ const useControls = (
       const res = await clientWallet.sendTransaction({
         to: approvalArgs?.to as `0x${string}`,
         account: approvalArgs?.from as `0x${string}`,
-        value: BigInt(approvalArgs?.data as string),
+        data: approvalArgs?.data as `0x${string}`,
+        value: BigInt("0"),
       });
-      const tx = await publicClient.waitForTransactionReceipt({ hash: res });
-      await handleIndexCheck(
-        {
-          forTxHash: tx.transactionHash,
-        },
-        dispatch
-      );
+      await publicClient.waitForTransactionReceipt({ hash: res });
       await getCollectInfo();
     } catch (err: any) {
       setApprovalLoading(false);

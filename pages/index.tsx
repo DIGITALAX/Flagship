@@ -22,7 +22,12 @@ import CC0 from "../components/home/cc0/CC0";
 import { useDispatch } from "react-redux";
 import useGallery from "../components/home/display/hooks/useGallery";
 
-const Home: NextPage<HomeProps> = ({ queryWindowSize2XL, shop, router }) => {
+const Home: NextPage<HomeProps> = ({
+  queryWindowSize2XL,
+  shop,
+  router,
+  queryWindowInbetween,
+}) => {
   const [RefactorModal, setRefactorModal] = useState<boolean>(false);
   const dispatch = useDispatch();
   const {
@@ -76,6 +81,7 @@ const Home: NextPage<HomeProps> = ({ queryWindowSize2XL, shop, router }) => {
       <Display
         blur={blur}
         setBlur={setBlur}
+        queryWindowInbetween={queryWindowInbetween}
         shop={shop}
         queryWindowSize2XL={queryWindowSize2XL}
         currentImages={currentImages}

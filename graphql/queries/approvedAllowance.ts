@@ -1,8 +1,9 @@
+import { apolloClient } from "@/lib/lens/client";
+import { ApprovedModuleAllowanceAmountDocument, ApprovedModuleAllowanceAmountQuery, ApprovedModuleAllowanceAmountRequest } from "@/types/generated";
 import { FetchResult } from "@apollo/client";
-import { ApprovedModuleAllowanceAmountDocument, ApprovedModuleAllowanceAmountQuery, ApprovedModuleAllowanceAmountRequest } from "../../types/generated";
-import { apolloClient } from "../../lib/lens/client";
 
-const approvedModuleAllowance = async (
+
+const isApprovedData = async (
   request: ApprovedModuleAllowanceAmountRequest
 ): Promise<FetchResult<ApprovedModuleAllowanceAmountQuery>> => {
   return await apolloClient.query({
@@ -10,8 +11,7 @@ const approvedModuleAllowance = async (
     variables: {
       request,
     },
-    fetchPolicy: "network-only",
   });
 };
 
-export default approvedModuleAllowance;
+export default isApprovedData;

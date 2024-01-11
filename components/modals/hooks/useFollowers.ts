@@ -1,9 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  PublicClient,
-  createWalletClient,
-  custom,
-} from "viem";
+import { PublicClient, createWalletClient, custom } from "viem";
 import { polygon } from "viem/chains";
 import { FetchResult } from "@apollo/client";
 import {
@@ -21,7 +17,10 @@ import followSig from "../../../lib/lens/helpers/followSig";
 import { setIndexModal } from "../../../redux/reducers/indexModalSlice";
 import { setModalOpen } from "../../../redux/reducers/modalOpenSlice";
 import getDefaultProfile from "../../../graphql/queries/getDefaultProfile";
-import { FollowerOnlyState, setFollowerOnly } from "../../../redux/reducers/followerOnlySlice";
+import {
+  FollowerOnlyState,
+  setFollowerOnly,
+} from "../../../redux/reducers/followerOnlySlice";
 import handleIndexCheck from "../../../lib/lens/helpers/handleIndexCheck";
 import { Dispatch, AnyAction } from "redux";
 import { ApprovalArgs } from "../../../types/general.types";
@@ -86,13 +85,8 @@ const useFollowers = (
         account: approvalArgs?.from as `0x${string}`,
         value: BigInt(approvalArgs?.data as string),
       });
-      const tx = await publicClient.waitForTransactionReceipt({ hash: res });
-      await handleIndexCheck(
-        {
-          forTxHash: tx.transactionHash,
-        },
-        dispatch
-      );
+      await publicClient.waitForTransactionReceipt({ hash: res });
+
       await approvedFollow();
     } catch (err: any) {
       setFollowLoading(false);

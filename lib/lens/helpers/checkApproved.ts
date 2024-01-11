@@ -2,6 +2,7 @@ import { AnyAction, Dispatch } from "redux";
 import {
   ApprovalAllowance,
   FollowModuleType,
+  GenerateModuleCurrencyApprovalResult,
   OpenActionModuleType,
   ReferenceModuleType,
 } from "../../../types/generated";
@@ -29,9 +30,9 @@ const checkApproved = async (
       followModules: followModule ? [followModule] : [],
       referenceModules: referenceModule ? [referenceModule] : [],
     });
-    let approvalArgs: any;
+    let approvalArgs: GenerateModuleCurrencyApprovalResult;
     if (collectModule) {
-      approvalArgs = await approvedData({
+      const { data } = await approvedData({
         allowance: {
           currency: currencyAddress,
           value,
@@ -40,8 +41,9 @@ const checkApproved = async (
           openActionModule: collectModule,
         },
       });
+      approvalArgs = data?.generateModuleCurrencyApprovalData!;
     } else if (followModule) {
-      approvalArgs = await approvedData({
+      const { data } = await approvedData({
         allowance: {
           currency: currencyAddress,
           value,
@@ -50,11 +52,10 @@ const checkApproved = async (
           followModule: followModule,
         },
       });
+      approvalArgs = data?.generateModuleCurrencyApprovalData!;
     }
-    dispatch(
-      setApprovalArgs(approvalArgs?.data?.generateModuleCurrencyApprovalData)
-    );
-    return response?.data?.approvedModuleAllowanceAmount[0];
+    dispatch(setApprovalArgs(approvalArgs!));
+    return response?.data?.approvedModuleAllowanceAmount?.[0];
   } catch (err: any) {
     console.error(err.message);
   }

@@ -40,6 +40,7 @@ export type GalleryProps = {
   currentImages: Gallery[];
   more: boolean;
   queryWindowSize2XL: boolean;
+  queryWindowInbetween: boolean;
 };
 
 export interface Blender {
@@ -172,6 +173,7 @@ export type GridSmallProps = {
 export type DisplayProps = {
   shop: any;
   queryWindowSize2XL: boolean;
+  queryWindowInbetween: boolean;
   currentImages: Gallery[];
   currentPage: number;
   paginateBackward: (e: number) => void;
@@ -195,6 +197,7 @@ export type HomeProps = {
   queryWindowSize2XL: boolean;
   queryWindowSize300: boolean;
   queryWindowSize400: boolean;
+  queryWindowInbetween: boolean;
   shop: any;
   router: NextRouter;
 };

@@ -1,21 +1,20 @@
-import { FetchResult } from "@apollo/client";
+import { apolloClient } from "@/lib/lens/client";
 import {
   GenerateModuleCurrencyApprovalDataDocument,
   GenerateModuleCurrencyApprovalDataQuery,
   GenerateModuleCurrencyApprovalDataRequest,
-} from "../../types/generated";
-import { apolloClient } from "../../lib/lens/client";
+} from "@/types/generated";
+import { FetchResult } from "@apollo/client";
 
-const approvedData = async (
+const approveCurrency = async (
   request: GenerateModuleCurrencyApprovalDataRequest
 ): Promise<FetchResult<GenerateModuleCurrencyApprovalDataQuery>> => {
-  return await apolloClient.query({
-    query: GenerateModuleCurrencyApprovalDataDocument,
+  return await apolloClient.mutate({
+    mutation: GenerateModuleCurrencyApprovalDataDocument,
     variables: {
       request,
     },
-    fetchPolicy: "network-only",
   });
 };
 
-export default approvedData;
+export default approveCurrency;
