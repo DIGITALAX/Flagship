@@ -30,7 +30,7 @@ const Title: FunctionComponent = (): JSX.Element => {
       </div>
       <div className="relative w-full h-fit gap-3 inline-flex items-center justify-center sm:justify-end flex-wrap px-2">
         <div
-          className="relative h-8 w-8 md:h-12 md:w-12 rounded-full border-mainText border sm:border-2 bg-mainText cursor-sewingHS"
+          className="relative h-6 w-6 md:h-12 md:w-12 rounded-full border-mainText border md:border-2 bg-mainText cursor-sewingHS"
           id="buttons"
           title="Kinora"
         >
@@ -51,7 +51,28 @@ const Title: FunctionComponent = (): JSX.Element => {
           </a>
         </div>
         <div
-          className="relative h-8 w-8 md:h-12 md:w-12 rounded-full border-mainText border sm:border-2 bg-mainText cursor-sewingHS"
+          className="relative h-6 w-6 md:h-12 md:w-12 rounded-full border-mainText border md:border-2 bg-mainText cursor-sewingHS"
+          id="buttons"
+          title="Legend"
+        >
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href={"https://legend.irrevocable.dev"}
+            className="cursor-sewingHS"
+          >
+            <Image
+              src={`${INFURA_GATEWAY}/ipfs/QmWDqwGn7JgWzFsvUuC6pR7P58v6ab1npPueJ9Vfaez8iW`}
+              layout="fill"
+              className={"w-full h-full rounded-full"}
+              draggable={false}
+              objectFit="cover"
+              priority
+            />
+          </a>
+        </div>
+        <div
+          className="relative h-6 w-6 md:h-12 md:w-12 rounded-full border-mainText border md:border-2 bg-mainText cursor-sewingHS"
           id="buttons"
           title="The Dial"
         >
@@ -72,7 +93,7 @@ const Title: FunctionComponent = (): JSX.Element => {
           </a>
         </div>
         <div
-          className="relative h-8 w-8 md:h-12 md:w-12 rounded-full border-mainText border sm:border-2 bg-mainText cursor-sewingHS"
+          className="relative h-6 w-6 md:h-12 md:w-12 rounded-full border-mainText border md:border-2 bg-mainText cursor-sewingHS"
           id="buttons"
           title="Chromadin"
         >
@@ -93,7 +114,7 @@ const Title: FunctionComponent = (): JSX.Element => {
           </a>
         </div>
         <div
-          className="relative h-8 w-8 md:h-12 md:w-12 rounded-full border-mainText border sm:border-2 bg-mainText cursor-sewingHS"
+          className="relative h-6 w-6 md:h-12 md:w-12 rounded-full border-mainText border md:border-2 bg-mainText cursor-sewingHS"
           id="buttons"
           title="Coin Op"
         >
@@ -114,7 +135,7 @@ const Title: FunctionComponent = (): JSX.Element => {
           </a>
         </div>
         <div
-          className="relative h-8 w-8 md:h-12 md:w-12 rounded-full border-mainText border sm:border-2 bg-mainText cursor-sewingHS"
+          className="relative h-6 w-6 md:h-12 md:w-12 rounded-full border-mainText border md:border-2 bg-mainText cursor-sewingHS"
           id="buttons"
           title="The Manufactory"
         >
@@ -135,7 +156,7 @@ const Title: FunctionComponent = (): JSX.Element => {
           </a>
         </div>
         <div
-          className="relative h-8 w-8 md:h-12 md:w-12 rounded-full border-mainText border sm:border-2 bg-mainText cursor-sewingHS"
+          className="relative h-6 w-6 md:h-12 md:w-12 rounded-full border-mainText border md:border-2 bg-mainText cursor-sewingHS"
           id="buttons"
           title="Lit Listener"
         >
