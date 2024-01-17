@@ -153,30 +153,21 @@
     "height": 250
   },
   {
-    "name": "GOVERNANCE",
-    "image": "QmRmedYiKhi4TNXS3r3zvad8q35SncnVtLFzToRRhDD3Xp",
+    "name": "DASH",
+    "image": "QmRGM54ZDRK4TWnTdtvgn7V3ZTCTyANANzE6cmbJwC87te",
     "number": "18",
     "id": "eighteen",
     "link": "https://gov.digitalax.xyz",
     "width": 25,
-    "height": 125
+    "height": 55
   },
   {
     "name": "TRANSPARENCY REPORTS",
     "image": "QmPaQy4y1PCxhsvewbP2BdRmbWhwupZvqDQkCqNVdm6sCg",
     "number": "19",
     "id": "nineteen",
-    "link": "https://primer.digitalax.xyz/transparency-reports",
-    "width": 25,
-    "height": 275
-  },
-  {
-    "name": "DASH",
-    "image": "QmRGM54ZDRK4TWnTdtvgn7V3ZTCTyANANzE6cmbJwC87te",
-    "number": "20",
-    "id": "twenty",
     "link": "",
     "width": 25,
-    "height": 55
+    "height": 275
   }
 ]

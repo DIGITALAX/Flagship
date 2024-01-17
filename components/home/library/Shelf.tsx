@@ -44,7 +44,14 @@ const Shelf: FunctionComponent<ShelfProps> = ({
             </a>
           ) : (
             <div
-              onClick={() => setRefactorModal(true)}
+              onClick={() =>
+                setRefactorModal({
+                  open: true,
+                  transparency:
+                    showImage ===
+                    "QmPaQy4y1PCxhsvewbP2BdRmbWhwupZvqDQkCqNVdm6sCg",
+                })
+              }
               className={`relative w-fit h-fit place-self-end cursor-sewingHS hover:scale-95 ${
                 blur && "blur-sm animate-unblur"
               }`}

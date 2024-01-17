@@ -115,11 +115,17 @@ export interface Library {
 }
 
 export type LibraryProps = {
-  setRefactorModal: (e: boolean) => void;
+  setRefactorModal: (e: {
+    open: boolean;
+    transparency: boolean;
+  }) => void;
 };
 
 export type ShelfProps = {
-  setRefactorModal: (e: boolean) => void;
+  setRefactorModal: (e: {
+    open: boolean;
+    transparency: boolean;
+  }) => void;
 };
 
 export type FeedProps = {
@@ -203,7 +209,11 @@ export type HomeProps = {
 };
 
 export type RefactorElementProps = {
-  setRefactorModal: (e: boolean) => void;
+  setRefactorModal: (e: {
+    open: boolean;
+    transparency: boolean;
+  }) => void;
+  transparency: boolean;
 };
 
 export type useTvResults = {

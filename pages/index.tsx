@@ -28,7 +28,13 @@ const Home: NextPage<HomeProps> = ({
   router,
   queryWindowInbetween,
 }) => {
-  const [RefactorModal, setRefactorModal] = useState<boolean>(false);
+  const [refactorModal, setRefactorModal] = useState<{
+    open: boolean;
+    transparency: boolean;
+  }>({
+    open: false,
+    transparency: false,
+  });
   const dispatch = useDispatch();
   const {
     publicationsFeed,
@@ -114,7 +120,12 @@ const Home: NextPage<HomeProps> = ({
       <Library setRefactorModal={setRefactorModal} />
       <Slider />
       <CC0 />
-      {RefactorModal && <RefactorElement setRefactorModal={setRefactorModal} />}
+      {refactorModal?.open && (
+        <RefactorElement
+          setRefactorModal={setRefactorModal}
+          transparency={refactorModal?.transparency}
+        />
+      )}
     </div>
   );
 };
