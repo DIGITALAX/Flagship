@@ -47,7 +47,7 @@ const Header: FunctionComponent<HeaderProps> = ({
             onClick={() => dispatch(setSuperFollow(true))}
           >
             <div
-              className={`border border-2 border-mainText w-full h-full min-h-full relative flex ${
+              className={`border border-2 border-mainText w-full h-full min-h-full relative flex bg-mainText ${
                 blur && "blur-sm animate-unblur"
               }`}
             >
