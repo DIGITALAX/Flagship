@@ -207,9 +207,7 @@ const useSuperCreator = (
   }, [rain]);
 
   useEffect(() => {
-    if (quickProfiles?.length < 1) {
-      getQuickProfiles();
-    }
+    getQuickProfiles();
   }, [lensProfile?.id]);
 
   return { superCreatorLoading, followSuper, canvasRef, rain, quickProfiles };
