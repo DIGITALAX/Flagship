@@ -633,6 +633,7 @@ export interface QuickProfilesInterface {
   followModule: FollowModule;
   name: string;
   ownedBy: string;
+  followedByMe: boolean
 }
 
 export type QuickProfilesProps = {

@@ -156,7 +156,7 @@ const Modals = () => {
     purchaseModal
   );
   const { followSuper, superCreatorLoading, canvasRef, quickProfiles } =
-    useSuperCreator(publicClient, dispatch, address, rain);
+    useSuperCreator(publicClient, dispatch, address, rain, lensProfile);
   const {
     fetchMoreVideos,
     videoLoading: channelVideoLoading,
@@ -192,7 +192,14 @@ const Modals = () => {
     followLoading,
     approved,
     approveCurrency: approveFollowCurrency,
-  } = useFollowers(publicClient, dispatch, address, approvalArgs, lensProfile, followersModal);
+  } = useFollowers(
+    publicClient,
+    dispatch,
+    address,
+    approvalArgs,
+    lensProfile,
+    followersModal
+  );
   return (
     <>
       {fullScreenVideo.open && (

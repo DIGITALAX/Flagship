@@ -20,7 +20,8 @@ const useSuperCreator = (
   publicClient: PublicClient,
   dispatch: Dispatch<AnyAction>,
   address: `0x${string}` | undefined,
-  rain: boolean
+  rain: boolean,
+  lensProfile: Profile | undefined
 ) => {
   const [quickProfiles, setQuickProfiles] = useState<QuickProfilesInterface[]>(
     []
@@ -46,6 +47,7 @@ const useSuperCreator = (
             followModule: prof?.followModule,
             name: prof?.handle?.localName,
             ownedBy: prof?.ownedBy?.address,
+            followedByMe: prof?.operations?.isFollowedByMe?.value,
           };
         }
       );
@@ -69,16 +71,18 @@ const useSuperCreator = (
       let followers = [];
 
       for (let i = batchStart; i < batchEnd; i++) {
-        const followModule = createFollowModule(
-          quickProfiles[i]?.followModule?.type as any,
-          (quickProfiles[i]?.followModule as any)?.amount?.value,
-          (quickProfiles[i]?.followModule as any)?.amount?.asset?.address
-        );
+        if (!quickProfiles[i]?.followedByMe) {
+          const followModule = createFollowModule(
+            quickProfiles[i]?.followModule?.type as any,
+            (quickProfiles[i]?.followModule as any)?.amount?.value,
+            (quickProfiles[i]?.followModule as any)?.amount?.asset?.address
+          );
 
-        followers.push({
-          profileId: LENS_CREATORS[i],
-          followModule,
-        });
+          followers.push({
+            profileId: LENS_CREATORS[i],
+            followModule,
+          });
+        }
       }
 
       try {
@@ -206,7 +210,7 @@ const useSuperCreator = (
     if (quickProfiles?.length < 1) {
       getQuickProfiles();
     }
-  }, []);
+  }, [lensProfile?.id]);
 
   return { superCreatorLoading, followSuper, canvasRef, rain, quickProfiles };
 };
