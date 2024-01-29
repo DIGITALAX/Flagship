@@ -25,6 +25,9 @@ export const LENS_CREATORS: string[] = [
   "0x01dfcd",
   "0x01e01d",
   "0x01e024",
+  "0x01f76d",
+  "0x01f76c",
+  "0x01ef68",
 ];
 
 export const REPORTS = [
