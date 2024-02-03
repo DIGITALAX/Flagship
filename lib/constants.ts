@@ -413,3 +413,5 @@ export const F3M_ADDRESS: `0x${string}` =
   "0xbE20D3f61f6995996a5B8dd58B036ADa7cf30945";
 export const KINORA_QUEST_DATA: `0x${string}` =
   "0xB638b8e910f5852d9B2b69D250883EB3E8575092";
+
+export const CHROMADIN_ID: string = "0x01c6a9";

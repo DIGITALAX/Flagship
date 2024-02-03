@@ -52,7 +52,6 @@ const TileSwitch: FunctionComponent<TileSwitchProps> = ({
   }
 
   if (type?.toLowerCase() == "coinop" || type?.toLowerCase() == "f3m") {
-    console.log("in")
     return (
       <CoinOp
         dispatch={dispatch}

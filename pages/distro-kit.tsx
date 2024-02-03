@@ -16,6 +16,7 @@ const DistroKit: NextPage<DistroProps> = ({
   heartColor,
   changeColor,
   rewind,
+  router
 }): JSX.Element => {
   const dispatch = useDispatch();
   const { tvImages, setBlenderPage, setTvImages, blenderPage } = useDistro();
@@ -29,7 +30,7 @@ const DistroKit: NextPage<DistroProps> = ({
           className="relative w-full h-fit flex flex-row justify-between gap-4 pt-4 px-3 sm:px-6 items-center"
           ref={rewind}
         >
-          <div className="relative w-fit h-fit flex font-rain text-mainText text-4xl mr-0 items-center justify-center">
+          <div className="relative w-fit h-fit flex font-rain text-mainText text-4xl mr-0 items-center justify-center cursor-sewingHS" onClick={() => router.push("/")}>
             DIGITALAX
           </div>
           <div className="relative w-fit h-fit flex ml-0 items-center justify-center flex-row gap-3">

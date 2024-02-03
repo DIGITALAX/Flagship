@@ -26,10 +26,9 @@ const Tiles: FunctionComponent<TilesProps> = ({
     },
     [searchItems?.items?.length]
   );
-  console.log(searchItems);
   return (
     <div
-      className={`relative w-full h-full overflow-y-scroll pt-6`}
+      className={`relative w-full max-h-[90rem] h-fit overflow-y-scroll pt-6 flex items-start justify-center`}
       id="tileSearch"
     >
       <InfiniteScroll
@@ -39,14 +38,14 @@ const Tiles: FunctionComponent<TilesProps> = ({
             : (searchItems?.items || [])?.length + (moreSearchLoading ? 20 : 0)
         }
         loader={<></>}
-        height={"90rem"}
+
         scrollThreshold={0.9}
         hasMore={searchItems?.hasMore}
         next={handleMoreSearch}
-        className={`w-full h-fit items-start justify-center flex`}
+        className={`w-full h-full items-start justify-center flex`}
       >
         <Masonry
-          overscanBy={5}
+          // overscanBy={5}
           key={
             searchLoading
               ? 20

@@ -1,10 +1,13 @@
+import { INFURA_GATEWAY } from "@/lib/constants";
+import { Post, VideoMetadataV3 } from "@/lib/generated";
+import formatDuration from "@/lib/lens/helpers/formatDuration";
+import { setFullScreenVideo } from "@/redux/reducers/fullScreenVideoSlice";
 import Image from "next/legacy/image";
 import { FunctionComponent } from "react";
 import Draggable from "react-draggable";
-import { FullScreenVideoProps } from "../types/modals.types";
+
 import { AiOutlineLoading } from "react-icons/ai";
-import { Post, VideoMetadataV3 } from "@/lib/generated";
-import { INFURA_GATEWAY } from "@/lib/constants";
+import { FullScreenVideoProps } from "../types/modals.types";
 
 const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
   dispatch,
@@ -15,7 +18,6 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
   handleNextVideo,
   handleVolumeChange,
   loading,
-  router,
   wrapperRef,
 }): JSX.Element => {
   return (
@@ -32,7 +34,7 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
       >
         <div className="relative w-full h-fit flex flex-row items-center">
           <div
-            className="relative w-fit h-fit justify-start row-start-1 col-start-1 pb-2 cursor-sewingHS"
+            className="relative w-fit h-fit justify-start row-start-1 col-start-1 pb-2 cursor-pointer"
             onClick={() =>
               window.open(
                 `https://cypher.digitalax.xyz/item/pub/${
@@ -175,7 +177,7 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
           >
             <div className="relative w-fit h-fit flex items-center justify-center gap-3">
               <div
-                className={`relative cursor-sewingHS w-3 h-3 flex items-center justify-center ${
+                className={`relative cursor-pointer w-3 h-3 flex items-center justify-center ${
                   loading?.play && "animate-spin"
                 }`}
                 onClick={() => !loading?.play && handlePlayPause()}
@@ -194,7 +196,7 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
                   />
                 )}
               </div>
-              <div className="relative w-fit h-full flex items-center font-digi text-sm text-white">
+              <div className="relative w-fit h-full flex items-center font-aust text-xs text-white">
                 <span className="text-rosa">
                   {formatDuration(fullScreenVideo?.currentTime || 0)}
                 </span>
@@ -206,7 +208,7 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
             </div>
             <div className="relative w-fit h-fit flex items-center justify-center gap-3">
               <div
-                className=".volume relative cursor-sewingHS w-3 h-3 flex items-center justify-center"
+                className=".volume relative cursor-pointer w-3 h-3 flex items-center justify-center"
                 onClick={() =>
                   dispatch(
                     setFullScreenVideo({
@@ -236,7 +238,7 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
               </div>
 
               <div
-                className="relative cursor-sewingHS w-3 h-3 flex items-center justify-center -rotate-180"
+                className="relative cursor-pointer w-3 h-3 flex items-center justify-center -rotate-180"
                 onClick={() => !loading?.next && handleNextVideo(false)}
               >
                 <Image
@@ -247,7 +249,7 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
                 />
               </div>
               <div
-                className={`relative cursor-sewingHS w-3 h-3 flex items-center justify-center ${
+                className={`relative cursor-pointer w-3 h-3 flex items-center justify-center ${
                   loading?.next && "animate-spin"
                 }`}
                 onClick={() => !loading?.next && handleNextVideo(true)}
@@ -278,7 +280,7 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
           </div>
           <div className="relative w-full h-full flex flex-col items-center justify-center">
             <div
-              className="relative w-full h-2 bg-white/40 rounded-sm cursor-sewingHS"
+              className="relative w-full h-2 bg-white/40 rounded-sm cursor-pointer"
               onClick={(e) => handleSeek(e)}
             >
               <div

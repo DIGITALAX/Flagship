@@ -2,19 +2,42 @@ import FullScreenVideo from "./FullScreenVideo";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import ImageLarge from "./ImageLarge";
+import useVideo from "../hooks/useVideo";
+import { RefObject } from "react";
 
 const Modals = () => {
   const dispatch = useDispatch();
   const imageModal = useSelector(
     (state: RootState) => state.app.imageViewerReducer
   );
-  const fullScreen = useSelector(
+  const fullScreenVideo = useSelector(
     (state: RootState) => state.app.fullScreenVideoReducer
   );
+  const {
+    videoRef,
+    videoLoading,
+    handleNextVideo,
+    handlePlayPause,
+    handleSeek,
+    handleVolumeChange,
+    wrapperRef,
+  } = useVideo(fullScreenVideo, dispatch);
 
   return (
     <>
-      {fullScreen.open && <FullScreenVideo />}
+      {fullScreenVideo?.open && (
+        <FullScreenVideo
+          dispatch={dispatch}
+          fullScreenVideo={fullScreenVideo}
+          videoRef={videoRef as RefObject<HTMLVideoElement>}
+          loading={videoLoading}
+          handleNextVideo={handleNextVideo}
+          handlePlayPause={handlePlayPause}
+          handleVolumeChange={handleVolumeChange}
+          handleSeek={handleSeek}
+          wrapperRef={wrapperRef}
+        />
+      )}
       {imageModal?.value && (
         <ImageLarge
           mainImage={imageModal.image}

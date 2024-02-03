@@ -16,6 +16,7 @@ export type DistroProps = {
   rewind: MutableRefObject<HTMLDivElement | null>;
   changeColor: () => void;
   heartColor: string;
+  router: NextRouter;
 };
 
 export interface Quest {

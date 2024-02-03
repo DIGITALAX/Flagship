@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../redux/store";
 import { INFURA_GATEWAY } from "../../../lib/constants";
 import { HeaderProps } from "../types/layout.types";
+import { setFullScreenVideo } from "@/redux/reducers/fullScreenVideoSlice";
 
 const Header: FunctionComponent<HeaderProps> = ({
   rewind,
@@ -15,8 +16,8 @@ const Header: FunctionComponent<HeaderProps> = ({
 }): JSX.Element => {
   const [blur, setBlur] = useState<boolean>(true);
   const dispatch = useDispatch();
-  const videoPlayer = useSelector(
-    (state: RootState) => state.app.videoPlayerReducer.open
+  const fullScreenVideo = useSelector(
+    (state: RootState) => state.app.fullScreenVideoReducer
   );
   return (
     <div
@@ -40,9 +41,7 @@ const Header: FunctionComponent<HeaderProps> = ({
       </div>
       <div className="relative w-fit text-center min-h-full h-full justify-self-center">
         <div className="flex flex-row relative md:w-fit h-fit justify-center w-full">
-          <div
-            className="relative w-10 h-16 row-start-1 place-self-center pb-2"
-          >
+          <div className="relative w-10 h-16 row-start-1 place-self-center pb-2">
             <div
               className={`border border-2 border-mainText w-full h-full min-h-full relative flex bg-mainText ${
                 blur && "blur-sm animate-unblur"
@@ -136,7 +135,21 @@ const Header: FunctionComponent<HeaderProps> = ({
                 className={`relative w-fit h-full col-start-1 place-self-end pt-2 hover:-rotate-12 cursor-sewingHS ${
                   blur && "blur-sm animate-unblur"
                 }`}
-                onClick={() => dispatch(setVideoPlayer(!videoPlayer))}
+                onClick={() =>
+                  dispatch(
+                    setFullScreenVideo({
+                      actionOpen: fullScreenVideo?.open ? false : true,
+                      actionTime: fullScreenVideo?.currentTime,
+                      actionDuration: fullScreenVideo?.duration,
+                      actionIsPlaying: fullScreenVideo?.isPlaying,
+                      actionVolume: fullScreenVideo?.volume,
+                      actionVolumeOpen: fullScreenVideo?.volumeOpen,
+                      actionAllVideos: fullScreenVideo?.allVideos,
+                      actionCursor: fullScreenVideo?.cursor,
+                      actionIndex: fullScreenVideo?.index,
+                    })
+                  )
+                }
               >
                 <Image
                   src={`${INFURA_GATEWAY}/ipfs/QmYVHgyAQLxcoP5o23n3jXNnA9N9C93WqpM2heAegty7hU`}

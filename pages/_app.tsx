@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       setHeartColor(HEART_COLORS[THEME_COLORS.indexOf(color) + 1]);
       localStorage.setItem(
         "digi-theme-color",
-        HEART_COLORS[THEME_COLORS.indexOf(color) + 1]
+        THEME_COLORS[THEME_COLORS.indexOf(color) + 1]
       );
     } else {
       setColor(THEME_COLORS[0]);
