@@ -1,32 +1,27 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Banner from "../components/home/banner/Banner";
-import Blender from "../components/home/blender/Blender";
-import Dials from "../components/home/dials/Dials";
-import Display from "../components/home/display/Display";
-import Glass from "../components/home/glass/Glass";
-import Library from "../components/home/library/Library";
-import Poster from "../components/home/poster/Poster";
-import Slider from "../components/home/slider/Slider";
-import Social from "../components/home/social/Social";
-import Static from "../components/home/static/Static";
-import TV from "../components/home/tv/TV";
-import World from "../components/home/world/World";
-import Title from "./../components/home/title/Title";
 import { useEffect, useState } from "react";
-import Description from "../components/home/description/Description";
-import useFeed from "../components/home/social/hooks/useFeed";
-import { HomeProps } from "../types/general.types";
-import RefactorElement from "../components/common/modals/RefactorElement";
-import CC0 from "../components/home/cc0/CC0";
-import { useDispatch } from "react-redux";
-import useGallery from "../components/home/display/hooks/useGallery";
+import RefactorElement from "../components/Modals/components/RefactorElement";
+import useGallery from "../components/Home/hooks/useGallery";
+import Image from "next/legacy/image";
+import { INFURA_GATEWAY } from "@/lib/constants";
+import { HomeProps } from "@/components/Home/types/home.types";
+import useLibrary from "@/components/Home/hooks/useLibrary";
+import Description from "@/components/Home/components/Description";
+import Library from "@/components/Home/components/Library";
+import Slider from "@/components/Home/components/Slider";
+import Display from "@/components/Home/components/Display";
+import Banner from "@/components/Home/components/Banner";
+import Title from "@/components/Home/components/Title";
+import Header from "@/components/Layout/components/Header";
 
 const Home: NextPage<HomeProps> = ({
   queryWindowSize2XL,
-  shop,
   router,
   queryWindowInbetween,
+  rewind,
+  changeColor,
+  heartColor,
 }) => {
   const [refactorModal, setRefactorModal] = useState<{
     open: boolean;
@@ -35,15 +30,7 @@ const Home: NextPage<HomeProps> = ({
     open: false,
     transparency: false,
   });
-  const dispatch = useDispatch();
-  const {
-    publicationsFeed,
-    getMoreFeed,
-    queryWindowSize,
-    queryWindowSizeMobile,
-    queryWindowSizeXL,
-    feedLoading,
-  } = useFeed();
+
   const {
     currentImages,
     currentPage,
@@ -55,7 +42,11 @@ const Home: NextPage<HomeProps> = ({
     more,
     setBlur,
     blur,
+    handleShop,
+    shop
   } = useGallery(router);
+  const { showImage, setShowImage, setLink, link, lastBook, handleLastBook } =
+    useLibrary();
   useEffect(() => {
     const scrollElement = document.getElementById("scrollMicro");
     if (scrollElement) {
@@ -66,6 +57,13 @@ const Home: NextPage<HomeProps> = ({
 
   return (
     <div className="min-w-screen min-h-full h-full flex flex-col bg-mainBg">
+      <Header
+        rewind={rewind}
+        changeColor={changeColor}
+        heartColor={heartColor}
+        handleShop={handleShop}
+        router={router}
+      />
       <Head>
         <title>DIGITALAX</title>
         <meta
@@ -101,25 +99,93 @@ const Home: NextPage<HomeProps> = ({
         more={more}
       />
       <Description />
-      <Blender />
-      <Dials />
-      <TV />
-      <Glass />
-      <Static />
-      <Poster />
-      <World />
-      <Social
-        publicationsFeed={publicationsFeed}
-        getMoreFeed={getMoreFeed}
-        queryWindowSize={queryWindowSize}
-        queryWindowSizeMobile={queryWindowSizeMobile}
-        queryWindowSizeXL={queryWindowSizeXL}
-        dispatch={dispatch}
-        feedLoading={feedLoading}
+      <div className="w-full relative sm:grid grid-flow-col auto-cols-auto min-h-[120vw] h-[180vh] place-items-center pb-20">
+        <div
+          className={`h-full relative flex col-start-1 md:border-8 border-diy place-self-center bg-offBlack border-2 ${
+            blur && "blur-sm animate-unblur"
+          }`}
+        >
+          <Image
+            layout="fill"
+            objectFit="cover"
+            src={`${INFURA_GATEWAY}/ipfs/QmXnDtWEvHA2PNZeQWxVd1KotF5JGvfBp4hbcvgTuE3pdk`}
+            priority
+            onLoadingComplete={() => setBlur(false)}
+            draggable={false}
+          />
+          <div className="relative w-full h-full grid grid-flow-col auto-cols-auto">
+            <div className="relative w-full h-fit place-self-end col-start-1">
+              <div className="grid relative grid-flow-row auto-rows-auto w-full h-fit">
+                <div className="relative row-start-1 w-[74vw] h-[62vw] sm:w-72 sm:h-60 self-end pb-3 pl-10">
+                  <div
+                    id="crt"
+                    className="relative bg-offBlack w-full h-full rounded-xl"
+                  >
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      id="crt"
+                      className="relative p-0.5 h-full w-full object-cover rounded-xl flex"
+                    >
+                      <source src="/videos/crt1.mp4" type="video/mp4"></source>
+                    </video>
+                  </div>
+                </div>
+                <div className="relative row-start-2 w-[74vw] h-[62vw] sm:w-72 sm:h-60 self-end pb-3 pl-10">
+                  <div
+                    id="crt"
+                    className="relative w-full h-full rounded-xl  bg-offBlack"
+                  >
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      id="crt"
+                      className="relative p-0.5 h-full w-full object-cover rounded-xl flex"
+                    >
+                      <source src="/videos/crt2.mp4" type="video/mp4"></source>
+                    </video>
+                  </div>
+                </div>
+                <div className="relative row-start-3 w-[74vw] h-[62vw] sm:w-72 sm:h-60 self-end pl-10">
+                  <div
+                    id="crt"
+                    className="relative bg-offBlack w-full h-full rounded-xl"
+                  >
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      className="relative p-0.5 h-full w-full object-cover rounded-xl flex"
+                    >
+                      <source src="/videos/crt3.mp4" type="video/mp4"></source>
+                    </video>
+                  </div>
+                </div>
+                <div className="relative row-start-4 w-full h-fit pt-10 pb-8">
+                  <div className="relative text-diyText text-[8.1vw] whitespace-nowrap text-center pl-3 pr-3 sm:pl-10 sm:pr-10 w-full font-mag bg-diy pt-3 pb-3">
+                    LATENT THREADS
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <Library
+        setLink={setLink}
+        setShowImage={setShowImage}
+        showImage={showImage}
+        lastBook={lastBook}
+        link={link}
+        handleLastBook={handleLastBook}
+        setRefactorModal={setRefactorModal}
       />
-      <Library setRefactorModal={setRefactorModal} />
       <Slider />
-      <CC0 />
+      <div className="relative w-full h-full text-mainText bg-mainBg font-lib sm:text-[1.8vw] text-[4vw] lg:text-[1.5vw] xl:text-[1vw] text-center pb-28 break-word px-2">
+        100% CC0. We build in, for, and from the public domain.
+      </div>
       {refactorModal?.open && (
         <RefactorElement
           setRefactorModal={setRefactorModal}

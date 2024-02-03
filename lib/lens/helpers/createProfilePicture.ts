@@ -1,6 +1,6 @@
 import { Maybe } from "graphql/jsutils/Maybe";
-import { NftImage, ProfilePicture } from "../../../types/generated";
-import { INFURA_GATEWAY } from "../constants";
+import { NftImage, ProfilePicture } from "../../generated";
+import { INFURA_GATEWAY } from "../../constants";
 
 const createProfilePicture = (
   publication: Maybe<ProfilePicture> | undefined

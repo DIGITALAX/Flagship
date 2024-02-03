@@ -9,6 +9,11 @@
 }
 
 @font-face {
+  font-family: "Austral";
+  src: url("/fonts/Austral.otf");
+}
+
+@font-face {
   font-family: "Vcr";
   src: url("/fonts/Vcr.ttf");
 }
@@ -47,6 +52,12 @@
   font-family: "Fira Medium";
   font-weight: 400;
   src: url("/fonts/FiraCode-Medium.ttf");
+}
+
+@font-face {
+  font-family: "Bitblox";
+  font-weight: 400;
+  src: url("/fonts/Bitblox.otf");
 }
 
 @font-face {
@@ -692,4 +703,65 @@ input:focus {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+#staticLoad {
+  background-image: repeating-radial-gradient(
+    circle at 18% 36%,
+    #d401f8,
+    #f9ed00 1.8px
+  );
+  animation: back 10s linear infinite;
+}
+
+#game {
+  box-shadow: inset 0 0 100px rgba(0, 0, 255, 0.5);
+}
+
+#explainerBg {
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(to right, #1c24ff6a 1px, transparent 1px),
+    linear-gradient(to bottom, #1c24ff6a 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+#noCode {
+  background-image: linear-gradient(
+    to bottom,
+    #e3e1ee,
+    #e3e1ee,
+    #f7fff0,
+    #89eff5,
+    #23fefc,
+    #2b90fd,
+    #341cfe,
+    #341cfe,
+    #341cfe
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+#pfp {
+  background: linear-gradient(#fc9cf3, #b9d9ff, #0091ff, #fd99dc);
+}
+
+#tileSearch::-webkit-scrollbar {
+  width: 0px;
+  opacity: 0; /* Initially hide the scrollbar */
+}
+
+#tileSearch:hover::-webkit-scrollbar {
+  opacity: 0; /* Show the scrollbar on hover */
+}
+
+#tileSearch::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+#tileSearch::-webkit-scrollbar-thumb {
+  background-color: transparent;
 }

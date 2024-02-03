@@ -1,79 +1,56 @@
-const descriptionRegex = (description: string, messages?: boolean) => {
-  const replacedDescription = description?.replace(/\n\n/g, "\n \n"); // Replace all occurrences of "\n \n" with "\n\n"
+const descriptionRegex = (description: string, colorChange: boolean) => {
+  const specialPhrase =
+    "... This post is encrypted. Do you hold the keys to unlock its' secrets?";
+  const replacedDescription = description?.replace(/\n\n/g, "\n \n");
   const lines = replacedDescription?.split(/[\r\n]+/);
+
   const styledLines = lines?.map((line: string) => {
-    const words = line.split(" ");
-    const styledWords = words.map((word: string) => {
-      if (word[0] === "#") {
-        if (messages) {
-          return `<em id="hashtags" style="color: #ff494a; cursor: pointer; font-style: normal;">${word}</em>`;
+    if (line.includes(specialPhrase)) {
+      const parts = line.split(specialPhrase);
+      const styledSpecialPhrase =
+        parts[0] +
+        specialPhrase
+          .split(" ")
+          .map((word) => `<span style="color: #FF0000;">${word}</span>`)
+          .join(" ") +
+        parts[1];
+      return `<span>${styledSpecialPhrase}</span>`;
+    } else {
+      const words = line.split(/(?=[@#])|\s+/);
+      const styledWords = words.map((word) => {
+        if (word[0] === "#") {
+          return colorChange
+            ? `<em id="hashtags" style="color: #f9ed00; font-style: normal; word-break: break-all; margin-right: 4px;">${word}</em>`
+            : `<em id="hashtags" style="color: #81A8F8; font-style: normal; word-break: break-all; margin-right: 4px;">${word}</em>`;
+        } else if (word[0] === "@") {
+          const link = `https://cypher.digitalax.xyz/autograph/${
+            word?.includes(".lens")
+              ? word?.replace(".lens", "").replace("@", "")
+              : word?.replace("@", "")
+          }`;
+          return colorChange
+            ? ` <a href="${link}" rel="noreferrer" target="_blank" style="word-break: break-all; margin-right: 4px;"> <span style="color: #f9ed00;">${word}</span> </a> `
+            : ` <a href="${link}" target="_blank" rel="noreferrer" style="word-break: break-all; margin-right: 4px;"> <span style="color: #81A8F8;">${word}</span> </a> `;
+        } else if (
+          word.startsWith("http") ||
+          word.startsWith("www.") ||
+          word.endsWith(".xyz") ||
+          word.endsWith(".com")
+        ) {
+          const url = word?.includes("//") ? word : `//${word}`;
+          return colorChange
+            ? ` <a href="${url}" style="word-break: break-all; margin-right: 4px;" target="_blank" rel="noreferrer"> <span style="color: #f9ed00;">${word}</span> </a> `
+            : ` <a href="${url}" style="word-break: break-all; margin-right: 4px;" target="_blank" rel="noreferrer"> <span style="color: #81A8F8;">${word}</span> </a> `;
         } else {
-          return `<em id="hashtags" style="color: #81A8F8; cursor: pointer; font-style: normal;">${word}</em>`;
+          return word;
         }
-      } else if (word[0] === "@") {
-        if (messages) {
-          return `
-            <a href="${`https://www.chromadin.xyz/#chat?option=history&profile=${word?.replace(
-              "@",
-              ""
-            )}`}" rel="noreferrer" target="_blank" style="margin-right: 4px;">
-              <span style="color: #ff494a;">${word}</span>
-            </a>
-          `;
-        } else {
-          return `
-            <a href="${`https://www.chromadin.xyz/#chat?option=history&profile=${word?.replace(
-              "@",
-              ""
-            )}`}" target="_blank" rel="noreferrer" style="margin-right: 4px;">
-              <span style="color: #81A8F8;">${word}</span>
-            </a>
-          `;
-        }
-      } else if (
-        (word[0] === "h" &&
-          word[1] === "t" &&
-          word[2] === "t" &&
-          word[3] === "p") ||
-        (word[0] === "w" &&
-          word[1] === "w" &&
-          word[2] === "w" &&
-          word[3] === ".") ||
-        (word[word.length] === "z" &&
-          word[word.length - 1] === "y" &&
-          word[word.length - 2] === "x" &&
-          word[word.length - 3] === ".") ||
-        (word[word.length] === "m" &&
-          word[word.length - 1] === "o" &&
-          word[word.length - 2] === "c" &&
-          word[word.length - 3] === ".")
-      ) {
-        if (messages) {
-          return `
-            <a href=${
-              word?.includes("//") ? word : `//${word}`
-            } target="_blank" rel="noreferrer">
-              <span style="color: #ff494a;">${word}</span>
-            </a>
-          `;
-        } else {
-          return `
-            <a href=${
-              word?.includes("//") ? word : `//${word}`
-            } target="_blank" rel="noreferrer">
-              <span style="color: #81A8F8;">${word}</span>
-            </a>
-          `;
-        }
-      } else {
-        return word;
-      }
-    });
-    const styledLine = `<span>${styledWords?.join(" ")}</span>`;
-    return styledLine;
+      });
+      return `<span>${styledWords.join(" ")}</span>`;
+    }
   });
-  const formattedDescription = styledLines?.join("<br />");
-  return `<div>${formattedDescription}</div>`;
+
+  const formattedDescription = styledLines.join("<br />");
+  return `<div style="word-wrap: break-word; max-width: 100%;">${formattedDescription}</div>`;
 };
 
 export default descriptionRegex;

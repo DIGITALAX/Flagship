@@ -76,6 +76,19 @@ module.exports = {
         shame: "#F6F5F0",
         ama: "#FBDB86",
         moda: "#CFB0FA",
+        amarillo: "#F2D777",
+        verde: "#259000",
+        brille: "#E8FF0B",
+        amo: "#44D7B6",
+        cost: "#847FF2",
+        girasol: "#FBD201",
+        nuba: "#C9D8E4",
+        mos: "#05A5B7",
+        pez: "#81A8F8",
+        ballena: "#FFD85F",
+        fuego: "#111929",
+        mar: "#27BBCC",
+        nave: "#0b0e16",
       },
       fontFamily: {
         holo: "Nan Holo",
@@ -106,6 +119,8 @@ module.exports = {
         dosis: "Dosis Regular",
         mana: "Manaspace",
         vcr: "Vcr",
+        bit: "Bitblox",
+        aust: "Austral",
       },
       keyframes: {
         unblur: {

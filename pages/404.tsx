@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Link from "next/link";
-import Header from "../components/layout/Header";
+import Header from "../components/Layout/components/Header";
 
 const Custom404: NextPage = (): JSX.Element => {
   return (

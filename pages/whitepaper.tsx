@@ -3,7 +3,7 @@ import Head from "next/head";
 
 const Whitepaper: NextPage = (): JSX.Element => {
   return (
-    <div className="relative w-full h-screen min-h-screen">
+    <div className="relative w-full h-screen flex">
       <Head>
         <title>Whitepaper V3</title>
         <meta name="og:url" content="https://www.digitalax.xyz/whitepaper" />
@@ -23,7 +23,7 @@ const Whitepaper: NextPage = (): JSX.Element => {
         <link rel="preconnect" href="https://fonts.gstatic.com" />
       </Head>
       <embed
-        className="w-full h-full"
+        className="w-full h-full relative flex"
         src="/digitalaxwhitepaperv3.pdf"
         type="application/pdf"
       />

@@ -42,6 +42,13 @@ class Document extends NextDocument {
           />
           <link
             rel="preload"
+            href="/fonts/Bitblox.otf"
+            as="font"
+            type="font/otf"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
             href="/fonts/FiraCode-Medium.ttf"
             as="font"
             type="font/ttf"
@@ -119,6 +126,13 @@ class Document extends NextDocument {
           />
           <link
             rel="preload"
+            href="/fonts/Austral.otf"
+            as="font"
+            crossOrigin="anonymous"
+            type="font/otf"
+          />
+          <link
+            rel="preload"
             href="/fonts/Vcr.ttf"
             as="font"
             crossOrigin="anonymous"
@@ -152,8 +166,18 @@ class Document extends NextDocument {
                 }
 
                 @font-face {
+                  font-family: "Austral";
+                  src: url("./fonts/Austral.otf");
+                }
+
+                @font-face {
                   font-family: "Vcr";
                   src: url("./fonts/Vcr.ttf");
+                }
+
+                @font-face {
+                  font-family: "Bitblox";
+                  src: url("./fonts/Bitblox.otf");
                 }
 
                 @font-face {
