@@ -10,9 +10,10 @@ const Shelf: FunctionComponent<ShelfProps> = ({
   setCurrentBook,
   lastBook,
   dispatch,
+  handleLastBook,
 }): JSX.Element => {
   return (
-    <div className="relative flex items-center justify-start flex-row w-full h-[30rem] wide:h-[50rem]">
+    <div className="relative flex items-center justify-start flex-row w-full h-[40rem]">
       <div
         className={`relative flex items-center justify-center border-offBlack h-full w-[40rem] bg-offBlack border-2`}
       >
@@ -94,8 +95,8 @@ const Shelf: FunctionComponent<ShelfProps> = ({
                     className="h-1.5 border border-offBlack w-full flex items-center justify-center relative"
                   ></div>
                 </div>
-                <div className="relative w-full h-full flex items-start justify-center">
-                  <div className="relative w-fit h-fit flex items-start justify-center top-32">
+                <div className="absolute bottom-32 w-full h-fit flex items-start justify-center">
+                  <div className="relative w-fit h-fit flex items-start justify-center">
                     <div className="relative text-[4vw] sm:text-[1.3vw] whitespace-nowrap font-lib flex items-center justify-center w-fit h-10 rotate-90 border-2 border-offBlack p-2 bg-offWhite text-offBlack">
                       {book.name}
                     </div>
@@ -107,10 +108,10 @@ const Shelf: FunctionComponent<ShelfProps> = ({
         </div>
       </div>
       <div
-        className={`relative w-fit h-full flex items-center justify-center gap-2 bg-offBlack flex-row gap-2 p-3`}
+        className={`relative w-60 h-full flex items-center justify-center gap-2 bg-offBlack flex-row gap-2 p-3`}
       >
         <div
-          className={`relative w-6 h-full lg:h-1/2 items-center justify-center flex`}
+          className={`relative w-6 h-40 items-center justify-center flex`}
         >
           <Image
             src={`${INFURA_GATEWAY}/ipfs/QmdqGRG1tr9mPSCWNUGPiHq1pGpLkhgyFg8o6SN9LKrd8o`}
@@ -128,6 +129,7 @@ const Shelf: FunctionComponent<ShelfProps> = ({
         </div>
         <div
           className={`relative w-10 h-10 flex items-center justify-center hover:opacity-90 active:mix-blend-hard-light cursor-sewingHS`}
+          onClick={() => handleLastBook()}
         >
           <Image
             src={`${INFURA_GATEWAY}/ipfs/QmP2nsKxT7rvPxdkhCfsTPWuDvLGCDmb2KMhUJ2pYqftPQ`}

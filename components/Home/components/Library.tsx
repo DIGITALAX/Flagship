@@ -24,15 +24,13 @@ const Library: FunctionComponent<LibraryProps> = ({
           draggable={false}
         />
       </div>
-      <div className="w-full flex h-fit items-center justify-center relative">
-        <Shelf
-          lastBook={lastBook}
-          currentBook={currentBook}
-          setCurrentBook={setCurrentBook}
-          handleLastBook={handleLastBook}
-          dispatch={dispatch}
-        />
-      </div>
+      <Shelf
+        lastBook={lastBook}
+        currentBook={currentBook}
+        setCurrentBook={setCurrentBook}
+        handleLastBook={handleLastBook}
+        dispatch={dispatch}
+      />
     </div>
   );
 };

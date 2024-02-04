@@ -1,5 +1,5 @@
 import Image from "next/legacy/image";
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, ReactElement } from "react";
 import { BsTwitter } from "react-icons/bs";
 import { BiArrowToTop } from "react-icons/bi";
 import { INFURA_GATEWAY } from "../../../lib/constants";
@@ -8,206 +8,146 @@ import { FooterProps } from "../types/layout.types";
 const Footer: FunctionComponent<FooterProps> = ({
   handleRewind,
 }): JSX.Element => {
-  const [blur, setBlur] = useState<boolean>(true);
   return (
-    <div className="relative min-w-screen bg-offBlack h-fit min-h-full flex w-full">
-      <div className="relative grid auto-rows-auto grid-flow-row w-full h-full pt-12">
-        <div className="relative row-start-1 w-full h-full">
-          <div className="relative grid auto-cols-auto grid-flow-col h-full w-full">
-            <div className="col-start-1 w-full md:w-fit lg:h-full lg:w-full relative md:pl-6 row-start-1 px-2 md:pb-0 pb-8">
-              <div
-                className={`relative flex border-2 w-full h-fit lg:h-full pb-2 ${
-                  blur && "blur-sm animate-unblur"
-                }`}
-              >
-                <Image
-                  layout="fill"
-                  src={`${INFURA_GATEWAY}/ipfs/QmSvQQsELrcEaGrQ2L2Lak8F2hgMeiBxw7MwhCrog6snDj`}
-                  priority
-                  onLoadingComplete={() => setBlur(false)}
-                  draggable={false}
-                />
-                <div className="relative w-full h-full grid grid-flow-row auto-rows-auto">
-                  <div
-                    id="digi"
-                    className="relative w-full text-center h-fit text-offWhite font-mag text-[8.5vw] row-start-1 p-4"
-                  >
-                    DIGITALAX
-                  </div>
-                  <div
-                    id="code"
-                    className="font-fut text-[1.4vw] lg:text-[1vw] relative row-start-2 place-self-center pb-2"
-                  >
-                    100 105 103 105 116 97 108 97 120
-                  </div>
-                  <div className="relative w-full pl-8 pr-8 h-10 grid grid-flow-row auto-rows-auto row-start-3 lg:pb-0 pb-6">
-                    <div className="w-full h-full border-2 border-l-2 border-r-2 border-t-0 border-white row-start-1 relative"></div>
-                    <div className="w-full h-full border-l-2 border-r-2 border-t-0 border-b-0 border-white row-start-2 relative"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="md:col-start-2 relative h-fit w-full md:w-72 lg:w-[20vw] text-xs md:text-[1vw] xl:text-[0.8vw] text-midWhite place-self-end font-lib text-left sm:text-right leading-8 col-start-1 row-start-2 md:row-start-1 pr-10 pl-6">
-              From mini-maps and mesh segmentation, to synth machines and
-              material use, the web3 fashion ecosystem supplies more than a few
-              good looks.
-              <br />
-              <br />
-              For collectors, creators, and everyone in between, it’s more
-              dangerous than ever to go it alone out there.
-              <br />
-              <br />
-              Dress wisely, and take your keys with you.
-            </div>
-          </div>
-        </div>
-        <div className="relative row-start-2 w-full h-full pt-16">
-          <div className="grid grid-flow-row auto-rows-auto relative w-full h-fit gap-2">
-            <div id="foot1" className="relative row-start-1 w-full h-1"></div>
-            <div id="foot2" className="relative row-start-2 w-full h-1"></div>
-            <div id="foot3" className="relative row-start-3 w-full h-1"></div>
-          </div>
-        </div>
-        <div className="relative row-start-3 w-full h-full pt-4 pb-10 text-midWhite font-fut text-[2vw] galaxy:text-[1.4vw] sm:text-[1.2vw] md:text-[1vw] lg:text-[0.85vw] xl:text-[0.7vw] grid grid-flow-row auto-rows-auto pl-3 pr-3 sm:pl-0 sm:pr-10 text-center gap-3">
-          <div className="relative row-start-1 w-fit h-fit place-self-center  ">
-            Visual media used by this site is mirrored using IPFS{" "}
-            <a
-              target={"_blank"}
-              href={"https://ipfs.digitalax.xyz/"}
-              rel="noreferrer"
-              className="underline decoration-midWhite decoration-1 underline-offset-4 cursor-sewingHS hover:text-skyBlue"
+    <div className="relative w-full bg-offBlack h-fit flex items-center justify-start flex-col gap-10 pt-12">
+      <div className="relative w-full h-fit flex flex-row items-center justify-between gap-10 px-6">
+        <div
+          className={`relative flex border-2 w-fit p-2 h-fit lg:h-full items-center justify-center`}
+        >
+          <Image
+            layout="fill"
+            src={`${INFURA_GATEWAY}/ipfs/QmSvQQsELrcEaGrQ2L2Lak8F2hgMeiBxw7MwhCrog6snDj`}
+            priority
+            draggable={false}
+          />
+          <div className="relative w-full h-full flex flex-col items-center justify-center">
+            <div
+              id="digi"
+              className="relative flex w-fit text-center h-fit text-offWhite font-mag text-[8.5vw] p-4"
             >
-              here.
-            </a>
-          </div>
-          <div className="relative row-start-2 w-fit h-fit place-self-center pt-2">
-            <sup>*</sup>Some US based ISPs may block these links, we’re looking
-            into why.
+              DIGITALAX
+            </div>
+            <div
+              id="code"
+              className="font-fut w-full h-fit text-[1.4vw] lg:text-[1vw] relative flex items-center justify-center pb-2"
+            >
+              100 105 103 105 116 97 108 97 120
+            </div>
+            <div className="relative w-full px-8 h-10 flex items-center justify-center flex-col lg:pb-0 pb-6">
+              <div className="w-full h-full border-x-2 border-b-2 border-white flex items-center justify-center relative"></div>
+              <div className="w-full h-full border-x-2 border-white flex items-center justify-center relative"></div>
+            </div>
           </div>
         </div>
-        <div className="relative row-start-4 w-full h-full text-midWhite pt-10">
-          <div className="relative grid auto-cols-auto grid-flow-col h-full w-full">
-            <div className="col-start-1 h-full w-full relative pt-6">
-              <div className="relative w-fit h-fit grid grid-flow-row auto-rows-auto">
-                <div className="relative w-fit h-fit col-start-1 row-start-1 sm:row-start-1 pl-6 pb-1 hover:text-skyBlue cursor-sewingHS hover:rotate-3">
-                  END OF LINE
-                </div>
-                <div
-                  className={`relative w-36 h-4 row-start-2 ${
-                    blur && "blur-sm animate-unblur"
-                  }`}
-                >
-                  <Image
-                    src={`${INFURA_GATEWAY}/ipfs/QmXbwk3dg9GKWhjVTQGsrt6dKARFCyqNz71ssUo2SGx1zc`}
-                    draggable={false}
-                    layout="fill"
-                    priority
-                    onLoadingComplete={() => setBlur(false)}
-                  />
-                </div>
-              </div>
-            </div>
-            <div className="col-start-1 row-start-1 sm:col-start-2 h-full w-fit relative sm:pl-0 sm:pb-0 sm:pr-0 pr-6 pb-6 pl-6 place-self-center pt-6 cursor-sewingHS active:scale-95">
-              <div
-                className="grid grid-flow-col auto-cols-auto relative w-fit h-fit"
-                onClick={() => handleRewind()}
-              >
-                <div className="col-start-1 w-full h-fit pr-3 place-self-center">
-                  <BiArrowToTop color="#F7F8E8" size={20} />
-                </div>
-                <div className="col-start-2 w-full h-fit place-self-center">
-                  BE KIND, REWIND
-                </div>
-              </div>
-            </div>
-            <div className="col-start-1 row-start-2 sm:row-start-1 sm:col-start-3 h-full w-fit relative place-self-center sm:pb-0 pb-8 pl-6 sm:pl-0 sm:place-self-end pr-4 md:pr-14 pt-6">
-              <div className="row-start-2 grid grid-flow-col auto-cols-auto relative h-fit w-fit gap-3">
-                <div className="relative w-fit h-fit col-start-1 place-self-end">
-                  <a
-                    href={"https://blog.digitalax.xyz/"}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`cursor-sewingHS h-fit relative pr-1 ${
-                      blur && "blur-sm animate-unblur"
-                    }`}
-                  >
-                    <Image
-                      src={`${INFURA_GATEWAY}/ipfs/QmWVdyGgXbPL5SiRnQwALHvWzAnyiXBos1oB4TVTqg7saV`}
-                      width={21}
-                      height={26}
-                      priority
-                      onLoadingComplete={() => setBlur(false)}
-                      draggable={false}
-                    />
-                  </a>
-                </div>
-                <div className="relative w-fit h-fit col-start-2 place-self-end">
-                  <a
-                    href={"https://github.com/digitalax"}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`cursor-sewingHS h-fit relative pr-1 ${
-                      blur && "blur-sm animate-unblur"
-                    }`}
-                  >
-                    <Image
-                      src={`${INFURA_GATEWAY}/ipfs/QmP5349vcKLNXUhtLyZWQXB8vEbFwRcKLzzB93vxkLsvpw`}
-                      width={29}
-                      height={28}
-                      priority
-                      onLoadingComplete={() => setBlur(false)}
-                      draggable={false}
-                    />
-                  </a>
-                </div>
-                <div className="relative w-fit h-fit col-start-3">
-                  <a
-                    href={"https://cypher.digitalax.xyz/autograph/digitalax"}
-                    target="_blank"
-                    rel="noreferrer"
-                    className={`cursor-sewingHS h-fit relative ${
-                      blur && "blur-sm animate-unblur"
-                    }`}
-                  >
-                    <Image
-                      src={`${INFURA_GATEWAY}/ipfs/QmeA7R3J8FrhZuMmiFFrVqNmWzKkJCbP51pajFrYdEGBVX`}
-                      width={30}
-                      height={30}
-                      priority
-                      onLoadingComplete={() => setBlur(false)}
-                      draggable={false}
-                    />
-                  </a>
-                </div>
-                <div className="relative w-fit h-fit col-start-4">
-                  <a
-                    href={"https://twitter.com/digitalax_"}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="cursor-sewingHS h-fit relative"
-                  >
-                    <BsTwitter size={30} color={"#FFDCFF"} />
-                  </a>
-                </div>
-                <div className="relative w-fit h-fit col-start-5 place-self-center">
-                  <a
-                    href={"https://youtube.com/@digitalax"}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="cursor-sewingHS h-fit relative"
-                  >
-                    <Image
-                      src={`${INFURA_GATEWAY}/ipfs/Qmchp1UWTavZBxq9mTbjASESgRRmsFNXzmxzaMzRSf9aax`}
-                      width={30}
-                      height={20}
-                      draggable={false}
-                      priority
-                    />
-                  </a>
-                </div>
-              </div>
-            </div>
+        <div className="flex relative h-fit w-full md:w-72 lg:w-[20vw] text-xs md:text-[1vw] xl:text-[0.8vw] text-midWhite justify-center items-center font-lib text-left sm:text-right leading-8">
+          From mini-maps and mesh segmentation, to synth machines and material
+          use, the web3 fashion ecosystem supplies more than a few good looks.
+          <br />
+          <br />
+          For collectors, creators, and everyone in between, it’s more dangerous
+          than ever to go it alone out there.
+          <br />
+          <br />
+          Dress wisely, and take your keys with you.
+        </div>
+      </div>
+
+      <div className="relative flex w-full h-fit items-center justify-center gap-2 flex-col">
+        <div
+          id="foot1"
+          className="relative flex items-center justify-center w-full h-1"
+        ></div>
+        <div
+          id="foot2"
+          className="relative flex items-center justify-center w-full h-1"
+        ></div>
+        <div
+          id="foot3"
+          className="relative flex items-center justify-center w-full h-1"
+        ></div>
+      </div>
+      <div className="relative flex items-center justify-between w-full h-fit text-midWhite gap-4">
+        <div className="relative w-fit h-fit ml-0 flex items-center justify-center flex-col gap-1">
+          <div className="relative w-fit h-fit flex items-center justify-center hover:text-skyBlue cursor-sewingHS hover:rotate-3">
+            END OF LINE
           </div>
+          <div className={`relative w-36 h-4 flex items-center justify-center`}>
+            <Image
+              src={`${INFURA_GATEWAY}/ipfs/QmXbwk3dg9GKWhjVTQGsrt6dKARFCyqNz71ssUo2SGx1zc`}
+              draggable={false}
+              layout="fill"
+              priority
+            />
+          </div>
+        </div>
+        <div
+          className="relative w-fit h-fit flex flex-row items-center justify-center gap-2 cursor-sewingHS active:scale-95"
+          onClick={() => handleRewind()}
+        >
+          <div className="flex items-center justify-center w-fit h-fit">
+            <BiArrowToTop color="#F7F8E8" size={20} />
+          </div>
+          <div className="w-fit flex items-center justify-center h-fit font-lib text-base text-offWhite">
+            BE KIND, REWIND
+          </div>
+        </div>
+        <div className="relative w-fit h-fit mr-0 flex-row gap-3 flex items-center justify-center pr-2">
+          {[
+            {
+              image: "QmWVdyGgXbPL5SiRnQwALHvWzAnyiXBos1oB4TVTqg7saV",
+              link: "https://blog.digitalax.xyz/",
+              title: "Blog",
+            },
+            {
+              image: "QmP5349vcKLNXUhtLyZWQXB8vEbFwRcKLzzB93vxkLsvpw",
+              link: "https://github.com/digitalax",
+              title: "Github",
+            },
+            {
+              image: "QmeA7R3J8FrhZuMmiFFrVqNmWzKkJCbP51pajFrYdEGBVX",
+              link: "https://cypher.digitalax.xyz/autograph/digitalax",
+              title: "Autograph",
+            },
+            {
+              link: "https://twitter.com/digitalax_",
+              title: "Twitter",
+              component: <BsTwitter size={30} color={"#FFDCFF"} />,
+            },
+            {
+              link: "https://youtube.com/@digitalax",
+              title: "Youtube",
+              image: "Qmchp1UWTavZBxq9mTbjASESgRRmsFNXzmxzaMzRSf9aax",
+            },
+          ].map(
+            (
+              item: {
+                image?: string;
+                title: string;
+                link: string;
+                component?: ReactElement;
+              },
+              index: number
+            ) => {
+              return (
+                <div
+                  key={index}
+                  className="relative w-5 h-5 flex items-center justify-center cursor-sewingHS active:scale-95"
+                  onClick={() => window.open(item.link)}
+                  title={item.title}
+                >
+                  {item?.component ? (
+                    item.component
+                  ) : (
+                    <Image
+                      src={`${INFURA_GATEWAY}/ipfs/${item.image}`}
+                      layout="fill"
+                      draggable={false}
+                    />
+                  )}
+                </div>
+              );
+            }
+          )}
         </div>
       </div>
     </div>

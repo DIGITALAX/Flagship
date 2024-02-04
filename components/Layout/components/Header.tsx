@@ -24,10 +24,12 @@ const Header: FunctionComponent<HeaderProps> = ({
         <div className="relative w-fit h-full flex p-2 items-center justify-center">
           <div className="relative w-80 h-full flex items-center justify-start flex-col gap-3 bg-white"></div>
         </div>
-        <div className="relative w-full h-full flex items-center justify-start flex-col gap-3">
-          <Heart changeColor={changeColor} heartColor={heartColor} />
-          <div className="relative w-full h-fit flex items-center justify-between gap-3">
-            <div className="relative w-fit h-fit flex flex-row items-center justify-center gap-2 ml-0">
+        <div className="relative w-full h-[30rem] flex items-center justify-start flex-col gap-3 p-7">
+          <div className="relative w-full h-fit mr-0 flex items-end justify-end">
+            <Heart changeColor={changeColor} heartColor={heartColor} />
+          </div>
+          <div className="relative w-full h-fit flex items-center justify-end gap-3 flex-row">
+            <div className="relative w-fit h-fit flex flex-row items-center justify-center gap-2">
               <div
                 className={`relative w-fit h-fit flex items-center justify-center hover:-rotate-12 cursor-sewingHS`}
                 onClick={() =>
@@ -59,7 +61,7 @@ const Header: FunctionComponent<HeaderProps> = ({
               </div>
             </div>
             <div
-              className="relative w-full bg-white h-9 rounded-md border-mainText text-sm overflow-x-hidden whitespace-nowrap cursor-sewingHS flex items-center justify-start text-offBlack"
+              className="relative w-96 bg-white h-9 rounded-md border-mainText text-sm overflow-x-hidden whitespace-nowrap cursor-sewingHS flex items-center justify-start text-offBlack border border-mainText"
               onClick={
                 router.pathname == "/"
                   ? () => handleShop()
@@ -177,6 +179,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                         className="rounded-xl w-full h-full"
                         layout="fill"
                         objectFit="cover"
+                        priority
                         src={`${INFURA_GATEWAY}/ipfs/${item.image}`}
                       />
                     </div>

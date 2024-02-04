@@ -8,7 +8,7 @@ import { setImageViewer } from "@/redux/reducers/imageViewerSlice";
 const Gallery: FunctionComponent<GalleryProps> = ({
   more,
   queryWindowSize2XL,
-  queryWindowInbetween,
+  currentIndex,
   dispatch,
 }): JSX.Element => {
   return (
@@ -17,33 +17,11 @@ const Gallery: FunctionComponent<GalleryProps> = ({
         more ? "h-full" : "h-[60vh] md:h-[100vh] lg:h-[155vh]"
       } w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start relative gap-5 2xl:place-content-center`}
     >
-      {(more
-        ? [
-            [
-              ...(queryWindowInbetween
-                ? tokens.slice(0, 9)
-                : tokens.slice(0, 6)),
-            ],
-            [
-              ...(queryWindowInbetween
-                ? tokens.slice(9, 18)
-                : tokens.slice(6, 12)),
-            ],
-            [...tokens.slice(12, 18)],
-          ]
-        : [
-            [
-              ...(queryWindowInbetween
-                ? tokens.slice(0, 9)
-                : tokens.slice(0, 6)),
-            ],
-            [
-              ...(queryWindowInbetween
-                ? tokens.slice(9, 18)
-                : tokens.slice(6, 12)),
-            ],
-          ]
-      ).map((images: Gallery[], index) => {
+      {[
+        [...tokens.slice(0 + currentIndex * 21, 7 + currentIndex * 21)],
+        [...tokens.slice(7 + currentIndex * 21, 14 + currentIndex * 21)],
+        [...tokens.slice(14 + currentIndex * 21, 21 + currentIndex * 21)],
+      ].map((images: Gallery[], index) => {
         return (
           <div
             className="flex flex-col w-full h-fit relative gap-4 items-center justify-start"
@@ -54,40 +32,36 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                 <div
                   key={index}
                   className={`h-fit w-fit flex items-center justify-center relative group`}
+                  onClick={() =>
+                    dispatch(
+                      setImageViewer({
+                        actionValue: true,
+                        actionImage: `${INFURA_GATEWAY}/ipfs/${token.image}`,
+                        actionType: "image/png",
+                      })
+                    )
+                  }
                 >
-                  <div
-                    className={`w-fit flex items-center justify-center h-fit relative`}
-                    onClick={() =>
-                      dispatch(
-                        setImageViewer({
-                          actionValue: true,
-                          actionImage: `${INFURA_GATEWAY}/ipfs/${token.image}`,
-                          actionType: "image/png",
-                        })
-                      )
+                  <Image
+                    src={`${INFURA_GATEWAY}/ipfs/${token.image}`}
+                    width={queryWindowSize2XL ? 2 * token.width : token.width}
+                    height={
+                      queryWindowSize2XL ? 2 * token.height : token.height
                     }
-                  >
-                    <Image
-                      src={`${INFURA_GATEWAY}/ipfs/${token.image}`}
-                      width={queryWindowSize2XL ? 2 * token.width : token.width}
-                      height={
-                        queryWindowSize2XL ? 2 * token.height : token.height
-                      }
-                      objectFit="cover"
-                      objectPosition="center"
-                      priority
-                      layout={queryWindowSize2XL ? "intrinsic" : "responsive"}
-                      className="bg-offBlack"
-                      draggable={false}
-                    />
-                    <div className="absolute bg-black top-0 flex items-center justify-cente w-full bg-opacity-70 h-full font-lib text-midWhite invisible group-hover:visible group-active:visible">
-                      <div className="w-fit h-fit flex items-center justify-center ml-0 mb-0 left-2 bottom-2">
-                        <div
-                          className="relative decoration-1 underline underline-offset-2 whitespace-nowrap mix-blend-screen hover:cursor-sewingHS w-fit h-fit text-[1.2vw] p-6 flex items-center justify-center"
-                          onClick={() => window.open(token?.external)}
-                        >
-                          Collect NFT
-                        </div>
+                    objectFit="cover"
+                    objectPosition="center"
+                    priority
+                    layout={queryWindowSize2XL ? "intrinsic" : "responsive"}
+                    className="bg-offBlack"
+                    draggable={false}
+                  />
+                  <div className="absolute bg-black top-0 left-0 flex items-end justify-end w-full bg-opacity-70 h-full font-lib text-midWhite invisible group-hover:visible group-active:visible">
+                    <div className="relative w-fit h-fit flex items-center justify-center right-6 bottom-6">
+                      <div
+                        className="relative decoration-1 underline underline-offset-2 whitespace-nowrap mix-blend-screen hover:cursor-sewingHS w-fit h-fit text-[1.2vw] flex items-center justify-center active:scale-95"
+                        onClick={() => window.open(token?.external)}
+                      >
+                        Collect NFT
                       </div>
                     </div>
                   </div>

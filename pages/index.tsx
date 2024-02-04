@@ -16,7 +16,6 @@ import { RootState } from "@/redux/store";
 const Home: NextPage<HomeProps> = ({
   queryWindowSize2XL,
   router,
-  queryWindowInbetween,
   rewind,
   changeColor,
   heartColor,
@@ -63,7 +62,6 @@ const Home: NextPage<HomeProps> = ({
         <meta property="og:type" content="website" />
       </Head>
       <Display
-        queryWindowInbetween={queryWindowInbetween}
         shop={shop}
         queryWindowSize2XL={queryWindowSize2XL}
         currentIndex={currentIndex}
@@ -73,9 +71,8 @@ const Home: NextPage<HomeProps> = ({
         more={more}
         dispatch={dispatch}
       />
-
-      <div className="w-full relative flex items-center justify-center min-h-[120vw] h-[180vh] border-2 sm:border-8 bg-offBlack border-diy">
-        <div className="absolute w-full h-full flex items-center justify-center">
+      <div className="w-[80vw] relative flex items-center justify-center min-h-[120vw] h-[180vh] border-2 sm:border-8 bg-offBlack border-diy">
+        <div className="relative w-full h-full flex items-center justify-center">
           <Image
             layout="fill"
             objectFit="cover"
@@ -83,36 +80,32 @@ const Home: NextPage<HomeProps> = ({
             draggable={false}
           />
         </div>
-        <div className="relative w-fit h-fit flex flex-col gap-3 items-center justify-center">
-          {["crt1", "crt2", "crt3"].map((video: string, index: number) => {
-            return (
-              <div
-                key={index}
-                className="relative items-center justify-center w-[74vw] h-[62vw] sm:w-72 sm:h-60 flex pb-3 pl-10"
-              >
+        <div className="absolute left-6 bottom-60 w-fit h-fit flex flex-col gap-6 items-center justify-center">
+          {["/videos/crt1.mp4", "/videos/crt2.mp4", "/videos/crt3.mp4"].map(
+            (video: string, index: number) => {
+              return (
                 <div
+                  key={index}
+                  className="relative items-center justify-center w-[74vw] h-[62vw] sm:w-72 sm:h-60 flex rounded-xl p-0.5"
                   id="crt"
-                  className="relative bg-offBlack w-full h-full rounded-xl flex items-center justify-center"
                 >
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    id="crt"
-                    className="relative p-0.5 h-full w-full object-cover rounded-xl flex items-center justify-center"
-                  >
-                    <source
-                      src={`"/videos/${video}.mp4`}
-                      type="video/mp4"
-                    ></source>
-                  </video>
+                  <div className="relative bg-offBlack w-full h-full rounded-xl flex items-center justify-center">
+                    <video
+                      autoPlay
+                      muted
+                      loop
+                      className="object-cover w-full h-full flex rounded-xl"
+                    >
+                      <source src={video} type="video/mp4"></source>
+                    </video>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            }
+          )}
         </div>
-        <div className="absolute w-full h-fit pt-10 pb-8 flex items-center justify-center">
-          <div className="relative text-diyText text-[8.1vw] whitespace-nowrap text-center px-3 sm:px-10 w-full font-mag bg-diy flex items-center justify-center py-3">
+        <div className="absolute w-full h-fit bottom-10 left-0 flex items-center justify-center px-3 sm:px-10 py-3 bg-diy">
+          <div className="relative text-diyText text-[7.1vw] whitespace-nowrap text-center w-full font-mag flex items-center justify-center">
             LATENT THREADS
           </div>
         </div>

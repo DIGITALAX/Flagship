@@ -11,9 +11,6 @@ import { HEART_COLORS, THEME_COLORS } from "@/lib/constants";
 
 function MyApp({ Component, pageProps }: AppProps) {
   let queryWindowSize2XL: boolean = useMediaQuery("(max-width:1600px)");
-  let queryWindowInbetween = useMediaQuery(
-    "(min-width: 640px) and (max-width: 1024px)"
-  );
   const router = useRouter();
   const [color, setColor] = useState<string>(THEME_COLORS[0]);
   const [heartColor, setHeartColor] = useState<string>(THEME_COLORS[0]);
@@ -146,7 +143,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           {...pageProps}
           heartColor={heartColor}
           queryWindowSize2XL={queryWindowSize2XL}
-          queryWindowInbetween={queryWindowInbetween}
           router={router}
           rewind={rewind}
           changeColor={changeColor}

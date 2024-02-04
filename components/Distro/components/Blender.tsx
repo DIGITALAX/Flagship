@@ -124,7 +124,7 @@ const Blender: FunctionComponent<BlenderProps> = ({
             </div>
           </div>
           <div className="flex flex-col w-full h-full relative items-center justify-center">
-            <div className="relative row-start-3 w-full h-full px-3  sm:px-8 pt-8 pb-1">
+            <div className="relative flex items-center justify-center w-full h-full px-3  sm:px-8 pt-8 pb-1">
               <div className={`relative bg-offBlack w-full h-[30rem]`}>
                 <Image
                   src={`${INFURA_GATEWAY}/ipfs/Qmb1qasXpS7hthiXxNnmctgYqAP4kzxFWYMt7RQBtAmgMc`}
@@ -135,7 +135,7 @@ const Blender: FunctionComponent<BlenderProps> = ({
                 />
               </div>
             </div>
-            <div className="relative row-start-4 w-fit h-full pt-1 px-8 pb-8 place-self-end font-lib text-offBlack text-xs">
+            <div className="relative w-fit h-full pt-1 px-8 pb-8 flex items-center justify-center font-lib text-offBlack text-xs">
               bl_info: fashion syntheziser
             </div>
           </div>

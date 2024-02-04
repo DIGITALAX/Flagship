@@ -33,7 +33,7 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
       >
         <div className="relative w-full h-fit flex flex-row items-center">
           <div
-            className="relative w-fit h-fit justify-start row-start-1 col-start-1 pb-2 cursor-pointer"
+            className="relative w-fit h-fit justify-start flex pb-2 cursor-pointer"
             onClick={() =>
               window.open(
                 `https://cypher.digitalax.xyz/item/pub/${

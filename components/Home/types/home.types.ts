@@ -12,7 +12,7 @@ export interface Gallery {
 export type GalleryProps = {
   more: boolean;
   queryWindowSize2XL: boolean;
-  queryWindowInbetween: boolean;
+  currentIndex: number;
   dispatch: Dispatch<AnyAction>;
 };
 
@@ -52,7 +52,6 @@ export type HomeProps = {
   queryWindowSize2XL: boolean;
   queryWindowSize300: boolean;
   queryWindowSize400: boolean;
-  queryWindowInbetween: boolean;
   router: NextRouter;
   rewind: MutableRefObject<HTMLDivElement | null>;
   changeColor: () => void;
@@ -64,7 +63,6 @@ export type DisplayProps = {
   setCurrentIndex: (e: SetStateAction<number>) => void;
   shop: MutableRefObject<HTMLDivElement | null>;
   queryWindowSize2XL: boolean;
-  queryWindowInbetween: boolean;
   setMore: (e: boolean) => void;
   more: boolean;
   router: NextRouter;
@@ -73,4 +71,11 @@ export type DisplayProps = {
 
 export type PortalsProps = {
   router: NextRouter;
+};
+
+export type FeatureProps = {
+  title: string;
+  image: string;
+  router: NextRouter;
+  link: string;
 };
