@@ -2,9 +2,10 @@ import React, { FunctionComponent } from "react";
 import { RiEyeCloseFill } from "react-icons/ri";
 import { REPORTS } from "@/lib/constants";
 import { RefactorElementProps } from "../types/modals.types";
+import { setRefactor } from "@/redux/reducers/refactorSlice";
 
 const RefactorElement: FunctionComponent<RefactorElementProps> = ({
-  setRefactorModal,
+  dispatch,
   transparency,
 }): JSX.Element | null => {
   return (
@@ -17,10 +18,11 @@ const RefactorElement: FunctionComponent<RefactorElementProps> = ({
               size={40}
               className="relative cursor-sewingHS hover:scale-95"
               onClick={() =>
-                setRefactorModal({
-                  open: false,
-                  transparency: false,
-                })
+                dispatch(
+                  setRefactor({
+                    actionOpen: false,
+                  })
+                )
               }
             />
           </div>

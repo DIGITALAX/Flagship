@@ -1,10 +1,13 @@
 import { useRef, useState } from "react";
 
 const useLibrary = () => {
-  const [showImage, setShowImage] = useState<string>(
-    "QmRjGGc591f9wKXth3to3MLSj5puDbeJgh9PTjWSyuW5uP"
-  );
-  const [link, setLink] = useState<string>("https://docs.digitalax.xyz");
+  const [currentBook, setCurrentBook] = useState<{
+    image: string;
+    link: string;
+  }>({
+    image: "QmRjGGc591f9wKXth3to3MLSj5puDbeJgh9PTjWSyuW5uP",
+    link: "https://docs.digitalax.xyz",
+  });
 
   const lastBook = useRef<null | HTMLDivElement>(null);
   const handleLastBook = (): void => {
@@ -13,7 +16,12 @@ const useLibrary = () => {
     }
   };
 
-  return { setShowImage, showImage, setLink, link, handleLastBook, lastBook };
+  return {
+    currentBook,
+    setCurrentBook,
+    handleLastBook,
+    lastBook,
+  };
 };
 
 export default useLibrary;

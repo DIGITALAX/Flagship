@@ -4,6 +4,7 @@ import { RootState } from "../../../redux/store";
 import ImageLarge from "./ImageLarge";
 import useVideo from "../hooks/useVideo";
 import { RefObject } from "react";
+import RefactorElement from "./RefactorElement";
 
 const Modals = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,9 @@ const Modals = () => {
   );
   const fullScreenVideo = useSelector(
     (state: RootState) => state.app.fullScreenVideoReducer
+  );
+  const refactorModal = useSelector(
+    (state: RootState) => state.app.refactorReducer
   );
   const {
     videoRef,
@@ -43,6 +47,12 @@ const Modals = () => {
           mainImage={imageModal.image}
           dispatch={dispatch}
           type={imageModal.type}
+        />
+      )}
+      {refactorModal?.open && (
+        <RefactorElement
+          dispatch={dispatch}
+          transparency={refactorModal?.transparency}
         />
       )}
     </>

@@ -74,7 +74,7 @@ module.exports = {
         midBlue: "#709AF3",
         pinkish: "#B42AA1",
         shame: "#F6F5F0",
-        ama: "#FBDB86",
+        ruido: "#86AC5E",
         moda: "#CFB0FA",
         amarillo: "#F2D777",
         verde: "#259000",
@@ -178,6 +178,8 @@ module.exports = {
       backgroundImage: {
         spots:
           "url('https://thedial.infura-ipfs.io/ipfs/QmXcLBvsHDC8kNDe3WFQHzPpotVKG1AHsAHou1AbiYe6yp')",
+        ruido:
+          "url('https://thedial.infura-ipfs.io/ipfs/QmVEauHNPMTjyfYvLaz3tJeoEmubApYeMy7EpKycL12umE')",
       },
     },
   },

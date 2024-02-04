@@ -13,20 +13,24 @@ const Slider: FunctionComponent = (): JSX.Element => {
         pauseOnClick
         direction="right"
       >
-        {SLIDER_IMAGES.map((image, key) => {
+        {SLIDER_IMAGES.map((image: string, index: number) => {
           return (
             <div
-              key={key}
-              className={`min-h-60 min-w-60 h-60 w-60 relative mr-4`}
+              key={index}
+              className="relative w-fit h-fit flex items-center justify-center mr-4"
             >
-              <Image
-                src={`${INFURA_GATEWAY}/ipfs/${image}`}
-                objectFit="cover"
-                layout="fill"
-                priority
-                objectPosition={"top"}
-                draggable={false}
-              />
+              <div
+                className={`h-60 w-60 relative flex items-center justify-center`}
+              >
+                <Image
+                  src={`${INFURA_GATEWAY}/ipfs/${image}`}
+                  objectFit="cover"
+                  layout="fill"
+                  priority
+                  objectPosition={"top"}
+                  draggable={false}
+                />
+              </div>
             </div>
           );
         })}

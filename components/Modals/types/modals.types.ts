@@ -1,5 +1,4 @@
 import { FullScreenVideoState } from "@/redux/reducers/fullScreenVideoSlice";
-import { NextRouter } from "next/router";
 import { ChangeEvent, Dispatch, MouseEvent, RefObject } from "react";
 import Draggable from "react-draggable";
 import { AnyAction } from "redux";
@@ -11,7 +10,7 @@ export type ImageLargeProps = {
 };
 
 export type RefactorElementProps = {
-  setRefactorModal: (e: { open: boolean; transparency: boolean }) => void;
+  dispatch: Dispatch<AnyAction>;
   transparency: boolean;
 };
 

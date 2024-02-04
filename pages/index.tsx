@@ -1,19 +1,17 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useEffect, useState } from "react";
-import RefactorElement from "../components/Modals/components/RefactorElement";
+import { useEffect } from "react";
 import useGallery from "../components/Home/hooks/useGallery";
 import Image from "next/legacy/image";
 import { INFURA_GATEWAY } from "@/lib/constants";
 import { HomeProps } from "@/components/Home/types/home.types";
 import useLibrary from "@/components/Home/hooks/useLibrary";
-import Description from "@/components/Home/components/Description";
 import Library from "@/components/Home/components/Library";
 import Slider from "@/components/Home/components/Slider";
 import Display from "@/components/Home/components/Display";
-import Banner from "@/components/Home/components/Banner";
-import Title from "@/components/Home/components/Title";
 import Header from "@/components/Layout/components/Header";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 const Home: NextPage<HomeProps> = ({
   queryWindowSize2XL,
@@ -23,29 +21,13 @@ const Home: NextPage<HomeProps> = ({
   changeColor,
   heartColor,
 }) => {
-  const [refactorModal, setRefactorModal] = useState<{
-    open: boolean;
-    transparency: boolean;
-  }>({
-    open: false,
-    transparency: false,
-  });
-
-  const {
-    currentImages,
-    currentPage,
-    paginateBackward,
-    paginateForward,
-    pageBoundaryForward,
-    pageBoundaryBackward,
-    setMore,
-    more,
-    setBlur,
-    blur,
-    handleShop,
-    shop
-  } = useGallery(router);
-  const { showImage, setShowImage, setLink, link, lastBook, handleLastBook } =
+  const dispatch = useDispatch();
+  const fullScreenVideo = useSelector(
+    (state: RootState) => state.app.fullScreenVideoReducer
+  );
+  const { currentIndex, setCurrentIndex, setMore, more, handleShop, shop } =
+    useGallery();
+  const { currentBook, setCurrentBook, lastBook, handleLastBook } =
     useLibrary();
   useEffect(() => {
     const scrollElement = document.getElementById("scrollMicro");
@@ -56,8 +38,10 @@ const Home: NextPage<HomeProps> = ({
   }, []);
 
   return (
-    <div className="min-w-screen min-h-full h-full flex flex-col bg-mainBg">
+    <div className="w-full h-full flex flex-col bg-mainBg gap-12 items-center justify-start">
       <Header
+        fullScreenVideo={fullScreenVideo}
+        dispatch={dispatch}
         rewind={rewind}
         changeColor={changeColor}
         heartColor={heartColor}
@@ -78,120 +62,72 @@ const Home: NextPage<HomeProps> = ({
         />
         <meta property="og:type" content="website" />
       </Head>
-      <div className="relative w-full h-fit flex flex-col">
-        <Title />
-        <Banner />
-      </div>
       <Display
-        blur={blur}
-        setBlur={setBlur}
         queryWindowInbetween={queryWindowInbetween}
         shop={shop}
         queryWindowSize2XL={queryWindowSize2XL}
-        currentImages={currentImages}
-        currentPage={currentPage}
-        paginateBackward={paginateBackward}
-        pageBoundaryBackward={pageBoundaryBackward}
-        pageBoundaryForward={pageBoundaryForward}
-        paginateForward={paginateForward}
+        currentIndex={currentIndex}
+        setCurrentIndex={setCurrentIndex}
         router={router}
         setMore={setMore}
         more={more}
+        dispatch={dispatch}
       />
-      <Description />
-      <div className="w-full relative sm:grid grid-flow-col auto-cols-auto min-h-[120vw] h-[180vh] place-items-center pb-20">
-        <div
-          className={`h-full relative flex col-start-1 md:border-8 border-diy place-self-center bg-offBlack border-2 ${
-            blur && "blur-sm animate-unblur"
-          }`}
-        >
+
+      <div className="w-full relative flex items-center justify-center min-h-[120vw] h-[180vh] border-2 sm:border-8 bg-offBlack border-diy">
+        <div className="absolute w-full h-full flex items-center justify-center">
           <Image
             layout="fill"
             objectFit="cover"
             src={`${INFURA_GATEWAY}/ipfs/QmXnDtWEvHA2PNZeQWxVd1KotF5JGvfBp4hbcvgTuE3pdk`}
-            priority
-            onLoadingComplete={() => setBlur(false)}
             draggable={false}
           />
-          <div className="relative w-full h-full grid grid-flow-col auto-cols-auto">
-            <div className="relative w-full h-fit place-self-end col-start-1">
-              <div className="grid relative grid-flow-row auto-rows-auto w-full h-fit">
-                <div className="relative row-start-1 w-[74vw] h-[62vw] sm:w-72 sm:h-60 self-end pb-3 pl-10">
-                  <div
+        </div>
+        <div className="relative w-fit h-fit flex flex-col gap-3 items-center justify-center">
+          {["crt1", "crt2", "crt3"].map((video: string, index: number) => {
+            return (
+              <div
+                key={index}
+                className="relative items-center justify-center w-[74vw] h-[62vw] sm:w-72 sm:h-60 flex pb-3 pl-10"
+              >
+                <div
+                  id="crt"
+                  className="relative bg-offBlack w-full h-full rounded-xl flex items-center justify-center"
+                >
+                  <video
+                    autoPlay
+                    muted
+                    loop
                     id="crt"
-                    className="relative bg-offBlack w-full h-full rounded-xl"
+                    className="relative p-0.5 h-full w-full object-cover rounded-xl flex items-center justify-center"
                   >
-                    <video
-                      autoPlay
-                      muted
-                      loop
-                      id="crt"
-                      className="relative p-0.5 h-full w-full object-cover rounded-xl flex"
-                    >
-                      <source src="/videos/crt1.mp4" type="video/mp4"></source>
-                    </video>
-                  </div>
-                </div>
-                <div className="relative row-start-2 w-[74vw] h-[62vw] sm:w-72 sm:h-60 self-end pb-3 pl-10">
-                  <div
-                    id="crt"
-                    className="relative w-full h-full rounded-xl  bg-offBlack"
-                  >
-                    <video
-                      autoPlay
-                      muted
-                      loop
-                      id="crt"
-                      className="relative p-0.5 h-full w-full object-cover rounded-xl flex"
-                    >
-                      <source src="/videos/crt2.mp4" type="video/mp4"></source>
-                    </video>
-                  </div>
-                </div>
-                <div className="relative row-start-3 w-[74vw] h-[62vw] sm:w-72 sm:h-60 self-end pl-10">
-                  <div
-                    id="crt"
-                    className="relative bg-offBlack w-full h-full rounded-xl"
-                  >
-                    <video
-                      autoPlay
-                      muted
-                      loop
-                      className="relative p-0.5 h-full w-full object-cover rounded-xl flex"
-                    >
-                      <source src="/videos/crt3.mp4" type="video/mp4"></source>
-                    </video>
-                  </div>
-                </div>
-                <div className="relative row-start-4 w-full h-fit pt-10 pb-8">
-                  <div className="relative text-diyText text-[8.1vw] whitespace-nowrap text-center pl-3 pr-3 sm:pl-10 sm:pr-10 w-full font-mag bg-diy pt-3 pb-3">
-                    LATENT THREADS
-                  </div>
+                    <source
+                      src={`"/videos/${video}.mp4`}
+                      type="video/mp4"
+                    ></source>
+                  </video>
                 </div>
               </div>
-            </div>
+            );
+          })}
+        </div>
+        <div className="absolute w-full h-fit pt-10 pb-8 flex items-center justify-center">
+          <div className="relative text-diyText text-[8.1vw] whitespace-nowrap text-center px-3 sm:px-10 w-full font-mag bg-diy flex items-center justify-center py-3">
+            LATENT THREADS
           </div>
         </div>
       </div>
       <Library
-        setLink={setLink}
-        setShowImage={setShowImage}
-        showImage={showImage}
         lastBook={lastBook}
-        link={link}
+        currentBook={currentBook}
+        setCurrentBook={setCurrentBook}
         handleLastBook={handleLastBook}
-        setRefactorModal={setRefactorModal}
+        dispatch={dispatch}
       />
       <Slider />
-      <div className="relative w-full h-full text-mainText bg-mainBg font-lib sm:text-[1.8vw] text-[4vw] lg:text-[1.5vw] xl:text-[1vw] text-center pb-28 break-word px-2">
+      <div className="relative w-full h-full text-mainText bg-mainBg font-lib sm:text-[1.8vw] text-[4vw] lg:text-[1.5vw] xl:text-[1vw] text-center pb-28 break-word px-2 flex items-center justify-center">
         100% CC0. We build in, for, and from the public domain.
       </div>
-      {refactorModal?.open && (
-        <RefactorElement
-          setRefactorModal={setRefactorModal}
-          transparency={refactorModal?.transparency}
-        />
-      )}
     </div>
   );
 };

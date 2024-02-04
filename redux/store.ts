@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
-import modalOpenReducer from "./reducers/modalOpenSlice";
 import fullScreenVideoReducer from "./reducers/fullScreenVideoSlice";
 import imageViewerReducer from "./reducers/imageViewerSlice";
+import refactorReducer from "./reducers/refactorSlice";
 
 const reducer = combineReducers({
-  modalOpenReducer,
+  refactorReducer,
   fullScreenVideoReducer,
   imageViewerReducer,
 });

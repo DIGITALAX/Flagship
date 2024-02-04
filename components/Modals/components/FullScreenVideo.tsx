@@ -5,7 +5,6 @@ import { setFullScreenVideo } from "@/redux/reducers/fullScreenVideoSlice";
 import Image from "next/legacy/image";
 import { FunctionComponent } from "react";
 import Draggable from "react-draggable";
-
 import { AiOutlineLoading } from "react-icons/ai";
 import { FullScreenVideoProps } from "../types/modals.types";
 
