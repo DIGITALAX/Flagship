@@ -60,8 +60,8 @@ const Header: FunctionComponent<HeaderProps> = ({
                 DO NOT BEND
               </div>
             </div>
-            <div className="relative w-96 h-9 rounded-md text-sm overflow-x-hidden whitespace-nowrap flex items-center justify-center text-offBlack">
-              <div className="absolute w-full h-full top-0 left-0 z-0 flex items-center justify-center border border-mainText bg-white rounded-md">
+            <div className="relative w-96 h-9 rounded-r-md text-sm overflow-x-hidden whitespace-nowrap flex items-center justify-center text-offBlack">
+              <div className="absolute w-full h-full top-0 left-0 z-0 flex items-center justify-center border-y border-r border-mainText bg-white rounded-r-md">
                 <Marquee
                   className="z-0"
                   direction="right"
@@ -77,7 +77,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                 </Marquee>
               </div>
               <div
-                className="relative w-full h-full cursor-sewingHS bg-gradient-to-r from-mainBg via-transparent flex items-center justify-center rounded-md to-transparent"
+                className="relative w-full h-full cursor-sewingHS bg-gradient-to-r from-mainBg via-transparent flex items-center justify-center rounded-r-md to-transparent"
                 onClick={
                   router.pathname == "/"
                     ? () => handleShop()

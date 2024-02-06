@@ -28,7 +28,7 @@ const Tiles: FunctionComponent<TilesProps> = ({
   );
   return (
     <div
-      className={`relative w-full max-h-[90rem] h-fit overflow-y-scroll pt-6 flex items-start justify-center`}
+      className={`relative w-full h-full pt-6 items-start justify-center`}
       id="tileSearch"
     >
       <InfiniteScroll
@@ -38,14 +38,18 @@ const Tiles: FunctionComponent<TilesProps> = ({
             : (searchItems?.items || [])?.length + (moreSearchLoading ? 20 : 0)
         }
         loader={<></>}
-
+        height={
+          typeof window !== "undefined" && window.innerWidth < 768
+            ? "40rem"
+            : "90rem"
+        }
         scrollThreshold={0.9}
         hasMore={searchItems?.hasMore}
         next={handleMoreSearch}
-        className={`w-full h-full items-start justify-center flex`}
+        className={`w-full h-fit items-start justify-center overflow-y-scroll flex`}
       >
         <Masonry
-          // overscanBy={5}
+          overscanBy={5}
           key={
             searchLoading
               ? 20
@@ -70,7 +74,13 @@ const Tiles: FunctionComponent<TilesProps> = ({
           }
           render={renderTile}
           columnGutter={50}
-          maxColumnCount={2}
+          maxColumnCount={
+            typeof window !== "undefined" &&
+            window.innerWidth < 1280 &&
+            window.innerWidth > 768
+              ? 1
+              : 2
+          }
         />
       </InfiniteScroll>
     </div>

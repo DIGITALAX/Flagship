@@ -44,7 +44,7 @@ const DistroKit: NextPage<DistroProps> = ({
             <Heart changeColor={changeColor} heartColor={heartColor} />
           </div>
         </div>
-        <div className="relative w-full h-[50rem] flex items-center justify-center px-8">
+        <div className="relative w-full h-[30rem] md:h-[50rem] flex items-center justify-center px-2 md:px-8">
           <div className="relative w-4/5 flex items-center justify-center h-4/5">
             <Image
               draggable={false}
@@ -72,7 +72,7 @@ const DistroKit: NextPage<DistroProps> = ({
       </Head>
 
       <div className="relative w-full h-fit flex justify-center items-center px-8">
-        <div className="relative w-full h-[30rem] flex flex-row justify-between gap-10 items-center">
+        <div className="relative w-full h-fit md:h-[30rem] flex flex-col md:flex-row justify-between gap-10 items-center">
           <div className="relative w-full h-full font-bit text-mainText flex items-center justify-start border-2 border-verde flex-col p-2">
             <div className="relative w-fit h-fit flex items-center justify-center break-all text-[5rem]">
               DISTRIBUTION
@@ -106,7 +106,7 @@ const DistroKit: NextPage<DistroProps> = ({
               </div>
             </div>
           </div>
-          <div className="relative w-full h-full flex items-center justify-center border-2 border-amarillo">
+          <div className="relative w-full h-[20rem] md:h-full flex items-center justify-center border-2 border-amarillo bg-amarillo">
             <Image
               layout="fill"
               objectFit="cover"
@@ -123,7 +123,7 @@ const DistroKit: NextPage<DistroProps> = ({
             REMEMBER?
           </div>
         </div>
-        <div className="bg-offBlack w-full h-[90rem] relative flex flex-row gap-3 px-2 items-start justify-center">
+        <div className="bg-offBlack w-full h-fit md:h-[90rem] relative flex flex-col md:flex-row gap-3 px-2 items-center md:items-start justify-start md:justify-center">
           <div className="relative w-fit h-full flex flex-col items-start justify-start">
             <div className="relative flex w-full h-fit border-mainText text-foot font-thun">
               <Image
@@ -175,7 +175,7 @@ const DistroKit: NextPage<DistroProps> = ({
                 </div>
               </div>
             </div>
-            <div className="relative w-full h-full flex items-center justify-center">
+            <div className="relative w-full h-full flex items-center justify-center bg-amo/30">
               <Image
                 objectFit="cover"
                 layout="fill"
@@ -185,16 +185,16 @@ const DistroKit: NextPage<DistroProps> = ({
               />
             </div>
           </div>
-          <div className="relative w-fit h-full flex flex-col gap-2 py-1">
+          <div className="relative w-full md:w-fit h-fit md:h-full flex flex-col gap-2 py-1">
             <div
               id="static"
-              className="relative flex w-8 h-full border border-amarillo rounded-sm"
+              className="relative flex w-full md:w-8 h-8 md:h-full border border-amarillo rounded-sm"
             ></div>
             <div
               id="static2"
-              className="relative flex w-8 h-full saturate-0 border border-amarillo rounded-sm"
+              className="relative flex  w-full md:w-8 h-8 md:h-full  saturate-0 border border-amarillo rounded-sm"
             ></div>
-            <div className="relative w-8 h-fit bg-offWhite flex items-center justify-center p-1 rounded-sm">
+            <div className="relative w-8 h-fit bg-offWhite hidden md:flex items-center justify-center p-1 rounded-sm">
               <div className="relative w-6 h-8 hover:rotate-12 cursor-sewingHS flex items-center justify-center">
                 <Image
                   layout="fill"
@@ -230,7 +230,7 @@ const DistroKit: NextPage<DistroProps> = ({
           </div>
         </div>
         <div className="relative flex flex-col w-full h-fit items-center justify-center text-mainText pt-10 text-center gap-2">
-          <div className="relative px-1.5 sm:px-0 w-full sm:w-1/2 h-fit flex items-center justify-center text-xs sm:text-sm md:text-base">
+          <div className="relative px-1.5 sm:px-0 w-full md:w-1/2 h-fit flex items-center justify-center text-xs sm:text-sm md:text-base">
             <div
               className="relative h-full flex flex-row py-4 px-2 gap-10 overflow-x-scroll items-center justify-start"
               id="scrollMicro"
@@ -289,7 +289,7 @@ const DistroKit: NextPage<DistroProps> = ({
             </div>
           </div>
           <div className="relative flex flex-col gap-2 items-center justify-center w-full h-fit">
-            <div className="relative px-1.5 sm:px-0 w-full sm:w-1/2 h-fit flex items-center justify-center font-gisL">
+            <div className="relative px-1.5 sm:px-0 w-full md:w-1/2 h-fit flex items-center justify-center font-gisL">
               In a world where authenticity is currency, each microbrand is a
               sovereign mint of cultural capital. Web3 commerce isn't built by
               monopolistic conglomerates, but assembled, piece by piece, by the
@@ -305,7 +305,7 @@ const DistroKit: NextPage<DistroProps> = ({
             autoPlay
             muted
             loop
-            className="absolute h-full w-full object-cover rounded-3xl flex border-8 border-mainText items-center"
+            className="absolute h-full w-full object-cover rounded-3xl flex border-4 md:border-8 border-mainText items-center"
           >
             <source src="/videos/glitch.mp4" type="video/mp4"></source>
           </video>
@@ -406,7 +406,7 @@ const DistroKit: NextPage<DistroProps> = ({
         </div>
         <div className="w-full h-full relative flex items-center justify-center">
           <div
-            className={`relative flex border-8 w-full h-[57vw] pb-2 rounded-xl border-mainText`}
+            className={`relative flex border-4 md:border-8 w-full h-[57vw] pb-2 rounded-xl border-mainText`}
           >
             <Image
               src={`${INFURA_GATEWAY}/ipfs/Qme1kXGZZWYQQVWRXYarxdHn97PwKorxyyXm8g237Fav8u`}
@@ -420,7 +420,7 @@ const DistroKit: NextPage<DistroProps> = ({
                 autoPlay
                 muted
                 loop
-                className="relative max-w-none border-gray-900 border-8 w-[14vw] h-[18vw] object-cover flex  bg-offBlack"
+                className="relative max-w-none border-gray-900 border-4 md:border-8 w-[14vw] h-[18vw] object-cover flex  bg-offBlack"
               >
                 <source src="/videos/static.mp4" type="video/mp4"></source>
               </video>
