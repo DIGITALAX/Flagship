@@ -31,7 +31,7 @@ const Portals: FunctionComponent<PortalsProps> = ({ router }): JSX.Element => {
             return (
               <div
                 key={index}
-                className="relative w-full h-[26rem] border border-amarillo flex items-center justify-center cursor-sewingHS"
+                className="relative w-full h-[26rem] border border-amarillo flex items-center justify-center cursor-sewingHS bg-amarillo"
                 onClick={() => router.push(item.link)}
               >
                 <div className="relative w-full h-full flex items-center justify-center">

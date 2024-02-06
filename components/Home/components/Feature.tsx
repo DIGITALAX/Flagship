@@ -11,7 +11,7 @@ const Feature: FunctionComponent<FeatureProps> = ({
 }): JSX.Element => {
   return (
     <div
-      className="relative w-full h-96 border border-ruido flex items-center justify-center cursor-sewingHS"
+      className="relative w-full h-96 border border-ruido flex items-center justify-center cursor-sewingHS bg-ruido"
       onClick={() =>
         link?.includes("https://") ? window.open(link) : router.push(link)
       }

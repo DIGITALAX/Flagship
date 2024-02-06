@@ -90,37 +90,10 @@
     "height": 150
   },
   {
-    "name": "PODE",
-    "image": "Qmd8qLv5EPueqkfqcMA8wAzCSBoL9JQtaXKNtqL7fXPsbC",
-    "number": "11",
-    "id": "eleven",
-    "link": "",
-    "width": 25,
-    "height": 55
-  },
-  {
-    "name": "THE DLTA SYSTEM",
-    "image": "QmQ653nDvRjK7rhxjvQsExHBjV6nECs6nyVtwaGgeZgm4P",
-    "number": "12",
-    "id": "twelve",
-    "link": "",
-    "width": 25,
-    "height": 210
-  },
-  {
-    "name": "WEB3 FASHION WEEK",
-    "image": "QmYYyC17q2XfGLdx5TBiTACE7MdmaxXhCcQUXXaN1afENu",
-    "number": "13",
-    "id": "thirteen",
-    "link": "",
-    "width": 25,
-    "height": 235
-  },
-  {
     "name": "THE DIAL",
     "image": "QmZ1hBVXHWK37h8bPKGqpLGogWwYVTTYTfkPp5DTmvK1ZT",
-    "number": "14",
-    "id": "fourteen",
+    "number": "11",
+    "id": "eleven",
     "link": "https://thedial.xyz",
     "width": 25,
     "height": 150
@@ -128,8 +101,8 @@
   {
     "name": "WHITEPAPER V3",
     "image": "QmXBoTMp9NKviigEfuVLtMvP3HsNRQUpQ7f9VpJzmry5dr",
-    "number": "15",
-    "id": "fifteen",
+    "number": "12",
+    "id": "twelve",
     "link": "https://www.digitalax.xyz/whitepaper",
     "width": 25,
     "height": 180
@@ -137,8 +110,8 @@
   {
     "name": "LEGEND",
     "image": "QmfUUvVP14gUbV9iG3WYNEudCDhEE4c91uCxcWGLjp7w1G",
-    "number": "16",
-    "id": "sixteen",
+    "number": "13",
+    "id": "thirteen",
     "link": "https://legend.irrevocable.dev",
     "width": 25,
     "height": 140
@@ -146,26 +119,17 @@
   {
     "name": "LOOK: FASHION LOOT",
     "image": "QmPRaPTK9pq511nwNFEHpVW22qrdpcNaHy7gaULDddztDy",
-    "number": "17",
-    "id": "seventeen",
-    "link": "",
+    "number": "14",
+    "id": "fourteen",
+    "link": "https://etherscan.io/token/0xc97f4244839c13c6df4258228c60488fa05c8528",
     "width": 25,
     "height": 250
   },
   {
-    "name": "DASH",
-    "image": "QmRGM54ZDRK4TWnTdtvgn7V3ZTCTyANANzE6cmbJwC87te",
-    "number": "18",
-    "id": "eighteen",
-    "link": "https://gov.digitalax.xyz",
-    "width": 25,
-    "height": 55
-  },
-  {
     "name": "TRANSPARENCY REPORTS",
     "image": "QmPaQy4y1PCxhsvewbP2BdRmbWhwupZvqDQkCqNVdm6sCg",
-    "number": "19",
-    "id": "nineteen",
+    "number": "15",
+    "id": "fifteen",
     "link": "",
     "width": 25,
     "height": 275

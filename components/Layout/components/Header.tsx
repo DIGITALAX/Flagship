@@ -60,22 +60,30 @@ const Header: FunctionComponent<HeaderProps> = ({
                 DO NOT BEND
               </div>
             </div>
-            <div
-              className="relative w-96 bg-white h-9 rounded-md border-mainText text-sm overflow-x-hidden whitespace-nowrap cursor-sewingHS flex items-center justify-start text-offBlack border border-mainText"
-              onClick={
-                router.pathname == "/"
-                  ? () => handleShop()
-                  : () => (document.location.href = "/#shop")
-              }
-            >
-              <Marquee direction="right" speed={25} gradient={false}>
-                {" "}
-                GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO
-                SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING
-                ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO
-                SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING
-                ❤️ 👉 GO SHOPPING ❤️ 👉{" "}
-              </Marquee>
+            <div className="relative w-96 h-9 rounded-md text-sm overflow-x-hidden whitespace-nowrap flex items-center justify-center text-offBlack">
+              <div className="absolute w-full h-full top-0 left-0 z-0 flex items-center justify-center border border-mainText bg-white rounded-md">
+                <Marquee
+                  className="z-0"
+                  direction="right"
+                  speed={25}
+                  gradient={false}
+                >
+                  {" "}
+                  GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO
+                  SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING
+                  ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO
+                  SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING
+                  ❤️ 👉 GO SHOPPING ❤️ 👉{" "}
+                </Marquee>
+              </div>
+              <div
+                className="relative w-full h-full cursor-sewingHS bg-gradient-to-r from-mainBg via-transparent flex items-center justify-center rounded-md to-transparent"
+                onClick={
+                  router.pathname == "/"
+                    ? () => handleShop()
+                    : () => (document.location.href = "/#shop")
+                }
+              ></div>
             </div>
           </div>
         </div>
