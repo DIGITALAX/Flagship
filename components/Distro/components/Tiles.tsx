@@ -1,4 +1,4 @@
-import { FunctionComponent, useCallback } from "react";
+import { FunctionComponent } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import TileSwitch from "./TileSwitch";
 import { Masonry } from "masonic";
@@ -12,25 +12,25 @@ const Tiles: FunctionComponent<TilesProps> = ({
   moreSearchLoading,
   filterConstants,
 }): JSX.Element => {
-  const renderTile = useCallback(
-    ({ index, data }: { index: number; data: Publication }) => {
-      return (
-        <TileSwitch
-          type={data?.type}
-          filterConstants={filterConstants}
-          publication={data}
-          index={index}
-          dispatch={dispatch}
-        />
-      );
-    },
-    [searchItems?.items?.length]
-  );
+  const renderTile = ({
+    index,
+    data,
+  }: {
+    index: number;
+    data: Publication;
+  }) => {
+    return (
+      <TileSwitch
+        type={data?.type}
+        filterConstants={filterConstants}
+        publication={data}
+        index={index + searchItems?.items?.length}
+        dispatch={dispatch}
+      />
+    );
+  };
   return (
-    <div
-      className={`relative w-full h-full pt-6 items-start justify-center`}
-      id="tileSearch"
-    >
+    <div className={`relative w-full flex pt-6 h-fit`} id="tileSearch">
       <InfiniteScroll
         dataLength={
           searchLoading
@@ -38,18 +38,20 @@ const Tiles: FunctionComponent<TilesProps> = ({
             : (searchItems?.items || [])?.length + (moreSearchLoading ? 20 : 0)
         }
         loader={<></>}
+        scrollThreshold={1}
+        hasMore={searchItems?.hasMore}
+        next={handleMoreSearch}
+        className={`w-full relative flex overflow-y-scroll h-[90rem] pt-6`}
         height={
           typeof window !== "undefined" && window.innerWidth < 768
             ? "40rem"
             : "90rem"
         }
-        scrollThreshold={0.9}
-        hasMore={searchItems?.hasMore}
-        next={handleMoreSearch}
-        className={`w-full h-fit items-start justify-center overflow-y-scroll flex`}
       >
         <Masonry
           overscanBy={5}
+          
+          className="w-full h-[90rem] flex overflow-y-scroll"
           key={
             searchLoading
               ? 20
@@ -74,6 +76,7 @@ const Tiles: FunctionComponent<TilesProps> = ({
           }
           render={renderTile}
           columnGutter={50}
+
           maxColumnCount={
             typeof window !== "undefined" &&
             window.innerWidth < 1280 &&

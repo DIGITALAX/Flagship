@@ -305,9 +305,12 @@ const DistroKit: NextPage<DistroProps> = ({
             autoPlay
             muted
             loop
-            className="absolute h-full w-full object-cover rounded-3xl flex border-4 md:border-8 border-mainText items-center"
+            className="absolute h-full w-full object-cover rounded-3xl flex border-4 md:border-8 border-mainText bg-mainText items-center"
           >
-            <source src="/videos/glitch.mp4" type="video/mp4"></source>
+            <source
+              src={`${INFURA_GATEWAY}/ipfs/QmQ4M9Xou5oemWyMKVTU9HrkVdMqNNy2r5tTxxomqnnpL7`}
+              type="video/mp4"
+            ></source>
           </video>
           <div className="relative flex flex-col sm:flex-row w-full h-full gap-6 justify-center items-center py-10">
             {tvImages.map((image: string, index: number) => {
@@ -316,7 +319,7 @@ const DistroKit: NextPage<DistroProps> = ({
                   key={index}
                   target={"_blank"}
                   rel="noreferrer"
-                  className={`relative w-[70vw] h-[100vw] sm:w-[15vw] sm:h-[25vw] lg:w-[20vw] lg:h-[30vw] opacity-90 active:scale-95 cursor-sewingHS hover:opacity-70`}
+                  className={`relative w-[70vw] h-[100vw] sm:w-[15vw] sm:h-[25vw] lg:w-[20vw] lg:h-[30vw] opacity-90 active:scale-95 cursor-sewingHS hover:opacity-70 bg-mainBg`}
                   onClick={() =>
                     dispatch(
                       setImageViewer({
@@ -345,7 +348,7 @@ const DistroKit: NextPage<DistroProps> = ({
                   TV_IMAGES?.sort(() => Math.random() - 0.5).slice(0, 4)
                 )
               }
-              className={`absolute flex items-center justify-center bottom-4 right-4 hover:rotate-180 cursor-sewingHS active:mix-blend-color-dodge w-6 h-6 z-10 md:w-10 md:h-10 2xl:w-24 2xl:h-24`}
+              className={`absolute flex items-center justify-center bottom-4 right-4 hover:rotate-180 cursor-sewingHS active:mix-blend-color-dodge w-6 h-6 z-10 md:w-10 md:h-10 2xl:w-14 2xl:h-14`}
             >
               <Image
                 src={`${INFURA_GATEWAY}/ipfs/QmYdpBCKCGp2rMgWaDePE8UeuCUPywuWTJ9qEE9XwrJmBU`}
@@ -369,7 +372,7 @@ const DistroKit: NextPage<DistroProps> = ({
                 className="relative w-fit h-fit flex items-center justify-center"
                 key={index}
               >
-                <div className="relative w-[10vw] h-[10vw] sm:w-14 sm:h-14 2xl:w-[6vw] 2xl:h-[6vw] rounded-full border-2 border-mainText flex items-center justify-center hover:rotate-45 cursor-sewingHS">
+                <div className="relative w-[10vw] h-[10vw] sm:w-14 sm:h-14 2xl:w-[6vw] 2xl:h-[6vw] rounded-full border-2 border-mainText flex items-center justify-center hover:rotate-45 cursor-sewingHS bg-mainText">
                   <Image
                     layout="fill"
                     className={`rounded-full`}
@@ -383,7 +386,7 @@ const DistroKit: NextPage<DistroProps> = ({
           })}
         </div>
         <div className="relative w-fit h-fit flex items-center justify-center">
-          <div className="relative w-[15vw] h-[15vw] sm:w-24 sm:h-24 2xl:w-[8vw] 2xl:h-[8vw] rounded-full border-2 border-mainText hover:rotate-180 cursor-sewingHS">
+          <div className="relative w-[15vw] h-[15vw] sm:w-24 sm:h-24 2xl:w-[8vw] 2xl:h-[8vw] rounded-full border-2 border-mainText hover:rotate-180 cursor-sewingHS bg-mainText">
             <Image
               layout="fill"
               objectFit="cover"
@@ -406,7 +409,7 @@ const DistroKit: NextPage<DistroProps> = ({
         </div>
         <div className="w-full h-full relative flex items-center justify-center">
           <div
-            className={`relative flex border-4 md:border-8 w-full h-[57vw] pb-2 rounded-xl border-mainText`}
+            className={`relative flex border-4 md:border-8 w-full h-[57vw] pb-2 rounded-xl border-mainText bg-mainText`}
           >
             <Image
               src={`${INFURA_GATEWAY}/ipfs/Qme1kXGZZWYQQVWRXYarxdHn97PwKorxyyXm8g237Fav8u`}
@@ -422,7 +425,10 @@ const DistroKit: NextPage<DistroProps> = ({
                 loop
                 className="relative max-w-none border-gray-900 border-4 md:border-8 w-[14vw] h-[18vw] object-cover flex  bg-offBlack"
               >
-                <source src="/videos/static.mp4" type="video/mp4"></source>
+                <source
+                  src={`${INFURA_GATEWAY}/ipfs/Qmf8TfPYHbUUbaeVmpGwRQRYXENfNz3JEVwa76nRAt6BjR`}
+                  type="video/mp4"
+                ></source>
               </video>
             </div>
           </div>

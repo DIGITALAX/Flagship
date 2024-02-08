@@ -1,19 +1,14 @@
+import { Creation } from "@/components/Distro/types/distro.types";
 import { NextRouter } from "next/router";
 import { Dispatch, MutableRefObject, SetStateAction } from "react";
 import { AnyAction } from "redux";
 
-export interface Gallery {
-  image: string;
-  width: number;
-  height: number;
-  external: string;
-}
-
 export type GalleryProps = {
   more: boolean;
-  queryWindowSize2XL: boolean;
   currentIndex: number;
   dispatch: Dispatch<AnyAction>;
+  galleryLoading: boolean;
+  gallery: Creation[];
 };
 
 export interface Library {
@@ -49,7 +44,6 @@ export type ShelfProps = {
 };
 
 export type HomeProps = {
-  queryWindowSize2XL: boolean;
   queryWindowSize300: boolean;
   queryWindowSize400: boolean;
   router: NextRouter;
@@ -62,11 +56,12 @@ export type DisplayProps = {
   currentIndex: number;
   setCurrentIndex: (e: SetStateAction<number>) => void;
   shop: MutableRefObject<HTMLDivElement | null>;
-  queryWindowSize2XL: boolean;
   setMore: (e: boolean) => void;
   more: boolean;
   router: NextRouter;
   dispatch: Dispatch<AnyAction>;
+  galleryLoading: boolean;
+  gallery: Creation[];
 };
 
 export type PortalsProps = {

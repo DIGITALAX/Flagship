@@ -7,13 +7,14 @@ import Portals from "./Portals";
 
 const Display: FunctionComponent<DisplayProps> = ({
   shop,
-  queryWindowSize2XL,
   router,
   currentIndex,
   setCurrentIndex,
   setMore,
   more,
   dispatch,
+  galleryLoading,
+  gallery,
 }): JSX.Element => {
   return (
     <div className="relative w-full flex flex-col justify-start items-center h-fit bg-offBlack gap-12">
@@ -70,9 +71,10 @@ const Display: FunctionComponent<DisplayProps> = ({
       <div className="relative w-full h-fit flex items-center justify-start flex-col gap-3 px-4 pt-4">
         <Gallery
           more={more}
-          queryWindowSize2XL={queryWindowSize2XL}
           currentIndex={currentIndex}
           dispatch={dispatch}
+          galleryLoading={galleryLoading}
+          gallery={gallery}
         />
         <div className="relative w-full h-fit items-center flex justify-center">
           <div

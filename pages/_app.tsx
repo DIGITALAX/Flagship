@@ -2,7 +2,6 @@ import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { useEffect, useRef, useState } from "react";
 import Footer from "../components/Layout/components/Footer";
-import { useMediaQuery } from "@material-ui/core";
 import { store } from "./../redux/store";
 import { Provider } from "react-redux";
 import { useRouter } from "next/router";
@@ -10,7 +9,6 @@ import Modals from "../components/Modals/components/Modals";
 import { HEART_COLORS, THEME_COLORS } from "@/lib/constants";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  let queryWindowSize2XL: boolean = useMediaQuery("(max-width:1600px)");
   const router = useRouter();
   const [color, setColor] = useState<string>(THEME_COLORS[0]);
   const [heartColor, setHeartColor] = useState<string>(THEME_COLORS[0]);
@@ -142,7 +140,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component
           {...pageProps}
           heartColor={heartColor}
-          queryWindowSize2XL={queryWindowSize2XL}
           router={router}
           rewind={rewind}
           changeColor={changeColor}

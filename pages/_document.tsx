@@ -14,126 +14,126 @@ class Document extends NextDocument {
           />
           <link
             rel="preload"
-            href="/fonts/jacklane_2.woff"
+            href="https://digitalax.xyz/fonts/jacklane_2.woff"
             as="font"
             type="font/woff"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/FiraCode-Regular.ttf"
+            href="https://digitalax.xyz/fonts/FiraCode-Regular.ttf"
             as="font"
             type="font/ttf"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/FiraCode-Light.ttf"
+            href="https://digitalax.xyz/fonts/FiraCode-Light.ttf"
             as="font"
             type="font/ttf"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/FiraCode-Bold.ttf"
+            href="https://digitalax.xyz/fonts/FiraCode-Bold.ttf"
             as="font"
             type="font/ttf"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/Bitblox.otf"
+            href="https://digitalax.xyz/fonts/Bitblox.otf"
             as="font"
             type="font/otf"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/FiraCode-Medium.ttf"
+            href="https://digitalax.xyz/fonts/FiraCode-Medium.ttf"
             as="font"
             type="font/ttf"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/Letter Magic.ttf"
+            href="https://digitalax.xyz/fonts/Letter Magic.ttf"
             as="font"
             type="font/ttf"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/Internal Rainbows.otf"
+            href="https://digitalax.xyz/fonts/Internal Rainbows.otf"
             as="font"
             type="font/otf"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/LiberationMono-Regular.ttf"
+            href="https://digitalax.xyz/fonts/LiberationMono-Regular.ttf"
             as="font"
             type="font/ttf"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/LiberationMono-Bold.ttf"
+            href="https://digitalax.xyz/fonts/LiberationMono-Bold.ttf"
             as="font"
             type="font/ttf"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/FHGiselle-Light.ttf"
+            href="https://digitalax.xyz/fonts/FHGiselle-Light.ttf"
             as="font"
             type="font/ttf"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/A Love of Thunder.ttf"
+            href="https://digitalax.xyz/fonts/A Love of Thunder.ttf"
             as="font"
             type="font/ttf"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/Futurist Fixed-width Regular.ttf"
+            href="https://digitalax.xyz/fonts/Futurist Fixed-width Regular.ttf"
             as="font"
             type="font/ttf"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/AUdimat Regular.ttf"
+            href="https://digitalax.xyz/fonts/AUdimat Regular.ttf"
             as="font"
             type="font/ttf"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/DosisRegular.ttf"
+            href="https://digitalax.xyz/fonts/DosisRegular.ttf"
             as="font"
             type="font/ttf"
             crossOrigin="anonymous"
           />
           <link
             rel="preload"
-            href="/fonts/Manaspace.ttf"
+            href="https://digitalax.xyz/fonts/Manaspace.ttf"
             as="font"
             crossOrigin="anonymous"
             type="font/ttf"
           />
           <link
             rel="preload"
-            href="/fonts/Austral.otf"
+            href="https://digitalax.xyz/fonts/Austral.otf"
             as="font"
             crossOrigin="anonymous"
             type="font/otf"
           />
           <link
             rel="preload"
-            href="/fonts/Vcr.ttf"
+            href="https://digitalax.xyz/fonts/Vcr.ttf"
             as="font"
             crossOrigin="anonymous"
             type="font/ttf"
@@ -144,106 +144,106 @@ class Document extends NextDocument {
                 @font-face {
                     font-family: "Letter Magic";
                     font-weight: 400;
-                    src: url("./fonts/Letter Magic.ttf");
+                    src: url("https://digitalax.xyz/fonts/Letter Magic.ttf");
                 }
 
                 @font-face {
                   font-family: "Fira Bold";
                   font-weight: 400;
-                  src: url("./fonts/FiraCode-Bold.ttf");
+                  src: url("https://digitalax.xyz/fonts/FiraCode-Bold.ttf");
                 }
 
                 @font-face {
                   font-family: "Fira Regular";
                   font-weight: 400;
-                  src: url("./fonts/FiraCode-Regular.ttf");
+                  src: url("https://digitalax.xyz/fonts/FiraCode-Regular.ttf");
                 }
 
                 @font-face {
                   font-family: "Dosis Regular";
                   font-weight: 400;
-                  src: url("./fonts/DosisRegular.ttf");
+                  src: url("https://digitalax.xyz/fonts/DosisRegular.ttf");
                 }
 
                 @font-face {
                   font-family: "Austral";
-                  src: url("./fonts/Austral.otf");
+                  src: url("https://digitalax.xyz/fonts/Austral.otf");
                 }
 
                 @font-face {
                   font-family: "Vcr";
-                  src: url("./fonts/Vcr.ttf");
+                  src: url("https://digitalax.xyz/fonts/Vcr.ttf");
                 }
 
                 @font-face {
                   font-family: "Bitblox";
-                  src: url("./fonts/Bitblox.otf");
+                  src: url("https://digitalax.xyz/fonts/Bitblox.otf");
                 }
 
                 @font-face {
                   font-family: "Internal Rainbows";
                   font-weight: 400;
-                  src: url("./fonts/Internal Rainbows.otf");
+                  src: url("https://digitalax.xyz/fonts/Internal Rainbows.otf");
                 }
 
                 @font-face {
                   font-family: "Fira Medium";
                   font-weight: 400;
-                  src: url("./fonts/FiraCode-Medium.ttf");
+                  src: url("https://digitalax.xyz/fonts/FiraCode-Medium.ttf");
                 }
 
                 @font-face {
                   font-family: "Fira Light";
                   font-weight: 400;
-                  src: url("./fonts/FiraCode-Light.ttf");
+                  src: url("https://digitalax.xyz/fonts/FiraCode-Light.ttf");
                 }
 
                 @font-face {
                   font-family: "Liberation Mono";
                   font-weight: 400;
-                  src: url("./fonts/LiberationMono-Regular.ttf");
+                  src: url("https://digitalax.xyz/fonts/LiberationMono-Regular.ttf");
                 }
 
                 @font-face {
                   font-family: "Manaspace";
                   font-weight: 400;
-                  src: url("./fonts/Manaspace.ttf");
+                  src: url("https://digitalax.xyz/fonts/Manaspace.ttf");
                 }  
 
                 @font-face {
                   font-family: "Liberation Mono Bold";
                   font-weight: 400;
-                  src: url("./fonts/LiberationMono-Bold.ttf");
+                  src: url("https://digitalax.xyz/fonts/LiberationMono-Bold.ttf");
                 }
 
                 @font-face {
                   font-family: "FH Giselle Light";
                   font-weight: 400;
-                  src: url("./fonts/FHGiselle-Light.ttf");
+                  src: url("https://digitalax.xyz/fonts/FHGiselle-Light.ttf");
                 }
 
                 @font-face {
                   font-family: "A Love of Thunder";
                   font-weight: 400;
-                  src: url("./fonts/A Love of Thunder.ttf");
+                  src: url("https://digitalax.xyz/fonts/A Love of Thunder.ttf");
                 }
 
                 @font-face {
                   font-family: "Futurist";
                   font-weight: 400;
-                  src: url("./fonts/Futurist Fixed-width Regular.ttf");
+                  src: url("https://digitalax.xyz/fonts/Futurist Fixed-width Regular.ttf");
                 }
 
                 @font-face {
                   font-family: "Audimat";
                   font-weight: 400;
-                  src: url("./fonts/AUdimat Regular.ttf");
+                  src: url("https://digitalax.xyz/fonts/AUdimat Regular.ttf");
                 }
 
                 @font-face {
                   font-family: "Jack Lane";
                   font-weight: 400;
-                  src: url("./fonts/jacklane_2.woff");
+                  src: url("https://digitalax.xyz/fonts/jacklane_2.woff");
                 }
             `,
             }}

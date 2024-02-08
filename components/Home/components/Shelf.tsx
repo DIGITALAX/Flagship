@@ -1,6 +1,6 @@
 import Image from "next/legacy/image";
 import { FunctionComponent } from "react";
-import library from "../../../pages/api/library.json";
+import library from "./../../../public/library.json";
 import { INFURA_GATEWAY } from "../../../lib/constants";
 import { Library, ShelfProps } from "../types/home.types";
 import { setRefactor } from "@/redux/reducers/refactorSlice";

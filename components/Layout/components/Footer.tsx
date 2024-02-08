@@ -12,7 +12,7 @@ const Footer: FunctionComponent<FooterProps> = ({
     <div className="relative w-full bg-offBlack h-fit flex items-center justify-start flex-col gap-10 pt-12">
       <div className="relative w-full h-fit flex flex-row items-center justify-between gap-10 px-6">
         <div
-          className={`relative flex border-2 w-fit p-2 h-fit lg:h-full items-center justify-center`}
+          className={`relative flex border-2 border-offWhite bg-offWhite w-fit p-2 h-fit lg:h-full items-center justify-center`}
         >
           <Image
             layout="fill"

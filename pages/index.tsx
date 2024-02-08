@@ -14,7 +14,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
 
 const Home: NextPage<HomeProps> = ({
-  queryWindowSize2XL,
   router,
   rewind,
   changeColor,
@@ -24,8 +23,16 @@ const Home: NextPage<HomeProps> = ({
   const fullScreenVideo = useSelector(
     (state: RootState) => state.app.fullScreenVideoReducer
   );
-  const { currentIndex, setCurrentIndex, setMore, more, handleShop, shop } =
-    useGallery();
+  const {
+    currentIndex,
+    setCurrentIndex,
+    setMore,
+    more,
+    handleShop,
+    shop,
+    galleryLoading,
+    gallery,
+  } = useGallery();
   const { currentBook, setCurrentBook, lastBook, handleLastBook } =
     useLibrary();
   useEffect(() => {
@@ -63,13 +70,14 @@ const Home: NextPage<HomeProps> = ({
       </Head>
       <Display
         shop={shop}
-        queryWindowSize2XL={queryWindowSize2XL}
         currentIndex={currentIndex}
         setCurrentIndex={setCurrentIndex}
         router={router}
         setMore={setMore}
         more={more}
         dispatch={dispatch}
+        galleryLoading={galleryLoading}
+        gallery={gallery}
       />
       <div className="w-[80vw] relative flex items-center justify-center min-h-[120vw] h-[180vh] border-2 sm:border-8 bg-offBlack border-diy">
         <div className="relative w-full h-full flex items-center justify-center">
@@ -81,28 +89,33 @@ const Home: NextPage<HomeProps> = ({
           />
         </div>
         <div className="absolute left-6 bottom-60 w-fit h-fit flex flex-col gap-6 items-center justify-center">
-          {["/videos/crt1.mp4", "/videos/crt2.mp4", "/videos/crt3.mp4"].map(
-            (video: string, index: number) => {
-              return (
-                <div
-                  key={index}
-                  className="relative items-center justify-center w-[74vw] h-[62vw] sm:w-72 sm:h-60 flex rounded-xl p-0.5"
-                  id="crt"
-                >
-                  <div className="relative bg-offBlack w-full h-full rounded-xl flex items-center justify-center">
-                    <video
-                      autoPlay
-                      muted
-                      loop
-                      className="object-cover w-full h-full flex rounded-xl"
-                    >
-                      <source src={video} type="video/mp4"></source>
-                    </video>
-                  </div>
+          {[
+            "QmaU44DD7KEPAfQfrYB1hGs8KJVr2G2Ua7BzkNd9iRcC47",
+            "QmQoDj9jjU81mgBfdXT8P83EZmyrXRQmL6scNGgaMTivys",
+            "QmSztbqHjXyghFm6xr9vT89Yw68aq6BZPsEu9g5eGBNmZG",
+          ].map((video: string, index: number) => {
+            return (
+              <div
+                key={index}
+                className="relative items-center justify-center w-[74vw] h-[62vw] sm:w-72 sm:h-60 flex rounded-xl p-0.5"
+                id="crt"
+              >
+                <div className="relative bg-offBlack w-full h-full rounded-xl flex items-center justify-center">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    className="object-cover w-full h-full flex rounded-xl"
+                  >
+                    <source
+                      src={`${INFURA_GATEWAY}/ipfs/${video}`}
+                      type="video/mp4"
+                    ></source>
+                  </video>
                 </div>
-              );
-            }
-          )}
+              </div>
+            );
+          })}
         </div>
         <div className="absolute w-full h-fit bottom-10 left-0 flex items-center justify-center px-3 sm:px-10 py-3 bg-diy">
           <div className="relative text-diyText text-[7.1vw] whitespace-nowrap text-center w-full font-mag flex items-center justify-center">

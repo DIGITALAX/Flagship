@@ -59,6 +59,7 @@ const useSearch = () => {
       const allItems = [
         collections?.map((item) => ({
           post: item,
+
           type: numberToItemTypeMap[Number(item.origin)],
         })) || [],
         quests?.map((item) => ({
@@ -72,7 +73,10 @@ const useSearch = () => {
       ] as Publication[][];
 
       setSearchItems({
-        items: mixArrays(allItems),
+        items: mixArrays(allItems).map((item, index) => ({
+          ...item,
+          id: index,
+        })),
         graphCursor: collections?.length == 10 ? 10 : undefined,
         kinoraCursor: quests?.length == 10 ? 10 : undefined,
         awardCursor: awards?.length == 10 ? 10 : undefined,
@@ -136,7 +140,13 @@ const useSearch = () => {
       ] as Publication[][];
 
       setSearchItems({
-        items: [...(searchItems?.items || []), ...mixArrays(allItems)],
+        items: [
+          ...(searchItems?.items || []),
+          ...mixArrays(allItems).map((item, index) => ({
+            ...item,
+            id: index + searchItems?.items?.length,
+          })),
+        ],
         graphCursor:
           collections?.length == 10
             ? searchItems?.graphCursor! + 10

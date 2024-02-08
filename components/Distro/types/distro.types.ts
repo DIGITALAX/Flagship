@@ -157,6 +157,7 @@ export interface Publication {
   post?: Creation | Quest | Award;
   type: string;
   publishedOn?: string;
+  id: number
 }
 
 export interface Award {
