@@ -7,7 +7,7 @@ import Feature from "./Feature";
 const Portals: FunctionComponent<PortalsProps> = ({ router }): JSX.Element => {
   return (
     <div className="relative w-full h-fit flex flex-col items-center justify-start gap-10">
-      <div className="relative w-full h-fit flex items-center justify-between gap-7 flex-row">
+      <div className="relative w-full h-fit flex items-center justify-between gap-7 flex-col sm:flex-row">
         {[
           {
             image: "QmQWazrG328Amv9YP97wse1MAXSU4YrZuX9h2rvuxeGvxq",
@@ -48,7 +48,7 @@ const Portals: FunctionComponent<PortalsProps> = ({ router }): JSX.Element => {
                     layout="fill"
                     src={`${INFURA_GATEWAY}/ipfs/QmZH2zUKZAPVbveywrG5GaApLgY4oTFvefrCkRtQvUeWRo`}
                   />
-                  <div className="relative w-fit h-fit flex items-center top-1 justify-center font-bit text-white text-lg">
+                  <div className="relative w-fit h-fit flex items-center top-1 justify-center font-bit text-white text-xs sm:text-lg">
                     {item.title}
                   </div>
                 </div>
@@ -58,7 +58,7 @@ const Portals: FunctionComponent<PortalsProps> = ({ router }): JSX.Element => {
         )}
       </div>
       <div className="relative w-full h-fit flex items-center justify-center flex-col">
-        <div className="relative w-full h-full flex items-center justify-between gap-10 flex-row px-2">
+        <div className="relative w-full h-full flex items-center justify-between gap-10 flex-col sm:flex-row px-2">
           <div className="relative w-fit h-[4.5rem] flex items-end justify-end">
             <div className="relative w-[4.5rem] h-[3.9rem] flex items-center justify-center">
               <Image
@@ -81,7 +81,7 @@ const Portals: FunctionComponent<PortalsProps> = ({ router }): JSX.Element => {
             </div>
           </div>
         </div>
-        <div className="relative w-full h-fit flex items-center justify-center flex-row">
+        <div className="relative w-full h-fit flex items-center justify-center flex-col sm:flex-row">
           {[
             {
               image: "QmZ9jPeuD1SNRuFx2SjQSJGSR445FoMHV3WU9ddW7S7mb7",
@@ -114,7 +114,7 @@ const Portals: FunctionComponent<PortalsProps> = ({ router }): JSX.Element => {
             }
           )}
         </div>
-        <div className="relative w-full h-fit flex items-center justify-center flex-row">
+        <div className="relative w-full h-fit flex items-center justify-center flex-col sm:flex-row">
           {[
             {
               image: "QmbdN9PHYU5Lf467WqXRp32S4jp3kRnJYzS6EgztmEvUnT",
@@ -147,7 +147,7 @@ const Portals: FunctionComponent<PortalsProps> = ({ router }): JSX.Element => {
             }
           )}
         </div>
-        <div className="relative w-full h-fit flex items-center justify-center flex-row">
+        <div className="relative w-full h-fit flex items-center justify-center flex-col sm:flex-row">
           {[
             {
               image: "Qmbuv1tSD437oRELndaJHEjjGE73xgjJFaFdWzVCrtbADn",
@@ -182,7 +182,7 @@ const Portals: FunctionComponent<PortalsProps> = ({ router }): JSX.Element => {
         </div>
       </div>
       <div className="relative w-full h-fit flex items-center justify-center flex-col gap-12 pt-10">
-        <div className="relative w-1/2 h-fit flex items-center justify-center font-bit text-white text-2xl">
+        <div className="relative w-4/5 md:w-1/2 h-fit flex items-center justify-center font-bit text-white text-sm sm:text-2xl">
           To unbundle the everything store & stop this world's ruin you need
           good equipment... and a lot of practice
         </div>

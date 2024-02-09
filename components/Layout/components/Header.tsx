@@ -93,24 +93,24 @@ const Header: FunctionComponent<HeaderProps> = ({
           DIGITALAX
         </div>
       </div>
-      <div className="relative w-full h-fit flex items-center justify-between gap-6 bg-offBlack flex-row px-2 py-3">
-        <div className="relative w-fit h-fit flex flex-row gap-4 items-center justify-center ml-0">
-          <div className="relative w-fit flex items-center justify-center border border-ama text-xs font-bit rounded-xl px-3 py-1 h-6 md:h-12 gap-5 bg-ruido bg-cover bg-top ">
+      <div className="relative w-full h-fit flex items-center justify-between gap-10 half:gap-6 bg-offBlack flex-col half:flex-row px-2 py-3">
+        <div className="relative w-full half:w-fit h-fit flex flex-col preG:flex-row gap-4 items-center justify-center ml-0">
+          <div className="relative w-full half:w-fit flex items-center justify-between half:justify-center border border-ama font-bit rounded-xl px-3 py-1 h-12 gap-5 bg-ruido bg-cover bg-top sm:order-1 order-2">
             <div className="absolute top-0 left-0  bg-offBlack/80 w-full h-full rounded-xl"></div>
             <div
-              className="relative w-fit h-fit flex items-center justify-center text-gray-700 font-bit cursor-sewingHS active:scale-95 bg-ama/70 border border-ruido rounded-md px-4 py-px text-base"
+              className="relative w-fit h-fit flex items-center justify-center text-gray-700 font-bit cursor-sewingHS active:scale-95 bg-ama/70 border border-ruido rounded-md px-4 py-px"
               onClick={() => window.open("https://cypher.digitalax.xyz")}
             >
               <div className="relative w-fit h-fit flex items-center justify-center top-px">
                 Go
               </div>
             </div>
-            <div className="relative flex items-center justify-center text-ruido">
+            <div className="relative flex items-center justify-center text-ruido sm:text-xs text-xxs">
               Find your way through the maze @ cypher
             </div>
           </div>
-          <div className="relative w-fit h-fit flex items-center justify-center">
-            <div className="relative h-6 md:h-12 w-6 md:w-12 flex items-center justify-center">
+          <div className="relative w-fit h-fit flex items-center justify-center sm:order-2 order-1">
+            <div className="relative h-12 w-12 flex items-center justify-center">
               <Image
                 src={`${INFURA_GATEWAY}/ipfs/QmYbjMNQAVuQSWNNQ5AKbQtt4Dxw2ax4SvLNwKhCNDniL2`}
                 layout="fill"
@@ -120,14 +120,17 @@ const Header: FunctionComponent<HeaderProps> = ({
             </div>
           </div>
         </div>
-        <div className="relative w-fit h-fit flex flex-row gap-4 items-center justify-center mr-0">
-          <div className="relative w-fit h-fit flex items-center justify-center font-bit text-sm text-ama">
-            Explore the entire web3 + npc <br /> commerce ecosystem at a glance
+        <div className="relative w-fit h-fit flex flex-row half:flex-col midi:flex-row gap-4 items-center half:items-end midi:items-center justify-center mr-0 midi:text-center text-right sm:flex-nowrap flex-wrap">
+          <div className="relative flex flex-row gap-4 flex items-center justify-center">
+            <div className="relative w-fit h-fit flex items-center justify-center font-bit text-xs md:text-sm text-ama">
+              Explore the entire web3 + npc <br /> commerce ecosystem at a
+              glance
+            </div>
+            <div className="relative w-fit h-fit flex items-center justify-center font-bit text-sm text-ama">
+              {">"}
+            </div>
           </div>
-          <div className="relative w-fit h-fit flex items-center justify-center font-bit text-sm text-ama">
-            {">"}
-          </div>
-          <div className="relative w-fit h-fit flex flex-row gap-1.5 items-center justify-center">
+          <div className="relative w-fit h-fit flex flex-row gap-1.5 items-center justify-center sm:flex-nowrap flex-wrap">
             {[
               {
                 link: "https://kinora.irrevocable.dev",
@@ -176,7 +179,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                 return (
                   <div
                     key={index}
-                    className="relative w-6 h-6 md:h-12 md:w-12 rounded-xl border bg-gray-400 cursor-sewingHS border-gray-400 flex items-center justify-center"
+                    className="relative w-9 h-9 md:h-12 md:w-12 rounded-md md:rounded-xl border bg-gray-400 cursor-sewingHS border-gray-400 flex items-center justify-center"
                     title={item.title}
                     id="buttons"
                     onClick={() => window.open(item.link)}
@@ -184,7 +187,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                     <div className="relative w-full h-full flex items-center justify-center">
                       <Image
                         draggable={false}
-                        className="rounded-xl w-full h-full"
+                        className="rounded-md md:rounded-xl w-full h-full"
                         layout="fill"
                         objectFit="cover"
                         priority

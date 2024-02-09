@@ -262,6 +262,7 @@ const DistroKit: NextPage<DistroProps> = ({
                 ["QmQuKdSrUf2fPX6u8H3FSfADzQ1n9VbwkrVZ7ZpuTzm5jy", "skecz98"],
                 ["QmQHdxXYev989zkK1Wtem245XusViRKZELzZR7bGpRU8iH", "re_de"],
                 ["QmZEbmji9qNHUCVeGgMqXDWLpQXC68hm8WmyWr4or5CNa3", "e2evhs"],
+                ["QmdPkUaUoLmS7bVwsoTUsLcjwB1pg2VLRM88TxB4vV2tde", "أَنْا"]
               ].map((image: string[], index: number) => {
                 return (
                   <a

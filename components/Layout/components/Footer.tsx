@@ -10,9 +10,9 @@ const Footer: FunctionComponent<FooterProps> = ({
 }): JSX.Element => {
   return (
     <div className="relative w-full bg-offBlack h-fit flex items-center justify-start flex-col gap-10 pt-12">
-      <div className="relative w-full h-fit flex flex-row items-center justify-between gap-10 px-6">
+      <div className="relative w-full h-fit flex flex-col md:flex-row items-center justify-between gap-10 px-6">
         <div
-          className={`relative flex border-2 border-offWhite bg-offWhite w-fit p-2 h-fit lg:h-full items-center justify-center`}
+          className={`relative flex border-2 border-offWhite bg-offWhite w-full md:w-fit p-2 h-fit lg:h-full items-center justify-center`}
         >
           <Image
             layout="fill"
@@ -39,7 +39,7 @@ const Footer: FunctionComponent<FooterProps> = ({
             </div>
           </div>
         </div>
-        <div className="flex relative h-fit w-full md:w-72 lg:w-[20vw] text-xs md:text-[1vw] xl:text-[0.8vw] text-midWhite justify-center items-center font-lib text-left sm:text-right leading-8">
+        <div className="flex relative h-fit w-full md:w-72 lg:w-[20vw] text-xs md:text-[1vw] xl:text-[0.8vw] text-midWhite justify-center items-center font-lib break-all text-center md:text-left sm:text-right leading-8">
           From mini-maps and mesh segmentation, to synth machines and material
           use, the web3 fashion ecosystem supplies more than a few good looks.
           <br />
@@ -51,7 +51,6 @@ const Footer: FunctionComponent<FooterProps> = ({
           Dress wisely, and take your keys with you.
         </div>
       </div>
-
       <div className="relative flex w-full h-fit items-center justify-center gap-2 flex-col">
         <div
           id="foot1"
@@ -66,8 +65,8 @@ const Footer: FunctionComponent<FooterProps> = ({
           className="relative flex items-center justify-center w-full h-1"
         ></div>
       </div>
-      <div className="relative flex items-center justify-between w-full h-fit text-midWhite gap-4">
-        <div className="relative w-fit h-fit ml-0 flex items-center justify-center flex-col gap-1">
+      <div className="relative flex items-center justify-between w-full h-fit text-midWhite gap-8 md:gap-4 flex-col md:flex-row">
+        <div className="relative w-fit h-fit ml-0 flex items-center justify-center flex-col gap-1 md:order-1 order-3">
           <div className="relative w-fit h-fit flex items-center justify-center hover:text-skyBlue cursor-sewingHS hover:rotate-3">
             END OF LINE
           </div>
@@ -81,7 +80,7 @@ const Footer: FunctionComponent<FooterProps> = ({
           </div>
         </div>
         <div
-          className="relative w-fit h-fit flex flex-row items-center justify-center gap-2 cursor-sewingHS active:scale-95"
+          className="relative w-fit h-fit flex flex-row items-center justify-center gap-2 cursor-sewingHS active:scale-95 md:order-2 order-2"
           onClick={() => handleRewind()}
         >
           <div className="flex items-center justify-center w-fit h-fit">
@@ -91,7 +90,7 @@ const Footer: FunctionComponent<FooterProps> = ({
             BE KIND, REWIND
           </div>
         </div>
-        <div className="relative w-fit h-fit mr-0 flex-row gap-3 flex items-center justify-center pr-2">
+        <div className="relative w-fit h-fit mr-0 flex-row gap-3 flex items-center justify-center md:pr-2 md:order-3 order-1">
           {[
             {
               image: "QmWVdyGgXbPL5SiRnQwALHvWzAnyiXBos1oB4TVTqg7saV",

@@ -13,9 +13,9 @@ const Shelf: FunctionComponent<ShelfProps> = ({
   handleLastBook,
 }): JSX.Element => {
   return (
-    <div className="relative flex items-center justify-start flex-row w-full h-[40rem]">
+    <div className="relative flex items-center justify-start flex-col  md:flex-row w-full h-[70rem] md:h-[40rem]">
       <div
-        className={`relative flex items-center justify-center border-offBlack h-full w-[40rem] bg-offBlack border-2`}
+        className={`relative flex items-center justify-center border-offBlack h-full w-full md:w-[40rem] bg-offBlack border-2`}
       >
         <Image
           layout="fill"
@@ -48,7 +48,6 @@ const Shelf: FunctionComponent<ShelfProps> = ({
           </div>
         </div>
       </div>
-
       <div
         className="relative w-full items-center justify-between inline-flex h-full grow overflow-x-scroll overflow-y-hidden"
         id="library"
@@ -101,22 +100,22 @@ const Shelf: FunctionComponent<ShelfProps> = ({
         })}
       </div>
       <div
-        className={`relative w-60 h-full flex items-center justify-center gap-2 bg-offBlack flex-row gap-2 p-3`}
+        className={`relative w-full md:w-60 h-fit md:h-full flex items-center justify-center gap-2 bg-offBlack flex-col md:flex-row gap-2 p-3`}
       >
-        <div className={`relative w-6 h-40 items-center justify-center flex`}>
+        <div className={`relative md:rotate-0 rotate-90 w-6 h-40 items-center justify-center flex`}>
           <Image
             src={`${INFURA_GATEWAY}/ipfs/QmdqGRG1tr9mPSCWNUGPiHq1pGpLkhgyFg8o6SN9LKrd8o`}
             layout="fill"
             priority
             objectFit="contain"
-            className="relative w-full h-full"
+            className="relative flex w-full h-full"
             draggable={false}
           />
         </div>
-        <div className="relative w-full h-full flex flex-col items-center">
-          <div className="relative w-6 h-px  bg-white"></div>
-          <div className="relative h-full w-px bg-white justify-self-center"></div>
-          <div className="relative w-6 h-px bg-white"></div>
+        <div className="relative w-full h-full flex flex-row md:flex-col items-center">
+          <div className="relative w-px md:w-6 h-6 md:h-px bg-white"></div>
+          <div className="relative h-px md:h-full w-full md:w-px bg-white justify-self-center"></div>
+          <div className="relative w-px md:w-6 h-6 md:h-px bg-white"></div>
         </div>
         <div
           className={`relative w-10 h-10 flex items-center justify-center hover:opacity-90 active:mix-blend-hard-light cursor-sewingHS`}
