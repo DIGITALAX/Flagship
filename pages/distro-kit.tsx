@@ -28,7 +28,7 @@ const DistroKit: NextPage<DistroProps> = ({
     <div className="min-w-screen min-h-full h-full flex flex-col bg-mainBg justify-start items-center pb-28 gap-32">
       <div className="relative w-full h-fit flex flex-col items-center justify-start gap-3">
         <div
-          className="relative w-full h-fit flex flex-row justify-between gap-4 pt-4 px-3 sm:px-6 items-center"
+          className="relative w-full h-fit flex flex-col sm:flex-row justify-between gap-10 sm:gap-4 pt-4 px-2 sm:px-6 items-center"
           ref={rewind}
         >
           <div
@@ -37,15 +37,15 @@ const DistroKit: NextPage<DistroProps> = ({
           >
             DIGITALAX
           </div>
-          <div className="relative w-fit h-fit flex ml-0 items-center justify-center flex-row gap-3">
-            <div className="relative w-fit h-fit flex font-bit text-mainText text-4xl mr-0 items-center justify-center top-1">
+          <div className="relative w-fit h-fit flex ml-0 items-center justify-center flex-col sm:flex-row gap-3">
+            <div className="relative w-fit h-fit flex font-bit text-mainText text-2xl sm:text-4xl mr-0 items-center justify-center top-1">
               DISTRO KIT
             </div>
             <Heart changeColor={changeColor} heartColor={heartColor} />
           </div>
         </div>
         <div className="relative w-full h-[30rem] md:h-[50rem] flex items-center justify-center px-2 md:px-8">
-          <div className="relative w-4/5 flex items-center justify-center h-4/5">
+          <div className="relative w-full sm:w-4/5 flex items-center justify-center h-48 sm:h-4/5">
             <Image
               draggable={false}
               src={`${INFURA_GATEWAY}/ipfs/QmReLFeUVH6yjTbmyF3buLYgHamYHqJBKF8zKmy5GjsEL2`}
@@ -71,13 +71,13 @@ const DistroKit: NextPage<DistroProps> = ({
         <meta property="og:type" content="website" />
       </Head>
 
-      <div className="relative w-full h-fit flex justify-center items-center px-8">
+      <div className="relative w-full h-fit flex justify-center items-center px-2 sm:px-8">
         <div className="relative w-full h-fit md:h-[30rem] flex flex-col md:flex-row justify-between gap-10 items-center">
           <div className="relative w-full h-full font-bit text-mainText flex items-center justify-start border-2 border-verde flex-col p-2">
-            <div className="relative w-fit h-fit flex items-center justify-center break-all text-[5rem]">
+            <div className="relative w-fit h-fit flex items-center justify-center break-all text-[7vw] sm:text-[5vw] 2xl:text-[5rem]">
               DISTRIBUTION
             </div>
-            <div className="relative w-fit h-fit flex items-center justify-center break-all text-[4rem]">
+            <div className="relative w-fit h-fit flex items-center justify-center break-all text-[6.5vw] sm:text-[4.5vw] 2xl:text-[4rem]">
               IS ALL YOU NEED
             </div>
             <div className="relative w-full h-fit flex items-start justify-center pt-3">
@@ -95,9 +95,9 @@ const DistroKit: NextPage<DistroProps> = ({
                       className="relative w-full h-fit flex flex-row gap-2 items-center justify-center"
                     >
                       <div className="relative w-fit h-fit flex items-center justify-center">
-                        <div className="relative w-4 h-4 rounded rounded-full flex items-center justify-center border-2 border-amarillo"></div>
+                        <div className="relative h-2 w-2 md:w-4 md:h-4 rounded rounded-full flex items-center justify-center border-2 border-amarillo"></div>
                       </div>
-                      <div className="relative w-fit h-fit flex items-center justify-center text-2xl">
+                      <div className="relative w-fit h-fit flex items-center justify-center text-base md:text-2xl">
                         {item}
                       </div>
                     </div>
@@ -262,7 +262,7 @@ const DistroKit: NextPage<DistroProps> = ({
                 ["QmQuKdSrUf2fPX6u8H3FSfADzQ1n9VbwkrVZ7ZpuTzm5jy", "skecz98"],
                 ["QmQHdxXYev989zkK1Wtem245XusViRKZELzZR7bGpRU8iH", "re_de"],
                 ["QmZEbmji9qNHUCVeGgMqXDWLpQXC68hm8WmyWr4or5CNa3", "e2evhs"],
-                ["QmdPkUaUoLmS7bVwsoTUsLcjwB1pg2VLRM88TxB4vV2tde", "أَنْا"]
+                ["QmdPkUaUoLmS7bVwsoTUsLcjwB1pg2VLRM88TxB4vV2tde", "أَنْا"],
               ].map((image: string[], index: number) => {
                 return (
                   <a
@@ -313,7 +313,7 @@ const DistroKit: NextPage<DistroProps> = ({
               type="video/mp4"
             ></source>
           </video>
-          <div className="relative flex flex-col sm:flex-row w-full h-full gap-6 justify-center items-center py-10">
+          <div className="relative flex flex-col sm:flex-row w-full h-full gap-6 justify-center items-center py-20 sm:py-10">
             {tvImages.map((image: string, index: number) => {
               return (
                 <a
@@ -349,7 +349,7 @@ const DistroKit: NextPage<DistroProps> = ({
                   TV_IMAGES?.sort(() => Math.random() - 0.5).slice(0, 4)
                 )
               }
-              className={`absolute flex items-center justify-center bottom-4 right-4 hover:rotate-180 cursor-sewingHS active:mix-blend-color-dodge w-6 h-6 z-10 md:w-10 md:h-10 2xl:w-14 2xl:h-14`}
+              className={`absolute flex items-center justify-center bottom-4 right-4 hover:rotate-180 cursor-sewingHS active:mix-blend-color-dodge z-10 w-10 h-10 2xl:w-14 2xl:h-14`}
             >
               <Image
                 src={`${INFURA_GATEWAY}/ipfs/QmYdpBCKCGp2rMgWaDePE8UeuCUPywuWTJ9qEE9XwrJmBU`}
@@ -435,9 +435,9 @@ const DistroKit: NextPage<DistroProps> = ({
           </div>
         </div>
       </div>
-      <div className="relative w-fit flex items-center justify-center h-fit text-mainText flex-col sm:px-12 px-2 gap-4">
-        <div className="relative w-full h-fit flex flex-row items-end justify-between gap-1.5 text-mainText">
-          <div className="relative w-fit h-fit flex items-start justify-center font-lib text-xs flex gap-1 flex-col">
+      <div className="relative w-full wide:w-fit flex items-center justify-center h-fit text-mainText flex-col midi:px-12 sm:px-2 gap-4">
+        <div className="relative w-full h-fit flex flex-col preG:flex-row items-center preG:items-end justify-center preG:justify-between gap-1.5 text-mainText preG:px-0 px-2">
+          <div className="relative w-full preG:w-fit h-fit flex items-start justify-center font-lib text-xs flex gap-1 flex-col">
             <div className="relative w-fit h-fit flex items-center justify-start">
               x03.m-4
             </div>
@@ -454,7 +454,7 @@ const DistroKit: NextPage<DistroProps> = ({
               MESH: FASHION SYNTH & SEGMENTATION FOR TAILOR MADE BLENDER DESIGN
             </div>
           </div>
-          <div className="relative w-fit h-fit flex items-end justify-center font-lib">
+          <div className="relative w-full preG:w-fit h-fit flex items-end justify-end preG:justify-center font-lib">
             OPEN SOURCE <br />
             DEV FOR IRL, <br />
             VIRTUAL, AND <br />
@@ -466,15 +466,15 @@ const DistroKit: NextPage<DistroProps> = ({
         </div>
       </div>
       <div className="relative w-full h-fit flex flex-col gap-12">
-        <div className="relative w-full h-full flex flex-row gap-12 sm:px-12 px-2 justify-between items-center">
-          <div className="relative w-fit h-40 flex flex-row gap-2 items-center justify-between">
-            <div className="relative w-fit h-full flex items-center justify-center flex-col">
-              <div className="relative w-3 h-px bg-mainText flex items-center justify-center"></div>
-              <div className="relative w-px h-full bg-mainText flex items-center justify-center"></div>
-              <div className="relative w-3 h-px bg-mainText flex items-center justify-center"></div>
+        <div className="relative w-full h-full flex flex-col half:flex-row gap-12 sm:px-12 px-2 justify-between items-center">
+          <div className="relative sm:w-full w-fit h-fit sm:h-40 flex flex-col sm:flex-row gap-2 items-center justify-between">
+          <div className="relative h-fit sm:w-fit w-full sm:h-full flex items-center justify-center flex-row sm:flex-col">
+              <div className="relative h-3 w-px sm:w-3 sm:h-px  bg-mainText flex items-center justify-center"></div>
+              <div className="relative w-full sm:w-px h-px sm:h-full bg-mainText flex items-center justify-center"></div>
+              <div className="relative h-3 w-px sm:w-3 sm:h-px bg-mainText flex items-center justify-center"></div>
             </div>
             <div
-              className={`relative w-1.5 h-1/2 text-xs whitespace-nowrap sm:rotate-0 rotate-90`}
+              className={`relative w-1 sm:w-1.5 h-8 sm:h-1/2 whitespace-nowrap rotate-90 sm:rotate-0`}
             >
               <Image
                 layout="fill"
@@ -483,13 +483,13 @@ const DistroKit: NextPage<DistroProps> = ({
                 draggable={false}
               />
             </div>
-            <div className="relative w-fit sm:w-96 text-center h-fit font-libB text-sm p-6 border border-mainText flex items-center justify-center break-word text-mainText">
+            <div className="relative w-fit  text-center h-fit font-libB text-sm p-6 border border-mainText flex items-center justify-center break-word text-mainText">
               With a public release some timeskip from now, fabric synth in
               Blender changes the narrative from “NFTs, lol, speculative
               altcoins with JPEGs“ to “We like the looks made for material use”
             </div>
             <div
-              className={`relative w-1.5 h-1/2 text-xs whitespace-nowrap sm:rotate-0 rotate-90`}
+             className={`relative w-1 sm:w-1.5 h-8 sm:h-1/2 whitespace-nowrap rotate-90 sm:rotate-0`}
             >
               <Image
                 layout="fill"
@@ -498,14 +498,14 @@ const DistroKit: NextPage<DistroProps> = ({
                 draggable={false}
               />
             </div>
-            <div className="relative w-fit h-full flex items-center justify-center flex-col">
-              <div className="relative w-3 h-px bg-mainText flex items-center justify-center"></div>
-              <div className="relative w-px h-full bg-mainText flex items-center justify-center"></div>
-              <div className="relative w-3 h-px bg-mainText flex items-center justify-center"></div>
+            <div className="relative h-fit sm:w-fit w-full sm:h-full flex items-center justify-center flex-row sm:flex-col">
+              <div className="relative h-3 w-px sm:w-3 sm:h-px  bg-mainText flex items-center justify-center"></div>
+              <div className="relative w-full sm:w-px h-px sm:h-full bg-mainText flex items-center justify-center"></div>
+              <div className="relative h-3 w-px sm:w-3 sm:h-px bg-mainText flex items-center justify-center"></div>
             </div>
           </div>
-          <div className="relative w-full h-fit flex items-center justify-end font-gisL text-mainText text-right mr-0">
-            <div className="relative w-3/4 h-fit flex items-center justify-end">
+          <div className="relative w-full h-fit flex items-center justify-center half:justify-end font-gisL text-mainText text-center half:text-right half:mr-0">
+            <div className="relative w-3/4 h-fit flex items-center justify-center half:justify-end">
               Today, fashion designers use CLO, a closed source and very limited
               tool for working with fabric. Blender can be a much more powerful
               and open source tool for working with fabric.

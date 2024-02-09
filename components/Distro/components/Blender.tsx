@@ -12,12 +12,12 @@ const Blender: FunctionComponent<BlenderProps> = ({
   setBlenderPage,
 }): JSX.Element => {
   return (
-    <div className="w-full h-[60rem] flex flex-col border-y-4 border-r-8 border-l-4 border-offBlack rounded-xl relative bg-grayMid pt-3">
+    <div className="w-full h-fit sm:h-[60rem] flex flex-col border-y-4 border-r-8 border-l-4 border-offBlack rounded-xl relative bg-grayMid pt-3">
       <div className="relative border-b-4 w-full h-fit font-libB text-offBlack px-3 border-offBlack flex items-center justify-start pb-3">
         Research & Development Dept.
       </div>
-      <div className="relative w-full h-full flex flex-row justify-start items-start font-lib">
-        <div className="flex flex-col w-60 h-full relative text-offBlack items-start justify-start">
+      <div className="relative w-full h-full flex flex-col sm:flex-row justify-start items-start font-lib">
+        <div className="flex flex-col w-full sm:w-60 h-full relative text-offBlack items-start justify-start">
           <div className="relative w-full h-fit flex items-center justify-center text-2xl font-libB border-offBlack border-b-2 p-4">
             Mesh
           </div>
@@ -65,8 +65,8 @@ const Blender: FunctionComponent<BlenderProps> = ({
           </div>
         </div>
         <div className="relative w-1 h-full bg-offBlack flex items-center justify-center"></div>
-        <div className="relative w-full h-full flex flex-col relative items-center justify-start gap-3 p-4">
-          <div className="relative w-full h-fit flex flex-row items-center justify-between gap-6">
+        <div className="relative w-full h-full flex flex-col relative items-center justify-start gap-3 p-1 sm:p-4">
+          <div className="relative w-full h-fit flex flex-row items-center justify-between gap-2 sm:gap-6">
             {(blenderPage == 0
               ? BLENDER_IMAGES.slice(0, 3)
               : BLENDER_IMAGES.slice(3, 6)
@@ -74,10 +74,10 @@ const Blender: FunctionComponent<BlenderProps> = ({
               return (
                 <div
                   key={index}
-                  className={`h-fit w-fit flex items-center justify-center relative`}
+                  className={`h-fit w-full midi:w-fit flex items-center justify-center relative`}
                 >
                   <div
-                    className={`rounded-lg w-60 h-60 border-2 border-offBlack relative flex bg-offBlack`}
+                    className={`rounded-lg w-full midi:w-60 h-24 sm:h-40 midi:h-60 border-2 border-offBlack relative flex bg-offBlack`}
                   >
                     <Image
                       src={`${INFURA_GATEWAY}/ipfs/${image}`}
@@ -91,18 +91,18 @@ const Blender: FunctionComponent<BlenderProps> = ({
               );
             })}
           </div>
-          <div className="relative flex flex-row w-full h-fit justify-between items-center gap-3 font-lib">
-            <div className="relative w-fit h-fit flex items-center justify-center gap-3 flex-row text-xs text-offBlack">
-              <div className="relative w-fit h-fit p-2 border-2 border-offBlack rounded-lg flex items-center justify-center bg-offWhite">
+          <div className="relative flex flex-col preG:flex-row w-full h-fit justify-between items-center gap-3 font-lib">
+            <div className="relative w-full sm:w-fit h-fit flex items-center justify-center gap-3 flex-row text-xs text-offBlack">
+              <div className="relative w-full sm:w-fit h-fit p-2 border-2 border-offBlack rounded-lg flex items-center justify-center bg-offWhite">
                 (1,0,0)
               </div>
-              <div className="relative w-fit h-fit p-2 border-2 border-offBlack rounded-lg flex items-center justify-center bg-offWhite">
+              <div className="relative w-full sm:w-fit h-fit p-2 border-2 border-offBlack rounded-lg flex items-center justify-center bg-offWhite">
                 (3,2,2)
               </div>
             </div>
-            <div className="relative w-fit h-fit flex items-center justify-center gap-3 flex-row text-offBlack text-xs">
+            <div className="relative w-full sm:w-fit h-fit flex items-center justify-center gap-3 flex-row text-offBlack text-xs">
               <div
-                className={`relative flex items-center justify-center w-fit h-fit px-3 py-2 rounded-lg bg-offWhite border-2 border-offBlack ${
+                className={`relative flex items-center justify-center w-full sm:w-fit h-fit px-3 py-2 rounded-lg bg-offWhite border-2 border-offBlack ${
                   blenderPage !== 0
                     ? "active:scale-105 active:opacity-90 hover:opacity-90 cursor-sewingHS"
                     : "opacity-50"
@@ -112,7 +112,7 @@ const Blender: FunctionComponent<BlenderProps> = ({
                 prev
               </div>
               <div
-                className={`relative flex items-center justify-center w-fit h-fit px-3 py-2 bg-offWhite border-2 border-offBlack rounded-lg ${
+                className={`relative flex items-center justify-center w-full sm:w-fit h-fit px-3 py-2 bg-offWhite border-2 border-offBlack rounded-lg ${
                   blenderPage !== 1
                     ? "active:scale-105 active:opacity-90 hover:opacity-90 cursor-sewingHS"
                     : "opacity-50"
@@ -124,7 +124,7 @@ const Blender: FunctionComponent<BlenderProps> = ({
             </div>
           </div>
           <div className="flex flex-col w-full h-full relative items-center justify-center">
-            <div className="relative flex items-center justify-center w-full h-full px-3  sm:px-8 pt-8 pb-1">
+            <div className="relative flex items-center justify-center w-full h-full px-3 midi:px-8 pt-8 pb-1">
               <div className={`relative bg-offBlack w-full h-[30rem]`}>
                 <Image
                   src={`${INFURA_GATEWAY}/ipfs/Qmb1qasXpS7hthiXxNnmctgYqAP4kzxFWYMt7RQBtAmgMc`}
