@@ -290,16 +290,8 @@ export type QuestProps = {
 };
 
 export type TilesProps = {
-  handleMoreSearch: () => Promise<void>;
   dispatch: Dispatch<AnyAction>;
   searchLoading: boolean;
-  searchItems: {
-    items: Publication[];
-    graphCursor?: number;
-    kinoraCursor?: number;
-    awardCursor?: number;
-    hasMore: boolean;
-  };
-  moreSearchLoading: boolean;
+  searchItems: Publication[];
   filterConstants: FilterValues;
 };

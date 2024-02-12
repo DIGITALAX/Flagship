@@ -10,7 +10,7 @@ const Portals: FunctionComponent<PortalsProps> = ({ router }): JSX.Element => {
       <div className="relative w-full h-fit flex items-center justify-between gap-7 flex-col sm:flex-row">
         {[
           {
-            image: "QmQWazrG328Amv9YP97wse1MAXSU4YrZuX9h2rvuxeGvxq",
+            image: "QmUE1a7yAL1N6qsQ8vrBMRKKy46tEFwqBJXDAe2e7uHpPe",
             title: "Distro Kit",
             link: "/distro-kit"
           },
@@ -48,7 +48,7 @@ const Portals: FunctionComponent<PortalsProps> = ({ router }): JSX.Element => {
                     layout="fill"
                     src={`${INFURA_GATEWAY}/ipfs/QmZH2zUKZAPVbveywrG5GaApLgY4oTFvefrCkRtQvUeWRo`}
                   />
-                  <div className="relative w-fit h-fit flex items-center top-1 justify-center font-bit text-white text-xs sm:text-lg">
+                  <div className="relative w-fit h-fit flex items-center top-1 justify-center font-bit text-white text-xs md:text-lg">
                     {item.title}
                   </div>
                 </div>

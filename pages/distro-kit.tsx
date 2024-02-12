@@ -21,7 +21,7 @@ const DistroKit: NextPage<DistroProps> = ({
 }): JSX.Element => {
   const dispatch = useDispatch();
   const { tvImages, setBlenderPage, setTvImages, blenderPage } = useDistro();
-  const { handleMoreSearch, loaders, searchItems, filterConstants } =
+  const { searchLoading, searchItems, filterConstants } =
     useCypherSearch();
 
   return (
@@ -207,14 +207,12 @@ const DistroKit: NextPage<DistroProps> = ({
           </div>
           <Tiles
             searchItems={searchItems}
-            searchLoading={loaders?.searchLoading}
-            handleMoreSearch={handleMoreSearch}
-            moreSearchLoading={loaders?.moreSearchLoading}
+            searchLoading={searchLoading}
             filterConstants={filterConstants!}
             dispatch={dispatch}
           />
         </div>
-        <div className="relative w-full h-fit flex bg-diy py-3 border-y-4 border-deep justify-center items-center">
+        <div className="relative w-full h-fit flex bg-diy py-3 border-y-4 border-deep justify-center items-center z-20">
           <div className="relative flex h-fit font-mag text-diyText text-[4.1vw] break-words text-center items-center justify-center">
             THE NEW DIY: DECENTRALIZE IT YOURSELF
           </div>

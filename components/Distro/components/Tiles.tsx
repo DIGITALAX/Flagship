@@ -1,20 +1,18 @@
 import { FunctionComponent } from "react";
-import InfiniteScroll from "react-infinite-scroll-component";
 import TileSwitch from "./TileSwitch";
 import { Masonry } from "masonic";
 import { Publication, TilesProps } from "../types/distro.types";
 
 const Tiles: FunctionComponent<TilesProps> = ({
-  handleMoreSearch,
   dispatch,
   searchLoading,
   searchItems,
-  moreSearchLoading,
   filterConstants,
 }): JSX.Element => {
   const renderTile = ({
-    index,
     data,
+    index,
+
   }: {
     index: number;
     data: Publication;
@@ -24,68 +22,42 @@ const Tiles: FunctionComponent<TilesProps> = ({
         type={data?.type}
         filterConstants={filterConstants}
         publication={data}
-        index={index + searchItems?.items?.length}
+        index={index + searchItems?.length}
         dispatch={dispatch}
       />
     );
   };
   return (
-    <div className={`relative w-full flex pt-6 h-fit`} id="tileSearch">
-      <InfiniteScroll
-        dataLength={
+    <div
+      className={`relative z-0 w-full flex pt-6 overflow-y-scroll h-full`}
+      id="tileSearch"
+    >
+      
+      <Masonry
+        overscanBy={300}
+        key={searchLoading ? 20 : searchItems?.length}
+        items={
           searchLoading
-            ? 20
-            : (searchItems?.items || [])?.length + (moreSearchLoading ? 20 : 0)
+            ? Array.from({ length: 20 }, (_) => ({
+                id: Math.random(),
+                type: "loader",
+              }))
+            : searchItems
         }
-        loader={<></>}
-        scrollThreshold={1}
-        hasMore={searchItems?.hasMore}
-        next={handleMoreSearch}
-        className={`w-full relative flex overflow-y-scroll h-[90rem] pt-6`}
-        height={
-          typeof window !== "undefined" && window.innerWidth < 768
-            ? "40rem"
-            : "90rem"
+     
+        id="tileSearch"
+        render={renderTile}
+        columnGutter={50}
+        maxColumnCount={
+          typeof window !== "undefined" &&
+          window.innerWidth < 1280 &&
+          window.innerWidth > 768
+            ? 1
+            : 2
         }
-      >
-        <Masonry
-          overscanBy={5}
-          
-          className="w-full h-[90rem] flex overflow-y-scroll"
-          key={
-            searchLoading
-              ? 20
-              : (searchItems?.items || [])?.length +
-                (moreSearchLoading ? 20 : 0)
-          }
-          items={
-            moreSearchLoading
-              ? [
-                  ...(searchItems?.items || []),
-                  ...Array.from({ length: 20 }, (_) => ({
-                    id: Math.random(),
-                    type: "loader",
-                  })),
-                ]
-              : searchLoading
-              ? Array.from({ length: 20 }, (_) => ({
-                  id: Math.random(),
-                  type: "loader",
-                }))
-              : searchItems?.items || []
-          }
-          render={renderTile}
-          columnGutter={50}
-
-          maxColumnCount={
-            typeof window !== "undefined" &&
-            window.innerWidth < 1280 &&
-            window.innerWidth > 768
-              ? 1
-              : 2
-          }
-        />
-      </InfiniteScroll>
+        columnWidth={100}
+        itemHeightEstimate={1000}
+      />
     </div>
   );
 };
