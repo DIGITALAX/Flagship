@@ -766,3 +766,24 @@ input:focus {
 #tileSearch::-webkit-scrollbar-thumb {
   background-color: transparent;
 }
+
+#npc {
+  color: #d0dee0;
+  font-weight: bold;
+  text-shadow: -1px -1px 0 #393838, 1px -1px 0 #393838, -1px 1px 0 #393838,
+    1px 1px 0 #393838;
+}
+
+#play {
+  color: #f1f5f6;
+  font-weight: bold;
+  text-shadow: -0.5px -0.5px 0 #8fe7f0, 0.5px -0.5px 0 #8fe7f0,
+    -0.5px 0.5px 0 #8fe7f0, 0.5px 0.5px 0 #8fe7f0;
+}
+
+#equip {
+  color: #f1f5f6;
+  font-weight: bold;
+  text-shadow: -0.5px -0.5px 0 #e49058, 0.5px -0.5px 0 #e49058,
+    -0.5px 0.5px 0 #e49058, 0.5px 0.5px 0 #e49058;
+}

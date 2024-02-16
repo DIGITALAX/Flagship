@@ -1,12 +1,46 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { useEffect, useRef, useState } from "react";
-import Footer from "../components/Layout/components/Footer";
+import Footer from "../components/Layout/modules/Footer";
 import { store } from "./../redux/store";
 import { Provider } from "react-redux";
+import { XMTPProvider } from "@xmtp/react-sdk";
 import { useRouter } from "next/router";
+import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import Modals from "../components/Modals/components/Modals";
+import { polygon } from "wagmi/chains";
+import { alchemyProvider } from "wagmi/providers/alchemy";
 import { HEART_COLORS, THEME_COLORS } from "@/lib/constants";
+import {
+  getDefaultWallets,
+  RainbowKitProvider,
+  darkTheme,
+  Theme,
+} from "@rainbow-me/rainbowkit";
+import { merge } from "lodash";
+
+const walletTheme = merge(darkTheme(), {
+  colors: {
+    accentColor: "#111313",
+  },
+} as Theme);
+
+const { chains, publicClient } = configureChains(
+  [polygon],
+  [alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY! })]
+);
+
+const { connectors } = getDefaultWallets({
+  appName: "DIGITALAX",
+  projectId: process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID as string,
+  chains,
+});
+
+const wagmiConfig = createConfig({
+  autoConnect: true,
+  connectors,
+  publicClient,
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -128,26 +162,32 @@ function MyApp({ Component, pageProps }: AppProps) {
   };
 
   return (
-    <Provider store={store}>
-      <div
-        className={[
-          "min-h-full h-auto min-w-screen w-screen relative selection:bg-skyBlue selection:text-dull cursor-sewingS bg-mainBg overflow-x-hidden",
-          color ? `theme-${color}` : "theme-cream",
-        ]
-          .filter(Boolean)
-          .join(" ")}
-      >
-        <Component
-          {...pageProps}
-          heartColor={heartColor}
-          router={router}
-          rewind={rewind}
-          changeColor={changeColor}
-        />
-        <Footer handleRewind={handleRewind} />
-        <Modals />
-      </div>
-    </Provider>
+    <WagmiConfig config={wagmiConfig}>
+      <RainbowKitProvider chains={chains} theme={walletTheme}>
+        <XMTPProvider dbVersion={2}>
+          <Provider store={store}>
+            <div
+              className={[
+                "min-h-full h-auto min-w-screen w-screen relative selection:bg-skyBlue selection:text-dull cursor-sewingS bg-mainBg overflow-x-hidden",
+                color ? `theme-${color}` : "theme-cream",
+              ]
+                .filter(Boolean)
+                .join(" ")}
+            >
+              <Component
+                {...pageProps}
+                heartColor={heartColor}
+                router={router}
+                rewind={rewind}
+                changeColor={changeColor}
+              />
+              <Footer handleRewind={handleRewind} />
+              <Modals />
+            </div>
+          </Provider>
+        </XMTPProvider>
+      </RainbowKitProvider>
+    </WagmiConfig>
   );
 }
 

@@ -89,6 +89,9 @@ module.exports = {
         fuego: "#111929",
         mar: "#27BBCC",
         nave: "#0b0e16",
+        chispa: "#D0DEE0",
+        orilla: "#46B171"
+
       },
       fontFamily: {
         holo: "Nan Holo",
@@ -136,6 +139,7 @@ module.exports = {
         unblur: "unblur 0.5s linear",
       },
       fontSize: {
+        super: "0.46rem",
         xxs: "0.6rem",
       },
       gridAutoRows: {

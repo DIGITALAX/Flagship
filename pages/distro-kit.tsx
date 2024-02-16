@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import { setImageViewer } from "@/redux/reducers/imageViewerSlice";
 import Tiles from "@/components/Distro/components/Tiles";
 import useCypherSearch from "@/components/Distro/hooks/useCypherSearch";
-import Heart from "@/components/Layout/components/Heart";
+import Heart from "@/components/Layout/modules/Heart";
 
 const DistroKit: NextPage<DistroProps> = ({
   heartColor,

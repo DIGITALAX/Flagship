@@ -17,7 +17,7 @@ const Portals: FunctionComponent<PortalsProps> = ({ router }): JSX.Element => {
           {
             image: "QmVfYf8fnrfDPinTasbeN4SAiiGLCg47fAS8Edegg3168c",
             title: "Build Log",
-            link: "/build-logs"
+            link: "/build-log"
           },
         ].map(
           (
@@ -152,12 +152,45 @@ const Portals: FunctionComponent<PortalsProps> = ({ router }): JSX.Element => {
             {
               image: "Qmbuv1tSD437oRELndaJHEjjGE73xgjJFaFdWzVCrtbADn",
               title: "Mona",
-              link: "/build-logs",
+              link: "/build-log",
             },
             {
               image: "QmQ81mzd6V5b57rXabEQQaWEg6zSxVY3tLHafx3XGVm14s",
               title: "Cypher",
               link: "https://cypher.digitalax.xyz/",
+            },
+          ].map(
+            (
+              item: {
+                image: string;
+                title: string;
+                link: string;
+              },
+              index: number
+            ) => {
+              return (
+                <Feature
+                  key={index}
+                  image={item.image}
+                  title={item.title}
+                  link={item.link}
+                  router={router}
+                />
+              );
+            }
+          )}
+        </div>
+        <div className="relative w-full h-fit flex items-center justify-center flex-col sm:flex-row">
+          {[
+            {
+              image: "QmYXNG1QarpiSBaVd6RYj4HEKgngt49zPMWdRxQQKdB9va",
+              title: "Listener",
+              link: "https://listener.irrevocable.dev/",
+            },
+            {
+              image: "Qmc1G3A1AdiUyjWsbX9MU8jinapN7Cy1mHb9kFsieysSno",
+              title: "Legend",
+              link: "https://legend.irrevocable.dev/",
             },
           ].map(
             (

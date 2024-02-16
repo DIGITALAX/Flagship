@@ -15,6 +15,16 @@ export type HeaderProps = {
   router: NextRouter;
   fullScreenVideo: FullScreenVideoState;
   dispatch: Dispatch<AnyAction>;
+  currentVideo: string | undefined;
+  changeVideo: (index: number) => void;
+  setVideoLoading: (e: boolean) => void;
+  videoLoading: boolean;
+  address: `0x${string}` | undefined;
+  openConnectModal: (() => void) | undefined;
+  handleSendMessage: () => Promise<void>;
+  messageLoading: boolean;
+  setMessage: (e: string) => void;
+  message: string;
 };
 
 export type HeartProps = {

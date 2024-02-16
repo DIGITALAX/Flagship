@@ -415,3 +415,12 @@ export const KINORA_QUEST_DATA: `0x${string}` =
   "0xB638b8e910f5852d9B2b69D250883EB3E8575092";
 
 export const CHROMADIN_ID: string = "0x01c6a9";
+export const VIDEOS: string[] = [
+  "QmPhfJ5E8m1LLdmBugGYwb7VTAG316ohRgt8EVTuM482ff",
+  "Qmb9i71wcXk8AFQRrKdqcVcNGfR7ovLijPmxfkeKCjFc9o",
+  "QmWspMsTLtSgTBJL8yBHhQ9R2yrcd7tjR5GkTYw2yBKQuX",
+  "QmQFE4utd3vitUsY6BUw2oJas1dFJinYub2T6GsDHZTep9",
+  "QmYVhzAzEU8cQmVtNchgWLtAaEwjdwZ9s9u5GLNQJXQvTE",
+  "QmdSXcfAM8KdEbWfYEwCRT1gg5m2QjbZQ1GGjqCaHA71Cx",
+  "QmRLB1MrweGDLrbymb2rijLkZKCVzuFZYgmgwrDPPMkxAV"
+];

@@ -9,9 +9,12 @@ import useLibrary from "@/components/Home/hooks/useLibrary";
 import Library from "@/components/Home/components/Library";
 import Slider from "@/components/Home/components/Slider";
 import Display from "@/components/Home/components/Display";
-import Header from "@/components/Layout/components/Header";
+import Header from "@/components/Layout/modules/Header";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/redux/store";
+import useHeader from "@/components/Layout/hooks/useHeader";
+import { useAccount } from "wagmi";
+import { useConnectModal } from "@rainbow-me/rainbowkit";
 
 const Home: NextPage<HomeProps> = ({
   router,
@@ -20,6 +23,8 @@ const Home: NextPage<HomeProps> = ({
   heartColor,
 }) => {
   const dispatch = useDispatch();
+  const { address } = useAccount();
+  const { openConnectModal } = useConnectModal();
   const fullScreenVideo = useSelector(
     (state: RootState) => state.app.fullScreenVideoReducer
   );
@@ -35,17 +40,21 @@ const Home: NextPage<HomeProps> = ({
   } = useGallery();
   const { currentBook, setCurrentBook, lastBook, handleLastBook } =
     useLibrary();
-  useEffect(() => {
-    const scrollElement = document.getElementById("scrollMicro");
-    if (scrollElement) {
-      scrollElement.scrollLeft =
-        (scrollElement.scrollWidth - scrollElement.clientWidth) / 2;
-    }
-  }, []);
+  const {
+    videoLoading,
+    currentVideo,
+    changeVideo,
+    setVideoLoading,
+    handleSendMessage,
+    message,
+    messageLoading,
+    setMessage,
+  } = useHeader(address);
 
   return (
     <div className="w-full h-full flex flex-col bg-mainBg gap-12 items-center justify-start">
       <Header
+        changeVideo={changeVideo}
         fullScreenVideo={fullScreenVideo}
         dispatch={dispatch}
         rewind={rewind}
@@ -53,6 +62,15 @@ const Home: NextPage<HomeProps> = ({
         heartColor={heartColor}
         handleShop={handleShop}
         router={router}
+        currentVideo={currentVideo}
+        videoLoading={videoLoading}
+        setVideoLoading={setVideoLoading}
+        address={address}
+        handleSendMessage={handleSendMessage}
+        message={message}
+        setMessage={setMessage}
+        messageLoading={messageLoading}
+        openConnectModal={openConnectModal}
       />
       <Head>
         <title>DIGITALAX</title>
