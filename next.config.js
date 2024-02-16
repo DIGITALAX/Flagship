@@ -46,6 +46,11 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "thedial.infura-ipfs.io",
+        pathname: "/ipfs/**",
+      },
+      {
+        protocol: "https",
         hostname: "gw.ipfs-lens.dev",
         pathname: "/ipfs/**",
       },
