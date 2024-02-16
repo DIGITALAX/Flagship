@@ -2,10 +2,10 @@ import Image from "next/legacy/image";
 import { FunctionComponent } from "react";
 import { INFURA_GATEWAY, VIDEOS } from "../../../lib/constants";
 import { HeaderProps } from "../types/layout.types";
-import { setFullScreenVideo } from "@/redux/reducers/fullScreenVideoSlice";
 import Marquee from "react-fast-marquee";
 import Heart from "./Heart";
 import { AiOutlineLoading } from "react-icons/ai";
+import { setFullScreenVideo } from "../../../redux/reducers/fullScreenVideoSlice";
 
 const Header: FunctionComponent<HeaderProps> = ({
   rewind,
