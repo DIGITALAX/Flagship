@@ -113,7 +113,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                   </div>
                 </div>
               </div>
-              <div className="relative w-full sm:w-52 h-40 sm:h-44 flex items-center justify-center">
+              <div className="relative w-full h-fit flex items-center justify-center">
                 <div className="absolute w-full h-full flex items-center justify-center">
                   <Image
                     layout="fill"
@@ -121,7 +121,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                     src={`${INFURA_GATEWAY}/ipfs/QmSfBUFGogXohAgLYimvy1ArU4aUrLyYCZ7EDuFELudWm7`}
                   />
                 </div>
-                <div className="relative p-2 flex items-start justify-center w-full h-full text-orilla text-sm text-left">
+                <div className="relative p-2 flex items-start justify-center w-full sm:w-52 h-40 sm:h-44 text-orilla text-sm text-left">
                   {currentVideo?.split("ipfs/")?.[1] === VIDEOS[5] ? (
                     <>
                       <textarea
