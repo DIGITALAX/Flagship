@@ -8,22 +8,12 @@ const useHeader = (address: `0x${string}` | undefined) => {
   const [messageLoading, setMessageLoading] = useState<boolean>(false);
   const [videoLoading, setVideoLoading] = useState<boolean>(false);
   const [currentVideo, setCurrentVideo] = useState<string>();
-  const [message, setMessage] = useState<string>(
-    "Encrypt us a message?"
-  );
+  const [message, setMessage] = useState<string>("Encrypt us a message?");
   const [client, setClient] = useState<Client | undefined>();
 
   const changeVideo = (index: number) => {
     setCurrentVideo(`${INFURA_GATEWAY}/ipfs/${VIDEOS[index]}`);
   };
-
-  useEffect(() => {
-    const scrollElement = document.getElementById("scrollMicro");
-    if (scrollElement) {
-      scrollElement.scrollLeft =
-        (scrollElement.scrollWidth - scrollElement.clientWidth) / 2;
-    }
-  }, []);
 
   const handleClient = async (): Promise<Client | undefined> => {
     try {
@@ -43,6 +33,16 @@ const useHeader = (address: `0x${string}` | undefined) => {
       console.error(err.message);
     }
   };
+
+  useEffect(() => {
+    if (!currentVideo) {
+      setCurrentVideo(
+        `${INFURA_GATEWAY}/ipfs/${
+          VIDEOS[[0, 8].sort(() => Math.random() - 0.5)?.[0]]
+        }`
+      );
+    }
+  }, []);
 
   const handleSendMessage = async (): Promise<void> => {
     if (!address) return;

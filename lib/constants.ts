@@ -422,5 +422,8 @@ export const VIDEOS: string[] = [
   "QmQFE4utd3vitUsY6BUw2oJas1dFJinYub2T6GsDHZTep9",
   "QmYVhzAzEU8cQmVtNchgWLtAaEwjdwZ9s9u5GLNQJXQvTE",
   "QmdSXcfAM8KdEbWfYEwCRT1gg5m2QjbZQ1GGjqCaHA71Cx",
-  "QmRLB1MrweGDLrbymb2rijLkZKCVzuFZYgmgwrDPPMkxAV"
+  "QmRLB1MrweGDLrbymb2rijLkZKCVzuFZYgmgwrDPPMkxAV",
+  "QmaNb6FmdAtNPyucTi67qNx9QpGepjPCZ74aaVzVPWX7bP",
+  "QmSX6M6r2aEgMguCpmb6xiskSpAFJ92WN9Tffw4tPZegzo",
+  "QmZyCsUrAtQ2KXdSyJ6T5Mc4sq8jRRYjMryu7aQqWjsjQh"
 ];

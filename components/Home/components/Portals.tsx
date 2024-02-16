@@ -217,7 +217,7 @@ const Portals: FunctionComponent<PortalsProps> = ({ router }): JSX.Element => {
       <div className="relative w-full h-fit flex items-center justify-center flex-col gap-12 pt-10">
         <div className="relative w-4/5 md:w-1/2 h-fit flex items-center justify-center font-bit text-white text-sm sm:text-2xl">
           To unbundle the everything store & stop this world's ruin you need
-          good equipment... and a lot of practice
+          good equipment... and a lot of practice.
         </div>
         <div className="relative flex items-center justify-center flex-col w-full h-fit gap-1.5">
           <div

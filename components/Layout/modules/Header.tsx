@@ -29,220 +29,248 @@ const Header: FunctionComponent<HeaderProps> = ({
   return (
     <div
       ref={rewind}
-      className="relative flex flex-col h-fit w-full gap-1 justify-start items-between text-mainText pt-7"
+      className="relative flex flex-col h-fit w-full gap-1 justify-start items-stretch text-mainText pt-4 half:pt-7"
     >
-      <div className="relative w-full h-[80vh] flex flex-row gap-2 items-start justify-between">
-        <div className="relative w-fit h-full flex px-2 items-start justify-start">
-          <div className="relative w-80 h-full flex items-center justify-between flex-col gap-3 font-bit p-4">
-            <div className="absolute top-0 left-0 w-full h-full flex justify-start items-start">
+      <div className="relative w-full h-fit half:h-[80vh] flex flex-col half:flex-row gap-8 items-start justify-between px-2 half:px-4 lg:px-7">
+        <div className="relative w-full h-fit half:w-fit half:h-full flex items-start justify-start half:order-1 order-2">
+          <div className="relative w-full half:h-full half:w-80 h-fit sm:h-52 flex items-stretch sm:items-center justify-center sm:justify-between flex-col sm:flex-row half:flex-col gap-3 font-bit p-4 bg-mainText">
+            <div className="absolute w-full flex flex-row justify-between h-fit top-0 left-0">
+              <div className="relative ml-0 bg-mainBg flex items-center justify-center w-2 h-2"></div>
+              <div className="relative mr-0 bg-mainBg flex items-center justify-center w-2 h-2"></div>
+            </div>
+            <div className="absolute w-full flex flex-row justify-between h-fit bottom-0 left-0">
+              <div className="relative ml-0 bg-mainBg flex items-center justify-center w-2 h-2"></div>
+              <div className="relative mr-0 bg-mainBg flex items-center justify-center w-2 h-2"></div>
+            </div>
+            <div className="absolute top-0 left-0 w-full h-full justify-start items-start half:flex hidden">
               <Image
                 layout="fill"
-                objectFit="contain"
+                objectFit="fill"
                 draggable={false}
                 src={`${INFURA_GATEWAY}/ipfs/QmVdLxvGcosPWi3DLREjbPWUwf7Q5AXroxxBg5CHD4q4qM`}
               />
             </div>
-            <div
-              className="relative w-fit h-fit flex items-center justify-center text-3xl cursor-sewingHS active:scale-95"
-              id="npc"
-              onClick={() => changeVideo(6)}
-            >
-              NPC Studio
+            <div className="absolute top-0 left-0 w-full h-full justify-start items-start flex half:hidden">
+              <Image
+                layout="fill"
+                objectFit="fill"
+                draggable={false}
+                src={`${INFURA_GATEWAY}/ipfs/QmYWuUrkVNoSpz2NAr3V1hLqoucb48uTFsRthHR9trKY5V`}
+              />
             </div>
-            <div className="relative w-fit h-fit flex items-center justify-center flex-col gap-3">
-              <div
-                className="relative w-fit h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
-                onClick={() => changeVideo(0)}
-              >
-                <div className="relative w-52 h-10 flex items-center justify-center">
-                  <Image
-                    layout="fill"
-                    draggable={false}
-                    src={`${INFURA_GATEWAY}/ipfs/QmSpjYvvdRtRzyN6cjRL1SGbSKDu5mDAwZtqb1WPZcH7Q9`}
-                  />
-                </div>
+            <div className="relative w-full sm:w-fit h-fit flex flex-col preG:flex-row half:flex-col gap-8 sm:gap-3 half:gap-6 items-center justify-center">
+              <div className="relative w-full preG:w-fit h-full flex flex-col gap-3 items-center justify-center">
                 <div
-                  className="absolute w-fit h-fit flex items-center justify-center text-lg"
-                  id="play"
+                  className="relative w-fit h-fit flex items-center justify-center text-xl half:text-3xl cursor-sewingHS active:scale-95"
+                  id="npc"
+                  onClick={() =>
+                    changeVideo([6, 9].sort(() => Math.random() - 0.5)?.[0])
+                  }
                 >
-                  PLAY MODE
+                  NPC Studio
                 </div>
-              </div>
-              <div
-                className="relative w-fit h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
-                onClick={() => {
-                  setMessage("Encrypt us a message?");
-                  changeVideo(5);
-                }}
-              >
-                <div className="relative w-52 h-10 flex items-center justify-center">
-                  <Image
-                    layout="fill"
-                    draggable={false}
-                    src={`${INFURA_GATEWAY}/ipfs/QmSpjYvvdRtRzyN6cjRL1SGbSKDu5mDAwZtqb1WPZcH7Q9`}
-                  />
-                </div>
-                <div
-                  className="absolute w-fit h-fit flex items-center justify-center text-lg"
-                  id="play"
-                >
-                  TEAM CHAT
-                </div>
-              </div>
-            </div>
-            <div className="relative w-52 h-44 flex items-center justify-center">
-              <div className="absolute w-full h-full flex items-center justify-center">
-                <Image
-                  layout="fill"
-                  draggable={false}
-                  src={`${INFURA_GATEWAY}/ipfs/QmSfBUFGogXohAgLYimvy1ArU4aUrLyYCZ7EDuFELudWm7`}
-                />
-              </div>
-              <div className="relative p-2 flex items-start justify-center w-full h-full text-orilla text-sm text-left">
-                {currentVideo?.split("ipfs/")?.[1] === VIDEOS[5] ? (
-                  <>
-                    <textarea
-                      className={`relative w-full h-full font-bit flex items-center justify-center bg-black ${
-                        message === "Message sent! We'll be in touch shortly."
-                          ? "text-white"
-                          : "text-orilla"
-                      }`}
-                      style={{ resize: "none" }}
-                      onChange={(e) => setMessage(e.target.value)}
-                      value={message}
-                    ></textarea>
-                    <div
-                      className={`absolute bottom-2 right-2 flex items-center justify-center w-12 rounded-sm text-super border border-orilla h-5 ${
-                        !messageLoading && "cursor-sewingHS active:scale-96"
-                      }`}
-                      onClick={
-                        !address
-                          ? openConnectModal
-                          : () => !messageLoading && handleSendMessage()
-                      }
-                    >
-                      <div
-                        className={`relative w-fit h-fit flex items-center justify-center ${
-                          messageLoading ? "animate-spin" : "top-px"
-                        }`}
-                      >
-                        {messageLoading ? (
-                          <AiOutlineLoading color="#46B171" size={10} />
-                        ) : (
-                          "Send"
-                        )}
-                      </div>
+                <div className="relative w-full preG:w-fit h-fit flex items-center justify-center flex-col gap-3">
+                  <div
+                    className="relative w-full preG:w-fit h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
+                    onClick={() =>
+                      changeVideo([0, 8].sort(() => Math.random() - 0.5)?.[0])
+                    }
+                  >
+                    <div className="relative w-full preG:w-36 half:w-52 h-10 flex items-center justify-center">
+                      <Image
+                        layout="fill"
+                        draggable={false}
+                        src={`${INFURA_GATEWAY}/ipfs/QmSpjYvvdRtRzyN6cjRL1SGbSKDu5mDAwZtqb1WPZcH7Q9`}
+                      />
                     </div>
-                  </>
-                ) : (
-                  <div className="relative w-full h-full flex items-center justify-center">
-                    welcome to the great unbundling of the everything app.
-                    <br /> <br />
-                    Equip your AI workforce. Train for less idle time. try to
-                    survive in style.
-                  </div>
-                )}
-              </div>
-            </div>
-            <div className="relative w-fit flex flex-col pt-5 gap-2 items-center justify-center h-fit">
-              <div className="relative flex items-center justify-center flex-row w-52 h-fit gap-3">
-                <div
-                  className="relative w-full h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
-                  onClick={() => changeVideo(1)}
-                >
-                  <div className="relative w-full h-10 flex items-center justify-center">
-                    <Image
-                      layout="fill"
-                      draggable={false}
-                      src={`${INFURA_GATEWAY}/ipfs/QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
-                    />
+                    <div
+                      className="absolute w-fit h-fit flex items-center justify-center text-base half:text-lg"
+                      id="play"
+                    >
+                      PLAY MODE
+                    </div>
                   </div>
                   <div
-                    className="absolute w-fit h-fit flex items-center justify-center text-lg"
-                    id="equip"
+                    className="relative w-full preG:w-fit h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
+                    onClick={() => {
+                      setMessage("Encrypt us a message?");
+                      changeVideo(5);
+                    }}
                   >
-                    EQUIP
-                  </div>
-                </div>
-                <div
-                  className="relative w-full h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
-                  onClick={() => changeVideo(4)}
-                >
-                  <div className="relative w-full h-10 flex items-center justify-center">
-                    <Image
-                      layout="fill"
-                      draggable={false}
-                      src={`${INFURA_GATEWAY}/ipfs/QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
-                    />
-                  </div>
-                  <div
-                    className="absolute w-fit h-fit flex items-center justify-center text-lg"
-                    id="equip"
-                  >
-                    TRAIN
+                    <div className="relative w-full preG:w-36 half:w-52 h-10 flex items-center justify-center">
+                      <Image
+                        layout="fill"
+                        draggable={false}
+                        src={`${INFURA_GATEWAY}/ipfs/QmSpjYvvdRtRzyN6cjRL1SGbSKDu5mDAwZtqb1WPZcH7Q9`}
+                      />
+                    </div>
+                    <div
+                      className="absolute w-fit h-fit flex items-center justify-center text-base half:text-lg"
+                      id="play"
+                    >
+                      TEAM CHAT
+                    </div>
                   </div>
                 </div>
               </div>
-              <div className="relative flex items-center justify-center flex-row w-52 h-fit gap-3">
-                <div
-                  className="relative w-full h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
-                  onClick={() => changeVideo(3)}
-                >
-                  <div className="relative w-full h-10 flex items-center justify-center">
-                    <Image
-                      layout="fill"
-                      draggable={false}
-                      src={`${INFURA_GATEWAY}/ipfs/QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
-                    />
-                  </div>
-                  <div
-                    className="absolute w-fit h-fit flex items-center justify-center text-lg"
-                    id="equip"
-                  >
-                    STATS
-                  </div>
+              <div className="relative w-full sm:w-52 h-40 sm:h-44 flex items-center justify-center">
+                <div className="absolute w-full h-full flex items-center justify-center">
+                  <Image
+                    layout="fill"
+                    draggable={false}
+                    src={`${INFURA_GATEWAY}/ipfs/QmSfBUFGogXohAgLYimvy1ArU4aUrLyYCZ7EDuFELudWm7`}
+                  />
                 </div>
-                <div
-                  className="relative w-full h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
-                  onClick={() => changeVideo(2)}
-                >
-                  <div className="relative w-full h-10 flex items-center justify-center">
-                    <Image
-                      layout="fill"
-                      draggable={false}
-                      src={`${INFURA_GATEWAY}/ipfs/QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
-                    />
-                  </div>
-                  <div
-                    className="absolute w-fit h-fit flex items-center justify-center text-lg"
-                    id="equip"
-                  >
-                    MARKET
-                  </div>
+                <div className="relative p-2 flex items-start justify-center w-full h-full text-orilla text-sm text-left">
+                  {currentVideo?.split("ipfs/")?.[1] === VIDEOS[5] ? (
+                    <>
+                      <textarea
+                        className={`relative w-full h-full font-bit flex items-center justify-center bg-black ${
+                          message === "Message sent! We'll be in touch shortly."
+                            ? "text-white"
+                            : "text-orilla"
+                        }`}
+                        style={{ resize: "none" }}
+                        onChange={(e) => setMessage(e.target.value)}
+                        value={message}
+                      ></textarea>
+                      <div
+                        className={`absolute bottom-2 right-2 flex items-center justify-center w-12 rounded-sm text-super border border-orilla h-5 ${
+                          !messageLoading && "cursor-sewingHS active:scale-96"
+                        }`}
+                        onClick={
+                          !address
+                            ? openConnectModal
+                            : () => !messageLoading && handleSendMessage()
+                        }
+                      >
+                        <div
+                          className={`relative w-fit h-fit flex items-center justify-center ${
+                            messageLoading ? "animate-spin" : "top-px"
+                          }`}
+                        >
+                          {messageLoading ? (
+                            <AiOutlineLoading color="#46B171" size={10} />
+                          ) : (
+                            "Send"
+                          )}
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <div className="relative w-full h-full flex items-start justify-start">
+                      welcome to the great unbundling of the everything app.
+                      <br /> <br />
+                      Equip your AI workforce. Train for less idle time. try to
+                      survive in style.
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
-            <div className="relative w-fit h-fit flex items-center justify-center">
-              <div className="relative w-52 h-8 flex items-center justify-center">
-                <Image
-                  layout="fill"
-                  src={`${INFURA_GATEWAY}/ipfs/QmX8kDkP3rdgqeEauqzsbwL8zP4hGwtTKxrT3Xmw7R2feL`}
-                  draggable={false}
-                />
+            <div className="relative w-full sm:w-fit h-fit flex flex-col preG:flex-row half:flex-col gap-8 sm:gap-3 half:gap-12 items-center justify-center mr-0">
+              <div className="relative w-full sm:w-fit flex flex-col gap-2 items-center justify-center h-fit">
+                <div className="relative flex items-center justify-center flex-row sm:flex-col half:flex-row w-full sm:w-32 half:w-52  h-fit gap-2 half:gap-3">
+                  <div
+                    className="relative w-full h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
+                    onClick={() => changeVideo(1)}
+                  >
+                    <div className="relative w-full h-10 flex items-center justify-center">
+                      <Image
+                        layout="fill"
+                        draggable={false}
+                        src={`${INFURA_GATEWAY}/ipfs/QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
+                      />
+                    </div>
+                    <div
+                      className="absolute w-fit h-fit flex items-center justify-center text-sm half:text-lg"
+                      id="equip"
+                    >
+                      EQUIP
+                    </div>
+                  </div>
+                  <div
+                    className="relative w-full h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
+                    onClick={() => changeVideo(4)}
+                  >
+                    <div className="relative w-full h-10 flex items-center justify-center">
+                      <Image
+                        layout="fill"
+                        draggable={false}
+                        src={`${INFURA_GATEWAY}/ipfs/QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
+                      />
+                    </div>
+                    <div
+                      className="absolute w-fit h-fit flex items-center justify-center text-sm half:text-lg"
+                      id="equip"
+                    >
+                      TRAIN
+                    </div>
+                  </div>
+                </div>
+                <div className="relative flex items-center justify-center flex-row sm:flex-col half:flex-row w-full sm:w-32 half:w-52 h-fit gap-2 half:gap-3">
+                  <div
+                    className="relative w-full h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
+                    onClick={() => changeVideo(3)}
+                  >
+                    <div className="relative w-full h-10 flex items-center justify-center">
+                      <Image
+                        layout="fill"
+                        draggable={false}
+                        src={`${INFURA_GATEWAY}/ipfs/QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
+                      />
+                    </div>
+                    <div
+                      className="absolute w-fit h-fit flex items-center justify-center text-sm half:text-lg"
+                      id="equip"
+                    >
+                      STATS
+                    </div>
+                  </div>
+                  <div
+                    className="relative w-full h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
+                    onClick={() => changeVideo(2)}
+                  >
+                    <div className="relative w-full h-10 flex items-center justify-center">
+                      <Image
+                        layout="fill"
+                        draggable={false}
+                        src={`${INFURA_GATEWAY}/ipfs/QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
+                      />
+                    </div>
+                    <div
+                      className="absolute w-fit h-fit flex items-center justify-center text-sm half:text-lg"
+                      id="equip"
+                    >
+                      MARKET
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="relative w-fit h-fit flex items-center justify-center">
-              <div className="relative w-52 h-8 flex items-center justify-center">
-                <Image
-                  layout="fill"
-                  src={`${INFURA_GATEWAY}/ipfs/QmSkppQ8Z9M4cYR4NLDD8wMUVyB7j9cmoe6ABjQhnTWkfv`}
-                  draggable={false}
-                />
+              <div className="relative h-fit w-full preG:w-fit sm:h-full sm:w-20 half:w-fit half:h-fit flex items-center justify-center gap-3 flex-col rotate-0 half:rotate-0 sm:rotate-90">
+                <div className="relative w-full preG:w-fit h-fit flex items-center justify-center">
+                  <div className="relative w-full preG:w-40 half:w-52 h-8 flex items-center justify-center">
+                    <Image
+                      layout="fill"
+                      src={`${INFURA_GATEWAY}/ipfs/QmX8kDkP3rdgqeEauqzsbwL8zP4hGwtTKxrT3Xmw7R2feL`}
+                      draggable={false}
+                    />
+                  </div>
+                </div>
+                <div className="relative w-full preG:w-fit h-fit flex items-center justify-center">
+                  <div className="relative w-full preG:w-40 half:w-52 h-8 flex items-center justify-center">
+                    <Image
+                      layout="fill"
+                      src={`${INFURA_GATEWAY}/ipfs/QmSkppQ8Z9M4cYR4NLDD8wMUVyB7j9cmoe6ABjQhnTWkfv`}
+                      draggable={false}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="relative w-full h-full flex items-center justify-start flex-col gap-3 px-7">
+        <div className="relative w-full h-full flex items-center justify-start flex-col gap-3 half:order-2 order-1">
           <div className="relative w-full h-fit mr-0 flex items-end justify-end">
             <Heart changeColor={changeColor} heartColor={heartColor} />
           </div>
@@ -250,7 +278,8 @@ const Header: FunctionComponent<HeaderProps> = ({
             <div className="relative w-fit h-fit flex flex-row items-center justify-center gap-2">
               <div
                 className={`relative w-fit h-fit flex items-center justify-center hover:-rotate-12 cursor-sewingHS`}
-                onClick={() =>
+                onClick={() => {
+                  changeVideo(7);
                   dispatch(
                     setFullScreenVideo({
                       actionOpen: fullScreenVideo?.open ? false : true,
@@ -263,8 +292,8 @@ const Header: FunctionComponent<HeaderProps> = ({
                       actionCursor: fullScreenVideo?.cursor,
                       actionIndex: fullScreenVideo?.index,
                     })
-                  )
-                }
+                  );
+                }}
               >
                 <Image
                   src={`${INFURA_GATEWAY}/ipfs/QmYVHgyAQLxcoP5o23n3jXNnA9N9C93WqpM2heAegty7hU`}
@@ -304,7 +333,7 @@ const Header: FunctionComponent<HeaderProps> = ({
               ></div>
             </div>
           </div>
-          <div className="relative w-full h-full flex items-center justify-center bg-mainText rounded-sm overflow-hidden border-4 border-mainText">
+          <div className="relative w-full h-[60vh] half:h-full flex items-center justify-center bg-mainText rounded-sm overflow-hidden border-4 border-mainText">
             <video
               muted
               loop
@@ -315,13 +344,7 @@ const Header: FunctionComponent<HeaderProps> = ({
               onLoadStart={() => setVideoLoading(true)}
               onLoadedMetadata={() => setVideoLoading(false)}
             >
-              <source
-                src={
-                  currentVideo
-                    ? currentVideo
-                    : `${INFURA_GATEWAY}/ipfs/${VIDEOS[0]}`
-                }
-              />
+              <source src={currentVideo} />
             </video>
             {videoLoading && (
               <div className="absolute top-0 left-0 w-full h-full bg-mainText flex items-center justify-center">
@@ -337,7 +360,6 @@ const Header: FunctionComponent<HeaderProps> = ({
           </div>
         </div>
       </div>
-
       <div className="font-mag w-full flex h-fit text-[16vw] relative items-center justify-center">
         <div className="flex items-center justify-center relative w-fit h-fit">
           DIGITALAX
