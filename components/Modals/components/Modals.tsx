@@ -25,6 +25,8 @@ const Modals = () => {
     handleSeek,
     handleVolumeChange,
     wrapperRef,
+    videosLoading,
+    setVideosLoading,
   } = useVideo(fullScreenVideo, dispatch);
 
   return (
@@ -32,6 +34,8 @@ const Modals = () => {
       {fullScreenVideo?.open && (
         <FullScreenVideo
           dispatch={dispatch}
+          videoLoading={videosLoading}
+          setVideoLoading={setVideosLoading}
           fullScreenVideo={fullScreenVideo}
           videoRef={videoRef as RefObject<HTMLVideoElement>}
           loading={videoLoading}

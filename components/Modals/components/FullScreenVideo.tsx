@@ -18,6 +18,8 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
   handleVolumeChange,
   loading,
   wrapperRef,
+  videoLoading,
+  setVideoLoading,
 }): JSX.Element => {
   return (
     <Draggable
@@ -97,6 +99,7 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
               autoPlay={true}
               className="relative w-full h-full object-cover rounded-md"
               onLoadedMetadata={() => {
+                setVideoLoading(false);
                 dispatch(
                   setFullScreenVideo({
                     actionOpen: fullScreenVideo?.open,
@@ -146,6 +149,7 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
                   })
                 )
               }
+              onLoadStart={() => setVideoLoading(true)}
               onEnded={() => handleNextVideo(true)}
               poster={`${INFURA_GATEWAY}/ipfs/${
                 (
@@ -177,11 +181,13 @@ const FullScreenVideo: FunctionComponent<FullScreenVideoProps> = ({
             <div className="relative w-fit h-fit flex items-center justify-center gap-3">
               <div
                 className={`relative cursor-pointer w-3 h-3 flex items-center justify-center ${
-                  loading?.play && "animate-spin"
+                  (loading?.play || videoLoading) && "animate-spin"
                 }`}
-                onClick={() => !loading?.play && handlePlayPause()}
+                onClick={() =>
+                  (!loading?.play || videoLoading) && handlePlayPause()
+                }
               >
-                {loading?.play ? (
+                {loading?.play || videoLoading ? (
                   <AiOutlineLoading size={15} color="white" />
                 ) : (
                   <Image

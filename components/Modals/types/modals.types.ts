@@ -28,4 +28,6 @@ export type FullScreenVideoProps = {
     videos: boolean;
   };
   wrapperRef: RefObject<Draggable>;
+  videoLoading: boolean;
+  setVideoLoading: (e: boolean) => void;
 };

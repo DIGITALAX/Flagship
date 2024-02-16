@@ -346,7 +346,7 @@ const Header: FunctionComponent<HeaderProps> = ({
             >
               <source src={currentVideo} />
             </video>
-            {videoLoading && (
+            {(videoLoading || !currentVideo) && (
               <div className="absolute top-0 left-0 w-full h-full bg-mainText flex items-center justify-center">
                 <div className="relative w-52 h-8 flex items-center justify-center animate-pulse">
                   <Image

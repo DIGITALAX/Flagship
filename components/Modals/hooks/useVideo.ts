@@ -19,6 +19,7 @@ const useVideo = (
 ) => {
   const videoRef = useRef<null | HTMLVideoElement>(null);
   const wrapperRef = useRef<Draggable | null>(null);
+  const [videosLoading, setVideosLoading] = useState<boolean>(false);
   const [videoLoading, setVideoLoading] = useState<{
     play: boolean;
     next: boolean;
@@ -204,6 +205,8 @@ const useVideo = (
     handleSeek,
     handleVolumeChange,
     wrapperRef,
+    videosLoading,
+    setVideosLoading,
   };
 };
 
