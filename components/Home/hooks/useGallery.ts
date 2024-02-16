@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { getGallery } from "@/graphql/subgraph/queries/collections";
 import { Creation } from "@/components/Distro/types/distro.types";
+import fetchIPFSJSON from "@/lib/lens/helpers/fetchIPFSJson";
 const useGallery = () => {
   const shop = useRef<null | HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -23,9 +24,23 @@ const useGallery = () => {
         ["asc", "desc"].sort(() => Math.random() - 0.5)[0]
       );
 
-      setGallery(
-        data?.data?.collectionCreateds?.sort(() => Math.random() - 0.5)
+      const promises = await Promise.all(
+        data?.data?.collectionCreateds?.map(
+          async (item: { uri: string; collectionMetadata: {} }) => {
+            if (!item?.collectionMetadata) {
+              const collectionMetadata = await fetchIPFSJSON(item?.uri);
+              return {
+                ...item,
+                collectionMetadata,
+              };
+            } else {
+              return item;
+            }
+          }
+        )
       );
+
+      setGallery(promises?.sort(() => Math.random() - 0.5));
     } catch (err: any) {
       console.error(err.message);
     }
