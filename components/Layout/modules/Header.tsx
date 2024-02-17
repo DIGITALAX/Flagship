@@ -47,6 +47,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                 layout="fill"
                 objectFit="fill"
                 draggable={false}
+                priority
                 src={`${INFURA_GATEWAY}/ipfs/QmVdLxvGcosPWi3DLREjbPWUwf7Q5AXroxxBg5CHD4q4qM`}
               />
             </div>
@@ -54,6 +55,7 @@ const Header: FunctionComponent<HeaderProps> = ({
               <Image
                 layout="fill"
                 objectFit="fill"
+                priority
                 draggable={false}
                 src={`${INFURA_GATEWAY}/ipfs/QmYWuUrkVNoSpz2NAr3V1hLqoucb48uTFsRthHR9trKY5V`}
               />
@@ -75,6 +77,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                     <div className="relative w-full preG:w-36 half:w-52 h-10 flex items-center justify-center">
                       <Image
                         layout="fill"
+                        priority
                         draggable={false}
                         src={`${INFURA_GATEWAY}/ipfs/QmSpjYvvdRtRzyN6cjRL1SGbSKDu5mDAwZtqb1WPZcH7Q9`}
                       />
@@ -97,6 +100,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                       <Image
                         layout="fill"
                         draggable={false}
+                        priority
                         src={`${INFURA_GATEWAY}/ipfs/QmSpjYvvdRtRzyN6cjRL1SGbSKDu5mDAwZtqb1WPZcH7Q9`}
                       />
                     </div>
@@ -114,6 +118,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                   <Image
                     layout="fill"
                     draggable={false}
+                    priority
                     src={`${INFURA_GATEWAY}/ipfs/QmSfBUFGogXohAgLYimvy1ArU4aUrLyYCZ7EDuFELudWm7`}
                   />
                 </div>
@@ -175,6 +180,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                       <Image
                         layout="fill"
                         draggable={false}
+                        priority
                         src={`${INFURA_GATEWAY}/ipfs/QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
                       />
                     </div>
@@ -192,6 +198,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                     <div className="relative w-full h-10 flex items-center justify-center">
                       <Image
                         layout="fill"
+                        priority
                         draggable={false}
                         src={`${INFURA_GATEWAY}/ipfs/QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
                       />
@@ -212,6 +219,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                     <div className="relative w-full h-10 flex items-center justify-center">
                       <Image
                         layout="fill"
+                        priority
                         draggable={false}
                         src={`${INFURA_GATEWAY}/ipfs/QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
                       />
@@ -231,6 +239,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                       <Image
                         layout="fill"
                         draggable={false}
+                        priority
                         src={`${INFURA_GATEWAY}/ipfs/QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
                       />
                     </div>
@@ -248,6 +257,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                   <div className="relative w-full preG:w-40 half:w-52 h-8 flex items-center justify-center">
                     <Image
                       layout="fill"
+                      priority
                       src={`${INFURA_GATEWAY}/ipfs/QmX8kDkP3rdgqeEauqzsbwL8zP4hGwtTKxrT3Xmw7R2feL`}
                       draggable={false}
                     />
@@ -257,6 +267,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                   <div className="relative w-full preG:w-40 half:w-52 h-8 flex items-center justify-center">
                     <Image
                       layout="fill"
+                      priority
                       src={`${INFURA_GATEWAY}/ipfs/QmSkppQ8Z9M4cYR4NLDD8wMUVyB7j9cmoe6ABjQhnTWkfv`}
                       draggable={false}
                     />
@@ -355,6 +366,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                     layout="fill"
                     src={`${INFURA_GATEWAY}/ipfs/QmX8kDkP3rdgqeEauqzsbwL8zP4hGwtTKxrT3Xmw7R2feL`}
                     draggable={false}
+                    priority
                   />
                 </div>
               </div>
