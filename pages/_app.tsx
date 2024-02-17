@@ -19,6 +19,7 @@ import {
   Theme,
 } from "@rainbow-me/rainbowkit";
 import { merge } from "lodash";
+import RouterChange from "@/components/Layout/modules/RouterChange";
 
 const walletTheme = merge(darkTheme(), {
   colors: {
@@ -161,6 +162,31 @@ function MyApp({ Component, pageProps }: AppProps) {
   const handleRewind = (): void => {
     rewind.current?.scrollIntoView({ behavior: "smooth" });
   };
+  const [routerChangeLoading, setRouterChangeLoading] =
+    useState<boolean>(false);
+  useEffect(() => {
+    const handleStart = () => {
+      setRouterChangeLoading(true);
+    };
+
+    const handleStop = () => {
+      setRouterChangeLoading(false);
+    };
+
+    router.events.on("routeChangeStart", handleStart);
+    router.events.on("routeChangeComplete", handleStop);
+    router.events.on("routeChangeError", handleStop);
+
+    return () => {
+      router.events.off("routeChangeStart", handleStart);
+      router.events.off("routeChangeComplete", handleStop);
+      router.events.off("routeChangeError", handleStop);
+    };
+  }, [router]);
+
+  if (routerChangeLoading) {
+    return <RouterChange />;
+  }
 
   return (
     <WagmiConfig config={wagmiConfig}>
