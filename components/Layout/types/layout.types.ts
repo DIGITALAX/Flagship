@@ -15,7 +15,7 @@ export type HeaderProps = {
   router: NextRouter;
   fullScreenVideo: FullScreenVideoState;
   dispatch: Dispatch<AnyAction>;
-  currentVideo: string | undefined;
+  currentVideo: number | undefined;
   changeVideo: (index: number) => void;
   setVideoLoading: (e: boolean) => void;
   videoLoading: boolean;

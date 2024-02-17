@@ -63,18 +63,14 @@ const Header: FunctionComponent<HeaderProps> = ({
                 <div
                   className="relative w-fit h-fit flex items-center justify-center text-xl half:text-3xl cursor-sewingHS active:scale-95"
                   id="npc"
-                  onClick={() =>
-                    changeVideo([6, 9].sort(() => Math.random() - 0.5)?.[0])
-                  }
+                  onClick={() => changeVideo(currentVideo == 6 ? 9 : 6)}
                 >
                   NPC Studio
                 </div>
                 <div className="relative w-full preG:w-fit h-fit flex items-center justify-center flex-col gap-3">
                   <div
                     className="relative w-full preG:w-fit h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
-                    onClick={() =>
-                      changeVideo([0, 8].sort(() => Math.random() - 0.5)?.[0])
-                    }
+                    onClick={() => changeVideo(currentVideo == 0 ? 8 : 0)}
                   >
                     <div className="relative w-full preG:w-36 half:w-52 h-10 flex items-center justify-center">
                       <Image
@@ -122,7 +118,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                   />
                 </div>
                 <div className="relative p-2 flex items-start justify-center w-full sm:w-52 h-40 sm:h-44 text-orilla text-sm text-left">
-                  {currentVideo?.split("ipfs/")?.[1] === VIDEOS[5] ? (
+                  {currentVideo === 5 ? (
                     <>
                       <textarea
                         className={`relative w-full h-full font-bit flex items-center justify-center bg-black ${
@@ -344,9 +340,15 @@ const Header: FunctionComponent<HeaderProps> = ({
               onLoadStart={() => setVideoLoading(true)}
               onLoadedMetadata={() => setVideoLoading(false)}
             >
-              <source src={currentVideo} />
+              <source
+                src={
+                  currentVideo !== undefined
+                    ? `${INFURA_GATEWAY}/ipfs/${VIDEOS[currentVideo]}`
+                    : undefined
+                }
+              />
             </video>
-            {(videoLoading || !currentVideo) && (
+            {(videoLoading || currentVideo == undefined) && (
               <div className="absolute top-0 left-0 w-full h-full bg-mainText flex items-center justify-center">
                 <div className="relative w-52 h-8 flex items-center justify-center animate-pulse">
                   <Image

@@ -1,4 +1,4 @@
-import { VIDEOS, INFURA_GATEWAY, DIGITALAX_ADDRESS } from "@/lib/constants";
+import { DIGITALAX_ADDRESS } from "@/lib/constants";
 import { Client } from "@xmtp/xmtp-js";
 import { useEffect, useState } from "react";
 import { createWalletClient, custom } from "viem";
@@ -7,12 +7,12 @@ import { polygon } from "viem/chains";
 const useHeader = (address: `0x${string}` | undefined) => {
   const [messageLoading, setMessageLoading] = useState<boolean>(false);
   const [videoLoading, setVideoLoading] = useState<boolean>(false);
-  const [currentVideo, setCurrentVideo] = useState<string>();
+  const [currentVideo, setCurrentVideo] = useState<number>();
   const [message, setMessage] = useState<string>("Encrypt us a message?");
   const [client, setClient] = useState<Client | undefined>();
 
   const changeVideo = (index: number) => {
-    setCurrentVideo(`${INFURA_GATEWAY}/ipfs/${VIDEOS[index]}`);
+    setCurrentVideo(index);
   };
 
   const handleClient = async (): Promise<Client | undefined> => {
@@ -36,11 +36,7 @@ const useHeader = (address: `0x${string}` | undefined) => {
 
   useEffect(() => {
     if (!currentVideo) {
-      setCurrentVideo(
-        `${INFURA_GATEWAY}/ipfs/${
-          VIDEOS[[0, 8].sort(() => Math.random() - 0.5)?.[0]]
-        }`
-      );
+      setCurrentVideo([0, 8].sort(() => Math.random() - 0.5)?.[0]);
     }
   }, []);
 
