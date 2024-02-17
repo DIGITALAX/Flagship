@@ -12,7 +12,6 @@ const Tiles: FunctionComponent<TilesProps> = ({
   const renderTile = ({
     data,
     index,
-
   }: {
     index: number;
     data: Publication;
@@ -32,7 +31,6 @@ const Tiles: FunctionComponent<TilesProps> = ({
       className={`relative z-0 w-full flex pt-6 overflow-y-scroll h-full`}
       id="tileSearch"
     >
-      
       <Masonry
         overscanBy={300}
         key={searchLoading ? 20 : searchItems?.length}
@@ -44,16 +42,11 @@ const Tiles: FunctionComponent<TilesProps> = ({
               }))
             : searchItems
         }
-     
         id="tileSearch"
         render={renderTile}
         columnGutter={50}
         maxColumnCount={
-          typeof window !== "undefined" &&
-          window.innerWidth < 1280 &&
-          window.innerWidth > 768
-            ? 1
-            : 2
+          typeof window !== "undefined" && window.innerWidth < 1280 ? 1 : 2
         }
         columnWidth={100}
         itemHeightEstimate={1000}

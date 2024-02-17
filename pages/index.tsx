@@ -97,7 +97,7 @@ const Home: NextPage<HomeProps> = ({
         galleryLoading={galleryLoading}
         gallery={gallery}
       />
-      <div className="w-[95vw] half:w-[80vw] relative flex items-center justify-center min-h-[120vw] h-[80vh] md:h-[180vh] border-2 md:border-8 bg-offBlack border-diy">
+      <div className="w-[95vw] half:w-[80vw] relative flex items-center justify-center min-h-[120vw] h-[80vh] md:h-[180vh] border-2 md:border-8 bg-mainText border-diy">
         <div className="relative w-full h-full flex items-center justify-center">
           <Image
             layout="fill"
@@ -106,7 +106,7 @@ const Home: NextPage<HomeProps> = ({
             draggable={false}
           />
         </div>
-        <div className="absolute sm:left-6 2xl:bottom-1/3 bottom-60 w-fit h-fit flex flex-col gap-6 items-center justify-center">
+        <div className="absolute left-6 2xl:bottom-1/3 bottom-32 preG:bottom-48 sm:bottom-60 w-fit h-fit flex flex-col gap-6 items-center justify-center">
           {[
             "QmaU44DD7KEPAfQfrYB1hGs8KJVr2G2Ua7BzkNd9iRcC47",
             "QmQoDj9jjU81mgBfdXT8P83EZmyrXRQmL6scNGgaMTivys",
@@ -115,7 +115,7 @@ const Home: NextPage<HomeProps> = ({
             return (
               <div
                 key={index}
-                className="relative items-center justify-center w-5/6 sm:w-40 md:w-72 h-40 md:h-60 flex rounded-xl p-0.5"
+                className="relative items-center justify-center w-20 sm:w-40 md:w-72 h-20 sm:h-40 md:h-60 flex rounded-xl p-0.5"
                 id="crt"
               >
                 <div className="relative bg-offBlack w-full h-full rounded-xl flex items-center justify-center">
