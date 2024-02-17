@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import Footer from "../components/Layout/modules/Footer";
 import { store } from "./../redux/store";
 import { Provider } from "react-redux";
+import "@rainbow-me/rainbowkit/styles.css";
 import { XMTPProvider } from "@xmtp/react-sdk";
 import { useRouter } from "next/router";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
