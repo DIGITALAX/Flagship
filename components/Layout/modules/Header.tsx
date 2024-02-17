@@ -397,7 +397,7 @@ const Header: FunctionComponent<HeaderProps> = ({
         <div className="relative w-fit h-fit flex flex-row half:flex-col midi:flex-row gap-4 items-center half:items-end midi:items-center justify-center mr-0 midi:text-center text-right sm:flex-nowrap flex-wrap">
           <div className="relative flex flex-row gap-4 flex items-center justify-center">
             <div className="relative w-fit h-fit flex items-center justify-center font-bit text-xs md:text-sm text-ama">
-              Explore the entire web3 + npc <br /> commerce ecosystem at a
+              Explore the entire web3 fashion <br /> + npc commerce ecosystem at a
               glance
             </div>
             <div className="relative w-fit h-fit flex items-center justify-center font-bit text-sm text-ama">
