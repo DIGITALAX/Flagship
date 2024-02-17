@@ -275,7 +275,7 @@ const Header: FunctionComponent<HeaderProps> = ({
             <Heart changeColor={changeColor} heartColor={heartColor} />
           </div>
           <div className="relative w-full h-fit flex items-center justify-end gap-3 flex-row">
-            <div className="relative w-fit h-fit flex flex-row items-center justify-center gap-2">
+            <div className="relative w-fit h-fit flex flex-col sm:flex-row items-center justify-center gap-2">
               <div
                 className={`relative w-fit h-fit flex items-center justify-center hover:-rotate-12 cursor-sewingHS`}
                 onClick={() => {
