@@ -117,6 +117,35 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
+
+body::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+body::-webkit-scrollbar-track:active {
+  background-color: transparent !important;
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background-color: transparent !important;
+}
+
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+html::-webkit-scrollbar-track:active {
+  background-color: transparent !important;
+}
+
+html::-webkit-scrollbar-thumb:active {
+  background-color: transparent !important;
+}
+
+
+
 .theme-cream {
   --mainBg: theme("colors.midWhite");
   --mainText: theme("colors.offBlack");
