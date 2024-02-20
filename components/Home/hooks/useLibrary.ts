@@ -6,7 +6,7 @@ const useLibrary = () => {
     link: string;
   }>({
     image: "QmRjGGc591f9wKXth3to3MLSj5puDbeJgh9PTjWSyuW5uP",
-    link: "https://docs.digitalax.xyz",
+    link: "https://cypher.digitalax.xyz/autograph/digitalax",
   });
 
   const lastBook = useRef<null | HTMLDivElement>(null);
