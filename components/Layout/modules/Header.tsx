@@ -193,7 +193,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                   </div>
                   <div
                     className="relative w-full h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
-                    onClick={() => changeVideo(4)}
+                    onClick={() => changeVideo(currentVideo == 4 ? 10 : 4)}
                   >
                     <div className="relative w-full h-10 flex items-center justify-center">
                       <Image
@@ -233,7 +233,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                   </div>
                   <div
                     className="relative w-full h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
-                    onClick={() => changeVideo(2)}
+                    onClick={() => changeVideo(currentVideo == 2 ? 11 : 2)}
                   >
                     <div className="relative w-full h-10 flex items-center justify-center">
                       <Image
@@ -409,8 +409,8 @@ const Header: FunctionComponent<HeaderProps> = ({
         <div className="relative w-fit h-fit flex flex-row half:flex-col midi:flex-row gap-4 items-center half:items-end midi:items-center justify-center mr-0 midi:text-center text-right sm:flex-nowrap flex-wrap">
           <div className="relative flex flex-row gap-4 flex items-center justify-center">
             <div className="relative w-fit h-fit flex items-center justify-center font-bit text-xs md:text-sm text-ama">
-              Explore the entire web3 fashion <br /> + npc commerce ecosystem at a
-              glance
+              Explore the entire web3 fashion <br /> + npc commerce ecosystem at
+              a glance
             </div>
             <div className="relative w-fit h-fit flex items-center justify-center font-bit text-sm text-ama">
               {">"}
