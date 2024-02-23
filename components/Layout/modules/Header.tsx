@@ -193,7 +193,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                   </div>
                   <div
                     className="relative w-full h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
-                    onClick={() => changeVideo(currentVideo == 4 ? 10 : 4)}
+                    onClick={() => changeVideo(4)}
                   >
                     <div className="relative w-full h-10 flex items-center justify-center">
                       <Image
@@ -233,7 +233,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                   </div>
                   <div
                     className="relative w-full h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
-                    onClick={() => changeVideo(currentVideo == 2 ? 11 : 2)}
+                    onClick={() => changeVideo(2)}
                   >
                     <div className="relative w-full h-10 flex items-center justify-center">
                       <Image
@@ -332,11 +332,10 @@ const Header: FunctionComponent<HeaderProps> = ({
               </div>
               <div
                 className="relative w-full h-full cursor-sewingHS bg-gradient-to-r from-mainBg via-transparent flex items-center justify-center rounded-r-md to-transparent"
-                onClick={
-                  router.pathname == "/"
-                    ? () => handleShop()
-                    : () => (document.location.href = "/#shop")
-                }
+                onClick={() => {
+                  handleShop();
+                  changeVideo(11);
+                }}
               ></div>
             </div>
           </div>
@@ -375,7 +374,10 @@ const Header: FunctionComponent<HeaderProps> = ({
         </div>
       </div>
       <div className="font-mag w-full flex h-fit text-[16vw] relative items-center justify-center">
-        <div className="flex items-center justify-center relative w-fit h-fit">
+        <div
+          className="flex items-center justify-center relative w-fit h-fit cursor-sewingHS"
+          onClick={() => changeVideo(10)}
+        >
           DIGITALAX
         </div>
       </div>
