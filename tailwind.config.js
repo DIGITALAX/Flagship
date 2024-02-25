@@ -91,7 +91,8 @@ module.exports = {
         nave: "#0b0e16",
         chispa: "#D0DEE0",
         orilla: "#46B171",
-        windows: "#0035F2"
+        windows: "#0035F2",
+        solapa: "#58B5F5"
 
       },
       fontFamily: {

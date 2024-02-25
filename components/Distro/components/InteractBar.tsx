@@ -10,7 +10,7 @@ const InteractBar: FunctionComponent<InteractBarProps> = ({
 }): JSX.Element => {
   return (
     <div
-      className={`relative w-full h-fit rounded-sm border border-frio font-vcr text-mar flex gap-4 p-2 items-center justify-center bg-fuego tablet:flex-nowrap flex-wrap z-10 flex-row text-base`}
+      className={`relative w-full h-fit rounded-sm border border-frio font-vcr text-mar flex gap-4 p-2 items-center justify-center bg-fuego flex-wrap z-10 flex-row text-base`}
     >
       {[
         {

@@ -429,3 +429,79 @@ export const VIDEOS: string[] = [
   "QmavfjniycTakzRQibgRrM4SEVBPUPh5i1g29m96ZPAV1x",
   "QmPLLa9wpfhZ62QAWdYsEjyPXkywuKrvJPuUkk5imxMzp4",
 ];
+
+export const IMAGE_LOGS: {
+  image: string;
+  title: string;
+  description: string;
+}[] = [
+  {
+    image: "QmUJhqQqWytTGinT4LvgzvHfrpRJaweDY6uhuFQb7SPvai",
+    title: "",
+    description: "",
+  },
+  {
+    image: "QmdN7qJfKLLf6gABofJzbwd7Ln7f9ookvzkVjipzL95zU6",
+    title: "",
+    description: "",
+  },
+  {
+    image: "Qmcdzk1nAviFEGnbwV8FUADsJVJV32SVQa941oJcJxLray",
+    title: "NPC Studio",
+    description:
+      "Insert $MONA to activate your AI agent workforce & equip your LLM machines",
+  },
+  {
+    image: "QmXdaKvoQ5hS3t2zsZzqttkugGV6ztmAmmPGhWBrC2rsun",
+    title: "Coin Op",
+    description:
+      "Instant wearable art gen perfect for a day out at the automat",
+  },
+  {
+    image: "QmcvPutuJK2CX8cyL3ocDPLUrvWnJDWgA4MSBhr8YX7twb",
+    title: "The Manufactory",
+    description:
+      "Decentralized production & fulfillment studio co-op for the gen AI era",
+  },
+  {
+    image: "QmfWUEoyST1M53fSRUGPkVhQHS5cvKaJVKvuKGjXzmsgX6",
+    title: "$MONA",
+    description:
+      "Hold, trade, & insert this ERC-20 to trigger rare events, with conditional logic",
+  },
+  {
+    image: "QmVNwrNYUy3HfyTSv4CVJLFRW53Lbrv6DuETgCRVYbqDAB",
+    title: "Kinora",
+    description:
+      "Web3 video player & sdk with quests & metrics for savvy creators & friends",
+  },
+  {
+    image: "QmaTft6ayihYwKRdhSNc2a8RgSvKq9jK6YvTRA9zrhcs2Q",
+    title: "Vision Quests",
+    description:
+      "A challenge awaits!  Collect your rewards with  token gated  gameplay",
+  },
+  {
+    image: "QmQt4QVbXfJDwhre2ScJxm67gDid7VA5cmycygyjaL8Fuz",
+    title: "Chromadin",
+    description:
+      "Replace YouTube with rare streams you can collect and take with you",
+  },
+  {
+    image: "QmaoosmxdyzTGgionT7w8th6iwUPk5JzgCTmBocSZUPFNs",
+    title: "Lit Listener",
+    description: "Universal encryption for on-chain events",
+  },
+  {
+    image: "QmXZ5doMa6r3hSrKscDTFoEfsXh58L38irz9fgSVUVszxj",
+    title: "The Dial",
+    description:
+      "Decentralized social media, on Lens with gen AI for the all in one creative experience",
+  },
+  {
+    image: "QmUKiHVC7YECYRDbmuCzV8WCTw2JRfhpuivpAM8nta4oGJ",
+    title: "Legend",
+    description:
+      "Don't wait for the path to web3 public goods to open. Collect your own way",
+  },
+];

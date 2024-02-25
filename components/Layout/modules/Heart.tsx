@@ -8,8 +8,10 @@ const Heart: FunctionComponent<HeartProps> = ({
   return (
     <div className="relative w-fit h-fit flex items-center justify-center">
       <div
-        className="border border-2 rounded-full border-mainText w-fit h-fit px-5 py-2 flex items-center justify-center cursor-sewingHS fill-mainText"
-        onClick={() => changeColor()}
+        className={`border border-2 rounded-full w-fit h-fit px-5 py-2 flex items-center justify-center cursor-sewingHS fill-mainText ${
+          changeColor ? "border-mainText" : "border-white"
+        }`}
+        onClick={() => changeColor && changeColor()}
       >
         <svg
           version="1.1"

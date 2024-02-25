@@ -28,6 +28,6 @@ export type HeaderProps = {
 };
 
 export type HeartProps = {
-  changeColor: () => void;
+  changeColor?: () => void;
   heartColor: string;
 };
