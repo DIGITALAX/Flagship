@@ -422,12 +422,20 @@ export const VIDEOS: string[] = [
   "QmQFE4utd3vitUsY6BUw2oJas1dFJinYub2T6GsDHZTep9",
   "QmYVhzAzEU8cQmVtNchgWLtAaEwjdwZ9s9u5GLNQJXQvTE",
   "QmdSXcfAM8KdEbWfYEwCRT1gg5m2QjbZQ1GGjqCaHA71Cx",
-  "QmRLB1MrweGDLrbymb2rijLkZKCVzuFZYgmgwrDPPMkxAV",
   "QmaNb6FmdAtNPyucTi67qNx9QpGepjPCZ74aaVzVPWX7bP",
-  "QmSX6M6r2aEgMguCpmb6xiskSpAFJ92WN9Tffw4tPZegzo",
-  "QmZyCsUrAtQ2KXdSyJ6T5Mc4sq8jRRYjMryu7aQqWjsjQh",
   "QmavfjniycTakzRQibgRrM4SEVBPUPh5i1g29m96ZPAV1x",
   "QmPLLa9wpfhZ62QAWdYsEjyPXkywuKrvJPuUkk5imxMzp4",
+  "QmSX6M6r2aEgMguCpmb6xiskSpAFJ92WN9Tffw4tPZegzo",
+  "QmRLB1MrweGDLrbymb2rijLkZKCVzuFZYgmgwrDPPMkxAV",
+  "QmZyCsUrAtQ2KXdSyJ6T5Mc4sq8jRRYjMryu7aQqWjsjQh",
+  "QmWrYKVpk1kwf4zwRMqeEnRzz5vpjLEYEFGYs9sSYqdaJK",
+  "QmYVc8mP9BQGTo2tRTYtkYKTxHbCaPR7itSvjne99chAg6",
+  "QmSzUc1wtMeFbtjfhft49ppVhhZjLmQF61DyF11XggX27W",
+  "QmTAjN4mV9sBAcNFETF6D71T1wLusahjXnotVgiJ3k3Quk",
+  "QmT14YpkviridMGM5obNSeYtyUrTvdZhUM2nswwgZh9jGD",
+  "QmamEmJxF6p1bfqV34xtp4BgheLgj9YDNG93Ktf31MXTzQ",
+  "QmU569Q9FFnpoatwmiRmtK3th99P27zGcDyD8MwPo8rYYp",
+  "Qmd6QrcALR7Q2NKCJdyAx5ugpbDeWnYvbnRTgR1THaxwUN",
 ];
 
 export const IMAGE_LOGS: {

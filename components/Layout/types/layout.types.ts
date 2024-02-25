@@ -12,7 +12,6 @@ export type HeaderProps = {
   changeColor: () => void;
   heartColor: string;
   handleShop: () => void;
-  router: NextRouter;
   fullScreenVideo: FullScreenVideoState;
   dispatch: Dispatch<AnyAction>;
   currentVideo: number | undefined;

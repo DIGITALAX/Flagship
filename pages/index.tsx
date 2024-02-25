@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useEffect } from "react";
 import useGallery from "../components/Home/hooks/useGallery";
 import Image from "next/legacy/image";
 import { INFURA_GATEWAY } from "@/lib/constants";
@@ -61,7 +60,6 @@ const Home: NextPage<HomeProps> = ({
         changeColor={changeColor}
         heartColor={heartColor}
         handleShop={handleShop}
-        router={router}
         currentVideo={currentVideo}
         videoLoading={videoLoading}
         setVideoLoading={setVideoLoading}

@@ -154,7 +154,7 @@ const BuildLog: NextPage<LogProps> = ({ rewind, router }): JSX.Element => {
                     {item.title}
                   </div>
                   <div
-                    className="relative w-fit h-fit flex items-center whitespace-nowrap break-words whitespace-pre-line	justify-start text-xs text-solapa font-mana"
+                    className="relative w-fit h-fit flex items-center  break-words whitespace-pre-line justify-start text-xs text-solapa font-mana"
                     dangerouslySetInnerHTML={{
                       __html: descriptionRegex(item.description, false),
                     }}

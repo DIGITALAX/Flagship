@@ -12,7 +12,6 @@ const Header: FunctionComponent<HeaderProps> = ({
   handleShop,
   changeColor,
   heartColor,
-  router,
   fullScreenVideo,
   dispatch,
   currentVideo,
@@ -63,16 +62,15 @@ const Header: FunctionComponent<HeaderProps> = ({
             <div className="relative w-full sm:w-fit h-fit flex flex-col preG:flex-row half:flex-col gap-8 sm:gap-3 half:gap-6 items-center justify-center">
               <div className="relative w-full preG:w-fit h-full flex flex-col gap-3 items-center justify-center">
                 <div
-                  className="relative w-fit h-fit flex items-center justify-center text-xl half:text-3xl cursor-sewingHS active:scale-95"
+                  className="relative w-fit h-fit flex items-center justify-center text-xl half:text-3xl"
                   id="npc"
-                  onClick={() => changeVideo(currentVideo == 6 ? 9 : 6)}
                 >
                   NPC Studio
                 </div>
                 <div className="relative w-full preG:w-fit h-fit flex items-center justify-center flex-col gap-3">
                   <div
                     className="relative w-full preG:w-fit h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
-                    onClick={() => changeVideo(currentVideo == 0 ? 8 : 0)}
+                    onClick={() => changeVideo(0)}
                   >
                     <div className="relative w-full preG:w-36 half:w-52 h-10 flex items-center justify-center">
                       <Image
@@ -279,14 +277,24 @@ const Header: FunctionComponent<HeaderProps> = ({
         </div>
         <div className="relative w-full h-full flex items-center justify-start flex-col gap-3 half:order-2 order-1">
           <div className="relative w-full h-fit mr-0 flex items-end justify-end">
-            <Heart changeColor={changeColor} heartColor={heartColor} />
+            <Heart
+              changeColor={() => {
+                changeColor();
+                changeVideo(
+                  Number(currentVideo) < 10 || Number(currentVideo) == 19
+                    ? 10
+                    : Number(currentVideo) + 1
+                );
+              }}
+              heartColor={heartColor}
+            />
           </div>
           <div className="relative w-full h-fit flex items-center justify-end gap-3 flex-row">
             <div className="relative w-fit h-fit flex flex-col sm:flex-row items-center justify-center gap-2">
               <div
                 className={`relative w-fit h-fit flex items-center justify-center hover:-rotate-12 cursor-sewingHS`}
                 onClick={() => {
-                  changeVideo(7);
+                  changeVideo(6);
                   dispatch(
                     setFullScreenVideo({
                       actionOpen: fullScreenVideo?.open ? false : true,
@@ -334,7 +342,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                 className="relative w-full h-full cursor-sewingHS bg-gradient-to-r from-mainBg via-transparent flex items-center justify-center rounded-r-md to-transparent"
                 onClick={() => {
                   handleShop();
-                  changeVideo(11);
+                  changeVideo(8);
                 }}
               ></div>
             </div>
@@ -376,7 +384,7 @@ const Header: FunctionComponent<HeaderProps> = ({
       <div className="font-mag w-full flex h-fit text-[16vw] relative items-center justify-center">
         <div
           className="flex items-center justify-center relative w-fit h-fit cursor-sewingHS"
-          onClick={() => changeVideo(10)}
+          onClick={() => changeVideo(7)}
         >
           DIGITALAX
         </div>
