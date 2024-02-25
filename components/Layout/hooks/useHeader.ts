@@ -36,7 +36,7 @@ const useHeader = (address: `0x${string}` | undefined) => {
 
   useEffect(() => {
     if (!currentVideo) {
-      setCurrentVideo([0, 8].sort(() => Math.random() - 0.5)?.[0]);
+      setCurrentVideo(0);
     }
   }, []);
 
