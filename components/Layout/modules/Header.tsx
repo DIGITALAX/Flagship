@@ -164,11 +164,13 @@ const Header: FunctionComponent<HeaderProps> = ({
                         Equip your AI workforce. Train for less idle time. try
                         to survive in style
                       </div>
-                      <div
-                        className="relative w-full h-fit flex items-start justify-end cursor-sewingHS"
-                        onClick={() => window.open(`https://npcstudio.xyz`)}
-                      >
-                        {`-->`}
+                      <div className="relative w-full h-fit flex items-end justify-end">
+                        <div
+                          className="relative w-fit h-fit flex items-start justify-end cursor-sewingHS"
+                          onClick={() => window.open(`https://npcstudio.xyz`)}
+                        >
+                          {`-->`}
+                        </div>
                       </div>
                     </div>
                   )}
