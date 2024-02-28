@@ -70,7 +70,10 @@ const Header: FunctionComponent<HeaderProps> = ({
                 <div className="relative w-full preG:w-fit h-fit flex items-center justify-center flex-col gap-3">
                   <div
                     className="relative w-full preG:w-fit h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
-                    onClick={() => changeVideo(0)}
+                    onClick={() => {
+                      changeVideo(0);
+                      window.open(`https://npcstudio.xyz`);
+                    }}
                   >
                     <div className="relative w-full preG:w-36 half:w-52 h-10 flex items-center justify-center">
                       <Image
