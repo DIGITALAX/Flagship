@@ -70,10 +70,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                 <div className="relative w-full preG:w-fit h-fit flex items-center justify-center flex-col gap-3">
                   <div
                     className="relative w-full preG:w-fit h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
-                    onClick={() => {
-                      changeVideo(0);
-                      window.open(`https://npcstudio.xyz`);
-                    }}
+                    onClick={() => changeVideo(0)}
                   >
                     <div className="relative w-full preG:w-36 half:w-52 h-10 flex items-center justify-center">
                       <Image
@@ -123,7 +120,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                     src={`${INFURA_GATEWAY}/ipfs/QmSfBUFGogXohAgLYimvy1ArU4aUrLyYCZ7EDuFELudWm7`}
                   />
                 </div>
-                <div className="relative p-2 flex items-start justify-center w-full sm:w-52 h-40 sm:h-44 text-orilla text-sm text-left">
+                <div className="relative p-2 flex items-start justify-center w-full sm:w-52 h-44 sm:h-48 text-orilla text-sm text-left">
                   {currentVideo === 5 ? (
                     <>
                       <textarea
@@ -160,11 +157,19 @@ const Header: FunctionComponent<HeaderProps> = ({
                       </div>
                     </>
                   ) : (
-                    <div className="relative w-full h-full flex items-start justify-start">
-                      welcome to the great unbundling of the everything app.
-                      <br /> <br />
-                      Equip your AI workforce. Train for less idle time. try to
-                      survive in style.
+                    <div className="relative w-full h-full flex items-start justify-between flex flex-col gap-px">
+                      <div className="relative w-full h-fit flex items-start justify-start">
+                        welcome to the great unbundling of the everything app.
+                        <br /> <br />
+                        Equip your AI workforce. Train for less idle time. try
+                        to survive in style
+                      </div>
+                      <div
+                        className="relative w-full h-fit flex items-start justify-end cursor-sewingHS"
+                        onClick={() => window.open(`https://npcstudio.xyz`)}
+                      >
+                        {`-->`}
+                      </div>
                     </div>
                   )}
                 </div>
