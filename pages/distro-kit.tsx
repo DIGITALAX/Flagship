@@ -12,6 +12,8 @@ import { setImageViewer } from "@/redux/reducers/imageViewerSlice";
 import Tiles from "@/components/Distro/components/Tiles";
 import useCypherSearch from "@/components/Distro/hooks/useCypherSearch";
 import Heart from "@/components/Layout/modules/Heart";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
 
 const DistroKit: NextPage<DistroProps> = ({
   heartColor,
@@ -19,10 +21,10 @@ const DistroKit: NextPage<DistroProps> = ({
   rewind,
   router,
 }): JSX.Element => {
+  const { t } = useTranslation("distro");
   const dispatch = useDispatch();
   const { tvImages, setBlenderPage, setTvImages, blenderPage } = useDistro();
-  const { searchLoading, searchItems, filterConstants } =
-    useCypherSearch();
+  const { searchLoading, searchItems, filterConstants } = useCypherSearch();
 
   return (
     <div className="min-w-screen min-h-full h-full flex flex-col bg-mainBg justify-start items-center pb-28 gap-32">
@@ -39,7 +41,7 @@ const DistroKit: NextPage<DistroProps> = ({
           </div>
           <div className="relative w-fit h-fit flex ml-0 items-center justify-center flex-col sm:flex-row gap-3">
             <div className="relative w-fit h-fit flex font-bit text-mainText text-2xl sm:text-4xl mr-0 items-center justify-center top-1">
-              DISTRO KIT
+              {t("distro")}
             </div>
             <Heart changeColor={changeColor} heartColor={heartColor} />
           </div>
@@ -57,7 +59,7 @@ const DistroKit: NextPage<DistroProps> = ({
       </div>
 
       <Head>
-        <title>Distro-Kit</title>
+        <title>{t("distro")}</title>
         <meta
           name="description"
           content="We write prompts, design styles & build code for protocol-ecosystems where web3 fashion & latent machines draw distances between ideas & reality closer each day."
@@ -75,19 +77,19 @@ const DistroKit: NextPage<DistroProps> = ({
         <div className="relative w-full h-fit md:h-[30rem] flex flex-col md:flex-row justify-between gap-10 items-center">
           <div className="relative w-full h-full font-bit text-mainText flex items-center justify-start border-2 border-verde flex-col p-2">
             <div className="relative w-fit h-fit flex items-center justify-center break-all text-[7vw] sm:text-[5vw] 2xl:text-[5rem]">
-              DISTRIBUTION
+              {t("distribution")}
             </div>
             <div className="relative w-fit h-fit flex items-center justify-center break-all text-[6.5vw] sm:text-[4.5vw] 2xl:text-[4rem]">
-              IS ALL YOU NEED
+              {t("need")}
             </div>
             <div className="relative w-full h-fit flex items-start justify-center pt-3">
               <div className="relative flex flex-col gap-3 items-start justify-between w-fit h-full">
                 {[
-                  "web3 social media",
-                  "microfactory local co-ops",
-                  "indie publications",
-                  "guerrilla street prints",
-                  "open source design & tools",
+                  t("social"),
+                  t("micro"),
+                  t("pub"),
+                  t("street"),
+                  t("tool"),
                 ].map((item: string, index: number) => {
                   return (
                     <div
@@ -466,7 +468,7 @@ const DistroKit: NextPage<DistroProps> = ({
       <div className="relative w-full h-fit flex flex-col gap-12">
         <div className="relative w-full h-full flex flex-col half:flex-row gap-12 sm:px-12 px-2 justify-between items-center">
           <div className="relative sm:w-full w-fit h-fit sm:h-40 flex flex-col sm:flex-row gap-2 items-center justify-between">
-          <div className="relative h-fit sm:w-fit w-full sm:h-full flex items-center justify-center flex-row sm:flex-col">
+            <div className="relative h-fit sm:w-fit w-full sm:h-full flex items-center justify-center flex-row sm:flex-col">
               <div className="relative h-3 w-px sm:w-3 sm:h-px  bg-mainText flex items-center justify-center"></div>
               <div className="relative w-full sm:w-px h-px sm:h-full bg-mainText flex items-center justify-center"></div>
               <div className="relative h-3 w-px sm:w-3 sm:h-px bg-mainText flex items-center justify-center"></div>
@@ -487,7 +489,7 @@ const DistroKit: NextPage<DistroProps> = ({
               altcoins with JPEGs“ to “We like the looks made for material use”
             </div>
             <div
-             className={`relative w-1 sm:w-1.5 h-8 sm:h-1/2 whitespace-nowrap rotate-90 sm:rotate-0`}
+              className={`relative w-1 sm:w-1.5 h-8 sm:h-1/2 whitespace-nowrap rotate-90 sm:rotate-0`}
             >
               <Image
                 layout="fill"
@@ -553,3 +555,9 @@ const DistroKit: NextPage<DistroProps> = ({
 };
 
 export default DistroKit;
+
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ["distro", "footer"])),
+  },
+});
