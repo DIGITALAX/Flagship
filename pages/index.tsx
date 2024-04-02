@@ -14,6 +14,8 @@ import { RootState } from "@/redux/store";
 import useHeader from "@/components/Layout/hooks/useHeader";
 import { useAccount } from "wagmi";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
+import { useTranslation } from "next-i18next";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const Home: NextPage<HomeProps> = ({
   router,
@@ -21,6 +23,7 @@ const Home: NextPage<HomeProps> = ({
   changeColor,
   heartColor,
 }) => {
+  const { t } = useTranslation("common");
   const dispatch = useDispatch();
   const { address } = useAccount();
   const { openConnectModal } = useConnectModal();
@@ -69,6 +72,7 @@ const Home: NextPage<HomeProps> = ({
         setMessage={setMessage}
         messageLoading={messageLoading}
         openConnectModal={openConnectModal}
+        t={t}
       />
       <Head>
         <title>DIGITALAX</title>
@@ -94,6 +98,7 @@ const Home: NextPage<HomeProps> = ({
         dispatch={dispatch}
         galleryLoading={galleryLoading}
         gallery={gallery}
+        t={t}
       />
       <div className="w-[95vw] half:w-[80vw] relative flex items-center justify-center min-h-[120vw] h-[80vh] md:h-[180vh] border-2 md:border-8 bg-mainText border-diy">
         <div className="relative w-full h-full flex items-center justify-center">
@@ -135,7 +140,7 @@ const Home: NextPage<HomeProps> = ({
         </div>
         <div className="absolute w-full h-fit bottom-10 left-0 flex items-center justify-center px-3 sm:px-10 py-3 bg-diy">
           <div className="relative text-diyText text-[7.1vw] whitespace-nowrap text-center w-full font-mag flex items-center justify-center">
-            LATENT THREADS
+            {t("threads")}
           </div>
         </div>
       </div>
@@ -148,10 +153,16 @@ const Home: NextPage<HomeProps> = ({
       />
       <Slider />
       <div className="relative w-full h-full text-mainText bg-mainBg font-lib sm:text-[1.8vw] text-[4vw] lg:text-[1.5vw] xl:text-[1vw] text-center pb-28 break-word px-2 flex items-center justify-center">
-        100% CC0. We build in, for, and from the public domain.
+        {t("cc0")}
       </div>
     </div>
   );
 };
 
 export default Home;
+
+export const getStaticProps = async ({ locale }: { locale: string }) => ({
+  props: {
+    ...(await serverSideTranslations(locale, ["common", "footer"])),
+  },
+});

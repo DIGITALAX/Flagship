@@ -4,20 +4,20 @@ import Image from "next/legacy/image";
 import { INFURA_GATEWAY } from "@/lib/constants";
 import Feature from "./Feature";
 
-const Portals: FunctionComponent<PortalsProps> = ({ router }): JSX.Element => {
+const Portals: FunctionComponent<PortalsProps> = ({ router, t }): JSX.Element => {
   return (
     <div className="relative w-full h-fit flex flex-col items-center justify-start gap-10">
       <div className="relative w-full h-fit flex items-center justify-between gap-7 flex-col sm:flex-row">
         {[
           {
             image: "QmUE1a7yAL1N6qsQ8vrBMRKKy46tEFwqBJXDAe2e7uHpPe",
-            title: "Distro Kit",
-            link: "/distro-kit"
+            title: t("distro"),
+            link: "/distro-kit",
           },
           {
             image: "QmVfYf8fnrfDPinTasbeN4SAiiGLCg47fAS8Edegg3168c",
-            title: "Build Log",
-            link: "/build-log"
+            title: t("log"),
+            link: "/build-log",
           },
         ].map(
           (
@@ -69,7 +69,7 @@ const Portals: FunctionComponent<PortalsProps> = ({ router }): JSX.Element => {
             </div>
           </div>
           <div className="relative w-fit h-fit flex items-center justify-center font-bit text-white text-center text-xl">
-            * ~ Collect & create: The keys to the ecosystem ~ *
+            * ~ {t("collect")} ~ *
           </div>
           <div className="relative w-fit h-fit flex items-center justify-center">
             <div className="relative w-[7.3rem] h-[4.5rem] flex items-center justify-center">
@@ -216,8 +216,7 @@ const Portals: FunctionComponent<PortalsProps> = ({ router }): JSX.Element => {
       </div>
       <div className="relative w-full h-fit flex items-center justify-center flex-col gap-12 pt-10">
         <div className="relative w-4/5 md:w-1/2 h-fit flex items-center justify-center font-bit text-white text-sm sm:text-2xl">
-          To unbundle the everything store & stop this world's ruin you need
-          good equipment... and a lot of practice.
+          {t("unbundle")}
         </div>
         <div className="relative flex items-center justify-center flex-col w-full h-fit gap-1.5">
           <div

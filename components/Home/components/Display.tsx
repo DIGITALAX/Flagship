@@ -15,6 +15,7 @@ const Display: FunctionComponent<DisplayProps> = ({
   dispatch,
   galleryLoading,
   gallery,
+  t,
 }): JSX.Element => {
   return (
     <div className="relative w-full flex flex-col justify-start items-center h-fit bg-offBlack gap-12">
@@ -71,6 +72,7 @@ const Display: FunctionComponent<DisplayProps> = ({
       <div className="relative w-full h-fit flex items-center justify-start flex-col gap-3 px-4 pt-4">
         <Gallery
           more={more}
+          t={t}
           currentIndex={currentIndex}
           dispatch={dispatch}
           galleryLoading={galleryLoading}
@@ -93,7 +95,7 @@ const Display: FunctionComponent<DisplayProps> = ({
               />
             </div>
             <div className="flex items-center justify-center relative w-fit h-fit font-firaL text-offWhite">
-              {!more ? "more?" : "less?"}
+              {!more ? t("more") : t("less")}
             </div>
           </div>
         </div>
@@ -103,23 +105,13 @@ const Display: FunctionComponent<DisplayProps> = ({
           id="world"
           className="text-center font-mag break-word pt-3 w-fit h-fit relative flex items-center justify-center text-2xl sm:text-5xl"
         >
-          Our worlds are run by interfaces,
-          <br /> machine code, and APIs.
+          {t("world")}
         </div>
         <div className="relative h-fit text-skyBlue font-fut w-3/4 text-left text-xs flex items-center justify-center text-sm sm:text-base 2xl:text-xl break-word">
-          Here cypherpunks write prompts, design across multiple dimensions by
-          hand, and build the end to end decentralize-it-yourself network
-          economy.
-          <br />
-          <br />
-          We create fashion, co•operate complex machinery, and collect NFTs as
-          conductors for what move people to action in every reality –– virtual,
-          latent, or IRL. We are drawn as if by a dreaming machine to works that
-          have something to say through their stunning appearance, the novel
-          status they carry, and innate keys to social mobility in code.
+          {t("cypher")}
         </div>
       </div>
-      <Portals router={router} />
+      <Portals router={router} t={t} />
     </div>
   );
 };

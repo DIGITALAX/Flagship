@@ -24,6 +24,7 @@ const Header: FunctionComponent<HeaderProps> = ({
   handleSendMessage,
   address,
   openConnectModal,
+  t,
 }): JSX.Element => {
   return (
     <div
@@ -65,7 +66,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                   className="relative w-fit h-fit flex items-center justify-center text-xl half:text-3xl"
                   id="npc"
                 >
-                  NPC Studio
+                  {t("studio")}
                 </div>
                 <div className="relative w-full preG:w-fit h-fit flex items-center justify-center flex-col gap-3">
                   <div
@@ -84,7 +85,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                       className="absolute w-fit h-fit flex items-center justify-center text-base half:text-lg"
                       id="play"
                     >
-                      PLAY MODE
+                      {t("play")}
                     </div>
                   </div>
                   <div
@@ -106,7 +107,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                       className="absolute w-fit h-fit flex items-center justify-center text-base half:text-lg"
                       id="play"
                     >
-                      TEAM CHAT
+                      {t("chat")}
                     </div>
                   </div>
                 </div>
@@ -159,10 +160,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                   ) : (
                     <div className="relative w-full h-full flex items-start justify-between flex flex-col gap-px">
                       <div className="relative w-full h-fit flex items-start justify-start">
-                        welcome to the great unbundling of the everything app.
-                        <br /> <br />
-                        Equip your AI workforce. Train for less idle time. try
-                        to survive in style
+                        {t("welcome")}
                       </div>
                       <div className="relative w-full h-fit flex items-end justify-end">
                         <div
@@ -196,7 +194,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                       className="absolute w-fit h-fit flex items-center justify-center text-sm half:text-lg"
                       id="equip"
                     >
-                      EQUIP
+                      {t("equip")}
                     </div>
                   </div>
                   <div
@@ -215,7 +213,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                       className="absolute w-fit h-fit flex items-center justify-center text-sm half:text-lg"
                       id="equip"
                     >
-                      TRAIN
+                      {t("train")}
                     </div>
                   </div>
                 </div>
@@ -236,7 +234,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                       className="absolute w-fit h-fit flex items-center justify-center text-sm half:text-lg"
                       id="equip"
                     >
-                      STATS
+                      {t("stats")}
                     </div>
                   </div>
                   <div
@@ -255,7 +253,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                       className="absolute w-fit h-fit flex items-center justify-center text-sm half:text-lg"
                       id="equip"
                     >
-                      MARKET
+                      {t("market")}
                     </div>
                   </div>
                 </div>
@@ -329,7 +327,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                 />
               </div>
               <div className="relative w-fit h-fit items-center justify-center text-mainText flex whitespace-nowrap font-firaL">
-                DO NOT BEND
+                {t("bend")}
               </div>
             </div>
             <div className="relative w-96 h-9 rounded-r-md text-sm overflow-x-hidden whitespace-nowrap flex items-center justify-center text-offBlack">
@@ -341,11 +339,17 @@ const Header: FunctionComponent<HeaderProps> = ({
                   gradient={false}
                 >
                   {" "}
-                  GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO
-                  SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING
-                  ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO
-                  SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING ❤️ 👉 GO SHOPPING
-                  ❤️ 👉 GO SHOPPING ❤️ 👉{" "}
+                  {`${t("shop")} ❤️ 👉 ${t("shop")} ❤️ 👉 ${t(
+                    "shop"
+                  )} ❤️ 👉 ${t("shop")} ❤️ 👉 ${t("shop")} ❤️ 👉 ${t(
+                    "shop"
+                  )} ❤️ 👉 ${t("shop")} ❤️ 👉 ${t("shop")} ❤️ 👉 ${t(
+                    "shop"
+                  )} ❤️ 👉 ${t("shop")} ❤️ 👉 ${t("shop")} ❤️ 👉 ${t(
+                    "shop"
+                  )} ❤️ 👉 ${t("shop")} ❤️ 👉 ${t("shop")} ❤️ 👉 ${t(
+                    "shop"
+                  )} ❤️ 👉`}{" "}
                 </Marquee>
               </div>
               <div
@@ -408,11 +412,11 @@ const Header: FunctionComponent<HeaderProps> = ({
               onClick={() => window.open("https://cypher.digitalax.xyz")}
             >
               <div className="relative w-fit h-fit flex items-center justify-center top-px">
-                Go
+                {t("go")}
               </div>
             </div>
             <div className="relative flex items-center justify-center text-ruido sm:text-xs text-xxs">
-              Find your way through the maze @ cypher
+              {t("maze")}
             </div>
           </div>
           <div className="relative w-fit h-fit flex items-center justify-center sm:order-2 order-1">
@@ -428,9 +432,8 @@ const Header: FunctionComponent<HeaderProps> = ({
         </div>
         <div className="relative w-fit h-fit flex flex-row half:flex-col midi:flex-row gap-4 items-center half:items-end midi:items-center justify-center mr-0 midi:text-center text-right sm:flex-nowrap flex-wrap">
           <div className="relative flex flex-row gap-4 flex items-center justify-center">
-            <div className="relative w-fit h-fit flex items-center justify-center font-bit text-xs md:text-sm text-ama">
-              Explore the entire web3 fashion <br /> + npc commerce ecosystem at
-              a glance
+            <div className="relative w-fit h-fit flex items-center justify-center font-bit text-xs md:text-sm text-ama whitespace-inline text-right">
+              {t("ecosystem")}
             </div>
             <div className="relative w-fit h-fit flex items-center justify-center font-bit text-sm text-ama">
               {">"}

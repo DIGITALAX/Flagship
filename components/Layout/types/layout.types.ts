@@ -1,4 +1,5 @@
 import { FullScreenVideoState } from "@/redux/reducers/fullScreenVideoSlice";
+import { TFunction } from "i18next";
 import { NextRouter } from "next/router";
 import { MutableRefObject } from "react";
 import { AnyAction, Dispatch } from "redux";
@@ -24,6 +25,7 @@ export type HeaderProps = {
   messageLoading: boolean;
   setMessage: (e: string) => void;
   message: string;
+  t: TFunction<"common", undefined>;
 };
 
 export type HeartProps = {

@@ -11,6 +11,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
   dispatch,
   galleryLoading,
   gallery,
+  t
 }): JSX.Element => {
   return (
     <div
@@ -110,7 +111,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                               );
                             }}
                           >
-                            Collect NFT
+                            {t("col")}
                           </div>
                         </div>
                       </div>

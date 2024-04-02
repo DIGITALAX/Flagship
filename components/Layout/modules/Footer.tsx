@@ -4,10 +4,12 @@ import { BsTwitter } from "react-icons/bs";
 import { BiArrowToTop } from "react-icons/bi";
 import { INFURA_GATEWAY } from "../../../lib/constants";
 import { FooterProps } from "../types/layout.types";
+import { useTranslation } from "next-i18next";
 
 const Footer: FunctionComponent<FooterProps> = ({
   handleRewind,
 }): JSX.Element => {
+  const { t } = useTranslation("footer");
   return (
     <div className="relative w-full bg-offBlack h-fit flex items-center justify-start flex-col gap-10 pt-12">
       <div className="relative w-full h-fit flex flex-col md:flex-row items-center justify-between gap-10 px-6">
@@ -39,16 +41,8 @@ const Footer: FunctionComponent<FooterProps> = ({
             </div>
           </div>
         </div>
-        <div className="flex relative h-fit w-full md:w-72 lg:w-[20vw] text-xs md:text-[1vw] xl:text-[0.8vw] text-midWhite justify-center items-center font-lib break-all text-center md:text-left sm:text-right leading-8">
-          From mini-maps and mesh segmentation, to synth machines and material
-          use, the web3 fashion ecosystem supplies more than a few good looks.
-          <br />
-          <br />
-          For collectors, creators, and everyone in between, it’s more dangerous
-          than ever to go it alone out there.
-          <br />
-          <br />
-          Dress wisely, and take your keys with you.
+        <div className="flex relative h-fit w-full md:w-72 lg:w-[20vw] text-xs md:text-[1vw] xl:text-[0.8vw] text-midWhite justify-center items-center font-lib break-all text-center md:text-left sm:text-right leading-8 whitespace-inline">
+          {t("maps")}
         </div>
       </div>
       <div className="relative flex w-full h-fit items-center justify-center gap-2 flex-col">
@@ -68,7 +62,7 @@ const Footer: FunctionComponent<FooterProps> = ({
       <div className="relative flex items-center justify-between w-full h-fit text-midWhite gap-8 md:gap-4 flex-col md:flex-row">
         <div className="relative w-fit h-fit ml-0 flex items-center justify-center flex-col gap-1 md:order-1 order-3">
           <div className="relative w-fit h-fit flex items-center justify-center hover:text-skyBlue cursor-sewingHS hover:rotate-3">
-            END OF LINE
+            {t("line")}
           </div>
           <div className={`relative w-36 h-4 flex items-center justify-center`}>
             <Image
@@ -87,7 +81,7 @@ const Footer: FunctionComponent<FooterProps> = ({
             <BiArrowToTop color="#F7F8E8" size={20} />
           </div>
           <div className="w-fit flex items-center justify-center h-fit font-lib text-base text-offWhite">
-            BE KIND, REWIND
+            {t("rewind")}
           </div>
         </div>
         <div className="relative w-fit h-fit mr-0 flex-row gap-3 flex items-center justify-center md:pr-2 md:order-3 order-1">

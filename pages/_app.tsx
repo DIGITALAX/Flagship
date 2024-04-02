@@ -1,8 +1,10 @@
 import "../styles/globals.css";
+import "./../i18n";
+import { appWithTranslation } from "next-i18next";
 import type { AppProps } from "next/app";
 import { useEffect, useRef, useState } from "react";
 import Footer from "../components/Layout/modules/Footer";
-import { store } from "./../redux/store";
+import { store } from "../redux/store";
 import { Provider } from "react-redux";
 import "@rainbow-me/rainbowkit/styles.css";
 import { XMTPProvider } from "@xmtp/react-sdk";
@@ -20,6 +22,8 @@ import {
 } from "@rainbow-me/rainbowkit";
 import { merge } from "lodash";
 import RouterChange from "@/components/Layout/modules/RouterChange";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
 
 const walletTheme = merge(darkTheme(), {
   colors: {
@@ -218,4 +222,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

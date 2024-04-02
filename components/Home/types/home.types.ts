@@ -1,4 +1,5 @@
 import { Creation } from "@/components/Distro/types/distro.types";
+import { TFunction } from "i18next";
 import { NextRouter } from "next/router";
 import { Dispatch, MutableRefObject, SetStateAction } from "react";
 import { AnyAction } from "redux";
@@ -9,6 +10,7 @@ export type GalleryProps = {
   dispatch: Dispatch<AnyAction>;
   galleryLoading: boolean;
   gallery: Creation[];
+  t: TFunction<"common", undefined>;
 };
 
 export interface Library {
@@ -62,10 +64,12 @@ export type DisplayProps = {
   dispatch: Dispatch<AnyAction>;
   galleryLoading: boolean;
   gallery: Creation[];
+  t: TFunction<"common", undefined>;
 };
 
 export type PortalsProps = {
   router: NextRouter;
+  t: TFunction<"common", undefined>;
 };
 
 export type FeatureProps = {
