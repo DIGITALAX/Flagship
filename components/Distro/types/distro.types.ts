@@ -200,11 +200,13 @@ export type TileSwitchProps = {
   index: number;
   dispatch: Dispatch<AnyAction>;
   filterConstants: FilterValues;
+  t: TFunction<"distro", undefined>;
 };
 
 export type AwardProps = {
   publication: Award;
   dispatch: Dispatch<AnyAction>;
+  t: TFunction<"distro", undefined>;
 };
 
 export type InteractBarProps = {
@@ -289,11 +291,13 @@ export interface FilterValues {
 
 export type QuestProps = {
   publication: Quest;
+  t: TFunction<"distro", undefined>;
 };
 
 export type TilesProps = {
   dispatch: Dispatch<AnyAction>;
   searchLoading: boolean;
   searchItems: Publication[];
+  t: TFunction<"distro", undefined>;
   filterConstants: FilterValues;
 };

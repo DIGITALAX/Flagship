@@ -39,5 +39,10 @@
   "3d": "diseño en 3d",
   "restitch": "recoser",
   "rematerialize": "rematerialización",
-  "mint": "acuñar"
+  "mint": "acuñar",
+  "title": "Título",
+  "descrip": "Descripción",
+  "mil": "Recuento de Hitos:",
+  "vid": "Recuento de Vídeo:",
+  "rew": "Mezcla de Premios"
 }

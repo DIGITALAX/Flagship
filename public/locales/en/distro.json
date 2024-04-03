@@ -39,5 +39,10 @@
   "3d": "3d design",
   "restitch": "restitch",
   "rematerialize": "rematerialize",
-  "mint": "mint"
+  "mint": "mint",
+  "title": "Title",
+  "descrip": "Description",
+  "mil": "Milestone Count:",
+  "vid": "Video Count:",
+  "rew": "Reward Mix:"
 }

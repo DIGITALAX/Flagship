@@ -113,9 +113,8 @@ body {
   padding: 0;
   margin: 0;
   background-color: #faf4e8;
-  font-family: "Manaspace", -apple-system, BlinkMacSystemFont, Segoe UI,
-    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Arial, sans-serif;
 }
 
 body::-webkit-scrollbar {

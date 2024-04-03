@@ -225,6 +225,7 @@ const DistroKit: NextPage<DistroProps> = ({
             searchLoading={searchLoading}
             filterConstants={filterConstants!}
             dispatch={dispatch}
+            t={t}
           />
         </div>
         <div className="relative w-full h-fit flex bg-diy py-3 border-y-4 border-deep justify-center items-center z-20">

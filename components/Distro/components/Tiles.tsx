@@ -8,6 +8,7 @@ const Tiles: FunctionComponent<TilesProps> = ({
   searchLoading,
   searchItems,
   filterConstants,
+  t,
 }): JSX.Element => {
   const renderTile = ({
     data,
@@ -18,6 +19,7 @@ const Tiles: FunctionComponent<TilesProps> = ({
   }) => {
     return (
       <TileSwitch
+        t={t}
         type={data?.type}
         filterConstants={filterConstants}
         publication={data}

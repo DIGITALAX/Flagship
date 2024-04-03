@@ -51,7 +51,13 @@ const Portals: FunctionComponent<PortalsProps> = ({
                     layout="fill"
                     src={`${INFURA_GATEWAY}/ipfs/QmZH2zUKZAPVbveywrG5GaApLgY4oTFvefrCkRtQvUeWRo`}
                   />
-                  <div className="relative w-fit h-fit flex items-center top-1 justify-center font-bit text-white text-xs md:text-lg">
+                  <div
+                    className={`relative w-fit h-fit flex items-center top-1 justify-center font-bit text-white  ${
+                      router.locale == "es"
+                        ? "text-xxs lg:text-base"
+                        : "text-xs md:text-lg"
+                    }`}
+                  >
                     {item.title}
                   </div>
                 </div>

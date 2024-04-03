@@ -18,6 +18,7 @@ const TileSwitch: FunctionComponent<TileSwitchProps> = ({
   index,
   dispatch,
   filterConstants,
+  t,
 }) => {
   if (type?.toLowerCase() == "loader") {
     return <LoadTile index={index} />;
@@ -28,7 +29,7 @@ const TileSwitch: FunctionComponent<TileSwitchProps> = ({
       <Award
         dispatch={dispatch}
         publication={publication?.post as AwardType}
-
+        t={t}
       />
     );
   }
@@ -61,7 +62,7 @@ const TileSwitch: FunctionComponent<TileSwitchProps> = ({
     );
   }
 
-  return <Quest publication={publication?.post as QuestType} />;
+  return <Quest t={t} publication={publication?.post as QuestType} />;
 };
 
 export default TileSwitch;

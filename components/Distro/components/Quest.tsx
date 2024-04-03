@@ -5,7 +5,10 @@ import InteractBar from "./InteractBar";
 import { INFURA_GATEWAY } from "@/lib/constants";
 import { QuestProps } from "../types/distro.types";
 
-const Quest: FunctionComponent<QuestProps> = ({ publication }): JSX.Element => {
+const Quest: FunctionComponent<QuestProps> = ({
+  publication,
+  t,
+}): JSX.Element => {
   const profilePicture = createProfilePicture(
     publication?.publication?.by?.metadata?.picture
   );
@@ -133,7 +136,7 @@ const Quest: FunctionComponent<QuestProps> = ({ publication }): JSX.Element => {
           </div>
           <div className="relative w-full h-fit flex flex-row items-center justify-start gap-1 break-words">
             <div className="relative w-fit h-fit flex items-center justify-center">
-              Milestone Count:
+              {t("mil")}
             </div>
             <div className="relative w-fit h-fit flex items-center justify-center text-girasol break-words">
               {publication?.milestoneCount}
@@ -141,7 +144,7 @@ const Quest: FunctionComponent<QuestProps> = ({ publication }): JSX.Element => {
           </div>
           <div className="relative w-full h-fit flex flex-row items-center justify-start gap-1 break-words">
             <div className="relative w-fit h-fit flex items-center justify-center">
-              Video Count:
+              {t("vid")}
             </div>
             <div className="relative w-fit h-fit flex items-center justify-center text-girasol break-words">
               {publication?.milestones?.reduce(
@@ -163,7 +166,7 @@ const Quest: FunctionComponent<QuestProps> = ({ publication }): JSX.Element => {
           </div>
           <div className="relative w-full h-fit flex flex-row items-center justify-start gap-px break-words">
             <div className="relative w-fit h-fit flex items-center justify-center">
-              Reward Mix:
+              {t("rew")}
             </div>
             <div className="relative w-fit h-fit flex items-center justify-center text-girasol break-words">
               {(publication?.milestones
