@@ -1,0 +1,19 @@
+{
+  "build": "REGISTRO DE DESARROLLO",
+  "start": "Inicio",
+  "cypher": "Cypher",
+  "npc": "El Estudio NPC",
+  "coin": "Coin Op",
+  "manu": "La Manufactura",
+  "mona": "$MONA",
+  "kinora": "Kinora",
+  "vision": "Odiseas Visuales",
+  "chroma": "Chromadin",
+  "lit": "Oyente de Lit",
+  "dial": "El Dial",
+  "legend": "Leyenda",
+  "record": "Un registro visual de",
+  "built": "lo que ha sido construido y",
+  "dev": "lo que está en desarrollo",
+  "general": "Visión General del Ecosistema"
+}

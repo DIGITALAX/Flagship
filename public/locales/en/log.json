@@ -1,0 +1,18 @@
+{
+  "build": "BUILD LOG",
+  "start": "Start",
+  "cypher": "Cypher",
+  "npc": "NPC Studio",
+  "coin": "Coin Op",
+  "manu": "The Manufactory",
+  "mona": "$MONA",
+  "kinora": "Kinora",
+  "vision": "Vision Quests",
+  "chroma": "Chromadin",
+  "lit": "Lit Listener",
+  "dial": "The Dial",
+  "legend": "Legend",
+  "record": "A visual record of",
+  "built": "what's been built &",
+  "dev": "what's in development"
+}

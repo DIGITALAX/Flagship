@@ -1,4 +1,5 @@
 import { Post, Profile } from "@/lib/generated";
+import { TFunction } from "i18next";
 import { NextRouter } from "next/router";
 import { ChangeEvent, MutableRefObject, SetStateAction } from "react";
 import { AnyAction, Dispatch } from "redux";
@@ -6,6 +7,7 @@ import { AnyAction, Dispatch } from "redux";
 export type BlenderProps = {
   blenderPage: number;
   setBlenderPage: (e: SetStateAction<number>) => void;
+  t: TFunction<"distro", undefined>;
 };
 
 export type LoadTileProps = {
@@ -157,7 +159,7 @@ export interface Publication {
   post?: Creation | Quest | Award;
   type: string;
   publishedOn?: string;
-  id: number
+  id: number;
 }
 
 export interface Award {

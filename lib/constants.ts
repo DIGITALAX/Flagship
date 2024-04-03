@@ -242,20 +242,6 @@ export const TV_IMAGES: string[] = [
   "QmUUNyK8XkWQVTRJQCWbCTyQzTBQgtj4GNJN5ohZgpKZiM",
 ];
 
-export const BLENDER_FIELDS: string[] = [
-  "Blender",
-  "plugin",
-  "synth",
-  "segmentation",
-  "open datasets",
-  "zero waste",
-  "packing",
-  "3d design",
-  "restitch",
-  "rematerialize",
-  "mint",
-];
-
 export const BLENDER_IMAGES: string[] = [
   "QmfVpQqb147A1ubftf7soJ3XQQZVkZMX2xi8Y2dUzkmbS6",
   "Qme1Z7XBAXepfZk8Yv4Wa8uovC7ZYLnBwSZ36gQQd1bgk9",
@@ -440,76 +426,417 @@ export const VIDEOS: string[] = [
 
 export const IMAGE_LOGS: {
   image: string;
-  title: string;
-  description: string;
+  title: {
+    en: string;
+    es: string;
+  };
+  description: {
+    en: string;
+    es: string;
+  };
 }[] = [
   {
     image: "QmUJhqQqWytTGinT4LvgzvHfrpRJaweDY6uhuFQb7SPvai",
-    title: "",
-    description: "",
+    title: {
+      en: "",
+      es: "",
+    },
+    description: {
+      en: "",
+      es: "",
+    },
   },
   {
     image: "QmdN7qJfKLLf6gABofJzbwd7Ln7f9ookvzkVjipzL95zU6",
-    title: "",
-    description: "",
+    title: {
+      en: "",
+      es: "",
+    },
+    description: {
+      en: "",
+      es: "",
+    },
   },
   {
     image: "Qmcdzk1nAviFEGnbwV8FUADsJVJV32SVQa941oJcJxLray",
-    title: "NPC Studio",
-    description:
-      "Insert $MONA to activate your AI agent workforce & equip your LLM machines",
+    title: {
+      en: "NPC Studio",
+      es: "El Estudio NPC",
+    },
+    description: {
+      en: "Insert $MONA to activate your AI agent workforce & equip your LLM machines",
+      es: "Inserta $MONA para activar tu fuerza laboral de IA y equipa tus máquinas de LLMs",
+    },
   },
   {
     image: "QmXdaKvoQ5hS3t2zsZzqttkugGV6ztmAmmPGhWBrC2rsun",
-    title: "Coin Op",
-    description:
-      "Instant wearable art gen perfect for a day out at the automat",
+    title: {
+      en: "Coin Op",
+      es: "Coin Op",
+    },
+    description: {
+      en: "Instant wearable art gen perfect for a day out at the automat",
+      es: "Arte generativo usable perfecto para un día fuera, en el automat",
+    },
   },
   {
     image: "QmcvPutuJK2CX8cyL3ocDPLUrvWnJDWgA4MSBhr8YX7twb",
-    title: "The Manufactory",
-    description:
-      "Decentralized production & fulfillment studio co-op for the gen AI era",
+    title: {
+      en: "The Manufactory",
+      es: "La Manufactura",
+    },
+    description: {
+      en: "Decentralized production & fulfillment studio co-op for the gen AI era",
+      es: "Estudio cooperativo de producción y realización decentralizada para la era de la IA generativa",
+    },
   },
   {
     image: "QmfWUEoyST1M53fSRUGPkVhQHS5cvKaJVKvuKGjXzmsgX6",
-    title: "$MONA",
-    description:
-      "Hold, trade, & insert this ERC-20 to trigger rare events, with conditional logic",
+    title: {
+      en: "$MONA",
+      es: "$MONA",
+    },
+    description: {
+      en: "Hold, trade, & insert this ERC-20 to trigger rare events, with conditional logic",
+      es: "Guarda, cambia e inserta este ERC-20 para iniciar eventos excepcionales con lógica condicional",
+    },
   },
   {
     image: "QmVNwrNYUy3HfyTSv4CVJLFRW53Lbrv6DuETgCRVYbqDAB",
-    title: "Kinora",
-    description:
-      "Web3 video player & sdk with quests & metrics for savvy creators & friends",
+    title: {
+      en: "Kinora",
+      es: "Kinora",
+    },
+    description: {
+      en: "Web3 video player & sdk with quests & metrics for savvy creators & friends",
+      es: "Reproductor de video web3 y sdk con misiones y métricas para creadores ingeniosos y sus amigos",
+    },
   },
   {
     image: "QmaTft6ayihYwKRdhSNc2a8RgSvKq9jK6YvTRA9zrhcs2Q",
-    title: "Vision Quests",
-    description:
-      "A challenge awaits!  Collect your rewards with  token gated  gameplay",
+    title: {
+      en: "Vision Quests",
+      es: "Odiseas Visuales",
+    },
+    description: {
+      en: "A challenge awaits!  Collect your rewards with token gated gameplay",
+      es: "¡Un reto te espera! Colecciona tus premios con juegos protegidos por tokens",
+    },
   },
   {
     image: "QmQt4QVbXfJDwhre2ScJxm67gDid7VA5cmycygyjaL8Fuz",
-    title: "Chromadin",
-    description:
-      "Replace YouTube with rare streams you can collect and take with you",
+    title: {
+      en: "Chromadin",
+      es: "Chromadin",
+    },
+    description: {
+      en: "Replace YouTube with rare streams you can collect and take with you",
+      es: "Reemplaza Youtube con transmisiones únicas que puedes coleccionar y llevar contigo",
+    },
   },
   {
     image: "QmaoosmxdyzTGgionT7w8th6iwUPk5JzgCTmBocSZUPFNs",
-    title: "Lit Listener",
-    description: "Universal encryption for on-chain events",
+    title: {
+      en: "Lit Listener",
+      es: "Lit Listener",
+    },
+    description: {
+      en: "Universal encryption for on-chain events",
+      es: "encriptación universal de eventos on-chain",
+    },
   },
   {
     image: "QmXZ5doMa6r3hSrKscDTFoEfsXh58L38irz9fgSVUVszxj",
-    title: "The Dial",
-    description:
-      "Decentralized social media, on Lens with gen AI for the all in one creative experience",
+    title: {
+      en: "The Dial",
+      es: "El Dial",
+    },
+    description: {
+      en: "Decentralized social media, on Lens with gen AI for the all in one creative experience",
+      es: "Red Social Decentralizada, en Lens con IA generativa para la experencia creativa integral",
+    },
   },
   {
     image: "QmUKiHVC7YECYRDbmuCzV8WCTw2JRfhpuivpAM8nta4oGJ",
-    title: "Legend",
-    description:
-      "Don't wait for the path to web3 public goods to open. Collect your own way",
+    title: {
+      en: "Legend",
+      es: "Leyenda",
+    },
+    description: {
+      en: "Don't wait for the path to web3 public goods to open. Collect your own way",
+      es: "No esperes a que se abra el camino hacia los bienes públicos de web3. Forja tu propio camino.",
+    },
+  },
+];
+
+export const LOG: {
+  title: {
+    en: string;
+    es: string;
+  };
+  description: {
+    en: string;
+    es: string;
+  };
+}[] = [
+  {
+    title: {
+      en: "1. Cypher",
+      es: "1. Cypher",
+    },
+    description: {
+      en: `Spare your attention for rare creations that call you to make more. It's kind of obvious, that you can search the entire ecosystem from one quick and streamlined place. Ideas from trending hashes? We've got that. All catalogs and publications from the ecosystem instantly in front of you, too. You can collect new creators, new music, something new to watch, wear, or display proudly on walls -- virtually, at home, in the streets, we won't judge. Favorite part? Replace doomscrolling with a throwback, text-adventure style. Token gated gameplay evolves user-level encryption into every social feed.
+    
+      Cypher resonates with your distinct voice and cultural wavelength. It's where you find your way. A gateway to everything the ecosystem has to offer.`,
+      es: `Reserva tu atención para creaciones únicas que te invitan a crear más. Es evidente que puedes explorar todo el ecosistema desde un solo lugar, de manera rápida y simplificada. ¿Ideas de hashes en tendencia? Las tenemos. Todos los catálogos y publicaciones del ecosistema instantáneamente ante ti. Puedes coleccionar nuevos creadores, nueva música, algo novedoso para ver, usar o exhibir con orgullo en las paredes -- ya sea virtualmente, en tu hogar o en las calles, sin juicio alguno. ¿La parte favorita? Sustituye el doomscrolling por un regreso al estilo de las aventuras de texto. El juego con acceso restringido por tokens lleva la encriptación a nivel de usuario a cada flujo social.
+      
+      Cypher resuena con tu voz única y tu frecuencia cultural. Es el lugar donde encuentras tu camino. Una puerta a todo lo que el ecosistema tiene para ofrecer.`,
+    },
+  },
+  {
+    title: {
+      en: "2. NPC Studio",
+      es: "2. El Estudio NPC",
+    },
+    description: {
+      en: `Insert $MONA to assemble, lead, and train an AI agent workforce unbundling the new earned agency economy. 
+
+      Players must efficiently manage team members, materials, equipment, tokens, tradeable goods, storefront success metrics, computational performance, and energy demands. Use your $MONA to keep your systems running, with effective load balancing and NPC rewards for great performance. Chat with your team in a simulated resource game interface with open source middleware. Your survival depends on your NPC teams' ability to reduce idle time of large language model workstations, generate rare creations that are market ready, and earn agency with each milestone proudly accomplished.
+      
+      Resource simulation games are a genre that use strategic management of teams, goods, and trade to level up your skills and capacity for success. These games focus on gathering, managing, and deploying resources like raw materials, currencies, and characters, playable or NPC, in scarce and competitive conditions. They blend strategic planning, tactical decision-making, logistics and supply chain management, the crafting of new parts, and working hard within NPC Studio to get the best performance possible from the otherwise hyper-technical (and out of reach for the GPU+VRAM poor masses) process of making LLM inference, generation, teamware, and hardware reqs make sense.
+      
+      Here you simulate the fashion design studio creative process, fabrication of textiles into streetwear and raw material supply chains into chip fabs (when you level up enough to unlock it like Sama), storefronts for creative commerce, and the trading strategies of your resource acquisition and growth team. For added realism, visit in game versions of industry water cooler Reddit subs and Discord servers with your teams to learn just like the rest of us about the latest in local open source LLM operation and development, nimbly navigating around shitposts with main character energy in the process.`,
+      es: `Inserta $MONA para ensamblar, lidear y entrenar una fuerza laboral de agentes de IA, desplegando la nueva economía de agencia ganada.
+
+      Los jugadores deben gestionar eficazmente a los miembros de su equipo, materiales, equipo, tokens, bienes comerciables, métricas de éxito de sus tiendas, rendimiento computacional y demandas energéticas. Usa tu $MONA para mantener tus sistemas en funcionamiento, con un balanceo de cargo efectivo y recompensas NPC por un rendimiento destacado. Comunícate con tu equipo a través de una interfaz de juego de simulación de recursos con middleware de código abierto. Tu supervivencia depende de la capacidad de tus equipos NPC para minimizar el tiempo de inactividad de las estaciones de trabajo de modelos de lenguaje grande, generar reliquias extraordinarias listas para el mercado, y ganar agencia con cada hito cumplido con orgullo.
+
+      Los juegos de simulación de recursos son un género que utilizan la gestión estratégica de equipos, bienes y comercio para mejorar tus habilidades y capacidad del éxito. Estos juegos se centran en la recolección, gobernancia, y despliegue de recursos como materias primas, divisas y personajes, jugables o NPC, en condiciones de escasez y competitividad. Integran la planificación estratégica, la toma de decisiones tácticas, logística y gestión de la cadena de suministros, la fabricación de nuevas piezas, y el esforzarse dentro del Estudio NPC para conseguir el mejor rendimiento posible del proceso hiper-técnico  (y fuera del alcance de las masas pobres en GPU+VRAM) de hacer que la inferencia de LLM, generación, teamware y los requisitos de hardware tengan sentido.
+
+      Aquí, simulas el proceso creativo de un estudio de diseño de moda,  la fabricación de textiles en ropa de calle y las cadenas de suministro de materias primas en fábricas de chips (cuando elevas lo suficiente para desbloquearlo, al estilo de sama), escaparates del comercio creativo, y las estrategias de negociación de tu equipo de adquisición de recursos y crecimiento. Para añadir realismo, visita en el juego versiones de los subs de Reddit y servidores de Discord junto a tus equipos para aprender, igual que todos nosotros, sobre lo últimos en operación y desarrollo de los LLMs de código abierto local, navegando ágilmente entre los shitposts con energía de protagonista en el proceso.`,
+    },
+  },
+  {
+    title: {
+      en: "3. Coin Op",
+      es: "3. Coin Op",
+    },
+    description: {
+      en: `Your coin operated generative automat with an eclectic array of streetwear, prints, and virtual goods each linked to a distinct part of the web3 ecosystem.
+    
+      Collect with card or your choice of $MONA, $MATIC, $WETH, and $USDT. All personal fulfillment and transactional data remains encrypted at the user-level ensuring maximum decentralized network autonomy for increased peace of mind and extra cypherpunk cred. Integrates seamlessly with The Manufactory for decentralized web3fashion and generative art production and fulfillment. 
+      
+      Each purchase reinforces the network of creators, innovators, and builders that shape independent channels for wearable, display worthy communication in style.`,
+      es: `Tu automat de generación operado por monedas con una variada selección eléctrica de ropa de calle, impresiones, y bienes virtuales, cada uno vínculado a una parte distinta del ecosistema web3.
+    
+      Colecciona con tarjeta o tu elección de $MONA, $MATIC, $WETH, y $USDT. Todo el cumplimiento personal y los datos transaccionales permanecen cifrados a nivel de usuario, asegurando una autonomía máxima de la red descentralizada para una mayor tranquilidad y credibilidad adicional cypherpunk. Se integra perfectamente con La Manufactura para la producción y realización de moda web3 descentralizada y arte generativo. 
+      
+      Cada compra refuerza la red de creadores, innovadores, y desarrolladores que dan forma a canales independientes para comunicación portable y digna de ser exhibida con estilo.`,
+    },
+  },
+  {
+    title: {
+      en: "4. The Manufactory",
+      es: "4. La Manufactura",
+    },
+    description: {
+      en: `Mint, ink, print, and ship your web3fashion or generative art collections into IRL wardrobes and walls. The Manufactory, is a decentralized creators studio co-op, where rare, statement making works are woven into reality. 
+    
+      Start by selecting what you want to produce. You can find them through Cypher, on Coin Op, and throughout the ecosystem. Your choices are then crafted by a decentralized network of creators, ready for both post-digital display and physical distribution. Throughout, your transactional and operational data is encrypted, safeguarding your creative process from the ad hungry prying eyes of archaic social networks. 
+      
+      More than a production line, The Manufactory is a blueprint for autonomy in creation.`,
+      es: `Acuña, entinta, imprime, y exporta tus colecciones de moda web3 o arte generativo a los armarios y paredes del mundo real (IRL). La Manufactura es un estudio cooperativo de creadores decentralizados, donde obras excepcionales se materializan en la realidad.
+
+      Empieza seleccionando lo que deseas producir. Puedes encontrarlos a través de Cypher, en Coin Op y por todo el ecosistema. Tus elecciones son luego fabricadas por una red descentralizada de creadores, preparados tanto para exhibición post-digital como para distribución física. A lo largo del proceso, tus datos transaccionales y operativos son cifrados, protegiendo tu proceso creativo de los ojos codiciosos de publicidad de las redes sociales arcaicas.
+      
+      Más que una línea de producción, La Manufactura es un plano para la autonomía en la creación.`,
+    },
+  },
+  {
+    title: {
+      en: "5. $MONA",
+      es: "5. $MONA",
+    },
+    description: {
+      en: `Hold, trade, and insert $MONA throughout the ecosystem to channel the currents of creativity and commerce in the generative NPC era. This ERC-20 token, combined with an extensive and growing library of contracts, responds to event triggers and conditional logic to seamlessly assist your pursuit of a better timeline that respects human autonomy. As much as it is a unit of record, account, and exchange, it is a unit of agency and access. Your interactions with The Manufactory, NPC Studio, CoinOp, Chromadin, and all components of the extended ecosystem have use beyond ordinary collectibles and transactions. They serve as messages between nodes and to the world saying we will build our own future free from arbitrarily centralized control (thank you very much).
+    
+      In NPC Studio, it activates AI agents and the specific equipment you can run to create with them, rewarding innovation and reducing the idle time of creative processes. Within CoinOp, $MONA becomes an agent of commerce, allowing instant creation and acquisition of streetwear with real-world integration. It's the silent enforcer of The Manufactory's operations, executing design and fulfillment tasks with a precision that only a dedicated system token can provide.`,
+      es: `Guarda, intercambia, e inserta $MONA a través del ecosistema para impulsar las corrientes de creatividad y comercio en la era de los NPC generativos. Este token ERC-20, combinado con una biblioteca extensa y en crecimiento de contratos, responde a desencadenantes de eventos y lógica condicional para apoyarte en tu búsqueda de una línea temporal mejor que respeta la autonomía humana. Es tanto una unidad de registro, cuenta e intercambio, como de agencia y acceso. Tus interacciones dentro de La Manufactura, El Estudio NPC, CoinOp, Chromadin y todos los componentes de un ecosistema ampliado tienen un uso más allá de coleccionables y transaciones ordinarios. Actúan como mensajes entre nodos y hacia el mundo, declarando que construiremos nuestro propio futuro, libre de control centralizado arbitrario (muchas gracias).
+    
+      En el Estudio NPC, activa agentes de IA y el equipo específico que puedes utilizar para crear con ellos, premiando la innovación y reduciendo los tiempos de inactividad en los procesos creativos. Dentro de CoinOp, $MONA se convierte en un agente de comercio, permitiendo la creación y la adquisición instantáneas de ropa de calle con integración en el mundo real. Es el ejecutor silencioso de las operaciones de La Manufactura, llevando a cabo tareas de diseño y cumplimiento con una precisión que solo un token de sistema dedicado puede proporcionar.`,
+    },
+  },
+  {
+    title: {
+      en: "6. Kinora",
+      es: "6. Kinora",
+    },
+    description: {
+      en: `This open-source video player and SDK, extending the already potent functionality of Livepeer for decentralized video encoding, decoding, and distro, is your toolkit for crafting privacy-respecting, engaging video content. It's seamlessly integrated with web3 quests in the DIGITALAX ecosystem.
+    
+      Git clone its library to create entire platforms for video distro that speak to the web3 era. 
+      
+      Whether watching the latest web3fashion show or streaming generative art instructionals, each video is an entry point into deeper ecosystem reach and engagement. Use the Kinora SDK to integrate these experiences into your decentralized projects as a replacement for centralized platforms, all while maintaining user-level encryption for every viewer's data.
+      
+      Kinora isn't just for creators and viewers; it's about a cultural shift to decentralized media in all its forms. With the power of Livepeer, integration of Vision Quests, and Lens Protocol, Kinora gives everyone a path to video distro that isn't just entertaining or distracting—it's an interactive journey with measurable metrics tailored to why you watch and create.`,
+      es: `Este reproductor de video y SDK de código abierto, amplía la ya potente funcionalidad de Livepeer para la codificación, decodificación y distribución de video descentralizados, es tu conjunto de herramientas para crear contenido de video atractivo y que respeta la privacidad. Se integra sin problemas con las misiones web3 en el ecosistema DIGITALAX.
+
+      Clona su biblioteca desde Git para crear plataformas completas de distribución de video que se comunican con la era web3.
+      
+      Ya sea que estés viendo el último desfile de moda web3 o transmitiendo tutoriales de arte generativo, cada video es un punto de entrada hacia un mayor alcance y compromiso con el ecosistema. Utiliza el SDK de Kinora para integrar estas experiencias en tus proyectos decentralizados como una alternativa a las plataformas centralizadas, manteniendo la encriptación a nivel de usuario para los datos de cada espectador.
+
+      Kinora no es solo para creadores y espectadores, se trata de un cambio cultural hacia los medios de comunicación descentralizados en todas sus formas. Con el poder de Livepeer, la integración de las Odiseas Visuales y el Protocolo Lens, Kinora ofrece a todos un camino hacia la distribución de video que no solo es entretenido o distractor— sino es un viaje interactivo con métricas medibles hechas adaptadas a por qué ves y creas.`,
+    },
+  },
+  {
+    title: {
+      en: "7. Vision Quests",
+      es: "7. Odiseas Visuales",
+    },
+    description: {
+      en: `When a user initiates a Vision Quest, they perform specific on-chain and off-chain tasks, each verified and logged within the DIGITALAX ecosystem. On completion, rewards are automatically distributed, with NFTs, tokens, and experience points reflecting their achievements and contributions.
+    
+      Embark on Vision Quests to unlock the narrative potential of the DIGITALAX ecosystem. Engage in quests that challenge your creativity, wit, and collaborative spirit. Earn exclusive rewards, forge community ties, and experience the thrill of discovery and achievement, all gated by the tokens you hold, enhancing the value of your journey.
+      
+      Vision Quests are the key gameplay mechanism of the ecosystem's interactive layer, offering experiences that are as diverse as the communities we choose to align with. These quests aren't just for roleplaying games; they're micro-adventures that weave together the many threads of DIGITALAX, from the lore encoded in NFTs to the decentralized marketplace and storefront activity. They're an invitation to explore, contribute, and grow within a vibrant web3 Maslovian skilltree, to take part in stories that evolve with each participant's actions, and to leave an indelible mark on the post-digital realms. Vision Quests are gears of engagement, rewarding the curious and the brave with treasures that go beyond the meme—into the worlds were tangible goods meet the transformative power of earned agency.`,
+      es: `Cuando un usuario inicia una Odisea Visual, realiza tareas específicas tanto en la cadena como fuera de ella, cada una verificada y registrada dentro del ecosistema DIGITALAX. Al completarse, los premios se distribuyen automáticamente, con NFTs, tokens, y puntos de experencia reflejando sus logros y contribuciones.
+    
+      Embárcate en las Odiseas Visuales para desbloquear el potencial narrativo del ecosistema DIGITALAX. Participa en misiones que desafían tu creatividad, ingenio y espíritu colaborativo. Gana recompensas exclusivas, forja lazos comunitarios y experimenta la emoción del descubrimiento y el logro, todo ello protegido por los tokens que posees, enriqueciendo el valor de tu viaje. 
+
+      Las Odiseas Visuales son el mecanismo clave de juego en la capa interactiva del ecosistema, ofreciendo experiencias tan diversas como las comunidades con las que elegimos alinearnos. Estas misiones no son solo para juegos de rol; son microaventuras que entrelazan los diversos hilos de DIGITALAX, desde la leyenda codificada en NFTs hasta la actividad del mercado y tiendas descentralizadas. Son una invitación para explorar, contribuir y crecer dentro de un vibrante árbol de habilidades Maslovian en web3, para participar en historias que evolucionan con las acciones de cada participante, y para dejar una marca indeleble en los reinos post-digitales. Las Odiseas Visuales son engranajes de compromiso, recompensando a los curiosos y valientes con tesoros que van más allá del meme, hacia mundos donde los bienes tangibles se encuentran con el poder transformador de la agencia ganada.`,
+    },
+  },
+  {
+    title: {
+      en: "8. Chromadin",
+      es: "8. Chromadin",
+    },
+    description: {
+      en: `An always-on, dynamic content feed, where you can actively participate by posting, liking, mirroring, starting lengthy and erudite comment threads about, and sharing web3-native social media content.
+    
+      Interact with distinct features from web3 music streams, a portable video player, and token-gated access to curate a personalized media experience. CoinOp integration gives you a seamless way to add prints and apparel to your collection. The Kinora SDK delivers the goods for snappy video delivery and playback.`,
+      es: `Un flujo de contenido dinámico y siempre activo, participar activamente publicando, dando "me gusta", reflejando, iniciando y contribuyendo a extensos y eruditos hilos de comentarios, y compartiendo contenido de redes sociales nativas de web3.
+    
+      Interactúa con características únicas desde transmisiones de música web3, un reproductor de video portátil, y acceso protegido por tokens para personalizar tu experiencia mediática. La integración de CoinOp te ofrece una manera fluida de agregar estampados y prendas a tu colección. El SDK de Kinora entrega lo necesario para una entrega y reproducción de video rápida.`,
+    },
+  },
+  {
+    title: {
+      en: "9. Lit Listener",
+      es: "9. Lit Listener",
+    },
+    description: {
+      en: `If you sit back for a moment to think about it, the key to Web3 is user-level encryption in networks, money, and culture. It's more than just privacy, security, and record keeping. It's essential for conditional logic in real world environments.
+    
+      When a user sets up a circuit with the LitListenerSDK, they define a series of conditional, often on-chain, encrypted actions. The SDK listens for specific events, like contract execution or an oracle update, and once the predefined conditions are met, it triggers the next action in the sequence—whether it's releasing funds, minting an NFT, or updating a leaderboard.
+      
+      Lit Listener is the backbone of user-level encryption in the DIGITALAX ecosystem, essential for activating the complex web of conditional logic that underpins real-world environments. It's not exclusively about privacy, security, and record-keeping; it's crafting a responsive, autonomous world where each user's actions are encrypted and executed based on pre-approved conditions. This SDK gives users the kind of agency only possible when you can create conditional encryption circuits in decentralized code—-- tailored sequences of actions that respond to the dynamics of web3 mechanisms and social trends. Each interaction is a step toward a more seamlessly integrated and agentic post-digital existence.`,
+      es: `Si te detienes un momento para pensarlo, la clave de web3 yace en la encriptación a nivel de usuario en redes, dinero y cultura. Es más que simplemente privacidad, seguridad, y registro. Es esencial para la lógica condicional en entornos del mundo real. 
+
+      Cuando un usuario establece un circuito con el LitListenerSDK, define una serie de acciones condicionales, a menudo en cadena y cifradas. El SDK monitorea eventos específicos, como la ejecución de un contrato o la actualización de un oráculo, y una vez que se cumplan las condiciones predefinidas, se desencadena la siguiente acción en la secuencia— ya sea liberando fondos, acuñando un NFT, o actualizando una tabla de clasificación. 
+
+      El Lit Listener es como la piedra angular de encriptación a nivel personal en el ecosistema de DIGITALAX, esencial para activar la web compleja de lógica condicional que subyace a los entornos del mundo real. No se trata únicamente de privacidad, seguridad y registro; es la creación de un mundo autónomo y reactivo donde las acciones de cada usuario se cifran y ejecutan según condiciones preaprobadas. Este SDK otorga a los usuarios el tipo de agencia que solo es posible cuando se pueden crear circuitos de encriptación condicional en código descentralizado--- secuencias personalizadas de acciones que responden a la dinámica de los mecanismos de Web3 y las tendencias sociales. Cada interacción es un paso hacia una existencia post-digital más integrada y con mayor agencia.`,
+    },
+  },
+  {
+    title: {
+      en: "10. The Dial",
+      es: "10. El Dial",
+    },
+    description: {
+      en: `Tune into The Dial, your decentralized dashboard, infusing agency into your generative social media experience. 
+    
+      Use the integrated generative AI engine to craft distinctive content that stands out. Connect via Lens, chat, and collect with an ever increasing array of creative users making rare post-digital and capacitive goods, from unique NFTs to bespoke apparel. Each interaction enhances your status and reach within web3, and through it, all layers in the generative NPC economy accelerating ahead.`,
+      es: `Sintoniza con El Dial, tu panel decentralizado, inyectando agencia en tu experiencia de redes sociales generativas.
+      
+      Utiliza el motor de IA generativa integrado para moldear contenido  único que destaque. Conéctate a través de Lens, chat y colecciona un espectro creciente de usuarios creativos que producen bienes post-digitales y capacitivos excepcionales, desde NFTs únicos hasta ropa personalizada. Cada interacción mejora tu estatus y conexión dentro de web3, y por lo tanto, todas las capas en la economía NPC generativa que avanzan a toda velocidad.`,
+    },
+  },
+  {
+    title: {
+      en: "11. Legend",
+      es: "11. Leyenda",
+    },
+    description: {
+      en: `When using Legend, users discover grants and proposals for web3 public goods infrastructure. You help make these needed upgrades happen faster with more reliable support for indie dev teams, but not just through the usual direct contributions. Each purchase you make of related NFTs, streetwear, art prints, NPC equipment, and virtual goods doesn't just keep devs fueled in ramen and energy drinks. It decentralizes the process of selecting and making the missing open source infrastructure we all rely on.
+    
+      Legend creates a more reliable connection between devs, creators, and every user. It enriches the ecosystem's distributed resilience and safeguards it against subtle forms of market power centralization. This model is an enhancement to freely coordinated agency, peer to peer. A reinforcement of web3's key principles of decentralization, defense, deterrence, and community-driven participation in depth.
+      
+      Commerce based funding of web3 public goods? Yeah, it's novel. But the real legend here is you, for accelerating the build of this ecosystem. 
+      
+      Stay tuned as our story continues.`,
+      es: `Cuando utilizas Leyenda, los usuarios descubren subvenciones y propuestas para la infraestructura de bienes públicos en web3. Ayudas a que estas actualizaciones necesarias se realicen más rápidamente con un soporte más fiable para equipos de desarrollo independientes, pero no solo a través de contribuciones directas habituales. Cada compra que realizas de NFTs relacionados, ropa de calle, impresiones de arte, equipo NPC y bienes virtuales no solo mantiene a los desarrolladores abastecidos de ramen y bebidas energéticas. También descentraliza el proceso de selección y creación de la infraestructura de código abierto que todos necesitamos.
+      
+      Leyenda crea una conexión más fiable entre desarrolladores, creadores y cada usuario. Enriquece la resiliencia distribuida del ecosistema y lo protege contra formas sutiles de centralización del poder de mercado. Este modelo es un avance hacia una agencia coordinada de forma libre, de igual a igual. Un refuerzo de los principios fundamentales de web3 de descentralización, defensa, disuasión y participación impulsada por la comunidad en profundidad.
+
+      ¿Financiación del comercio de bienes públicos de web3? Sí, es innovadora. Pero la verdadera leyenda aquí eres tú, por acelerar la construcción de este ecosistema. 
+
+      Permanece atento a medida que nuestra historia continúa.`,
+    },
+  },
+];
+
+export const QUESTIONS: {
+  title: {
+    en: string;
+    es: string;
+  };
+  description: {
+    en: string;
+    es: string;
+  };
+}[] = [
+  {
+    title: {
+      en: "But first, what's the point?",
+      es: "Pero primero, ¿cuál es el punto?",
+    },
+    description: {
+      en: `We know why you're here. 
+
+      It's hard to figure out what to make of so much information, and all the claims of revolutionary advances in tech, filling our feeds all over the internet. Generative AI and Web3, more than anything else, promise a sudden radical shift in lifestyles and society. They are confusing at best unless you somehow keep up with the latest hyper-technical developments. It feels like there's a new can't miss update every few minutes.   
+      
+      What you're really asking is a lot simpler: 
+      
+      Is AI going to replace me? And, if not, how do I get noticed or earn anything from what I create?`,
+      es: `Ya sabemos porque estás aquí. 
+
+      Es difícil de descifrar qué hacer con tanta información, y todas las afirmaciones de avances revolucionarios en tecnología, inundando nuestros feeds en internet. La IA generativa y Web3, más que nada, prometen un cambio radical y súbito en los estilos de vida y la sociedad. Son confusas en el mejor de los casos, a menos que de alguna manera logres mantenerte al día con los últimos desarrollos hiper-técnicos. Parece que hay una nueva actualización imprescindible cada pocos minutos.
+      
+      Lo que realmente estás preguntando es mucho más sencillo:
+      
+      ¿Va a reemplazarme la IA? Y, si no es así, ¿cómo me hago notar o gano algo por lo que creo?`,
+    },
+  },
+  {
+    title: {
+      en: "Why Start With Web3Fashion?",
+      es: "¿Por qué empezar con la Moda Web3?",
+    },
+    description: {
+      en: `It's a fundamental shift to advancing autonomy at the most basic levels of creation, production, distribution, and trade. Web3 changes how you get agency and openings to connect products with markets and community growth. 
+    
+      You can make what you want to wear, and express yourself in any style. It's always been what drives technology forward the most. The computer you're using now, whether a giant LLM workstation, blazing fast gaming desktop, or pocket piece of glass, metal, and plastic, it got its start in counting and automating threads into fashion.`,
+      es: `Es un cambio fundamental hacia el avance de la autonomía en los niveles más elementales de creación, producción, distribución y comercio. Web3 transforma la manera en que obtienes agencia y oportunidades para conectar tus productos con los mercados y el crecimiento de la comunidad.
+      
+      Puedes crear lo que desees llevar puesto y expresarte en cualquier estilo. Esto siempre ha sido lo que más ha impulsado el avance tecnológico. La computadora que estás utilizando ahora, ya sea una estación de trabajo LLM de gran tamaño, un escritorio de juegos de alta velocidad, o un dispositivo de bolsillo hecho de vidrio, metal y plástico, tuvo sus inicios en el conteo y la automatización de hilos para la moda.`,
+    },
+  },
+  {
+    title: {
+      en: "How do you break through barriers in creative markets?",
+      es: "¿Cómo superar las barreras en los mercados creativos?",
+    },
+    description: {
+      en: `The early net was wild, a place where code wasn't quite law, but might be someday, and the only limit was your 14.4k modem screaming into the void. But as screens got wider, so did the barriers. Big platforms came stomping in, claiming the wilds for themselves, leaving us with cookie-cutter profiles and the echo of 'user engagement'.
+    
+      Now, we take it back. 
+      
+      You break through by earning agency. With each effort, each message, each trade, decentralized records of account and exchange are more than pretty pictures (although usually,they're that too). They point to, activate, and help operate conditional logic in machines that build your power to reach people through universal storefronts, user-level encryption, and NPC teams you can train and learn from to compete head to head with the biggest players in any market.`,
+      es: `Los primeros días de internet fueron salvajes, un lugar donde aún el código no era ley, pero podría llegar a serlo algún día, y el único limite era tu módem de 14.4k gritando al vacío. Sin embargo, conforme las pantallas se ampliaban, también lo hacían las barreras. Las grandes plataformas irrumpieron con fuerza, reclamando lo salvaje para ellas, dejándonos perfiles estandarizados y el eco de la "participación del usuario".
+      
+      Ahora, lo recuperamos.
+      
+      Superas las barreras ganando agencia. Con cada esfuerzo, cada mensaje, cada transacción, los registros decentralizados de cuentas e intercambios son más que meras imágenes bonitas (aunque usualmente, también son eso). Indican, activan y operan la lógica condicional en máquinas que fortalecen tu capacidad de llegar a las personas a través de tiendas universales, encriptación a nivel de usuario y equipos de NPC que puedes entrenar y de los cuales aprender para competir de igual a igual con los mayores jugadores en cualquier mercado.`,
+    },
   },
 ];

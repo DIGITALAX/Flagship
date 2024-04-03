@@ -1,6 +1,9 @@
 [
   {
-    "name": "CYPHER SEARCH",
+    "name": {
+      "en": "CYPHER SEARCH",
+      "es": "BÚSQUEDA CIFRADA"
+    },
     "image": "QmXdpVMP9c1whwfmq8J4qtcHUTMwTu2HK3ekKaZ2DfLnPQ",
     "number": "1",
     "id": "one",
@@ -9,7 +12,10 @@
     "height": 320
   },
   {
-    "name": "THE MANUFACTORY",
+    "name": {
+      "en": "THE MANUFACTORY",
+      "es": "LA MANUFACTURA"
+    },
     "image": "QmVQs31SSv6GzaYfvRcziPkisVFbvXxK9SAbDYvFSG7gj3",
     "number": "2",
     "id": "two",
@@ -18,7 +24,10 @@
     "height": 80
   },
   {
-    "name": "COIN OP",
+    "name": {
+      "en": "COIN OP",
+      "es": "COIN OP"
+    },
     "image": "QmPDvX3Gs8xreaNwDi3fPUmwg37niWb6TaADrLVUTn2y2Y",
     "number": "3",
     "id": "three",
@@ -27,7 +36,10 @@
     "height": 60
   },
   {
-    "name": "MONA",
+    "name": {
+      "en": "MONA",
+      "es": "MONA"
+    },
     "image": "QmPB3KnfK1SbW3B8eLeKmss1HtM3u2ZXqgPNSYDahp2rqA",
     "number": "4",
     "id": "four",
@@ -36,7 +48,10 @@
     "height": 60
   },
   {
-    "name": "LIT LISTENER",
+    "name": {
+      "en": "LIT LISTENER",
+      "es": "OYENTE DE LIT"
+    },
     "image": "QmdDJzGxzNGamFZQRnL8dN6PHtTFV1eFhiB9hVc84JfNAd",
     "number": "5",
     "id": "five",
@@ -45,7 +60,10 @@
     "height": 320
   },
   {
-    "name": "PKPs",
+    "name": {
+      "en": "PKPs",
+      "es": "PKPs"
+    },
     "image": "QmewB33fdwgapHxEB6TJMyikF6bb8jJjYjGE4AEvMR44sH",
     "number": "6",
     "id": "six",
@@ -54,7 +72,10 @@
     "height": 320
   },
   {
-    "name": "CHROMADIN",
+    "name": {
+      "en": "CHROMADIN",
+      "es": "CHROMADIN"
+    },
     "image": "QmVQ1NGyfHmMCD48aWbs7yAgeC8ch6oWm8kSYeikuagXp8",
     "number": "7",
     "id": "seven",
@@ -63,7 +84,10 @@
     "height": 320
   },
   {
-    "name": "VISION QUESTS",
+    "name": {
+      "en": "VISION QUESTS",
+      "es": "ODISEAS VISUALES"
+    },
     "image": "QmQk9TqFivUqc6ktosoZVVih9o1uiY3r5Z7F3GCC1FpaJS",
     "number": "8",
     "id": "eight",
@@ -72,7 +96,10 @@
     "height": 320
   },
   {
-    "name": "KINORA",
+    "name": {
+      "en": "KINORA",
+      "es": "KINORA"
+    },
     "image": "QmNmK82BkospCqyQjzHySwzEZXpzu4KwzDSWMtpppNW8tk",
     "number": "9",
     "id": "nine",
@@ -81,7 +108,10 @@
     "height": 320
   },
   {
-    "name": "ENGINEERING",
+    "name": {
+      "en": "ENGINEERING",
+      "es": "INGENIERÍA"
+    },
     "image": "QmUaSzTcuoPWqHmdU4pu58maAZ3876JddCeRqPKTMVJ8DC",
     "number": "10",
     "id": "ten",
@@ -90,7 +120,10 @@
     "height": 150
   },
   {
-    "name": "THE DIAL",
+    "name": {
+      "en": "THE DIAL",
+      "es": "EL DIAL"
+    },
     "image": "QmZ1hBVXHWK37h8bPKGqpLGogWwYVTTYTfkPp5DTmvK1ZT",
     "number": "11",
     "id": "eleven",
@@ -99,7 +132,10 @@
     "height": 150
   },
   {
-    "name": "WHITEPAPER V3",
+    "name": {
+      "en": "WHITEPAPER V3",
+      "es": "PAPEL BLANCO V3"
+    },
     "image": "QmXBoTMp9NKviigEfuVLtMvP3HsNRQUpQ7f9VpJzmry5dr",
     "number": "12",
     "id": "twelve",
@@ -108,7 +144,10 @@
     "height": 180
   },
   {
-    "name": "LEGEND",
+    "name": {
+      "en": "LEGEND",
+      "es": "LEYENDA"
+    },
     "image": "QmfUUvVP14gUbV9iG3WYNEudCDhEE4c91uCxcWGLjp7w1G",
     "number": "13",
     "id": "thirteen",
@@ -117,7 +156,10 @@
     "height": 140
   },
   {
-    "name": "LOOK: FASHION LOOT",
+    "name": {
+      "en": "LOOK: FASHION LOOT",
+      "es": "LOOK: LA MODA DE LOOT"
+    },
     "image": "QmPRaPTK9pq511nwNFEHpVW22qrdpcNaHy7gaULDddztDy",
     "number": "14",
     "id": "fourteen",
@@ -126,7 +168,10 @@
     "height": 250
   },
   {
-    "name": "TRANSPARENCY REPORTS",
+    "name": {
+      "en": "TRANSPARENCY REPORTS",
+      "es": "INFORMES DE TRANSPARENCIA"
+    },
     "image": "QmPaQy4y1PCxhsvewbP2BdRmbWhwupZvqDQkCqNVdm6sCg",
     "number": "15",
     "id": "fifteen",

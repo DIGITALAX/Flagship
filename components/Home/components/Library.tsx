@@ -10,6 +10,7 @@ const Library: FunctionComponent<LibraryProps> = ({
   setCurrentBook,
   lastBook,
   handleLastBook,
+  router
 }): JSX.Element => {
   return (
     <div className="relative w-full h-fit flex flex-col items-center justify-start pt-4">
@@ -30,6 +31,7 @@ const Library: FunctionComponent<LibraryProps> = ({
         setCurrentBook={setCurrentBook}
         handleLastBook={handleLastBook}
         dispatch={dispatch}
+        router={router}
       />
     </div>
   );

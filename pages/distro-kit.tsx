@@ -25,7 +25,6 @@ const DistroKit: NextPage<DistroProps> = ({
   const dispatch = useDispatch();
   const { tvImages, setBlenderPage, setTvImages, blenderPage } = useDistro();
   const { searchLoading, searchItems, filterConstants } = useCypherSearch();
-
   return (
     <div className="min-w-screen min-h-full h-full flex flex-col bg-mainBg justify-start items-center pb-28 gap-32">
       <div className="relative w-full h-fit flex flex-col items-center justify-start gap-3">
@@ -76,10 +75,22 @@ const DistroKit: NextPage<DistroProps> = ({
       <div className="relative w-full h-fit flex justify-center items-center px-2 sm:px-8">
         <div className="relative w-full h-fit md:h-[30rem] flex flex-col md:flex-row justify-between gap-10 items-center">
           <div className="relative w-full h-full font-bit text-mainText flex items-center justify-start border-2 border-verde flex-col p-2">
-            <div className="relative w-fit h-fit flex items-center justify-center break-all text-[7vw] sm:text-[5vw] 2xl:text-[5rem]">
+            <div
+              className={`relative w-fit h-fit flex items-center justify-center break-all text-center ${
+                router.locale == "es"
+                  ? "text-[7vw] sm:text-[3.3vw]"
+                  : "text-[7vw] sm:text-[5vw] 2xl:text-[5rem]"
+              }`}
+            >
               {t("distribution")}
             </div>
-            <div className="relative w-fit h-fit flex items-center justify-center break-all text-[6.5vw] sm:text-[4.5vw] 2xl:text-[4rem]">
+            <div
+              className={`relative w-fit h-fit flex items-center justify-center break-word text-center ${
+                router.locale == "es"
+                  ? "text-[7vw] sm:text-[3.3vw]"
+                  : "text-[6.5vw] sm:text-[4.5vw] 2xl:text-[4rem]"
+              }`}
+            >
               {t("need")}
             </div>
             <div className="relative w-full h-fit flex items-start justify-center pt-3">
@@ -134,7 +145,11 @@ const DistroKit: NextPage<DistroProps> = ({
                 draggable={false}
               />
               <div className="relative flex w-full h-fit midi:h-full">
-                <div className="relative hidden midi:flex w-full midi:w-80 h-fit p-2 text-4xl leading-normal break-words ml-0">
+                <div
+                  className={`relative hidden midi:flex w-full midi:w-80 h-fit p-2 leading-normal break-words ml-0 ${
+                    router.locale == "es" ? "text-3xl" : "text-4xl"
+                  }`}
+                >
                   {t("new")}
                 </div>
               </div>
@@ -453,7 +468,11 @@ const DistroKit: NextPage<DistroProps> = ({
           </div>
         </div>
         <div className="relative w-full h-fit justify-center items-center flex">
-          <Blender blenderPage={blenderPage} setBlenderPage={setBlenderPage} />
+          <Blender
+            t={t}
+            blenderPage={blenderPage}
+            setBlenderPage={setBlenderPage}
+          />
         </div>
       </div>
       <div className="relative w-full h-fit flex flex-col gap-12">

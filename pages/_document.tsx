@@ -6,7 +6,11 @@ class Document extends NextDocument {
     return (
       <Html>
         <Head>
-          <meta name="og:image" content="https://www.digitalax.xyz/card.png/" />
+          <meta
+            name="og:image"
+            content="https://www.digitalax.xyz/card.png/"
+            charSet="UTF-8"
+          />
           <link
             rel="preconnect"
             href="https://fonts.gstatic.com"

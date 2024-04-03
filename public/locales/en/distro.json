@@ -24,5 +24,20 @@
   "real": "REAL TIME INFORMATION, SOURCED FROM AS MANY FEEDS AS I CAN FOLLOW",
   "watch": "STILL SO MUCH TO WATCH, BUT I'M NOT PAYING FOR ANOTHER STREAMING SUB",
   "afraid": "NOT AFRAID TO ADMIT I'M HERE TO BE SEEN",
-  "count": "IS IT TOO MUCH TO ASK FOR EVERY LIKE, COMMENT AND CLICK TO COUNT?"
+  "count": "IS IT TOO MUCH TO ASK FOR EVERY LIKE, COMMENT AND CLICK TO COUNT?",
+  "next": "next",
+  "prev": "prev",
+  "type": "mesh",
+  "research": "Research & Development Dept.",
+  "info": "bl_info: fashion syntheziser",
+  "plugin": "plugin",
+  "synth": "synth",
+  "segmentation": "segmentation",
+  "open": "open datasets",
+  "zero": "zero waste",
+  "packing": "packing",
+  "3d": "3d design",
+  "restitch": "restitch",
+  "rematerialize": "rematerialize",
+  "mint": "mint"
 }

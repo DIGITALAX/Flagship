@@ -14,7 +14,10 @@ export type GalleryProps = {
 };
 
 export interface Library {
-  name: string;
+  name: {
+    en: string;
+    es: string;
+  };
   image: string;
   number: string;
   id: string;
@@ -29,6 +32,7 @@ export type LibraryProps = {
     link: string;
     image: string;
   };
+  router: NextRouter;
   setCurrentBook: (e: { link: string; image: string }) => void;
   lastBook: MutableRefObject<HTMLDivElement | null>;
   handleLastBook: () => void;
@@ -40,6 +44,7 @@ export type ShelfProps = {
     link: string;
     image: string;
   };
+  router: NextRouter;
   setCurrentBook: (e: { link: string; image: string }) => void;
   lastBook: MutableRefObject<HTMLDivElement | null>;
   handleLastBook: () => void;

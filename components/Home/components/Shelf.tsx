@@ -11,6 +11,7 @@ const Shelf: FunctionComponent<ShelfProps> = ({
   lastBook,
   dispatch,
   handleLastBook,
+  router,
 }): JSX.Element => {
   return (
     <div className="relative flex items-center justify-start flex-col  md:flex-row w-full h-[70rem] md:h-[40rem]">
@@ -93,7 +94,7 @@ const Shelf: FunctionComponent<ShelfProps> = ({
                 ></div>
               </div>
               <div className="absolute w-fit flex items-start justify-center top-1/2 text-lg font-lib h-12 rotate-90 border-2 border-offBlack py-2 px-3 bg-offWhite text-offBlack whitespace-nowrap">
-                {book.name}
+                {book.name[router.locale as "en" | "es"]}
               </div>
             </div>
           );
@@ -102,7 +103,9 @@ const Shelf: FunctionComponent<ShelfProps> = ({
       <div
         className={`relative w-full md:w-60 h-fit md:h-full flex items-center justify-center gap-2 bg-offBlack flex-col md:flex-row gap-2 p-3`}
       >
-        <div className={`relative md:rotate-0 rotate-90 w-6 h-40 items-center justify-center flex`}>
+        <div
+          className={`relative md:rotate-0 rotate-90 w-6 h-40 items-center justify-center flex`}
+        >
           <Image
             src={`${INFURA_GATEWAY}/ipfs/QmdqGRG1tr9mPSCWNUGPiHq1pGpLkhgyFg8o6SN9LKrd8o`}
             layout="fill"

@@ -449,12 +449,12 @@ const Header: FunctionComponent<HeaderProps> = ({
               {
                 link: "https://legend.irrevocable.dev",
                 image: "QmWDqwGn7JgWzFsvUuC6pR7P58v6ab1npPueJ9Vfaez8iW",
-                title: "Legend",
+                title: t("legend"),
               },
               {
                 link: "https://thedial.xyz",
                 image: "QmcNb4CFnWt9LfmbjLceug541x1WPhx5Utqeu2rP65gbiV",
-                title: "The Dial",
+                title: t("dial"),
               },
               {
                 link: "https://chromadin.xyz",
@@ -469,12 +469,12 @@ const Header: FunctionComponent<HeaderProps> = ({
               {
                 link: "https://themanufactory.xyz",
                 image: "QmRpVNoo4LdwBrByfmUNpoB7nPrJrLUPdUeeeatqc4CDk7",
-                title: "The Manufactory",
+                title: t("manu"),
               },
               {
                 link: "https://listener.irrevocable.dev",
                 image: "QmcY6zRcfQyr7pahRVaSwzT3J7ibiDNYwWUFkg9aFA4tE2",
-                title: "Lit Listener",
+                title: t("lit"),
               },
             ].map(
               (

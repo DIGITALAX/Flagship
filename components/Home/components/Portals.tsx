@@ -4,7 +4,10 @@ import Image from "next/legacy/image";
 import { INFURA_GATEWAY } from "@/lib/constants";
 import Feature from "./Feature";
 
-const Portals: FunctionComponent<PortalsProps> = ({ router, t }): JSX.Element => {
+const Portals: FunctionComponent<PortalsProps> = ({
+  router,
+  t,
+}): JSX.Element => {
   return (
     <div className="relative w-full h-fit flex flex-col items-center justify-start gap-10">
       <div className="relative w-full h-fit flex items-center justify-between gap-7 flex-col sm:flex-row">
@@ -123,7 +126,7 @@ const Portals: FunctionComponent<PortalsProps> = ({ router, t }): JSX.Element =>
             },
             {
               image: "QmNcrdusMU9qch4imSkCFtgSNXHVhd8fin8Ur6ySLKFERz",
-              title: "The Manufactory",
+              title: t("manu"),
               link: "https://themanufactory.xyz/",
             },
           ].map(
@@ -189,7 +192,7 @@ const Portals: FunctionComponent<PortalsProps> = ({ router, t }): JSX.Element =>
             },
             {
               image: "Qmc1G3A1AdiUyjWsbX9MU8jinapN7Cy1mHb9kFsieysSno",
-              title: "Legend",
+              title: t("legend"),
               link: "https://legend.irrevocable.dev/",
             },
           ].map(

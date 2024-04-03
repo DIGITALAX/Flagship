@@ -1,25 +1,22 @@
 import Image from "next/legacy/image";
 import { FunctionComponent } from "react";
-import {
-  BLENDER_FIELDS,
-  BLENDER_IMAGES,
-  INFURA_GATEWAY,
-} from "../../../lib/constants";
+import { BLENDER_IMAGES, INFURA_GATEWAY } from "../../../lib/constants";
 import { BlenderProps } from "../types/distro.types";
 
 const Blender: FunctionComponent<BlenderProps> = ({
   blenderPage,
   setBlenderPage,
+  t,
 }): JSX.Element => {
   return (
     <div className="w-full h-fit sm:h-[60rem] flex flex-col border-y-4 border-r-8 border-l-4 border-offBlack rounded-xl relative bg-grayMid pt-3">
       <div className="relative border-b-4 w-full h-fit font-libB text-offBlack px-3 border-offBlack flex items-center justify-start pb-3">
-        Research & Development Dept.
+        {t("research")}
       </div>
       <div className="relative w-full h-full flex flex-col sm:flex-row justify-start items-start font-lib">
         <div className="flex flex-col w-full sm:w-60 h-full relative text-offBlack items-start justify-start">
           <div className="relative w-full h-fit flex items-center justify-center text-2xl font-libB border-offBlack border-b-2 p-4">
-            Mesh
+            {t("type")}
           </div>
           <div className="relative w-fit h-fit flex flex-col items-start justify-start p-4 gap-6">
             <div className="relative flex flex-row w-fit h-fit items-center justify-center gap-2">
@@ -35,11 +32,22 @@ const Blender: FunctionComponent<BlenderProps> = ({
                 />
               </div>
               <div className="relative flex items-center justify-center w-fit h-fit text-lg">
-                {BLENDER_FIELDS[0]}
+                Blender
               </div>
             </div>
             <div className="relative flex flex-col gap-2 w-fit h-fit justify-start">
-              {BLENDER_FIELDS.slice(1).map((item, index) => {
+              {[
+                t("plugin"),
+                t("synth"),
+                t("segmentation"),
+                t("open"),
+                t("zero"),
+                t("packing"),
+                t("3d"),
+                t("restitch"),
+                t("rematerialize"),
+                t("mint"),
+              ].map((item, index) => {
                 return (
                   <div
                     className="relative flex flex-row gap-2 w-fit h-fit break-word text-xs"
@@ -109,7 +117,7 @@ const Blender: FunctionComponent<BlenderProps> = ({
                 }`}
                 onClick={() => blenderPage !== 0 && setBlenderPage(0)}
               >
-                prev
+                {t("prev")}
               </div>
               <div
                 className={`relative flex items-center justify-center w-full sm:w-fit h-fit px-3 py-2 bg-offWhite border-2 border-offBlack rounded-lg ${
@@ -119,7 +127,7 @@ const Blender: FunctionComponent<BlenderProps> = ({
                 }`}
                 onClick={() => blenderPage !== 1 && setBlenderPage(1)}
               >
-                next
+                {t("next")}
               </div>
             </div>
           </div>
@@ -136,7 +144,7 @@ const Blender: FunctionComponent<BlenderProps> = ({
               </div>
             </div>
             <div className="relative w-fit h-full pt-1 px-8 pb-8 flex items-center justify-center font-lib text-offBlack text-xs">
-              bl_info: fashion syntheziser
+              {t("info")}
             </div>
           </div>
         </div>
