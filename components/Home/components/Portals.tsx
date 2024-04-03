@@ -187,7 +187,7 @@ const Portals: FunctionComponent<PortalsProps> = ({
           {[
             {
               image: "QmYXNG1QarpiSBaVd6RYj4HEKgngt49zPMWdRxQQKdB9va",
-              title: "Listener",
+              title: t("listener"),
               link: "https://listener.irrevocable.dev/",
             },
             {

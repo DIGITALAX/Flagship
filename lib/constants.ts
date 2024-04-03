@@ -538,7 +538,7 @@ export const IMAGE_LOGS: {
     image: "QmaoosmxdyzTGgionT7w8th6iwUPk5JzgCTmBocSZUPFNs",
     title: {
       en: "Lit Listener",
-      es: "Lit Listener",
+      es: "Oyente de Lit",
     },
     description: {
       en: "Universal encryption for on-chain events",
@@ -722,7 +722,7 @@ export const LOG: {
   {
     title: {
       en: "9. Lit Listener",
-      es: "9. Lit Listener",
+      es: "9. Oyente de Lit",
     },
     description: {
       en: `If you sit back for a moment to think about it, the key to Web3 is user-level encryption in networks, money, and culture. It's more than just privacy, security, and record keeping. It's essential for conditional logic in real world environments.
@@ -734,7 +734,7 @@ export const LOG: {
 
       Cuando un usuario establece un circuito con el LitListenerSDK, define una serie de acciones condicionales, a menudo en cadena y cifradas. El SDK monitorea eventos específicos, como la ejecución de un contrato o la actualización de un oráculo, y una vez que se cumplan las condiciones predefinidas, se desencadena la siguiente acción en la secuencia— ya sea liberando fondos, acuñando un NFT, o actualizando una tabla de clasificación. 
 
-      El Lit Listener es como la piedra angular de encriptación a nivel personal en el ecosistema de DIGITALAX, esencial para activar la web compleja de lógica condicional que subyace a los entornos del mundo real. No se trata únicamente de privacidad, seguridad y registro; es la creación de un mundo autónomo y reactivo donde las acciones de cada usuario se cifran y ejecutan según condiciones preaprobadas. Este SDK otorga a los usuarios el tipo de agencia que solo es posible cuando se pueden crear circuitos de encriptación condicional en código descentralizado--- secuencias personalizadas de acciones que responden a la dinámica de los mecanismos de Web3 y las tendencias sociales. Cada interacción es un paso hacia una existencia post-digital más integrada y con mayor agencia.`,
+      El Oyente de Lit es como la piedra angular de encriptación a nivel personal en el ecosistema de DIGITALAX, esencial para activar la web compleja de lógica condicional que subyace a los entornos del mundo real. No se trata únicamente de privacidad, seguridad y registro; es la creación de un mundo autónomo y reactivo donde las acciones de cada usuario se cifran y ejecutan según condiciones preaprobadas. Este SDK otorga a los usuarios el tipo de agencia que solo es posible cuando se pueden crear circuitos de encriptación condicional en código descentralizado--- secuencias personalizadas de acciones que responden a la dinámica de los mecanismos de Web3 y las tendencias sociales. Cada interacción es un paso hacia una existencia post-digital más integrada y con mayor agencia.`,
     },
   },
   {

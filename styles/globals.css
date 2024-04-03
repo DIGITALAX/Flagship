@@ -113,10 +113,10 @@ body {
   padding: 0;
   margin: 0;
   background-color: #faf4e8;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: "Manaspace", -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    Arial, sans-serif;
 }
-
 
 body::-webkit-scrollbar {
   width: 0;
@@ -143,8 +143,6 @@ html::-webkit-scrollbar-track:active {
 html::-webkit-scrollbar-thumb:active {
   background-color: transparent !important;
 }
-
-
 
 .theme-cream {
   --mainBg: theme("colors.midWhite");

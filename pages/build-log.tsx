@@ -76,7 +76,11 @@ const BuildLog: NextPage<LogProps> = ({ rewind, router }): JSX.Element => {
               src={`${INFURA_GATEWAY}/ipfs/${IMAGE_LOGS[currentImage].image}`}
             />
             {currentImage > 1 && (
-              <div className="absolute bottom-3 right-3 w-48 h-fit border border-white rounded-md bg-black/70 px-2 py-3 flex flex-col items-center gap-5 justify-center text-white font-mana text-center">
+              <div
+                className={`absolute bottom-3 right-3 w-48 h-fit border border-white rounded-md bg-black/70 px-2 py-3 flex flex-col items-center gap-5 justify-center text-white text-center ${
+                  router.locale == "es" ? "font-bit" : "font-mana"
+                }`}
+              >
                 <div className="relative w-fit h-fit flex items-center jutify-center text-lg break-words">
                   {
                     IMAGE_LOGS[currentImage].title[
@@ -84,7 +88,11 @@ const BuildLog: NextPage<LogProps> = ({ rewind, router }): JSX.Element => {
                     ]
                   }
                 </div>
-                <div className="relative w-fit h-fit flex items-center jutify-center break-words text-sm">
+                <div
+                  className={`relative w-fit h-fit flex items-center jutify-center break-words ${
+                    router.locale == "es" ? "text-base" : "text-sm"
+                  }`}
+                >
                   {
                     IMAGE_LOGS[currentImage].description[
                       router.locale! as "en" | "es"
@@ -146,7 +154,11 @@ const BuildLog: NextPage<LogProps> = ({ rewind, router }): JSX.Element => {
                     {item.title[router.locale as "en" | "es"]}
                   </div>
                   <div
-                    className="relative w-fit h-fit flex items-center  break-words whitespace-pre-line justify-start text-xs text-solapa font-mana"
+                    className={`relative w-fit h-fit flex items-center  break-words whitespace-pre-line justify-start text-solapa ${
+                      router.locale == "es"
+                        ? "font-bit text-sm"
+                        : "font-mana text-xs"
+                    }`}
                     dangerouslySetInnerHTML={{
                       __html: descriptionRegex(
                         item.description[router.locale as "en" | "es"],
@@ -186,7 +198,11 @@ const BuildLog: NextPage<LogProps> = ({ rewind, router }): JSX.Element => {
                     {item.title[router.locale as "en" | "es"]}
                   </div>
                   <div
-                    className="relative w-fit h-fit flex items-center whitespace-nowrap break-words whitespace-pre-line	justify-start text-xs text-solapa font-mana"
+                    className={`relative w-fit h-fit flex items-center whitespace-nowrap break-words whitespace-pre-line	justify-start text-solapa ${
+                      router.locale == "es"
+                        ? "font-bit text-sm"
+                        : "font-mana text-xs"
+                    }`}
                     dangerouslySetInnerHTML={{
                       __html: descriptionRegex(
                         item.description[router.locale as "en" | "es"],
