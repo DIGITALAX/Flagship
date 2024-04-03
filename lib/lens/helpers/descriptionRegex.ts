@@ -1,4 +1,6 @@
 const descriptionRegex = (description: string, colorChange: boolean) => {
+  if (description.trim() == "" || !description) return "";
+
   const specialPhrase =
     "... This post is encrypted. Do you hold the keys to unlock its' secrets?";
   const replacedDescription = description?.replace(/\n\n/g, "\n \n");

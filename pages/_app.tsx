@@ -24,7 +24,6 @@ import { merge } from "lodash";
 import RouterChange from "@/components/Layout/modules/RouterChange";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-
 const walletTheme = merge(darkTheme(), {
   colors: {
     accentColor: "#111313",

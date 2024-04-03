@@ -161,7 +161,7 @@ const BuildLog: NextPage<LogProps> = ({ rewind, router }): JSX.Element => {
                     }`}
                     dangerouslySetInnerHTML={{
                       __html: descriptionRegex(
-                        item.description[router.locale as "en" | "es"],
+                        item.description?.[router.locale as "en" | "es"] || "",
                         false
                       ),
                     }}
@@ -205,7 +205,7 @@ const BuildLog: NextPage<LogProps> = ({ rewind, router }): JSX.Element => {
                     }`}
                     dangerouslySetInnerHTML={{
                       __html: descriptionRegex(
-                        item.description[router.locale as "en" | "es"],
+                        item.description?.[router.locale as "en" | "es"] || "",
                         false
                       ),
                     }}
