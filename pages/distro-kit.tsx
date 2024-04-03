@@ -121,8 +121,7 @@ const DistroKit: NextPage<DistroProps> = ({
       <div className="relative w-full h-fit flex flex-col items-center justify-center">
         <div className="relative w-full h-fit flex items-center justify-center bg-gradient-to-r from-grad1 via-grad2 to-grad3 py-0.5">
           <div className="text-center flex items-center justify-center font-lib text-offBlack bg-offWhite text-[4vw] break-all sm:text-[2.1vw] sm:whitespace-nowrap py-3 w-full h-full">
-            TOMORROW’S SO CALLED REAL WORLD… WILL IT EVER BE THE WAY WE
-            REMEMBER?
+            {t("tomorrow")}
           </div>
         </div>
         <div className="bg-offBlack w-full h-fit md:h-[90rem] relative flex flex-col md:flex-row gap-3 px-2 items-center md:items-start justify-start md:justify-center">
@@ -136,23 +135,22 @@ const DistroKit: NextPage<DistroProps> = ({
               />
               <div className="relative flex w-full h-fit midi:h-full">
                 <div className="relative hidden midi:flex w-full midi:w-80 h-fit p-2 text-4xl leading-normal break-words ml-0">
-                  THE NEW SOCIAL IS SCRIPTED BY NPCS W/ INFLUENCE & AI, UNLESS
-                  YOU BEAT THEM TO IT.
+                  {t("new")}
                 </div>
               </div>
             </div>
             <div className="relative w-full h-fit flex flex-col items-center justify-start text-white font-bit px-2 py-4 gap-10">
               <div className="relative w-fit h-fit flex items-center justify-center text-3xl">
-                Why are you still online?
+                {t("online")}
               </div>
               <div className="relative flex flex-col items-center justify-start gap-6 h-fit w-full text-base">
                 {[
-                  "WAITING FOR A ROBOT COMPANION THAT GETS ME",
-                  "HOW DO I REACH CREATORS, COLLECTORS, OR ANYONE WITHOUT IT?",
-                  "REAL TIME INFORMATION, SOURCED FROM AS MANY FEEDS AS I CAN FOLLOW",
-                  "STILL SO MUCH TO WATCH, BUT I'M NOT PAYING FOR ANOTHER STREAMING SUB",
-                  "NOT AFRAID TO ADMIT I'M HERE TO BE SEEN",
-                  "IS IT TOO MUCH TO ASK FOR EVERY LIKE, COMMENT AND CLICK TO COUNT?",
+                  t("robot"),
+                  t("reach"),
+                  t("real"),
+                  t("watch"),
+                  t("afraid"),
+                  t("count"),
                 ].map((item, index: number) => {
                   return (
                     <div
@@ -169,11 +167,11 @@ const DistroKit: NextPage<DistroProps> = ({
               </div>
               <div className="relative w-full h-fit flex flex-col gap-1.5 items-center justify-center text-lg">
                 <div className="relative w-fit h-fit  flex items-center justify-center">
-                  DIGITALAX DISTRO KIT
+                  {t("kit")}
                 </div>
                 <div className="relative w-1/2 h-1 flex items-center justify-center bg-brille"></div>
                 <div className="relative w-fit h-fit flex items-center justify-center">
-                  BUILD A NEW SOCIAL WEB
+                  {t("build")}
                 </div>
               </div>
             </div>
@@ -216,7 +214,7 @@ const DistroKit: NextPage<DistroProps> = ({
         </div>
         <div className="relative w-full h-fit flex bg-diy py-3 border-y-4 border-deep justify-center items-center z-20">
           <div className="relative flex h-fit font-mag text-diyText text-[4.1vw] break-words text-center items-center justify-center">
-            THE NEW DIY: DECENTRALIZE IT YOURSELF
+            {t("diy")}
           </div>
         </div>
       </div>
@@ -226,7 +224,7 @@ const DistroKit: NextPage<DistroProps> = ({
             className="relative w-fit h-fit flex items-center justify-center cursor-sewingHS"
             onClick={() => window.open("https://www.themanufactory.xyz/")}
           >
-            x005.m-3 – MICROFACTORY LOCAL CO•OP
+            {t("local")}
           </div>
         </div>
         <div className="relative flex flex-col w-full h-fit items-center justify-center text-mainText pt-10 text-center gap-2">
@@ -291,11 +289,7 @@ const DistroKit: NextPage<DistroProps> = ({
           </div>
           <div className="relative flex flex-col gap-2 items-center justify-center w-full h-fit">
             <div className="relative px-1.5 sm:px-0 w-full md:w-1/2 h-fit flex items-center justify-center font-gisL">
-              In a world where authenticity is currency, each microbrand is a
-              sovereign mint of cultural capital. Web3 commerce isn't built by
-              monopolistic conglomerates, but assembled, piece by piece, by the
-              microbrands that understand the intricate dance of AI, NFTs, and
-              social resonance.
+              {t("auth")}
             </div>
           </div>
         </div>
@@ -451,14 +445,11 @@ const DistroKit: NextPage<DistroProps> = ({
               />
             </div>
             <div className="relative w-52 h-fit flex items-center justify-start font-mag text-lg">
-              MESH: FASHION SYNTH & SEGMENTATION FOR TAILOR MADE BLENDER DESIGN
+              {t("mesh")}
             </div>
           </div>
           <div className="relative w-full preG:w-fit h-fit flex items-end justify-end preG:justify-center font-lib">
-            OPEN SOURCE <br />
-            DEV FOR IRL, <br />
-            VIRTUAL, AND <br />
-            LATENT SPACE <br />
+            {t("source")}
           </div>
         </div>
         <div className="relative w-full h-fit justify-center items-center flex">
@@ -484,9 +475,7 @@ const DistroKit: NextPage<DistroProps> = ({
               />
             </div>
             <div className="relative w-fit  text-center h-fit font-libB text-sm p-6 border border-mainText flex items-center justify-center break-word text-mainText">
-              With a public release some timeskip from now, fabric synth in
-              Blender changes the narrative from “NFTs, lol, speculative
-              altcoins with JPEGs“ to “We like the looks made for material use”
+              {t("public")}
             </div>
             <div
               className={`relative w-1 sm:w-1.5 h-8 sm:h-1/2 whitespace-nowrap rotate-90 sm:rotate-0`}
@@ -506,17 +495,7 @@ const DistroKit: NextPage<DistroProps> = ({
           </div>
           <div className="relative w-full h-fit flex items-center justify-center half:justify-end font-gisL text-mainText text-center half:text-right half:mr-0">
             <div className="relative w-3/4 h-fit flex items-center justify-center half:justify-end">
-              Today, fashion designers use CLO, a closed source and very limited
-              tool for working with fabric. Blender can be a much more powerful
-              and open source tool for working with fabric.
-              <br />
-              <br />
-              But a few things have to happen first.
-              <br />
-              <br />
-              Fabric synth, segmentation, design and materialisation in a tailor
-              made Blender plugin? Where we're going, we're going to need a lot
-              more GPUs.
+              {t("fashion")}
             </div>
           </div>
         </div>
