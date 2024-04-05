@@ -331,7 +331,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                     chosenLanguage !== "ar" && "cursor-sewingHS active:scale-95"
                   }`}
                 >
-                  ~* ${chosenLanguage == "ar" ? t("soon") : t("ve")} *~
+                  ~* {chosenLanguage == "ar" ? t("soon") : t("ve")} *~
                 </div>
               </div>
               <div className="relative w-fit h-fit flex items-center justify-center">
