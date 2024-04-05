@@ -509,7 +509,7 @@ export const IMAGE_LOGS: {
     },
     description: {
       en: "Web3 video player & sdk with quests & metrics for savvy creators & friends",
-      es: "Reproductor de video web3 y sdk con misiones y métricas para creadores ingeniosos y sus amigos",
+      es: "Reproductor de vídeo web3 y sdk con misiones y métricas para creadores ingeniosos y sus amigos",
     },
   },
   {
@@ -678,13 +678,13 @@ export const LOG: {
       Whether watching the latest web3fashion show or streaming generative art instructionals, each video is an entry point into deeper ecosystem reach and engagement. Use the Kinora SDK to integrate these experiences into your decentralized projects as a replacement for centralized platforms, all while maintaining user-level encryption for every viewer's data.
       
       Kinora isn't just for creators and viewers; it's about a cultural shift to decentralized media in all its forms. With the power of Livepeer, integration of Vision Quests, and Lens Protocol, Kinora gives everyone a path to video distro that isn't just entertaining or distracting—it's an interactive journey with measurable metrics tailored to why you watch and create.`,
-      es: `Este reproductor de video y SDK de código abierto, amplía la ya potente funcionalidad de Livepeer para la codificación, decodificación y distribución de video descentralizados, es tu conjunto de herramientas para crear contenido de video atractivo y que respeta la privacidad. Se integra sin problemas con las misiones web3 en el ecosistema DIGITALAX.
+      es: `Este reproductor de vídeo y SDK de código abierto, amplía la ya potente funcionalidad de Livepeer para la codificación, decodificación y distribución de vídeo descentralizados, es tu conjunto de herramientas para crear contenido de vídeo atractivo y que respeta la privacidad. Se integra sin problemas con las misiones web3 en el ecosistema DIGITALAX.
 
-      Clona su biblioteca desde Git para crear plataformas completas de distribución de video que se comunican con la era web3.
+      Clona su biblioteca desde Git para crear plataformas completas de distribución de vídeo que se comunican con la era web3.
       
-      Ya sea que estés viendo el último desfile de moda web3 o transmitiendo tutoriales de arte generativo, cada video es un punto de entrada hacia un mayor alcance y compromiso con el ecosistema. Utiliza el SDK de Kinora para integrar estas experiencias en tus proyectos decentralizados como una alternativa a las plataformas centralizadas, manteniendo la encriptación a nivel de usuario para los datos de cada espectador.
+      Ya sea que estés viendo el último desfile de moda web3 o transmitiendo tutoriales de arte generativo, cada vídeo es un punto de entrada hacia un mayor alcance y compromiso con el ecosistema. Utiliza el SDK de Kinora para integrar estas experiencias en tus proyectos decentralizados como una alternativa a las plataformas centralizadas, manteniendo la encriptación a nivel de usuario para los datos de cada espectador.
 
-      Kinora no es solo para creadores y espectadores, se trata de un cambio cultural hacia los medios de comunicación descentralizados en todas sus formas. Con el poder de Livepeer, la integración de las Odiseas Visuales y el Protocolo Lens, Kinora ofrece a todos un camino hacia la distribución de video que no solo es entretenido o distractor— sino es un viaje interactivo con métricas medibles hechas adaptadas a por qué ves y creas.`,
+      Kinora no es solo para creadores y espectadores, se trata de un cambio cultural hacia los medios de comunicación descentralizados en todas sus formas. Con el poder de Livepeer, la integración de las Odiseas Visuales y el Protocolo Lens, Kinora ofrece a todos un camino hacia la distribución de vídeo que no solo es entretenido o distractor— sino es un viaje interactivo con métricas medibles hechas adaptadas a por qué ves y creas.`,
     },
   },
   {
@@ -716,7 +716,7 @@ export const LOG: {
       Interact with distinct features from web3 music streams, a portable video player, and token-gated access to curate a personalized media experience. CoinOp integration gives you a seamless way to add prints and apparel to your collection. The Kinora SDK delivers the goods for snappy video delivery and playback.`,
       es: `Un flujo de contenido dinámico y siempre activo, participar activamente publicando, dando "me gusta", reflejando, iniciando y contribuyendo a extensos y eruditos hilos de comentarios, y compartiendo contenido de redes sociales nativas de web3.
     
-      Interactúa con características únicas desde transmisiones de música web3, un reproductor de video portátil, y acceso protegido por tokens para personalizar tu experiencia mediática. La integración de CoinOp te ofrece una manera fluida de agregar estampados y prendas a tu colección. El SDK de Kinora entrega lo necesario para una entrega y reproducción de video rápida.`,
+      Interactúa con características únicas desde transmisiones de música web3, un reproductor de vídeo portátil, y acceso protegido por tokens para personalizar tu experiencia mediática. La integración de CoinOp te ofrece una manera fluida de agregar estampados y prendas a tu colección. El SDK de Kinora entrega lo necesario para una entrega y reproducción de vídeo rápida.`,
     },
   },
   {
