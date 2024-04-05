@@ -58,7 +58,11 @@ const Footer: FunctionComponent<FooterProps> = ({
           id="foot3"
           className="relative flex items-center justify-center w-full h-1"
         ></div>
+        <div className="relative w-fit break-words h-fit flex items-center justify-center text-xs text-offWhite font-lib text-center sm:px-0 px-2">
+          {t("heart")}
+        </div>
       </div>
+
       <div className="relative flex items-center justify-between w-full h-fit text-midWhite gap-8 md:gap-4 flex-col md:flex-row">
         <div className="relative w-fit h-fit ml-0 flex items-center justify-center flex-col gap-1 md:order-1 order-3">
           <div className="relative w-fit h-fit flex items-center justify-center hover:text-skyBlue cursor-sewingHS hover:rotate-3">
@@ -84,7 +88,7 @@ const Footer: FunctionComponent<FooterProps> = ({
             {t("rewind")}
           </div>
         </div>
-        <div className="relative w-fit h-fit mr-0 flex-row gap-3 flex items-center justify-center md:pr-2 md:order-3 order-1">
+        <div className="relative w-fit h-fit flex-row gap-3 flex items-end justify-end md:pr-2 md:order-3 order-1 mr-0">
           {[
             {
               image: "QmWVdyGgXbPL5SiRnQwALHvWzAnyiXBos1oB4TVTqg7saV",

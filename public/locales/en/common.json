@@ -27,5 +27,8 @@
   "manu": "The Manufactory",
   "lit": "Lit Listener",
   "dial": "The Dial",
-  "listener": "Listener"
+  "listener": "Listener",
+  "select": "select language",
+  "soon": "soon",
+  "ve": "go"
 }

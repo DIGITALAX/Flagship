@@ -18,6 +18,13 @@ class Document extends NextDocument {
           />
           <link
             rel="preload"
+            href="https://digitalax.xyz/fonts/BitPotion.ttf"
+            as="font"
+            type="font/ttf"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
             href="https://digitalax.xyz/fonts/jacklane_2.woff"
             as="font"
             type="font/woff"

@@ -1,15 +1,17 @@
 import { DIGITALAX_ADDRESS } from "@/lib/constants";
 import { Client } from "@xmtp/xmtp-js";
+import { i18n } from "i18next";
 import { useEffect, useState } from "react";
 import { createWalletClient, custom } from "viem";
 import { polygon } from "viem/chains";
 
-const useHeader = (address: `0x${string}` | undefined) => {
+const useHeader = (address: `0x${string}` | undefined, i18n: i18n) => {
   const [messageLoading, setMessageLoading] = useState<boolean>(false);
   const [videoLoading, setVideoLoading] = useState<boolean>(false);
   const [currentVideo, setCurrentVideo] = useState<number>();
   const [message, setMessage] = useState<string>("Encrypt us a message?");
   const [client, setClient] = useState<Client | undefined>();
+  const [chosenLanguage, setChosenLanguage] = useState<string>(i18n.language);
 
   const changeVideo = (index: number) => {
     setCurrentVideo(index);
@@ -78,6 +80,8 @@ const useHeader = (address: `0x${string}` | undefined) => {
     message,
     messageLoading,
     setMessage,
+    chosenLanguage,
+    setChosenLanguage,
   };
 };
 

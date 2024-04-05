@@ -92,8 +92,7 @@ module.exports = {
         chispa: "#D0DEE0",
         orilla: "#46B171",
         windows: "#0035F2",
-        solapa: "#58B5F5"
-
+        solapa: "#58B5F5",
       },
       fontFamily: {
         holo: "Nan Holo",
@@ -126,6 +125,7 @@ module.exports = {
         vcr: "Vcr",
         bit: "Bitblox",
         aust: "Austral",
+        pot: "Bit Potion",
       },
       keyframes: {
         unblur: {

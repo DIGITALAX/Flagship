@@ -23,7 +23,7 @@ const Home: NextPage<HomeProps> = ({
   changeColor,
   heartColor,
 }) => {
-  const { t } = useTranslation("common");
+  const { t, i18n } = useTranslation("common");
   const dispatch = useDispatch();
   const { address } = useAccount();
   const { openConnectModal } = useConnectModal();
@@ -51,15 +51,20 @@ const Home: NextPage<HomeProps> = ({
     message,
     messageLoading,
     setMessage,
-  } = useHeader(address);
+    chosenLanguage,
+    setChosenLanguage,
+  } = useHeader(address, i18n);
 
   return (
     <div className="w-full h-full flex flex-col bg-mainBg gap-12 items-center justify-start">
       <Header
+        chosenLanguage={chosenLanguage}
+        setChosenLanguage={setChosenLanguage}
         changeVideo={changeVideo}
         fullScreenVideo={fullScreenVideo}
         dispatch={dispatch}
         rewind={rewind}
+        i18n={i18n}
         changeColor={changeColor}
         heartColor={heartColor}
         handleShop={handleShop}

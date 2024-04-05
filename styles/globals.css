@@ -9,6 +9,11 @@
 }
 
 @font-face {
+  font-family: "Bit Potion";
+  src: url("/fonts/BitPotion.ttf");
+}
+
+@font-face {
   font-family: "Austral";
   src: url("/fonts/Austral.otf");
 }

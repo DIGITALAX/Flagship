@@ -1,7 +1,7 @@
 import { FullScreenVideoState } from "@/redux/reducers/fullScreenVideoSlice";
-import { TFunction } from "i18next";
+import { TFunction, i18n } from "i18next";
 import { NextRouter } from "next/router";
-import { MutableRefObject } from "react";
+import { MutableRefObject, SetStateAction } from "react";
 import { AnyAction, Dispatch } from "redux";
 
 export type FooterProps = {
@@ -26,6 +26,9 @@ export type HeaderProps = {
   setMessage: (e: string) => void;
   message: string;
   t: TFunction<"common", undefined>;
+  i18n: i18n;
+  chosenLanguage: string;
+  setChosenLanguage: (e: SetStateAction<string>) => void;
 };
 
 export type HeartProps = {
