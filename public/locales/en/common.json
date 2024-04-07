@@ -31,5 +31,6 @@
   "select": "select language",
   "soon": "soon",
   "ve": "go",
-  "encrypt": "Encrypt us a message?"
+  "encrypt": "Encrypt us a message?",
+  "send": "Send"
 }

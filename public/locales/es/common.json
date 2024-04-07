@@ -31,5 +31,6 @@
   "select": "elige idioma",
   "soon": "pronto",
   "ve": "ve",
-  "encrypt": "¿Quieres cifrarnos un mensaje?"
+  "encrypt": "¿Quieres cifrarnos un mensaje?",
+  "send": "Envíalo"
 }
