@@ -299,7 +299,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                 </div>
                 <div className="relative w-fit h-fit flex items-center justify-center flex-row gap-2">
                   <div
-                    className="relative flex items-center justify-center w-fit h-fit active:scale-95 cursor:sewingHS"
+                    className="relative flex items-center justify-center w-fit h-fit active:scale-95 cursor-sewingHS"
                     onClick={() =>
                       setChosenLanguage((prev) =>
                         prev == "es" ? "ar" : prev == "en" ? "es" : "en"
@@ -312,7 +312,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                     {chosenLanguage}
                   </div>
                   <div
-                    className="relative flex items-center justify-center w-fit h-fit active:scale-95 cursor:sewingHS"
+                    className="relative flex items-center justify-center w-fit h-fit active:scale-95 cursor-sewingHS"
                     onClick={() =>
                       setChosenLanguage((prev) =>
                         prev == "es" ? "en" : prev == "en" ? "ar" : "es"
