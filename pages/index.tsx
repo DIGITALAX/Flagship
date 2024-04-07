@@ -53,7 +53,7 @@ const Home: NextPage<HomeProps> = ({
     setMessage,
     chosenLanguage,
     setChosenLanguage,
-  } = useHeader(address, i18n);
+  } = useHeader(address, i18n, t);
 
   return (
     <div className="w-full h-full flex flex-col bg-mainBg gap-12 items-center justify-start">

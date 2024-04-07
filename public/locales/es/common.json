@@ -30,5 +30,6 @@
   "listener": "Oyente",
   "select": "elige idioma",
   "soon": "pronto",
-  "ve": "ve"
+  "ve": "ve",
+  "encrypt": "¿Quieres cifrarnos un mensaje?"
 }

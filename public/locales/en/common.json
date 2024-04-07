@@ -30,5 +30,6 @@
   "listener": "Listener",
   "select": "select language",
   "soon": "soon",
-  "ve": "go"
+  "ve": "go",
+  "encrypt": "Encrypt us a message?"
 }

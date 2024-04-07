@@ -98,7 +98,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                   <div
                     className="relative w-full preG:w-fit h-fit flex items-center justify-center cursor-sewingHS active:scale-95"
                     onClick={() => {
-                      setMessage("Encrypt us a message?");
+                      setMessage(t("encrypt"));
                       changeVideo(5);
                     }}
                   >
