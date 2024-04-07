@@ -487,7 +487,7 @@ export const IMAGE_LOGS: {
     },
     description: {
       en: "Decentralized production & fulfillment studio co-op for the gen AI era",
-      es: "Estudio cooperativo de producción y realización decentralizada para la era de la IA generativa",
+      es: "Estudio cooperativo de producción y realización descentralizada para la era de la IA generativa",
     },
   },
   {
@@ -553,7 +553,7 @@ export const IMAGE_LOGS: {
     },
     description: {
       en: "Decentralized social media, on Lens with gen AI for the all in one creative experience",
-      es: "Red Social Decentralizada, en Lens con IA generativa para la experencia creativa integral",
+      es: "Red Social Descentralizada, en Lens con IA generativa para la experencia creativa integral",
     },
   },
   {
@@ -644,7 +644,7 @@ export const LOG: {
       Start by selecting what you want to produce. You can find them through Cypher, on Coin Op, and throughout the ecosystem. Your choices are then crafted by a decentralized network of creators, ready for both post-digital display and physical distribution. Throughout, your transactional and operational data is encrypted, safeguarding your creative process from the ad hungry prying eyes of archaic social networks. 
       
       More than a production line, The Manufactory is a blueprint for autonomy in creation.`,
-      es: `Acuña, entinta, imprime, y exporta tus colecciones de moda web3 o arte generativo a los armarios y paredes del mundo real (IRL). La Manufactura es un estudio cooperativo de creadores decentralizados, donde obras excepcionales se materializan en la realidad.
+      es: `Acuña, entinta, imprime, y exporta tus colecciones de moda web3 o arte generativo a los armarios y paredes del mundo real (IRL). La Manufactura es un estudio cooperativo de creadores descentralizados, donde obras excepcionales se materializan en la realidad.
 
       Empieza seleccionando lo que deseas producir. Puedes encontrarlos a través de Cypher, en Coin Op y por todo el ecosistema. Tus elecciones son luego fabricadas por una red descentralizada de creadores, preparados tanto para exhibición post-digital como para distribución física. A lo largo del proceso, tus datos transaccionales y operativos son cifrados, protegiendo tu proceso creativo de los ojos codiciosos de publicidad de las redes sociales arcaicas.
       
@@ -682,7 +682,7 @@ export const LOG: {
 
       Clona su biblioteca desde Git para crear plataformas completas de distribución de vídeo que se comunican con la era web3.
       
-      Ya sea que estés viendo el último desfile de moda web3 o transmitiendo tutoriales de arte generativo, cada vídeo es un punto de entrada hacia un mayor alcance y compromiso con el ecosistema. Utiliza el SDK de Kinora para integrar estas experiencias en tus proyectos decentralizados como una alternativa a las plataformas centralizadas, manteniendo la encriptación a nivel de usuario para los datos de cada espectador.
+      Ya sea que estés viendo el último desfile de moda web3 o transmitiendo tutoriales de arte generativo, cada vídeo es un punto de entrada hacia un mayor alcance y compromiso con el ecosistema. Utiliza el SDK de Kinora para integrar estas experiencias en tus proyectos descentralizados como una alternativa a las plataformas centralizadas, manteniendo la encriptación a nivel de usuario para los datos de cada espectador.
 
       Kinora no es solo para creadores y espectadores, se trata de un cambio cultural hacia los medios de comunicación descentralizados en todas sus formas. Con el poder de Livepeer, la integración de las Odiseas Visuales y el Protocolo Lens, Kinora ofrece a todos un camino hacia la distribución de vídeo que no solo es entretenido o distractor— sino es un viaje interactivo con métricas medibles hechas adaptadas a por qué ves y creas.`,
     },
@@ -746,7 +746,7 @@ export const LOG: {
       en: `Tune into The Dial, your decentralized dashboard, infusing agency into your generative social media experience. 
     
       Use the integrated generative AI engine to craft distinctive content that stands out. Connect via Lens, chat, and collect with an ever increasing array of creative users making rare post-digital and capacitive goods, from unique NFTs to bespoke apparel. Each interaction enhances your status and reach within web3, and through it, all layers in the generative NPC economy accelerating ahead.`,
-      es: `Sintoniza con El Dial, tu panel decentralizado, inyectando agencia en tu experiencia de redes sociales generativas.
+      es: `Sintoniza con El Dial, tu panel descentralizado, inyectando agencia en tu experiencia de redes sociales generativas.
       
       Utiliza el motor de IA generativa integrado para moldear contenido  único que destaque. Conéctate a través de Lens, chat y colecciona un espectro creciente de usuarios creativos que producen bienes post-digitales y capacitivos excepcionales, desde NFTs únicos hasta ropa personalizada. Cada interacción mejora tu estatus y conexión dentro de web3, y por lo tanto, todas las capas en la economía NPC generativa que avanzan a toda velocidad.`,
     },
@@ -836,7 +836,7 @@ export const QUESTIONS: {
       
       Ahora, lo recuperamos.
       
-      Superas las barreras ganando agencia. Con cada esfuerzo, cada mensaje, cada transacción, los registros decentralizados de cuentas e intercambios son más que meras imágenes bonitas (aunque usualmente, también son eso). Indican, activan y operan la lógica condicional en máquinas que fortalecen tu capacidad de llegar a las personas a través de tiendas universales, encriptación a nivel de usuario y equipos de NPC que puedes entrenar y de los cuales aprender para competir de igual a igual con los mayores jugadores en cualquier mercado.`,
+      Superas las barreras ganando agencia. Con cada esfuerzo, cada mensaje, cada transacción, los registros descentralizados de cuentas e intercambios son más que meras imágenes bonitas (aunque usualmente, también son eso). Indican, activan y operan la lógica condicional en máquinas que fortalecen tu capacidad de llegar a las personas a través de tiendas universales, encriptación a nivel de usuario y equipos de NPC que puedes entrenar y de los cuales aprender para competir de igual a igual con los mayores jugadores en cualquier mercado.`,
     },
   },
 ];
