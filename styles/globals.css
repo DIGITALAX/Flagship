@@ -818,3 +818,41 @@ input:focus {
   text-shadow: -0.5px -0.5px 0 #e49058, 0.5px -0.5px 0 #e49058,
     -0.5px 0.5px 0 #e49058, 0.5px 0.5px 0 #e49058;
 }
+
+#header {
+  position: relative;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: space-between;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+@media (min-width: 900px) {
+  #header {
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 900px) and (max-height: 799px) {
+  #header {
+    height: fit-content;
+  }
+}
+
+@media (min-width: 900px) and (min-height: 800px) {
+  #header {
+    height: 80vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  #header {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+}

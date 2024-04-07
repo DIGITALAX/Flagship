@@ -39,7 +39,7 @@ const Header: FunctionComponent<HeaderProps> = ({
       ref={rewind}
       className="relative flex flex-col h-fit w-full gap-1 justify-start items-stretch text-mainText pt-4 half:pt-7"
     >
-      <div className="relative w-full h-fit half:h-[80vh] flex flex-col half:flex-row gap-8 items-start justify-between px-2 half:px-4 lg:px-7">
+      <div id="header">
         <div className="relative w-full h-fit half:w-fit half:h-full flex items-start justify-start half:order-1 order-2">
           <div className="relative w-full half:h-full half:w-80 h-fit sm:h-52 flex items-stretch sm:items-center justify-center sm:justify-between flex-col sm:flex-row half:flex-col gap-3 font-bit p-4 bg-mainText">
             <div className="absolute w-full flex flex-row justify-between h-fit top-0 left-0">
