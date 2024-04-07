@@ -159,7 +159,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                           {messageLoading ? (
                             <AiOutlineLoading color="#46B171" size={10} />
                           ) : (
-                            "Send"
+                            t("send")
                           )}
                         </div>
                       </div>
