@@ -60,6 +60,7 @@ const Home: NextPage<HomeProps> = ({
       <Header
         chosenLanguage={chosenLanguage}
         setChosenLanguage={setChosenLanguage}
+        router={router}
         changeVideo={changeVideo}
         fullScreenVideo={fullScreenVideo}
         dispatch={dispatch}

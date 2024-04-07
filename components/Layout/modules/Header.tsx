@@ -16,6 +16,7 @@ const Header: FunctionComponent<HeaderProps> = ({
   handleShop,
   changeColor,
   heartColor,
+  router,
   fullScreenVideo,
   dispatch,
   currentVideo,
@@ -323,10 +324,15 @@ const Header: FunctionComponent<HeaderProps> = ({
                   </div>
                 </div>
                 <div
-                  onClick={() =>
-                    chosenLanguage !== "ar" &&
-                    i18n.changeLanguage(chosenLanguage)
-                  }
+                  onClick={() => {
+                    if (chosenLanguage !== "ar") {
+                      i18n.changeLanguage(chosenLanguage);
+                      router.push(router.asPath, undefined, {
+                        shallow: true,
+                        locale: chosenLanguage,
+                      });
+                    }
+                  }}
                   className={`text-xxs flex items-center justify-center px-2 border border-mainText rounded-sm h-6 w-full ${
                     chosenLanguage !== "ar" && "cursor-sewingHS active:scale-95"
                   }`}

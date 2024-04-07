@@ -11,6 +11,7 @@ export type FooterProps = {
 export type HeaderProps = {
   rewind: MutableRefObject<HTMLDivElement | null>;
   changeColor: () => void;
+  router: NextRouter;
   heartColor: string;
   handleShop: () => void;
   fullScreenVideo: FullScreenVideoState;
