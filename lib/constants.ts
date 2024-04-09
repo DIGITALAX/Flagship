@@ -483,7 +483,7 @@ export const IMAGE_LOGS: {
     image: "QmcvPutuJK2CX8cyL3ocDPLUrvWnJDWgA4MSBhr8YX7twb",
     title: {
       en: "The Manufactory",
-      es: "La Manufactura",
+      es: "La Fábrica",
     },
     description: {
       en: "Decentralized production & fulfillment studio co-op for the gen AI era",
@@ -628,7 +628,7 @@ export const LOG: {
       Each purchase reinforces the network of creators, innovators, and builders that shape independent channels for wearable, display worthy communication in style.`,
       es: `Tu automat de generación operado por monedas con una variada selección eléctrica de ropa de calle, impresiones, y bienes virtuales, cada uno vínculado a una parte distinta del ecosistema web3.
     
-      Colecciona con tarjeta o tu elección de $MONA, $MATIC, $WETH, y $USDT. Todo el cumplimiento personal y los datos transaccionales permanecen cifrados a nivel de usuario, asegurando una autonomía máxima de la red descentralizada para una mayor tranquilidad y credibilidad adicional cypherpunk. Se integra perfectamente con La Manufactura para la producción y realización de moda web3 descentralizada y arte generativo. 
+      Colecciona con tarjeta o tu elección de $MONA, $MATIC, $WETH, y $USDT. Todo el cumplimiento personal y los datos transaccionales permanecen cifrados a nivel de usuario, asegurando una autonomía máxima de la red descentralizada para una mayor tranquilidad y credibilidad adicional cypherpunk. Se integra perfectamente con La Fábrica para la producción y realización de moda web3 descentralizada y arte generativo. 
       
       Cada compra refuerza la red de creadores, innovadores, y desarrolladores que dan forma a canales independientes para comunicación portable y digna de ser exhibida con estilo.`,
     },
@@ -636,7 +636,7 @@ export const LOG: {
   {
     title: {
       en: "4. The Manufactory",
-      es: "4. La Manufactura",
+      es: "4. La Fábrica",
     },
     description: {
       en: `Mint, ink, print, and ship your web3fashion or generative art collections into IRL wardrobes and walls. The Manufactory, is a decentralized creators studio co-op, where rare, statement making works are woven into reality. 
@@ -644,11 +644,11 @@ export const LOG: {
       Start by selecting what you want to produce. You can find them through Cypher, on Coin Op, and throughout the ecosystem. Your choices are then crafted by a decentralized network of creators, ready for both post-digital display and physical distribution. Throughout, your transactional and operational data is encrypted, safeguarding your creative process from the ad hungry prying eyes of archaic social networks. 
       
       More than a production line, The Manufactory is a blueprint for autonomy in creation.`,
-      es: `Acuña, entinta, imprime, y exporta tus colecciones de moda web3 o arte generativo a los armarios y paredes del mundo real (IRL). La Manufactura es un estudio cooperativo de creadores descentralizados, donde obras excepcionales se materializan en la realidad.
+      es: `Acuña, entinta, imprime, y exporta tus colecciones de moda web3 o arte generativo a los armarios y paredes del mundo real (IRL). La Fábrica es un estudio cooperativo de creadores descentralizados, donde obras excepcionales se materializan en la realidad.
 
       Empieza seleccionando lo que deseas producir. Puedes encontrarlos a través de Cypher, en Coin Op y por todo el ecosistema. Tus elecciones son luego fabricadas por una red descentralizada de creadores, preparados tanto para exhibición post-digital como para distribución física. A lo largo del proceso, tus datos transaccionales y operativos son cifrados, protegiendo tu proceso creativo de los ojos codiciosos de publicidad de las redes sociales arcaicas.
       
-      Más que una línea de producción, La Manufactura es un plano para la autonomía en la creación.`,
+      Más que una línea de producción, La Fábrica es un plano para la autonomía en la creación.`,
     },
   },
   {
@@ -660,9 +660,9 @@ export const LOG: {
       en: `Hold, trade, and insert $MONA throughout the ecosystem to channel the currents of creativity and commerce in the generative NPC era. This ERC-20 token, combined with an extensive and growing library of contracts, responds to event triggers and conditional logic to seamlessly assist your pursuit of a better timeline that respects human autonomy. As much as it is a unit of record, account, and exchange, it is a unit of agency and access. Your interactions with The Manufactory, NPC Studio, CoinOp, Chromadin, and all components of the extended ecosystem have use beyond ordinary collectibles and transactions. They serve as messages between nodes and to the world saying we will build our own future free from arbitrarily centralized control (thank you very much).
     
       In NPC Studio, it activates AI agents and the specific equipment you can run to create with them, rewarding innovation and reducing the idle time of creative processes. Within CoinOp, $MONA becomes an agent of commerce, allowing instant creation and acquisition of streetwear with real-world integration. It's the silent enforcer of The Manufactory's operations, executing design and fulfillment tasks with a precision that only a dedicated system token can provide.`,
-      es: `Guarda, intercambia, e inserta $MONA a través del ecosistema para impulsar las corrientes de creatividad y comercio en la era de los NPC generativos. Este token ERC-20, combinado con una biblioteca extensa y en crecimiento de contratos, responde a desencadenantes de eventos y lógica condicional para apoyarte en tu búsqueda de una línea temporal mejor que respeta la autonomía humana. Es tanto una unidad de registro, cuenta e intercambio, como de agencia y acceso. Tus interacciones dentro de La Manufactura, El Estudio NPC, CoinOp, Chromadin y todos los componentes de un ecosistema ampliado tienen un uso más allá de coleccionables y transaciones ordinarios. Actúan como mensajes entre nodos y hacia el mundo, declarando que construiremos nuestro propio futuro, libre de control centralizado arbitrario (muchas gracias).
+      es: `Guarda, intercambia, e inserta $MONA a través del ecosistema para impulsar las corrientes de creatividad y comercio en la era de los NPC generativos. Este token ERC-20, combinado con una biblioteca extensa y en crecimiento de contratos, responde a desencadenantes de eventos y lógica condicional para apoyarte en tu búsqueda de una línea temporal mejor que respeta la autonomía humana. Es tanto una unidad de registro, cuenta e intercambio, como de agencia y acceso. Tus interacciones dentro de La Fábrica, El Estudio NPC, CoinOp, Chromadin y todos los componentes de un ecosistema ampliado tienen un uso más allá de coleccionables y transaciones ordinarios. Actúan como mensajes entre nodos y hacia el mundo, declarando que construiremos nuestro propio futuro, libre de control centralizado arbitrario (muchas gracias).
     
-      En el Estudio NPC, activa agentes de IA y el equipo específico que puedes utilizar para crear con ellos, premiando la innovación y reduciendo los tiempos de inactividad en los procesos creativos. Dentro de CoinOp, $MONA se convierte en un agente de comercio, permitiendo la creación y la adquisición instantáneas de ropa de calle con integración en el mundo real. Es el ejecutor silencioso de las operaciones de La Manufactura, llevando a cabo tareas de diseño y cumplimiento con una precisión que solo un token de sistema dedicado puede proporcionar.`,
+      En el Estudio NPC, activa agentes de IA y el equipo específico que puedes utilizar para crear con ellos, premiando la innovación y reduciendo los tiempos de inactividad en los procesos creativos. Dentro de CoinOp, $MONA se convierte en un agente de comercio, permitiendo la creación y la adquisición instantáneas de ropa de calle con integración en el mundo real. Es el ejecutor silencioso de las operaciones de La Fábrica, llevando a cabo tareas de diseño y cumplimiento con una precisión que solo un token de sistema dedicado puede proporcionar.`,
     },
   },
   {
