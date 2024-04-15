@@ -71,7 +71,7 @@ const Header: FunctionComponent<HeaderProps> = ({
             <div className="relative w-full sm:w-fit h-fit flex flex-col preG:flex-row half:flex-col gap-8 sm:gap-3 half:gap-6 items-center justify-center">
               <div className="relative w-full preG:w-fit h-full flex flex-col gap-3 items-center justify-center">
                 <div
-                  className="relative w-fit h-fit flex items-center justify-center text-xl half:text-3xl"
+                  className="relative w-fit h-fit flex items-center justify-center text-xl half:text-3xl text-center"
                   id="npc"
                 >
                   {t("studio")}
@@ -129,7 +129,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                     src={`${INFURA_GATEWAY}/ipfs/QmSfBUFGogXohAgLYimvy1ArU4aUrLyYCZ7EDuFELudWm7`}
                   />
                 </div>
-                <div className="relative p-2 flex items-start justify-center w-full sm:w-52 h-44 sm:h-48 text-orilla text-sm text-left">
+                <div className="relative p-2 flex items-start justify-center w-full sm:w-52 h-44 sm:h-48 min-h-fit text-orilla text-sm text-left">
                   {currentVideo === 5 ? (
                     <>
                       <textarea
@@ -166,24 +166,14 @@ const Header: FunctionComponent<HeaderProps> = ({
                       </div>
                     </>
                   ) : (
-                    <div className="relative w-full h-full flex items-start justify-between flex flex-col gap-px">
-                      <div className="relative w-full h-fit flex items-start justify-start">
-                        {t("welcome")}
-                      </div>
-                      <div className="relative w-full h-fit flex items-end justify-end">
-                        <div
-                          className="relative w-fit h-fit flex items-start justify-end cursor-sewingHS"
-                          onClick={() => window.open(`https://npcstudio.xyz`)}
-                        >
-                          {`-->`}
-                        </div>
-                      </div>
+                    <div className="relative w-full h-full flex items-center justify-start">
+                      {t("welcome")}
                     </div>
                   )}
                 </div>
               </div>
             </div>
-            <div className="relative w-full sm:w-fit h-fit flex flex-col preG:flex-row half:flex-col gap-8 sm:gap-3 half:gap-12 items-center justify-center mr-0">
+            <div className="relative w-full sm:w-fit h-fit flex flex-col preG:flex-row half:flex-col gap-8 sm:gap-3 items-center justify-center mr-0">
               <div className="relative w-full sm:w-fit flex flex-col gap-2 items-center justify-center h-fit">
                 <div className="relative flex items-center justify-center flex-row sm:flex-col half:flex-row w-full sm:w-32 half:w-52  h-fit gap-2 half:gap-3">
                   <div
@@ -264,6 +254,25 @@ const Header: FunctionComponent<HeaderProps> = ({
                       {t("market")}
                     </div>
                   </div>
+                </div>
+              </div>
+              <div
+                className="relative w-full preG:w-fit h-fit items-center justify-center cursor-sewingHS active:scale-95 hidden half:flex"
+                onClick={() => window.open(`https://npcstudio.xyz/`)}
+              >
+                <div className="relative w-full preG:w-36 half:w-52 h-10 flex items-center justify-center -hue-rotate-180">
+                  <Image
+                    layout="fill"
+                    priority
+                    draggable={false}
+                    src={`${INFURA_GATEWAY}/ipfs/QmSpjYvvdRtRzyN6cjRL1SGbSKDu5mDAwZtqb1WPZcH7Q9`}
+                  />
+                </div>
+                <div
+                  className="absolute w-fit h-fit flex items-center justify-center text-base half:text-lg"
+                  id="des"
+                >
+                  {t("des")}
                 </div>
               </div>
               <div className="relative h-fit w-full preG:w-fit sm:h-full sm:w-20 half:w-fit half:h-fit flex items-center justify-center gap-3 flex-col rotate-0 half:rotate-0 sm:rotate-90">
@@ -434,7 +443,6 @@ const Header: FunctionComponent<HeaderProps> = ({
               ></div>
             </div>
           </div>
-
           <div className="relative w-full h-[60vh] half:h-full flex items-center justify-center bg-mainText rounded-sm overflow-hidden border-4 border-mainText">
             <video
               muted

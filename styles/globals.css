@@ -812,6 +812,13 @@ input:focus {
     -0.5px 0.5px 0 #8fe7f0, 0.5px 0.5px 0 #8fe7f0;
 }
 
+#des {
+  color: #f1f5f6;
+  font-weight: bold;
+  text-shadow: -0.5px -0.5px 0 #ffba59, 0.5px -0.5px 0 #ffba59,
+    -0.5px 0.5px 0 #ffba59, 0.5px 0.5px 0 #ffba59;
+}
+
 #equip {
   color: #f1f5f6;
   font-weight: bold;
