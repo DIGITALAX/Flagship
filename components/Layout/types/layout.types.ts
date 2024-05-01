@@ -28,8 +28,8 @@ export type HeaderProps = {
   message: string;
   t: TFunction<"common", undefined>;
   i18n: i18n;
-  chosenLanguage: string;
-  setChosenLanguage: (e: SetStateAction<string>) => void;
+  chosenLanguage: number;
+  setChosenLanguage: (e: SetStateAction<number>) => void;
 };
 
 export type HeartProps = {

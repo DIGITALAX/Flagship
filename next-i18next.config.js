@@ -3,7 +3,7 @@
 module.exports = {
   i18n: {
     defaultLocale: "en",
-    locales: ["en", "es", "ar"],
+    locales: ["en", "es", "ar", "he", "br"],
   },
   react: { useSuspense: false },
 };

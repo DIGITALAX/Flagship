@@ -1,6 +1,12 @@
 import Image from "next/legacy/image";
 import { FunctionComponent } from "react";
-import { INFURA_GATEWAY, VIDEOS } from "../../../lib/constants";
+import {
+  INFURA_GATEWAY,
+  Idiomas,
+  VIDEOS,
+  idiomaAImagen,
+  indiceAIdioma,
+} from "../../../lib/constants";
 import { HeaderProps } from "../types/layout.types";
 import Marquee from "react-fast-marquee";
 import Heart from "./Heart";
@@ -312,20 +318,20 @@ const Header: FunctionComponent<HeaderProps> = ({
                     className="relative flex items-center justify-center w-fit h-fit active:scale-95 cursor-sewingHS"
                     onClick={() =>
                       setChosenLanguage((prev) =>
-                        prev == "es" ? "ar" : prev == "en" ? "es" : "en"
+                        prev > 0 ? prev - 1 : Object.keys(idiomaAImagen).length
                       )
                     }
                   >
                     <PiArrowFatLinesLeftFill size={20} />
                   </div>
                   <div className="relative w-fit h-fit flex items-center justify-center">
-                    {chosenLanguage}
+                    {indiceAIdioma[chosenLanguage]}
                   </div>
                   <div
                     className="relative flex items-center justify-center w-fit h-fit active:scale-95 cursor-sewingHS"
                     onClick={() =>
                       setChosenLanguage((prev) =>
-                        prev == "es" ? "en" : prev == "en" ? "ar" : "es"
+                        prev < Object.keys(idiomaAImagen).length - 1 ? prev + 1 : 0
                       )
                     }
                   >
@@ -334,19 +340,24 @@ const Header: FunctionComponent<HeaderProps> = ({
                 </div>
                 <div
                   onClick={() => {
-                    if (chosenLanguage !== "ar") {
-                      i18n.changeLanguage(chosenLanguage);
+                    if (chosenLanguage === 0 || chosenLanguage === 1) {
+                      i18n.changeLanguage(indiceAIdioma[chosenLanguage]);
                       router.push(router.asPath, undefined, {
                         // shallow: true,
-                        locale: chosenLanguage,
+                        locale: indiceAIdioma[chosenLanguage],
                       });
                     }
                   }}
                   className={`text-xxs flex items-center justify-center px-2 border border-mainText rounded-sm h-6 w-full ${
-                    chosenLanguage !== "ar" && "cursor-sewingHS active:scale-95"
+                    (chosenLanguage === 0 || chosenLanguage === 1) &&
+                    "cursor-sewingHS active:scale-95"
                   }`}
                 >
-                  ~* {chosenLanguage == "ar" ? t("soon") : t("ve")} *~
+                  ~*{" "}
+                  {chosenLanguage !== 0 && chosenLanguage !== 1
+                    ? t("soon")
+                    : t("ve")}{" "}
+                  *~
                 </div>
               </div>
               <div className="relative w-fit h-fit flex items-center justify-center">
@@ -354,11 +365,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                   <Image
                     layout="fill"
                     src={`${INFURA_GATEWAY}/ipfs/${
-                      chosenLanguage == "es"
-                        ? "QmY43U5RovVkoGrkLiFyA2VPMnGxf5e3NgYZ95u9aNJdem"
-                        : chosenLanguage == "en"
-                        ? "QmXdyvCYjZ7FkPjgFX5BPi98WTpPdJT5FHhzhtbyzkJuNs"
-                        : "Qmb2rQi84hLXtiY673VaBHMTB32Lo1Xe1ah4Q7mG2fKf4J"
+                      idiomaAImagen[indiceAIdioma[chosenLanguage] as Idiomas]
                     }`}
                     draggable={false}
                   />

@@ -365,6 +365,38 @@ export const printTypeToString: { [key in PrintType]: string } = {
   [PrintType.Other]: "other",
 };
 
+export enum Idiomas {
+  Ingles = "en",
+  Español = "es",
+  Árabe = "ar",
+  Hebreo = "he",
+  Portugués = "br"
+}
+
+export const idiomaAImagen: { [key in Idiomas]: string } = {
+  ["en"]: "QmXdyvCYjZ7FkPjgFX5BPi98WTpPdJT5FHhzhtbyzkJuNs",
+  ["es"]: "QmY43U5RovVkoGrkLiFyA2VPMnGxf5e3NgYZ95u9aNJdem",
+  ["ar"]: "Qmb2rQi84hLXtiY673VaBHMTB32Lo1Xe1ah4Q7mG2fKf4J",
+  ["he"]: "Qmdyd6iUPYNruEi5BJaYnoJ8H4FDwqxJF4EAzLvYZfxgXE",
+  ["br"]: "QmQce4gWKLj9xWySjxUVsHKorX5rDL45JiaU4y1TBqjLVa",
+};
+
+export const indiceAIdioma: { [key in number]: string } = {
+  [0]: "en",
+  [1]: "es",
+  [2]: "ar",
+  [3]: "he",
+  [4]: "br",
+};
+
+export const idiomaAIndice: { [key in Idiomas]: number } = {
+  ["en"]: 0,
+  ["es"]: 1,
+  ["ar"]: 2,
+  ["he"]: 3,
+  ["br"]: 4,
+};
+
 export const numberToItemTypeMap: { [key: number]: ItemType } = {
   0: ItemType.CoinOp,
   1: ItemType.Chromadin,
