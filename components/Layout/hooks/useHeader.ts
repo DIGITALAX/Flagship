@@ -1,4 +1,4 @@
-import { DIGITALAX_ADDRESS, idiomaAIndice } from "@/lib/constants";
+import { DIGITALAX_ADDRESS, Idiomas, idiomaAIndice } from "@/lib/constants";
 import { Client } from "@xmtp/xmtp-js";
 import { TFunction, i18n } from "i18next";
 import { useEffect, useState } from "react";
@@ -15,7 +15,9 @@ const useHeader = (
   const [currentVideo, setCurrentVideo] = useState<number>();
   const [message, setMessage] = useState<string>(t("encrypt"));
   const [client, setClient] = useState<Client | undefined>();
-  const [chosenLanguage, setChosenLanguage] = useState<number>(idiomaAIndice[i18n.language]);
+  const [chosenLanguage, setChosenLanguage] = useState<number>(
+    idiomaAIndice[i18n.language as Idiomas]
+  );
 
   const changeVideo = (index: number) => {
     setCurrentVideo(index);
