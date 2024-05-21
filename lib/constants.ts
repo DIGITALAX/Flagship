@@ -370,7 +370,9 @@ export enum Idiomas {
   Español = "es",
   Árabe = "ar",
   Hebreo = "he",
-  Portugués = "br"
+  Portugués = "br",
+  Ucraniano = "uk",
+  Farsi = "fa"
 }
 
 export const idiomaAImagen: { [key in Idiomas]: string } = {
@@ -379,6 +381,8 @@ export const idiomaAImagen: { [key in Idiomas]: string } = {
   ["ar"]: "Qmb2rQi84hLXtiY673VaBHMTB32Lo1Xe1ah4Q7mG2fKf4J",
   ["he"]: "Qmdyd6iUPYNruEi5BJaYnoJ8H4FDwqxJF4EAzLvYZfxgXE",
   ["br"]: "QmQce4gWKLj9xWySjxUVsHKorX5rDL45JiaU4y1TBqjLVa",
+  ["uk"]: "QmT4yUJGRRpbSfrqm5w9BP2mjUqHzKJSCkb4CeujZFXMjk",
+  ["fa"]: "QmTchZ7B2vrTnkKKBpqoYcmLQ8H9wxiNet7DWtmQeVzMdM",
 };
 
 export const indiceAIdioma: { [key in number]: string } = {
@@ -387,6 +391,8 @@ export const indiceAIdioma: { [key in number]: string } = {
   [2]: "ar",
   [3]: "he",
   [4]: "br",
+  [5]: "uk",
+  [6]: "fa",
 };
 
 export const idiomaAIndice: { [key in Idiomas]: number } = {
@@ -395,6 +401,8 @@ export const idiomaAIndice: { [key in Idiomas]: number } = {
   ["ar"]: 2,
   ["he"]: 3,
   ["br"]: 4,
+  ["uk"]: 5,
+  ["fa"]: 6,
 };
 
 export const numberToItemTypeMap: { [key: number]: ItemType } = {
