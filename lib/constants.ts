@@ -381,7 +381,7 @@ export const idiomaAImagen: { [key in Idiomas]: string } = {
   ["ar"]: "Qmb2rQi84hLXtiY673VaBHMTB32Lo1Xe1ah4Q7mG2fKf4J",
   ["he"]: "Qmdyd6iUPYNruEi5BJaYnoJ8H4FDwqxJF4EAzLvYZfxgXE",
   ["br"]: "QmQce4gWKLj9xWySjxUVsHKorX5rDL45JiaU4y1TBqjLVa",
-  ["uk"]: "QmT4yUJGRRpbSfrqm5w9BP2mjUqHzKJSCkb4CeujZFXMjk",
+  ["uk"]: "QmW1QzS8AfYEaV4Kc6YtwXSUXRUatP6VozLy1HB61DTy27",
   ["fa"]: "QmTchZ7B2vrTnkKKBpqoYcmLQ8H9wxiNet7DWtmQeVzMdM",
 };
 
