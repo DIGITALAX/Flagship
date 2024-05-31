@@ -60,11 +60,14 @@ const nextConfig = {
   trailingSlash: true,
   async headers() {
     let headersConfig = [];
-
     allowedOrigins.forEach((origin) => {
       headersConfig.push({
         source: "/(.*)",
         headers: [
+          {
+            key: "X-Frame-Options",
+            value: "SAMEORIGIN",
+          },
           {
             key: "Access-Control-Allow-Origin",
             value: origin,
