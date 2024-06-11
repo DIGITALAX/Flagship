@@ -140,9 +140,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                     <>
                       <textarea
                         className={`relative w-full h-full font-bit flex items-center justify-center bg-black ${
-                          message === "Message sent! We'll be in touch shortly."
-                            ? "text-white"
-                            : "text-orilla"
+                          message === t("sent") ? "text-white" : "text-orilla"
                         }`}
                         style={{ resize: "none" }}
                         onChange={(e) => setMessage(e.target.value)}
@@ -331,7 +329,9 @@ const Header: FunctionComponent<HeaderProps> = ({
                     className="relative flex items-center justify-center w-fit h-fit active:scale-95 cursor-sewingHS"
                     onClick={() =>
                       setChosenLanguage((prev) =>
-                        prev < Object.keys(idiomaAImagen).length - 1 ? prev + 1 : 0
+                        prev < Object.keys(idiomaAImagen).length - 1
+                          ? prev + 1
+                          : 0
                       )
                     }
                   >
