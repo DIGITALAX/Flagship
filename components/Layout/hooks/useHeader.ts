@@ -65,7 +65,7 @@ const useHeader = (
         const data = conversation.send(message);
 
         if ((await data).sent) {
-          setMessage("Message sent! We'll be in touch shortly.");
+          setMessage(t("sent"));
           setTimeout(() => {
             setMessage("");
           }, 6000);

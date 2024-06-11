@@ -33,5 +33,6 @@
   "soon": "pronto",
   "ve": "siga",
   "encrypt": "¿Quiere cifrarnos un mensaje?",
-  "send": "Envíelo"
+  "send": "Envíelo",
+  "sent": "¡Mensaje enviado! Le contactaremos pronto."
 }

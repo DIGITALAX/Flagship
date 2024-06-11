@@ -33,5 +33,6 @@
   "soon": "soon",
   "ve": "go",
   "encrypt": "Encrypt us a message?",
-  "send": "Send"
+  "send": "Send",
+  "sent": "Message sent! We'll be in touch shortly."
 }
