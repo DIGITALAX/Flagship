@@ -148,7 +148,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                       ></textarea>
                       <div
                         className={`absolute bottom-2 right-2 flex items-center justify-center w-12 rounded-sm text-super border border-orilla h-5 ${
-                          !messageLoading && "cursor-sewingHS active:scale-96"
+                          !messageLoading && "cursor-sewingHS active:scale-95"
                         }`}
                         onClick={
                           !address
