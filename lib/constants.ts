@@ -368,41 +368,41 @@ export const printTypeToString: { [key in PrintType]: string } = {
 export enum Idiomas {
   Ingles = "en",
   Español = "es",
-  Árabe = "ar",
-  Hebreo = "he",
+  Árabe = "ع",
+  Hebreo = "א",
   Portugués = "br",
-  Ucraniano = "uk",
-  Farsi = "fa"
+  Ucraniano = "ук",
+  Farsi = "د",
 }
 
 export const idiomaAImagen: { [key in Idiomas]: string } = {
   ["en"]: "QmXdyvCYjZ7FkPjgFX5BPi98WTpPdJT5FHhzhtbyzkJuNs",
   ["es"]: "QmY43U5RovVkoGrkLiFyA2VPMnGxf5e3NgYZ95u9aNJdem",
-  ["ar"]: "Qmb2rQi84hLXtiY673VaBHMTB32Lo1Xe1ah4Q7mG2fKf4J",
-  ["he"]: "Qmdyd6iUPYNruEi5BJaYnoJ8H4FDwqxJF4EAzLvYZfxgXE",
+  ["ع"]: "Qmb2rQi84hLXtiY673VaBHMTB32Lo1Xe1ah4Q7mG2fKf4J",
+  ["א"]: "Qmdyd6iUPYNruEi5BJaYnoJ8H4FDwqxJF4EAzLvYZfxgXE",
   ["br"]: "QmQce4gWKLj9xWySjxUVsHKorX5rDL45JiaU4y1TBqjLVa",
-  ["uk"]: "QmW1QzS8AfYEaV4Kc6YtwXSUXRUatP6VozLy1HB61DTy27",
-  ["fa"]: "QmTchZ7B2vrTnkKKBpqoYcmLQ8H9wxiNet7DWtmQeVzMdM",
+  ["ук"]: "QmW1QzS8AfYEaV4Kc6YtwXSUXRUatP6VozLy1HB61DTy27",
+  ["د"]: "QmTchZ7B2vrTnkKKBpqoYcmLQ8H9wxiNet7DWtmQeVzMdM",
 };
 
 export const indiceAIdioma: { [key in number]: string } = {
   [0]: "en",
   [1]: "es",
-  [2]: "ar",
-  [3]: "he",
+  [2]: "ع",
+  [3]: "א",
   [4]: "br",
-  [5]: "uk",
-  [6]: "fa",
+  [5]: "ук",
+  [6]: "د",
 };
 
 export const idiomaAIndice: { [key in Idiomas]: number } = {
   ["en"]: 0,
   ["es"]: 1,
-  ["ar"]: 2,
-  ["he"]: 3,
+  ["ع"]: 2,
+  ["א"]: 3,
   ["br"]: 4,
-  ["uk"]: 5,
-  ["fa"]: 6,
+  ["ук"]: 5,
+  ["د"]: 6,
 };
 
 export const numberToItemTypeMap: { [key: number]: ItemType } = {
