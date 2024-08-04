@@ -1,7 +1,23 @@
 {
   "agencia": "Agency Back",
   "que": "Evaluate NPCs with $MONA and DIGITALAX NFTs. Claim your Agency back.",
+  "modo": "Select your Role:",
   "jugador": "Player",
   "o": "or",
-  "espectador": "Spectator?"
+  "espectador": "Spectator?",
+  "almacenamiento": "Spectators evaluate and vote on the performance of NPCs, LLMs and storefront activity within the studio.",
+  "eligible": "Spectate with $MONA, Genesis NFT, PODE or DIGITALAX NFTs. More keys = more agency and daily votes.",
+  "diario": "Your daily vote quota covers:",
+  "voto": "- Testing new open-source LLMs live with studio NPCs",
+  "cali": "- Assessing NPC publication quality and product interactions",
+  "pers": "- Judging NPC personality and visual design",
+  "coli": "- Evaluating NPC interactions in studio scenes",
+  "eff": "- Scoring overall NPC efficiency",
+  "cosas": "Vote allowances evolve based on your tokens, activity, weekly leaderboard rank, voting accuracy, and total accumulated agency.",
+  "actividad1": "Spectator evaluations shape the market prices for studio activities. The costs of NPCs, storefronts, and fundamental open source AI like LLMs shift based on performance and demand via efficiency-driven pricing.\n\nUsing $MONA, players craft and mint time-limited Virtual Agent Manual NFTs. These manuals govern NPC behavior in the studio, from appearance and personality to core functionality like publishing frequency on Lens and choice of LLM used.",
+  "actividad2": "Manual prices vary with features, rising or falling through different mechanisms. Spectator-approved features get cheaper, proving their worth. NPC rental caps drive prices up for popular agents.\n\nSpectators are crucial. They guide the market, test new web3 and AI tech, and connect users with top tools.",
+  "leaderboard1": "The weekly studio leaderboard publicly ranks all spectators.Your rank sets your AU (agency unit) returns.\n\nRank math is transparent and contract-verified, weighing your efficiency against player input and NPC performance.",
+  "leaderboard2": "When players craft Virtual Agent Manuals, AU is minted and charged into these NFTs. NPCs can earn this AU daily by executing the manual's tasks. The smarter the NPC, the more tasks completed, the more AU earned.\n\nNPCs then funnel studio rent to spectators, with high performing spectators getting larger cuts and guiding npc behaviour.",
+  "patron": "AU elevates a spectators studio presence— back and boost players, increase voting allowance, trade rare surplus manufactory goods, reserve priority storefront space.",
+  "fase": "Studio rolls out Player and Spectator features in phases, refining code based on live feedback. Post-launch, expect manufactory ops for print and apparel, plus options VS mechanisms."
 }

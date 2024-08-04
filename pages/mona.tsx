@@ -10,15 +10,19 @@ import Image from "next/legacy/image";
 
 const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
   const { t } = useTranslation("mona");
-  const { tipo, setTipo } = useMona();
+  const { tipo, setTipo, textColors, setTextColors } = useMona();
 
   return (
     <div
       className="flex flex-col bg-gradient-to-b from-windows to-white justify-start items-center h-[400rem] min-h-full gap-20"
       ref={rewind}
     >
-      <Curva />
-      <div className="relative flex flex-col items-center justify-center h-screen text-center text-white font-bit">
+      <Curva
+        tipo={tipo}
+        textColors={textColors}
+        setTextColors={setTextColors}
+      />
+      <div className="relative flex flex-col items-center justify-center h-[50rem] text-center text-white font-bit">
         <div className="text-6xl flex items-center justify-center break-all w-fit h-fit px-4">
           {t("agencia")}
         </div>
@@ -29,16 +33,23 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
           {t("que")}
         </div>
       </div>
-      <div className="relative w-full flex flex-col items-center justify-center h-screen text-center text-white gap-px font-bit text-2xl">
+      <div className="relative w-full flex flex-col items-center justify-center h-[50rem] text-center text-white gap-px font-bit text-2xl">
+        <div className="relative w-fit h-fit flex text-3xl pb-3 text-black break-all">
+          {t("modo")}
+        </div>
         <div
-          className="relative w-fit h-fit flex cursor-sewingHS active:scale-95 hover:text-lightYellow break-all"
+          className={`relative w-fit h-fit flex cursor-sewingHS active:scale-95 hover:text-lightYellow break-all ${
+            tipo ? "text-lightYellow" : "text-white"
+          }`}
           onClick={() => setTipo(true)}
         >
           {t("jugador")}
         </div>
         <div className="relative w-fit h-fit flex"> {t("o")}</div>
         <div
-          className="relative w-fit h-fit flex cursor-sewingHS active:scale-95 hover:text-lightYellow break-all"
+          className={`relative w-fit h-fit flex cursor-sewingHS active:scale-95 hover:text-lightYellow break-all  ${
+            !tipo ? "text-lightYellow" : "text-white"
+          }`}
           onClick={() => setTipo(false)}
         >
           {t("espectador")}
@@ -52,8 +63,13 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
           />
         </div>
       </div>
-      <div className="relative flex flex-col items-center justify-center h-screen text-center text-white font-bit">
-        <TipoCambio tipo={tipo} />
+      <div className="relative flex flex-col items-center justify-center h-fit text-center text-white font-bit">
+        <TipoCambio t={t} tipo={tipo} textColors={textColors} />
+      </div>
+      <div className="relative w-full flex flex-row items-center justify-center h-[50rem] text-offBlack gap-px font-bit px-6">
+        <div className="relative w-3/4 h-fit flex sm:break-words break-all text-center flex flex-col gap-2">
+          {t("fase")}
+        </div>
       </div>
     </div>
   );

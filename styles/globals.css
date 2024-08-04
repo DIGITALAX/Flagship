@@ -863,3 +863,7 @@ input:focus {
     padding-right: 1.75rem;
   }
 }
+
+body.stop-scrolling {
+  overflow: hidden;
+}

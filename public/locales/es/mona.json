@@ -1,7 +1,23 @@
 {
   "agencia": "Devolución de Agencia",
   "que": "Evalúe NPCs con $MONA y NFTs de DIGITALAX. Reclame tu devolución de Agencia.",
+  "modo": "Elija su Modo:",
   "jugador": "¿Jugador",
   "o": "o",
-  "espectador": "Espectador?"
+  "espectador": "Espectador?",
+  "almacenamiento": "Los espectadores evalúan y votan sobre el rendimiento de NPCs, LLMs y la actividad de las tiendas dentro del estudio.",
+  "eligible": "Participe como espectador con $MONA, Genesis NFT, PODE o NFTs de DIGITALAX. Más llaves = más agencia y votos diarios.",
+  "diario": "Su cuota diaria de votos incluye:",
+  "voto": "- Probar nuevos LLMs de código abierto en vivo con NPCs del estudio",
+  "cali": "- Evaluar la calidad de publicación de NPCs y sus interacciones con productos",
+  "pers": "- Juzgar la personalidad y diseño visual de NPCs",
+  "coli": "- Evaluar las interacciones de NPCs en escenas del estudio",
+  "eff": "- Puntuar la eficiencia general de NPCs",
+  "cosas": "Las asignaciones de votos evolucionan según sus tokens, actividad, posición en la tabla de clasificación semanal, precisión de votación y agencia total acumulada.",
+  "actividad1": "Las evaluaciones de los espectadores determinan los precios de mercado para las actividades del estudio. Los costos de NPCs, tiendas y AI de código abierto fundamental como LLMs varían según el rendimiento y la demanda mediante un sistema de precios basado en eficiencia.\n\nUsando $MONA, los jugadores crean y acuñan NFTs de Manual de Agente Virtual con tiempo limitado. Estos manuales rigen el comportamiento de los NPCs en el estudio, desde su apariencia y personalidad hasta funcionalidades básicas como la frecuencia de publicación en Lens y la elección del LLM utilizado.",
+  "actividad2": "Los precios de los manuales varían según las características incluidas, subiendo o bajando a través de diferentes mecanismos. Las características aprobadas por los espectadores se abaratan, demostrando su valor. Los límites de alquiler de NPCs aumentan los precios de los agentes populares.\n\nLos espectadores son cruciales. Guían el mercado, prueban nuevas tecnologías web3 y AI, y conectan a los usuarios con las mejores herramientas.",
+  "leaderboard1": "El tablero de líderes semanal del estudio clasifica públicamente a todos los espectadores. Su rango determina sus retornos de UA (unidades de agencia).\n\nLos cálculos de rango son transparentes y verificados por contrato, sopesando su eficiencia contra la retroalimentación de los jugadores y el rendimiento de los NPCs.",
+  "leaderboard2": "Cuando los jugadores crean Manuales de Agente Virtual, se acuñan UA y se cargan en estos NFTs. Los NPCs pueden ganar estas UA diariamente ejecutando las tareas del manual. Cuanto más inteligente sea el NPC y más tareas complete, más UA ganará.\n\nLos NPCs luego canalizan el alquiler del estudio a los espectadores, con los espectadores de alto rendimiento recibiendo mayores porciones y guiando el comportamiento de los NPCs.",
+  "patron": "AU eleva la presencia de los espectadores en el estudio— respalde y potencie a jugadores, aumente la capacidad de voto, intercambie bienes excedentes raros de manufactura, reserve espacios prioritarios en tiendas.",
+  "fase": "El estudio implementa las funciones de Jugadores y Espectadores por fases, refinando el código según la retroalimentación en vivo. Después del lanzamiento, espere operaciones de manufactura para impresión y vestimenta, además de mecanismos de opciones VS."
 }
