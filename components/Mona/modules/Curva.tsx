@@ -13,14 +13,16 @@ const Curva: React.FC<{
   const textoEndRef = useRef<number>(0);
   const [fakeScroll, setFakeScroll] = useState<number>(0);
   const [scrolled, setScrolled] = useState<boolean>(false);
-  const totalParagraphs: number = 8;
+  const totalParagraphs: number = tipo ? 4 : 8;
   const scrollDeltaPerParagraph: number = 120;
   const colorChangeDelta: number = 60;
 
   useEffect(() => {
     const updatePausePositions = () => {
-      const paragraphSection = document.getElementById("parrafo");
-      const textoSection = document.getElementById("texto");
+      const paragraphSection = document.getElementById(
+        tipo ? "parrafo2" : "parrafo"
+      );
+      const textoSection = document.getElementById(tipo ? "texto2" : "texto");
       if (paragraphSection && textoSection) {
         const rectParrafo = paragraphSection.getBoundingClientRect();
         const rectTexto = textoSection.getBoundingClientRect();

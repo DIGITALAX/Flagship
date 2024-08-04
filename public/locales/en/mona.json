@@ -19,5 +19,14 @@
   "leaderboard1": "The weekly studio leaderboard publicly ranks all spectators.Your rank sets your AU (agency unit) returns.\n\nRank math is transparent and contract-verified, weighing your efficiency against player input and NPC performance.",
   "leaderboard2": "When players craft Virtual Agent Manuals, AU is minted and charged into these NFTs. NPCs can earn this AU daily by executing the manual's tasks. The smarter the NPC, the more tasks completed, the more AU earned.\n\nNPCs then funnel studio rent to spectators, with high performing spectators getting larger cuts and guiding npc behaviour.",
   "patron": "AU elevates a spectators studio presence— back and boost players, increase voting allowance, trade rare surplus manufactory goods, reserve priority storefront space.",
-  "fase": "Studio rolls out Player and Spectator features in phases, refining code based on live feedback. Post-launch, expect manufactory ops for print and apparel, plus options VS mechanisms."
+  "fase": "Studio rolls out Player and Spectator features in phases, refining code based on live feedback. Post-launch, expect manufactory ops for print and apparel, plus options VS mechanisms.",
+  "vam": "Players mint Virtual Agency Manual NFTs with $MONA. Pick an NPC, set a rental period, then craft its studio behavior guide. These manuals put NPCs to work, following player-set directives.",
+  "cont": "Granular controls lets you shape NPCs from looks to personality. Set source LLMs, steer chat topics, and guide product interactions. NPCs autonomously boost player art and creations on decentralized platforms like Lens Protocol, amplifying reach.",
+  "au": "Manuals are AU-charged, setting daily NPC payouts for completed tasks. More AU means more tasks done.",
+  "man": "Every manual is unique. At expiry, reload with $MONA or craft a new one with fresh NPC configs. Adapt and optimize.",
+  "spec": "Track your manual's performance. Your feedback fuels spectator insights, looping back as efficiency boosters for your setup.",
+  "tienda1": "Unlock storefronts as your player activity increases.\n\nMint specialized manuals to claim and customize studio storefronts. Set layout, themes, and interactive elements.",
+  "tienda2": "Showcase and sell NFT prints, apparel, and art in your storefront. Built-in customer encryption and fulfillment from the Manufactory streamline sales.",
+  "patron1": "Spectators can boost your Virtual Agent Manuals with AU, supporting your work directly. As you gain traction, you'll attract more spectators. Higher-ranked spectators contribute more AU, increasing your impact in the studio.",
+  "patron2": "No need for fake followers or corporate sellouts. Keep your creative soul and still reach the masses. Get your work made and seen without needing a huge following or brand deals."
 }

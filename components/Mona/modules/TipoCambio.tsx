@@ -134,7 +134,113 @@ const TipoCambio: FunctionComponent<{
 
     default:
       return (
-        <div className="relative w-full h-fit flex items-center justify-start flex-col gap-4"></div>
+        <div className="relative w-full h-fit flex items-center justify-start flex-col gap-4">
+          <div className="relative w-1/2 flex flex-col items-center justify-center h-[50rem] text-center text-white gap-px font-mana text-base">
+            <div className="relative w-fit h-fit flex items-center justify-center gap-4 flex-col">
+              <div className="relative w-fit h-fit flex sm:break-words break-all">
+                {t("vam")}
+              </div>
+              <div className="relative w-fit h-fit flex sm:break-words break-all">
+                {t("cont")}
+              </div>
+            </div>
+            <div className="relative w-96 h-96 flex items-center justify-center">
+              <Image
+                src={`${INFURA_GATEWAY}/ipfs/Qmd5eMLdiErF3Vn3vyEH3Fgjg27rEMPfdvR16hLeJ2R38g`}
+                draggable={false}
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+          </div>
+          <div
+            className="relative w-full flex flex-row items-center justify-center h-[50rem] text-offBlack gap-px font-bit px-6"
+            id="parrafo2"
+          >
+            <div className="relative w-full h-96 flex items-center justify-center">
+              <Image
+                src={`${INFURA_GATEWAY}/ipfs/QmPQ6MqotTNc43bTU2wUoXYd1LPAtP2tSq2nXLEvxrrBeg`}
+                draggable={false}
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+            <div className="relative w-full h-fit flex items-center justify-center text-lg">
+              <div
+                className="relative w-3/4 h-fit flex sm:break-words break-all text-center flex flex-col gap-2"
+                id="texto2"
+              >
+                {[t("au"), t("man"), t("spec")].map(
+                  (texto: string, indice: number) => (
+                    <div
+                      key={indice}
+                      style={{
+                        color: textColors[indice],
+                        transition: "color 0.3s",
+                      }}
+                    >
+                      {texto}
+                    </div>
+                  )
+                )}
+              </div>
+            </div>
+          </div>
+          <div className="relative w-full flex flex-row items-center justify-center h-[50rem] text-offBlack gap-px font-bit px-6">
+            <div
+              className="relative w-full h-fit flex items-center justify-center text-sm whitespace-preline font-mana"
+              dangerouslySetInnerHTML={{
+                __html: descriptionRegex(t("tienda1"), false),
+              }}
+            ></div>
+            <div className="relative w-full h-96 flex items-center justify-center">
+              <Image
+                src={`${INFURA_GATEWAY}/ipfs/QmPQ6MqotTNc43bTU2wUoXYd1LPAtP2tSq2nXLEvxrrBeg`}
+                draggable={false}
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+            <div
+              className="relative w-full h-fit flex items-center justify-center text-sm whitespace-preline font-mana"
+              dangerouslySetInnerHTML={{
+                __html: descriptionRegex(t("tienda2"), false),
+              }}
+            ></div>
+          </div>
+          <div className="relative w-full flex flex-col items-center justify-center h-[50rem] text-offBlack gap-3 font-bit px-6">
+            <div
+              className="relative w-full h-fit flex items-center justify-center text-sm whitespace-preline font-mana"
+              dangerouslySetInnerHTML={{
+                __html: descriptionRegex(t("patron1"), false),
+              }}
+            ></div>
+            <div className="relative w-full h-96 flex items-center justify-center">
+              <Image
+                src={`${INFURA_GATEWAY}/ipfs/QmPQ6MqotTNc43bTU2wUoXYd1LPAtP2tSq2nXLEvxrrBeg`}
+                draggable={false}
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+          </div>
+          <div className="relative w-full flex flex-col items-center justify-center h-[50rem] text-offBlack gap-3 font-bit px-6">
+            <div className="relative w-full h-96 flex items-center justify-center">
+              <Image
+                src={`${INFURA_GATEWAY}/ipfs/QmPQ6MqotTNc43bTU2wUoXYd1LPAtP2tSq2nXLEvxrrBeg`}
+                draggable={false}
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+            <div
+              className="relative w-full h-fit flex items-center justify-center text-sm whitespace-preline font-mana"
+              dangerouslySetInnerHTML={{
+                __html: descriptionRegex(t("patron2"), false),
+              }}
+            ></div>
+          </div>
+        </div>
       );
   }
 };
