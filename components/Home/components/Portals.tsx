@@ -161,7 +161,7 @@ const Portals: FunctionComponent<PortalsProps> = ({
             {
               image: "Qmbuv1tSD437oRELndaJHEjjGE73xgjJFaFdWzVCrtbADn",
               title: "Mona",
-              link: "/build-log",
+              link: "/mona",
             },
             {
               image: "QmQ81mzd6V5b57rXabEQQaWEg6zSxVY3tLHafx3XGVm14s",

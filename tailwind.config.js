@@ -140,6 +140,15 @@ module.exports = {
       animation: {
         unblur: "unblur 0.5s linear",
       },
+      animation: {
+        marchingAnts: 'marchingAnts 1s linear infinite',
+      },
+      keyframes: {
+        marchingAnts: {
+          '0%': { strokeDashoffset: 12 },
+          '100%': { strokeDashoffset: 0 },
+        },
+      },
       fontSize: {
         super: "0.46rem",
         xxs: "0.6rem",
