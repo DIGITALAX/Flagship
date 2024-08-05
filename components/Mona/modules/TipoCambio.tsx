@@ -15,10 +15,10 @@ const TipoCambio: FunctionComponent<{
         <div className="relative w-full h-fit flex items-center justify-start flex-col gap-4">
           <div className="relative w-1/2 flex flex-col items-center justify-center h-[50rem] text-center text-white gap-px font-mana text-base">
             <div className="relative w-fit h-fit flex items-center justify-center gap-4 flex-col">
-              <div className="relative w-fit h-fit flex sm:break-words break-all">
+              <div className="relative w-fit h-fit flex break-words">
                 {t("almacenamiento")}
               </div>
-              <div className="relative w-fit h-fit flex sm:break-words break-all">
+              <div className="relative w-fit h-fit flex break-words">
                 {t("eligible")}
               </div>
             </div>
@@ -32,12 +32,12 @@ const TipoCambio: FunctionComponent<{
             </div>
           </div>
           <div
-            className="relative w-full flex flex-row items-center justify-center h-[50rem] text-offBlack gap-px font-bit px-6"
+            className="relative w-full flex flex-row items-center justify-center h-[50rem] text-white gap-px font-bit px-6"
             id="parrafo"
           >
             <div className="relative w-full h-96 flex items-center justify-center">
               <Image
-                src={`${INFURA_GATEWAY}/ipfs/QmPQ6MqotTNc43bTU2wUoXYd1LPAtP2tSq2nXLEvxrrBeg`}
+                src={`${INFURA_GATEWAY}/ipfs/QmRyyYrVsWLf1YcBgA1SS9oWU812dkeFeiLEwCpkaZR8Tk`}
                 draggable={false}
                 layout="fill"
                 objectFit="contain"
@@ -45,7 +45,7 @@ const TipoCambio: FunctionComponent<{
             </div>
             <div className="relative w-full h-fit flex items-center justify-center text-sm">
               <div
-                className="relative w-3/4 h-fit flex sm:break-words break-all text-center flex flex-col gap-2"
+                className="relative w-3/4 h-fit flex break-words text-center flex flex-col gap-2"
                 id="texto"
               >
                 {[
@@ -59,10 +59,10 @@ const TipoCambio: FunctionComponent<{
                 ].map((texto: string, indice: number) => (
                   <div
                     key={indice}
-                    style={{
-                      color: textColors[indice],
-                      transition: "color 0.3s",
-                    }}
+                    // style={{
+                    //   color: textColors[indice],
+                    //   transition: "color 0.3s",
+                    // }}
                   >
                     {texto}
                   </div>
@@ -70,7 +70,7 @@ const TipoCambio: FunctionComponent<{
               </div>
             </div>
           </div>
-          <div className="relative w-full flex flex-row items-center justify-center h-[50rem] text-offBlack gap-px font-bit px-6">
+          <div className="relative w-full flex flex-row items-center justify-center h-[50rem] text-white gap-px font-bit px-6">
             <div
               className="relative w-full h-fit flex items-center justify-center text-sm whitespace-preline font-mana"
               dangerouslySetInnerHTML={{
@@ -92,7 +92,7 @@ const TipoCambio: FunctionComponent<{
               }}
             ></div>
           </div>
-          <div className="relative w-full flex flex-col items-center justify-center h-[50rem] text-offBlack gap-3 font-bit px-6">
+          <div className="relative w-full flex flex-col items-center justify-center h-[50rem] text-white gap-3 font-bit px-6">
             <div
               className="relative w-full h-fit flex items-center justify-center text-sm whitespace-preline font-mana"
               dangerouslySetInnerHTML={{
@@ -114,7 +114,7 @@ const TipoCambio: FunctionComponent<{
               }}
             ></div>
           </div>
-          <div className="relative w-full flex flex-row items-center justify-center h-[50rem] text-offBlack gap-px font-bit px-6">
+          <div className="relative w-full flex flex-row items-center justify-center h-[50rem] text-white gap-px font-bit px-6">
             <div className="relative w-full h-96 flex items-center justify-center">
               <Image
                 src={`${INFURA_GATEWAY}/ipfs/QmPQ6MqotTNc43bTU2wUoXYd1LPAtP2tSq2nXLEvxrrBeg`}
@@ -124,7 +124,7 @@ const TipoCambio: FunctionComponent<{
               />
             </div>
             <div className="relative w-full h-fit flex items-center justify-center text-sm">
-              <div className="relative w-3/4 h-fit flex sm:break-words break-all text-center flex flex-col gap-2">
+              <div className="relative w-3/4 h-fit flex break-words text-center flex flex-col gap-2">
                 {t("patron")}
               </div>
             </div>
@@ -137,10 +137,10 @@ const TipoCambio: FunctionComponent<{
         <div className="relative w-full h-fit flex items-center justify-start flex-col gap-4">
           <div className="relative w-1/2 flex flex-col items-center justify-center h-[50rem] text-center text-white gap-px font-mana text-base">
             <div className="relative w-fit h-fit flex items-center justify-center gap-4 flex-col">
-              <div className="relative w-fit h-fit flex sm:break-words break-all">
+              <div className="relative w-fit h-fit flex break-words">
                 {t("vam")}
               </div>
-              <div className="relative w-fit h-fit flex sm:break-words break-all">
+              <div className="relative w-fit h-fit flex break-words">
                 {t("cont")}
               </div>
             </div>
@@ -154,7 +154,7 @@ const TipoCambio: FunctionComponent<{
             </div>
           </div>
           <div
-            className="relative w-full flex flex-row items-center justify-center h-[50rem] text-offBlack gap-px font-bit px-6"
+            className="relative w-full flex flex-row items-center justify-center h-[50rem] text-white gap-px font-bit px-6"
             id="parrafo2"
           >
             <div className="relative w-full h-96 flex items-center justify-center">
@@ -167,17 +167,17 @@ const TipoCambio: FunctionComponent<{
             </div>
             <div className="relative w-full h-fit flex items-center justify-center text-lg">
               <div
-                className="relative w-3/4 h-fit flex sm:break-words break-all text-center flex flex-col gap-2"
+                className="relative w-3/4 h-fit flex break-words text-center flex flex-col gap-2"
                 id="texto2"
               >
                 {[t("au"), t("man"), t("spec")].map(
                   (texto: string, indice: number) => (
                     <div
                       key={indice}
-                      style={{
-                        color: textColors[indice],
-                        transition: "color 0.3s",
-                      }}
+                      // style={{
+                      //   color: textColors[indice],
+                      //   transition: "color 0.3s",
+                      // }}
                     >
                       {texto}
                     </div>
@@ -186,7 +186,7 @@ const TipoCambio: FunctionComponent<{
               </div>
             </div>
           </div>
-          <div className="relative w-full flex flex-row items-center justify-center h-[50rem] text-offBlack gap-px font-bit px-6">
+          <div className="relative w-full flex flex-row items-center justify-center h-[50rem] text-white gap-px font-bit px-6">
             <div
               className="relative w-full h-fit flex items-center justify-center text-sm whitespace-preline font-mana"
               dangerouslySetInnerHTML={{
@@ -208,7 +208,7 @@ const TipoCambio: FunctionComponent<{
               }}
             ></div>
           </div>
-          <div className="relative w-full flex flex-col items-center justify-center h-[50rem] text-offBlack gap-3 font-bit px-6">
+          <div className="relative w-full flex flex-col items-center justify-center h-[50rem] text-white gap-3 font-bit px-6">
             <div
               className="relative w-full h-fit flex items-center justify-center text-sm whitespace-preline font-mana"
               dangerouslySetInnerHTML={{
@@ -224,7 +224,7 @@ const TipoCambio: FunctionComponent<{
               />
             </div>
           </div>
-          <div className="relative w-full flex flex-col items-center justify-center h-[50rem] text-offBlack gap-3 font-bit px-6">
+          <div className="relative w-full flex flex-col items-center justify-center h-[50rem] text-white gap-3 font-bit px-6">
             <div className="relative w-full h-96 flex items-center justify-center">
               <Image
                 src={`${INFURA_GATEWAY}/ipfs/QmPQ6MqotTNc43bTU2wUoXYd1LPAtP2tSq2nXLEvxrrBeg`}

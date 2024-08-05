@@ -17,31 +17,31 @@ const Curva: React.FC<{
   const scrollDeltaPerParagraph: number = 120;
   const colorChangeDelta: number = 60;
 
-  useEffect(() => {
-    const updatePausePositions = () => {
-      const paragraphSection = document.getElementById(
-        tipo ? "parrafo2" : "parrafo"
-      );
-      const textoSection = document.getElementById(tipo ? "texto2" : "texto");
-      if (paragraphSection && textoSection) {
-        const rectParrafo = paragraphSection.getBoundingClientRect();
-        const rectTexto = textoSection.getBoundingClientRect();
+  // useEffect(() => {
+  //   const updatePausePositions = () => {
+  //     const paragraphSection = document.getElementById(
+  //       tipo ? "parrafo2" : "parrafo"
+  //     );
+  //     const textoSection = document.getElementById(tipo ? "texto2" : "texto");
+  //     if (paragraphSection && textoSection) {
+  //       const rectParrafo = paragraphSection.getBoundingClientRect();
+  //       const rectTexto = textoSection.getBoundingClientRect();
+  //       console.log(rectParrafo, paragraphSection)
+  //       pauseStartRef.current = rectParrafo.y;
+  //       pauseEndRef.current =
+  //         pauseStartRef.current +
+  //         totalParagraphs * scrollDeltaPerParagraph +
+  //         80;
 
-        pauseStartRef.current = window.scrollY + rectParrafo.top - 30;
-        pauseEndRef.current =
-          pauseStartRef.current +
-          totalParagraphs * scrollDeltaPerParagraph +
-          80;
+  //       textoEndRef.current =
+  //         rectTexto.bottom + totalParagraphs * scrollDeltaPerParagraph + 80;
+  //     }
+  //   };
 
-        textoEndRef.current =
-          rectTexto.bottom + totalParagraphs * scrollDeltaPerParagraph + 80;
-      }
-    };
-
-    updatePausePositions();
-    window.addEventListener("resize", updatePausePositions);
-    return () => window.removeEventListener("resize", updatePausePositions);
-  }, [tipo]);
+  //   updatePausePositions();
+  //   window.addEventListener("resize", updatePausePositions);
+  //   return () => window.removeEventListener("resize", updatePausePositions);
+  // }, [tipo]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,76 +77,82 @@ const Curva: React.FC<{
       }
     };
 
-    const handleWheel = (event: WheelEvent) => {
-      const scrollY = window.scrollY;
-      const pauseStart = pauseStartRef.current;
-      const pauseEnd = pauseEndRef.current;
+    // const handleWheel = (event: WheelEvent) => {
+    //   const scrollY = window.scrollY;
+    //   const pauseStart = pauseStartRef.current;
+    //   const pauseEnd = pauseEndRef.current;
 
-      if (pathRef.current && imageRef.current) {
-        if (
-          scrollY + 20 >= pauseStart &&
-          scrollY + fakeScroll <= pauseEnd &&
-          pauseStart !== 0 &&
-          !(fakeScroll == 0 && event.deltaY < 0)
-        ) {
-          event.preventDefault();
-          event.stopPropagation();
+    //   console.log(scrollY, pauseStart)
 
-          setFakeScroll((prevFakeScroll) => {
-            const delta = event.deltaY;
-            const newFakeScroll = Math.max(
-              0,
-              Math.min(
-                prevFakeScroll + delta,
-                totalParagraphs * scrollDeltaPerParagraph
-              )
-            );
-            const colorChangeIndex = Math.floor(
-              newFakeScroll / colorChangeDelta
-            );
-            const newColors = textColors.map((_, index) => {
-              const colorProgress = Math.max(
-                0,
-                Math.min(1, colorChangeIndex / 2 - index)
-              );
-              const color = Math.round(255 * colorProgress)
-                .toString(16)
-                .padStart(2, "0");
-              return `#${color}${color}${color}`;
-            });
-            setTextColors(newColors);
-            document.body.classList.remove("stop-scrolling");
-            if (newFakeScroll === 0 && delta < 0) {
-            } else if (
-              newFakeScroll === totalParagraphs * scrollDeltaPerParagraph &&
-              delta > 0
-            ) {
-              window.scrollTo(0, textoEndRef.current);
-            }
+    //   if (pathRef.current && imageRef.current) {
+    //     if (
+    //       scrollY + 20 >= pauseStart &&
+    //       scrollY + fakeScroll <= pauseEnd &&
+    //       pauseStart !== 0 &&
+    //       !(fakeScroll == 0 && event.deltaY < 0)
+    //     ) {
+    //       event.preventDefault();
+    //       event.stopPropagation();
 
-            return newFakeScroll;
-          });
-        } else {
-          document.body.classList.remove("stop-scrolling");
-        }
-      }
-    };
+    //       setFakeScroll((prevFakeScroll) => {
+    //         const delta = event.deltaY;
+    //         const newFakeScroll = Math.max(
+    //           0,
+    //           Math.min(
+    //             prevFakeScroll + delta,
+    //             totalParagraphs * scrollDeltaPerParagraph
+    //           )
+    //         );
+    //         const colorChangeIndex = Math.floor(
+    //           newFakeScroll / colorChangeDelta
+    //         );
+    //         const newColors = textColors.map((_, index) => {
+    //           const colorProgress = Math.max(
+    //             0,
+    //             Math.min(1, colorChangeIndex / 2 - index)
+    //           );
+    //           const color = Math.round(255 * colorProgress)
+    //             .toString(16)
+    //             .padStart(2, "0");
+    //           return `#${color}${color}${color}`;
+    //         });
+    //         setTextColors(newColors);
+    //         document.body.classList.remove("stop-scrolling");
+    //         if (newFakeScroll === 0 && delta < 0) {
+    //         } else if (
+    //           newFakeScroll === totalParagraphs * scrollDeltaPerParagraph &&
+    //           delta > 0
+    //         ) {
+    //           window.scrollTo(0, textoEndRef.current);
+    //         }
+
+    //         return newFakeScroll;
+    //       });
+    //     } else {
+    //       document.body.classList.remove("stop-scrolling");
+    //     }
+    //   }
+    // };
 
     const updateCoinPosition = (realScrollY: number) => {
       if (pathRef.current && imageRef.current) {
-        const scrollPercentage = realScrollY / (400 * 16 - window.innerHeight);
-        const pathLength = pathRef.current.getTotalLength() * 0.4;
+        const scrollPercentage =
+          realScrollY /
+          (document.documentElement.scrollHeight - window.innerHeight);
+     
+
+        const pathLength = pathRef.current.getTotalLength();
         const point = pathRef.current.getPointAtLength(
           pathLength * scrollPercentage
         );
 
         imageRef.current.style.left = `${point.x}%`;
-        imageRef.current.style.top = `calc(10vh + ${point.y / 128}%)`;
+        imageRef.current.style.top = `calc(10vh + ${point.y / 64}%)`;
       }
     };
 
     window.addEventListener("scroll", handleScroll);
-    window.addEventListener("wheel", handleWheel, { passive: false });
+    // window.addEventListener("wheel", handleWheel, { passive: false });
 
     if (!scrolled) {
       window.scrollTo(0, 1);
@@ -155,7 +161,7 @@ const Curva: React.FC<{
     }
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("wheel", handleWheel);
+      // window.removeEventListener("wheel", handleWheel);
     };
   }, [textColors, setTextColors, fakeScroll, imageRef, pathRef]);
 
