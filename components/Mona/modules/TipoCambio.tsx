@@ -7,8 +7,7 @@ import { FunctionComponent } from "react";
 const TipoCambio: FunctionComponent<{
   tipo: boolean;
   t: TFunction<"mona", undefined>;
-  textColors: string[];
-}> = ({ tipo, t, textColors }) => {
+}> = ({ tipo, t }) => {
   switch (tipo) {
     case false:
       return (
