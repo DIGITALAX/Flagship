@@ -316,7 +316,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                     className="relative flex items-center justify-center w-fit h-fit active:scale-95 cursor-sewingHS"
                     onClick={() =>
                       setChosenLanguage((prev) =>
-                        prev > 0 ? prev - 1 : Object.keys(idiomaAImagen).length
+                        prev > 0 ? prev - 1 : Object.keys(idiomaAImagen).length - 1
                       )
                     }
                   >
