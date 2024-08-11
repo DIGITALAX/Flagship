@@ -25,6 +25,13 @@ class Document extends NextDocument {
           />
           <link
             rel="preload"
+            href="https://digitalax.xyz/fonts/Retro.ttf"
+            as="font"
+            type="font/ttf"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
             href="https://digitalax.xyz/fonts/jacklane_2.woff"
             as="font"
             type="font/woff"
@@ -255,6 +262,12 @@ class Document extends NextDocument {
                   font-family: "Jack Lane";
                   font-weight: 400;
                   src: url("https://digitalax.xyz/fonts/jacklane_2.woff");
+                }
+
+                @font-face {
+                  font-family: "Retro";
+                  font-weight: 400;
+                  src: url("https://digitalax.xyz/fonts/Retro.ttf");
                 }
             `,
             }}

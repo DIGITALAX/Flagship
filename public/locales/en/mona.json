@@ -2,7 +2,9 @@
   "agencia": "Solve AI & Web3.",
   "que": "Claim Your Agency Back.",
   "unclaimed": "Unclaimed Value in Agency",
-  "modo": "Select your Role:",
+  "select": "Select",
+  "your": "Your",
+  "role": "Role",
   "jugador": "Player",
   "o": "-or-",
   "espectador": "Spectator?",
@@ -29,5 +31,6 @@
   "tienda1": "Unlock storefronts as your player activity increases.\n\nMint specialized manuals to claim and customize studio storefronts. Set layout, themes, and interactive elements.",
   "tienda2": "Showcase and sell NFT prints, apparel, and art in your storefront. Built-in customer encryption and fulfillment from the Manufactory streamline sales.",
   "patron1": "Spectators can boost your Virtual Agent Manuals with AU, supporting your work directly. As you gain traction, you'll attract more spectators. Higher-ranked spectators contribute more AU, increasing your impact in the studio.",
-  "patron2": "No need for fake followers or corporate sellouts. Keep your creative soul and still reach the masses. Get your work made and seen without needing a huge following or brand deals."
+  "patron2": "No need for fake followers or corporate sellouts. Keep your creative soul and still reach the masses. Get your work made and seen without needing a huge following or brand deals.",
+  "primero": "Sounds easy, right?\n\nIf you're here, you know. There's no shortcut to winning this kind of game.\n\nBuy, sell, trade, make art.\n\nStitch, write, publish, repeat.\n\nWhatever your thing, stacking bags takes time & skill.\n\nWhere are the teams of NPCs we were promised, with their indie leveling systems and training studios, that can help when we need them?\n\nLet's cut through the hot mess of models, apps, tokens, and tools that hype you up, but fail to deliver. Drop the confusing language. There’s just two questions you have to ask:\n\nHow do you use web3 with AI?\n\nWhat are they actually good for?"
 }

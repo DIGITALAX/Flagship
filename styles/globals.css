@@ -113,6 +113,12 @@
   src: url("/fonts/jacklane_2.woff");
 }
 
+@font-face {
+  font-family: "Retro";
+  font-weight: 400;
+  src: url("/fonts/Retro.ttf");
+}
+
 html,
 body {
   padding: 0;
@@ -870,7 +876,7 @@ body.stop-scrolling {
 
 #sombra {
   color: black;
-  text-shadow: 0 0 7px #fff, 0 0 10px #009d58, 0 0 21px #009d58, 0 0 42px #009d58,
-    0 0 82px #4732db, 0 0 92px #4732db, 0 0 102px #009d58, 0 0 151px #4732db;
+  text-shadow: 0 0 7px #fff, 0 0 10px #D9D580, 0 0 21px #4cffb2, 0 0 42px #D9D580,
+    0 0 82px #4732db, 0 0 92px #4732db, 0 0 102px #D9D580, 0 0 151px #4732db;
   -webkit-text-stroke: 0.1px white;
 }

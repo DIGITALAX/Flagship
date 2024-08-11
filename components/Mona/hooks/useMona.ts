@@ -1,7 +1,10 @@
+import { TFunction } from "i18next";
 import { useEffect, useRef, useState } from "react";
 
-const useMona = () => {
-  const [tipo, setTipo] = useState<boolean>(true);
+const useMona = (t: TFunction<"mona", undefined>) => {
+  const textos: string[] = [t("primero"), t("segundo")];
+  const [tipo, setTipo] = useState<number>(0);
+  const [texto, setTexto] = useState<string>();
   const [nivelZoom, setNivelZoom] = useState<number>(0.5);
   const containerRef = useRef<HTMLDivElement>(null);
   const [posicion, setPosicion] = useState<{
@@ -12,12 +15,27 @@ const useMona = () => {
     x: number;
     y: number;
   }>({ x: 0, y: 0 });
+  const [indiceActual, setIndiceActual] = useState<number>(0);
   const imageRef = useRef<HTMLDivElement>(null);
   const textboxRef = useRef<HTMLDivElement>(null);
   const [arrastrando, setArrastrando] = useState<boolean>(false);
+  const [fijo, setFijo] = useState<boolean>(false);
+  const [etapa, setEtapa] = useState<number>(0);
+
+  const manejarFijo = () => {
+    setFijo(false);
+    setEtapa(0);
+    setTipo(0);
+    setPosicion({
+      x: 0,
+      y: 0,
+    });
+    setNivelZoom(0.5);
+  };
 
   const centrarImagen = () => {
     setNivelZoom(4);
+    setEtapa(1);
     if (containerRef.current && imageRef.current && textboxRef.current) {
       const containerRect = containerRef.current.getBoundingClientRect();
 
@@ -26,10 +44,12 @@ const useMona = () => {
         y: containerRect.height * 0.4,
       });
     }
+    setFijo(true);
   };
 
   useEffect(() => {
     const manejarRueda = (e: WheelEvent) => {
+      if (fijo) return;
       e.preventDefault();
       setNivelZoom((prevZoom) => {
         const zoomNuevo = prevZoom * (1 - e.deltaY * 0.001);
@@ -38,6 +58,7 @@ const useMona = () => {
     };
 
     const manejarMouseDown = (e: MouseEvent) => {
+      if (fijo) return;
       setArrastrando(true);
       setEmpezarArrastre({
         x: e.clientX - posicion.x,
@@ -46,6 +67,7 @@ const useMona = () => {
     };
 
     const manejarMouseMove = (e: MouseEvent) => {
+      if (fijo) return;
       if (arrastrando) {
         setPosicion({
           x: e.clientX - empezarArrastre.x,
@@ -55,10 +77,12 @@ const useMona = () => {
     };
 
     const manejarMouseUp = () => {
+      if (fijo) return;
       setArrastrando(false);
     };
 
     const manejarTouchStart = (e: TouchEvent) => {
+      if (fijo) return;
       const touch = e.touches[0];
       setArrastrando(true);
       setEmpezarArrastre({
@@ -68,6 +92,7 @@ const useMona = () => {
     };
 
     const manejarTouchMove = (e: TouchEvent) => {
+      if (fijo) return;
       if (arrastrando) {
         const touch = e.touches[0];
         setPosicion({
@@ -103,6 +128,22 @@ const useMona = () => {
     };
   }, [arrastrando, empezarArrastre, posicion]);
 
+  useEffect(() => {
+    console.log( textos[etapa - 1]?.length)
+    if (indiceActual < textos[etapa - 1]?.length && etapa > 0) {
+      const timeout = setTimeout(() => {
+        setTexto((prevText) => prevText + textos[etapa - 1][indiceActual]);
+        setIndiceActual((prevIndex) => prevIndex + 1);
+      }, 50);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [indiceActual]);
+
+  useEffect(() => {
+    setIndiceActual(0);
+  }, [etapa]);
+
   return {
     tipo,
     setTipo,
@@ -113,6 +154,11 @@ const useMona = () => {
     imageRef,
     textboxRef,
     centrarImagen,
+    fijo,
+    manejarFijo,
+    etapa,
+    setEtapa,
+    texto,
   };
 };
 

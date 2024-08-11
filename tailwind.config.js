@@ -83,6 +83,7 @@ module.exports = {
         cost: "#847FF2",
         girasol: "#FBD201",
         nuba: "#C9D8E4",
+
         mos: "#05A5B7",
         pez: "#81A8F8",
         ballena: "#FFD85F",
@@ -108,6 +109,7 @@ module.exports = {
         fira: "Fira Regular",
         firaL: "Fira Light",
         firaB: "Fira Bold",
+        retro: "Retro",
         firaM: "Fira Medium",
         din: "DIN Condensed",
         futur: "Futurist",
