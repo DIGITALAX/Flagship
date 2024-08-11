@@ -26,7 +26,7 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
     texto,
     textareaRef,
     escribiendoHecho,
-    indice
+    indice,
   } = useMona(t);
 
   console.log({ escribiendoHecho });
