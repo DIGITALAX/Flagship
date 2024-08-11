@@ -12,7 +12,21 @@ const useMona = () => {
     x: number;
     y: number;
   }>({ x: 0, y: 0 });
+  const imageRef = useRef<HTMLDivElement>(null);
+  const textboxRef = useRef<HTMLDivElement>(null);
   const [arrastrando, setArrastrando] = useState<boolean>(false);
+
+  const centrarImagen = () => {
+    setNivelZoom(4);
+    if (containerRef.current && imageRef.current && textboxRef.current) {
+      const containerRect = containerRef.current.getBoundingClientRect();
+
+      setPosicion({
+        x: 0,
+        y: containerRect.height * 0.4,
+      });
+    }
+  };
 
   useEffect(() => {
     const manejarRueda = (e: WheelEvent) => {
@@ -96,6 +110,9 @@ const useMona = () => {
     containerRef,
     arrastrando,
     posicion,
+    imageRef,
+    textboxRef,
+    centrarImagen,
   };
 };
 

@@ -9,77 +9,95 @@ import Image from "next/legacy/image";
 
 const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
   const { t } = useTranslation("mona");
-  const { tipo, setTipo, nivelZoom, containerRef, arrastrando, posicion } =
-    useMona();
+  const {
+    tipo,
+    setTipo,
+    nivelZoom,
+    containerRef,
+    arrastrando,
+    posicion,
+    centrarImagen,
+    imageRef,
+    textboxRef,
+  } = useMona();
 
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-screen overflow-hidden bg-offBlack"
+      className="relative w-full h-screen overflow-hidden bg-offBlack items-center justify-center flex"
     >
       <div
         ref={rewind}
         className="absolute top-20 flex w-full items-center justify-center h-fit flex flex-col gap-2 text-white"
       >
-        <div className="relative break-words font-bit text-4xl">
+        <div className="relative break-words font-bit text-2xl sm:text-4xl text-center">
           {t("agencia")}
         </div>
-        <div className="relative break-words font-bit text-xl"> {t("que")}</div>
+        <div className="relative break-words font-bit text-base sm:text-xl">
+          {" "}
+          {t("que")}
+        </div>
       </div>
       <div
-        className="relative w-full h-full transition-transform duration-300 ease-out"
+        className="relative w-[1346px] h-[898px] transition-transform duration-300 ease-out"
         style={{
           transform: `translate(${posicion.x}px, ${posicion.y}px) scale(${nivelZoom})`,
           transformOrigin: "center",
           cursor: arrastrando ? "grabbing" : "grab",
         }}
+        ref={imageRef}
       >
         <Image
           src={`${INFURA_GATEWAY}/ipfs/QmfSDeJw2C4ND1XTZWAhqFeVnV5doMX5q5KqQKz68BADrj`}
-          layout="fill"
-          objectFit="cover"
+          layout="fixed"
           priority
           draggable={false}
           width={1346}
           height={898}
           className="transition-transform duration-300 ease-out"
         />
+        <div
+          style={{
+            position: "absolute" as const,
+            transformOrigin: "center",
+            left: "47.5%",
+            top: "36.6%",
+          }}
+          ref={textboxRef}
+          className="flex flex-col gap-2 items-center justify-center text-black font-bit text-xxs"
+        >
+          <div
+            className={`relative w-fit h-fit break-all cursor-sewingHS active:scale-95  ${
+              tipo && "underline"
+            }`}
+            id="sombra"
+            onClick={() => {
+              setTipo(true);
+              centrarImagen();
+            }}
+          >
+            {t("jugador")}
+          </div>
+          <div className="relative w-fit h-fit break-all" id="sombra">
+            {t("o")}
+          </div>
+          <div
+            className={`relative w-fit h-fit break-all cursor-sewingHS active:scale-95 ${
+              !tipo && "underline"
+            }`}
+            id="sombra"
+            onClick={() => {
+              setTipo(false);
+              centrarImagen();
+            }}
+          >
+            {t("espectador")}
+          </div>
+        </div>
       </div>
       <div
-        style={{
-          position: "absolute" as const,
-          left: `${0.5 * 100}%`,
-          top: `${0.4 * 100}%`,
-          transform: `translate(${posicion.x}px, ${posicion.y}px) translate(-50%, -50%) scale(${nivelZoom})`,
-          fontSize: `${16 / nivelZoom}px`,
-        }}
-        className="flex flex-col gap-2 items-center justify-center text-black font-bit"
-      >
-        <div
-          className={`relative w-fit h-fit break-all cursor-sewingHS active:scale-95  ${
-            tipo && "underline"
-          }`}
-          id="sombra"
-          onClick={() => setTipo(true)}
-        >
-          {t("jugador")}
-        </div>
-        <div className="relative w-fit h-fit break-all" id="sombra">
-          {t("o")}
-        </div>
-        <div
-          className={`relative w-fit h-fit break-all cursor-sewingHS active:scale-95 ${
-            !tipo && "underline"
-          }`}
-          id="sombra"
-          onClick={() => setTipo(false)}
-        >
-          {t("espectador")}
-        </div>
-      </div>
-      <div
-        className={`absolute bottom-20 w-full items-center justify-center h-fit flex text-white break-words font-futur text-5xl ${
-          nivelZoom < 0.5 ? "flex" : "hidden"
+        className={`absolute bottom-20 w-full items-center justify-center h-fit flex text-white break-words font-futur text-3xl sm:text-5xl text-center ${
+          nivelZoom < 0.7 ? "flex" : "hidden"
         }`}
       >
         {t("unclaimed")}
