@@ -17,7 +17,6 @@ const useMona = (t: TFunction<"mona", undefined>) => {
   const textosEspectador: string[] = [
     t("primero"),
     t("segundoEsp"),
-    t("terceroEsp"),
     t("quartoEsp"),
     t("quintoEsp"),
     t("sextoEsp"),
@@ -53,7 +52,7 @@ const useMona = (t: TFunction<"mona", undefined>) => {
   const manejarTeclas = useCallback(
     (event: KeyboardEvent) => {
       if (event.key === "ArrowRight") {
-        if (etapa + 1 <= (tipo === 1 ? 9 : 13) && tipo !== 0) {
+        if (etapa + 1 <= (tipo === 1 ? 9 : 11) && tipo !== 0) {
           setEtapa((prevEtapa) => prevEtapa + 1);
         }
       } else if (event.key === "ArrowLeft") {
@@ -73,18 +72,18 @@ const useMona = (t: TFunction<"mona", undefined>) => {
       x: 0,
       y: 0,
     });
-    setNivelZoom(0.5);
+    setNivelZoom(window.innerWidth < 768 ? 0.3 : 0.5);
   };
 
   const centrarImagen = () => {
-    setNivelZoom(4);
+    window.innerWidth < 768 ? setNivelZoom(2) : setNivelZoom(4);
     setEtapa(1);
     if (containerRef.current && imageRef.current && textboxRef.current) {
       const containerRect = containerRef.current.getBoundingClientRect();
 
       setPosicion({
         x: 0,
-        y: containerRect.height * 0.4,
+        y: containerRect.height * (window.innerWidth < 768 ? 0.12 : 0.4),
       });
     }
     setFijo(true);
@@ -195,7 +194,7 @@ const useMona = (t: TFunction<"mona", undefined>) => {
         );
         setIndiceActual((prevIndex) => prevIndex + 1);
 
-        if (textareaRef.current) {
+        if (textareaRef.current && !escribiendoHecho) {
           textareaRef.current.scrollTop = textareaRef.current.scrollHeight;
         }
       }, 50);
@@ -214,6 +213,12 @@ const useMona = (t: TFunction<"mona", undefined>) => {
       setIndice(indice + 1 > 5 ? 0 : indice + 1);
     }
   }, [etapa]);
+
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setNivelZoom(0.3);
+    }
+  }, []);
 
   return {
     tipo,

@@ -3,6 +3,7 @@ import ImagenCambio from "@/components/Mona/modules/ImagenCambio";
 import TextoCambio from "@/components/Mona/modules/TextoCambio";
 import { MonaProps } from "@/components/Mona/types/mona.types";
 import { INFURA_GATEWAY } from "@/lib/constants";
+import descriptionRegex from "@/lib/lens/helpers/descriptionRegex";
 import { NextPage } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -39,7 +40,7 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
         <>
           <div
             ref={rewind}
-            className="w-12 h-12 absolute top-5 left-5 active:scale-96 cursor-sewingHS z-50 border border-black rounded-full"
+            className=" h-6 w-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12 absolute top-5 left-5 active:scale-96 cursor-sewingHS z-50 border border-black rounded-full z-50"
             onClick={() => manejarFijo()}
           >
             <Image
@@ -49,9 +50,9 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
             />
           </div>
           {tipo !== 0 && (
-            <div className="absolute bottom-10 w-full flex flex-row gap-3 h-fit z-50 items-center justify-center">
+            <div className="absolute md:top-auto top-5 bottom-auto md:bottom-10 w-full flex flex-row gap-3 h-fit z-40 items-center justify-center">
               <div
-                className={`relative w-12 h-12 items-center justify-center border border-black rounded-full ${
+                className={`relative h-6 w-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12 items-center justify-center border border-black rounded-full ${
                   etapa - 1 <= 0 || tipo == 0
                     ? "opacity-60"
                     : "cursor-sewingHS active:scale-95"
@@ -65,13 +66,13 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
                 />
               </div>
               <div
-                className={`relative w-12 h-12 items-center justify-center border border-black rounded-full ${
-                  etapa + 1 > (tipo == 1 ? 9 : 13) || tipo == 0
+                className={`relative  h-6 w-6 sm:w-8 sm:h-8 lg:w-12 lg:h-12 items-center justify-center border border-black rounded-full ${
+                  etapa + 1 > (tipo == 1 ? 9 : 11) || tipo == 0
                     ? "opacity-60"
                     : "cursor-sewingHS active:scale-95"
                 }`}
                 onClick={() =>
-                  etapa + 1 <= (tipo == 1 ? 9 : 13) &&
+                  etapa + 1 <= (tipo == 1 ? 9 : 11) &&
                   tipo > 0 &&
                   setEtapa(etapa + 1)
                 }
@@ -84,9 +85,9 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
               </div>
             </div>
           )}
-          <div className="w-[35%] h-[45%] absolute bottom-5 right-5 z-50 flex flex-col justify-end items-center gap-3">
-            <div className="relative rounded-lg w-[75%] h-full">
-              <div className="absolute z-10 opacity-40 top-0 left-0 w-full h-full rounded-lg">
+          <div className="w-full md:w-[35%] h-[40%] sm:h-[45%] absolute bottom-5 right-5 z-50 flex flex-col justify-end items-center gap-3">
+            <div className={`relative rounded-lg w-[75%] h-full`}>
+              <div className="absolute z-10 top-0 left-0 opacity-40 w-full h-full rounded-lg">
                 <Image
                   layout="fill"
                   draggable={false}
@@ -95,26 +96,38 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
                   src={`${INFURA_GATEWAY}/ipfs/QmUpXfxfa8RWo1REe5ux3jJs5UWyebknCcVHFiMXKjFhBU`}
                 />
               </div>
-              <textarea
-                ref={textareaRef}
-                className={`w-full bg-transparent z-30 h-full px-2 py-4 font-retro overflow-y-scroll opacity-100 ${
-                  etapa <= 1
-                    ? "text-white text-xs"
-                    : etapa == 3 || etapa == 4
-                    ? "text-black text-base"
-                    : (tipo == 1 && etapa == 9) || (tipo == 2 && etapa == 12)
-                    ? "text-xs text-black"
-                    : "text-[#F942FD] text-base"
-                }`}
-                value={etapa < 1 ? "" : texto}
-                readOnly
-                style={{
-                  resize: "none",
-                }}
-                id="sombra2"
-              />
+              <div
+                className="relative w-full h-full overflow-y-scroll flex"
+                id="noScroll"
+              >
+                <textarea
+                  className={`w-full relative whitespace-inline bg-transparent z-30 px-2 py-4 font-retro opacity-100 h-full ${
+                    etapa <= 1
+                      ? "text-white text-xs"
+                      : etapa == 3 ||
+                        etapa == 4 ||
+                        (tipo == 1 && etapa == 7) ||
+                        (tipo == 2 && etapa == 6) ||
+                        (tipo == 2 && etapa == 9)
+                      ? "text-black text-base"
+                      : (tipo == 1 && etapa == 8) ||
+                        (tipo == 2 && etapa == 5) ||
+                        (tipo == 2 && etapa == 7)
+                      ? "text-white text-base"
+                      : (tipo == 1 && etapa == 9) ||
+                        (tipo == 2 && etapa == 10) ||
+                        (tipo == 2 && etapa == 2)
+                      ? "text-xs text-black"
+                      : "text-[#F942FD] text-base"
+                  }`}
+                  id="sombra2"
+                  readOnly
+                  value={texto || ""}
+                  ref={textareaRef}
+                />
+              </div>
             </div>
-            <div className="absolute right-0 bottom-20 w-40 h-48 flex  hover:opacity-10 active:opacity-10 z-50">
+            <div className="absolute right-0 bottom-20 w-20 h-28 md:w-40 md:h-48 flex  hover:opacity-10 active:opacity-10 z-50">
               <Image
                 layout="fill"
                 draggable={false}
@@ -166,9 +179,13 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
               ? `translate(${posicion.x}px, ${posicion.y}px) scale(${nivelZoom})`
               : etapa === 3
               ? `scale(${1.2})`
-              : etapa === 5
+              : tipo == 1 && etapa === 5
               ? `scale(${1.5})`
+              : tipo == 2 && etapa === 5
+              ? `scale(${1.2})`
               : etapa === 7
+              ? `scale(${1.1})`
+              : (tipo == 2 && etapa === 9) || (tipo == 2 && etapa == 11)
               ? `scale(${1.1})`
               : undefined,
           transformOrigin: "center",

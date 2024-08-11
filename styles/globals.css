@@ -133,6 +133,20 @@ body::-webkit-scrollbar {
   height: 0;
 }
 
+#noScroll::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+#noScroll::-webkit-scrollbar-track:active {
+  background-color: transparent !important;
+}
+
+#noScroll::-webkit-scrollbar-thumb:active {
+  background-color: transparent !important;
+}
+
+
 body::-webkit-scrollbar-track:active {
   background-color: transparent !important;
 }
@@ -885,4 +899,17 @@ body.stop-scrolling {
   /* color: black; */
   text-shadow: 0 0 7px #fff, 0 0 10px #D9D580, 0 0 21px #4cffb2;
   /* -webkit-text-stroke: 0.5px black; */
+}
+
+#sombra2::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+#sombra2::-webkit-scrollbar-track:active {
+  background-color: transparent !important;
+}
+
+#sombra2::-webkit-scrollbar-thumb:active {
+  background-color: transparent !important;
 }

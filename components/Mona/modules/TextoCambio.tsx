@@ -74,7 +74,7 @@ const TextoCambio: FunctionComponent<{
           style={{
             position: "absolute" as const,
             transformOrigin: "center",
-            left: router.locale == "es" ? "48.5%" : "48.7%",
+            left: "48.7%",
             top: "36.9%",
           }}
           ref={textboxRef}
