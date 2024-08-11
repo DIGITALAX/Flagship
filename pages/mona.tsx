@@ -1,4 +1,5 @@
 import useMona from "@/components/Mona/hooks/useMona";
+import ImagenCambio from "@/components/Mona/modules/ImagenCambio";
 import TextoCambio from "@/components/Mona/modules/TextoCambio";
 import { MonaProps } from "@/components/Mona/types/mona.types";
 import { INFURA_GATEWAY } from "@/lib/constants";
@@ -29,8 +30,6 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
     indice,
   } = useMona(t);
 
-  console.log({ escribiendoHecho });
-
   return (
     <div
       ref={containerRef}
@@ -46,7 +45,7 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
             <Image
               layout="fill"
               draggable={false}
-              src={`${INFURA_GATEWAY}/ipfs/QmUReGB6h2eug5tMzeM1dmt3dhBJzh61dBvkz9pCrL5iJY`}
+              src={`${INFURA_GATEWAY}/ipfs/Qmc6s8sgzJ89T6SmBV3UXd8KxHN2K66Ch2sGzdvuCUnb3j`}
             />
           </div>
           {tipo !== 0 && (
@@ -62,7 +61,7 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
                 <Image
                   layout="fill"
                   draggable={false}
-                  src={`${INFURA_GATEWAY}/ipfs/QmWkphDLu84LZcpWscfJfyTg3dukNbxTfLbJa82yaoStCg`}
+                  src={`${INFURA_GATEWAY}/ipfs/QmeVHRRfnxScAnnxie67nT9dpmD6wcHVLtcBG7R9ZzXjNQ`}
                 />
               </div>
               <div
@@ -80,14 +79,14 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
                 <Image
                   layout="fill"
                   draggable={false}
-                  src={`${INFURA_GATEWAY}/ipfs/QmPesbP3xxEtc6AoeVpi7FxaYHBNcV8Lv2QFZFWBBPBqYU`}
+                  src={`${INFURA_GATEWAY}/ipfs/QmbBsJ3ng2pjTrkJ19gxqHiLqy73FrSSwMNfrgq1u8kiZa`}
                 />
               </div>
             </div>
           )}
           <div className="w-[35%] h-[45%] absolute bottom-5 right-5 z-50 flex flex-col justify-end items-center gap-3">
             <div className="relative rounded-lg w-[75%] h-full">
-              <div className="absolute opacity-40 top-0 left-0 w-full h-full rounded-lg">
+              <div className="absolute z-10 opacity-40 top-0 left-0 w-full h-full rounded-lg">
                 <Image
                   layout="fill"
                   draggable={false}
@@ -98,15 +97,24 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
               </div>
               <textarea
                 ref={textareaRef}
-                className={`w-full text-white bg-transparent h-full px-2 py-4 text-xs font-retro overflow-y-scroll`}
+                className={`w-full bg-transparent z-30 h-full px-2 py-4 font-retro overflow-y-scroll opacity-100 ${
+                  etapa <= 1
+                    ? "text-white text-xs"
+                    : etapa == 3 || etapa == 4
+                    ? "text-black text-base"
+                    : (tipo == 1 && etapa == 9) || (tipo == 2 && etapa == 12)
+                    ? "text-xs text-black"
+                    : "text-[#F942FD] text-base"
+                }`}
                 value={etapa < 1 ? "" : texto}
                 readOnly
                 style={{
                   resize: "none",
                 }}
+                id="sombra2"
               />
             </div>
-            <div className="absolute right-0 bottom-20 w-40 h-48 flex">
+            <div className="absolute right-0 bottom-20 w-40 h-48 flex  hover:opacity-10 active:opacity-10 z-50">
               <Image
                 layout="fill"
                 draggable={false}
@@ -149,24 +157,26 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
         </div>
       </div>
       <div
-        className="relative w-[1346px] h-[898px] transition-transform duration-300 ease-out"
+        className={`relative transition-transform duration-300 ease-out ${
+          etapa <= 1 ? "w-[1346px] h-[898px]" : "w-full h-full"
+        }`}
         style={{
-          transform: `translate(${posicion.x}px, ${posicion.y}px) scale(${nivelZoom})`,
+          transform:
+            etapa <= 1
+              ? `translate(${posicion.x}px, ${posicion.y}px) scale(${nivelZoom})`
+              : etapa === 3
+              ? `scale(${1.2})`
+              : etapa === 5
+              ? `scale(${1.5})`
+              : etapa === 7
+              ? `scale(${1.1})`
+              : undefined,
           transformOrigin: "center",
           cursor: fijo ? "default" : arrastrando ? "grabbing" : "grab",
         }}
         ref={imageRef}
       >
-        <Image
-          src={`${INFURA_GATEWAY}/ipfs/QmfSDeJw2C4ND1XTZWAhqFeVnV5doMX5q5KqQKz68BADrj`}
-          layout="fixed"
-          priority
-          draggable={false}
-          width={1346}
-          height={898}
-          className="transition-transform duration-300 ease-out"
-        />
-
+        <ImagenCambio tipo={tipo} etapa={etapa} />
         <TextoCambio
           centrarImagen={centrarImagen}
           setTipo={setTipo}
@@ -179,9 +189,9 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
         />
       </div>
       <div
-        className={`absolute bottom-20 w-full items-center justify-center h-fit flex text-white break-words font-futur text-3xl sm:text-5xl text-center ${
+        className={`absolute bottom-20 w-full items-center justify-center h-fit flex break-words font-futur text-3xl sm:text-5xl text-center ${
           nivelZoom < 0.7 ? "flex" : "hidden"
-        }`}
+        } text-white`}
       >
         {t("unclaimed")}
       </div>

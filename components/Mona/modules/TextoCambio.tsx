@@ -35,8 +35,8 @@ const TextoCambio: FunctionComponent<{
           ref={textboxRef}
         >
           <div
-            className={`relative w-fit h-fit break-all cursor-sewingHS active:scale-95  ${
-              tipo == 1 && "underline decoration-black"
+            className={`relative text-[#3586EF] w-fit h-fit break-all cursor-sewingHS active:scale-95 hover:underline hover:decoration-[#3586EF] ${
+              tipo == 1 && "underline decoration-[#3586EF]"
             }`}
             id="sombra"
             onClick={() => {
@@ -46,12 +46,15 @@ const TextoCambio: FunctionComponent<{
           >
             {t("jugador")}
           </div>
-          <div className="relative w-fit h-fit break-all" id="sombra">
+          <div
+            className="text-black relative text-super1 w-fit h-fit break-all"
+            id="sombra"
+          >
             {t("o")}
           </div>
           <div
-            className={`relative w-fit h-fit break-all cursor-sewingHS active:scale-95 ${
-              tipo == 2 && "underline decoration-black"
+            className={`relative text-[#EF35AB] w-fit h-fit break-all cursor-sewingHS active:scale-95 hover:underline hover:decoration-[#EF35AB] ${
+              tipo == 2 && "underline decoration-[#EF35AB]"
             }`}
             id="sombra"
             onClick={() => {
@@ -90,213 +93,7 @@ const TextoCambio: FunctionComponent<{
       );
 
     default:
-      switch (tipo) {
-        case 2:
-          switch (etapa) {
-            case 3:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-            case 4:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-            case 5:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-            case 6:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-            case 7:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-            case 8:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-            case 9:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-            case 10:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-            case 11:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-            case 12:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-            case 13:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-          }
-
-        default:
-          switch (etapa) {
-            case 3:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-            case 4:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-            case 5:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-            case 6:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-            case 7:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-            case 8:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-            case 9:
-              <div
-                className="flex flex-col gap-2 items-center justify-center text-black font-retro text-super"
-                style={{
-                  position: "absolute" as const,
-                  transformOrigin: "center",
-                  left: router.locale == "es" ? "47.5%" : "47.7%",
-                  top: "36.9%",
-                }}
-                ref={textboxRef}
-              ></div>;
-          }
-      }
+      return <></>;
   }
 };
 

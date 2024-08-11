@@ -143,6 +143,7 @@ module.exports = {
         unblur: "unblur 0.5s linear",
       },
       fontSize: {
+        super1: "0.4rem",
         super: "0.46rem",
         xxs: "0.6rem",
       },
