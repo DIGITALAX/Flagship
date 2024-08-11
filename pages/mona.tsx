@@ -24,7 +24,12 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
     etapa,
     setEtapa,
     texto,
+    textareaRef,
+    escribiendoHecho,
+    indice
   } = useMona(t);
+
+  console.log({ escribiendoHecho });
 
   return (
     <div
@@ -48,11 +53,11 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
             <div className="absolute bottom-10 w-full flex flex-row gap-3 h-fit z-50 items-center justify-center">
               <div
                 className={`relative w-12 h-12 items-center justify-center border border-black rounded-full ${
-                  etapa - 1 <= 0
+                  etapa - 1 <= 0 || tipo == 0
                     ? "opacity-60"
                     : "cursor-sewingHS active:scale-95"
                 }`}
-                onClick={() => etapa - 1 > 0 && setEtapa(etapa - 1)}
+                onClick={() => etapa - 1 > 0 && tipo > 0 && setEtapa(etapa - 1)}
               >
                 <Image
                   layout="fill"
@@ -62,12 +67,14 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
               </div>
               <div
                 className={`relative w-12 h-12 items-center justify-center border border-black rounded-full ${
-                  etapa + 1 > (tipo == 1 ? 9 : 12)
+                  etapa + 1 > (tipo == 1 ? 9 : 13) || tipo == 0
                     ? "opacity-60"
                     : "cursor-sewingHS active:scale-95"
                 }`}
                 onClick={() =>
-                  etapa + 1 <= (tipo == 1 ? 9 : 12) && setEtapa(etapa + 1)
+                  etapa + 1 <= (tipo == 1 ? 9 : 13) &&
+                  tipo > 0 &&
+                  setEtapa(etapa + 1)
                 }
               >
                 <Image
@@ -86,25 +93,35 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
                   draggable={false}
                   objectFit="cover"
                   className="rounded-lg"
-                  src={`${INFURA_GATEWAY}/ipfs/QmTY4b1PrjmcYE9yZdF1VETuixaSCEvy1T3wWM8dDnEZBA`}
+                  src={`${INFURA_GATEWAY}/ipfs/QmUpXfxfa8RWo1REe5ux3jJs5UWyebknCcVHFiMXKjFhBU`}
                 />
               </div>
               <textarea
-                className="w-full overflow-y-scroll text-white bg-transparent h-full px-1 py-3 text-xs font-retro"
+                ref={textareaRef}
+                className={`w-full text-white bg-transparent h-full px-2 py-4 text-xs font-retro overflow-y-scroll`}
                 value={etapa < 1 ? "" : texto}
+                readOnly
                 style={{
                   resize: "none",
                 }}
-                readOnly
               />
-
-              <div className="absolute right-0 bottom-3 w-40 h-48 flex">
-                <Image
-                  layout="fill"
-                  draggable={false}
-                  src={`${INFURA_GATEWAY}/ipfs/QmbUPVHC2v3tsR9XL9EQdNJbwXMzjhtxvxwVAUhsniMdRt`}
-                />
-              </div>
+            </div>
+            <div className="absolute right-0 bottom-20 w-40 h-48 flex">
+              <Image
+                layout="fill"
+                draggable={false}
+                objectFit="contain"
+                src={`${INFURA_GATEWAY}/ipfs/${
+                  [
+                    "QmVdS3wEJrHg92ohiW4NtSMFtHYWQ2PEAWzcPnda8x9vNs",
+                    "QmUwnZzChWa25DCWf4pKK3H4iF4ppjx3TgVpfdCjN9kmGU",
+                    "QmXYb74MPSTTpCfFMWqSNDxsxNhAgVh9djQBbDx8zVMHya",
+                    "QmNgjgZfGup3TMLTesu4bVxBn92zVfhjfU5mH6sXYdR4Uw",
+                    "QmeZEE1f5CBkRD3wSsBXhtVLckuzFaxzwu4wtBgS6Q9VxM",
+                    "QmWCnDsDb4H4KTfQdmrbSph3KB9hyqs2mDFpVLVk9D9EcU",
+                  ][indice]
+                }`}
+              />
             </div>
             <div className="relative w-full h-fit flex items-center justify-center">
               <div className="w-full relative flex h-20">

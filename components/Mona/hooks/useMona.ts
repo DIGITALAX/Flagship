@@ -1,9 +1,35 @@
 import { TFunction } from "i18next";
-import { useEffect, useRef, useState } from "react";
+import { NextRouter } from "next/router";
+import { KeyboardEvent, useCallback, useEffect, useRef, useState } from "react";
 
 const useMona = (t: TFunction<"mona", undefined>) => {
-  const textos: string[] = [t("primero"), t("segundo")];
+  const textosJugador: string[] = [
+    t("primero"),
+    t("segundoJug"),
+    t("terceroJug"),
+    t("quartoJug"),
+    t("quintoJug"),
+    t("sextoJug"),
+    t("septimoJug"),
+    t("octavoJug"),
+    t("ultimo"),
+  ];
+  const textosEspectador: string[] = [
+    t("primero"),
+    t("segundoEsp"),
+    t("terceroEsp"),
+    t("quartoEsp"),
+    t("quintoEsp"),
+    t("sextoEsp"),
+    t("septimoEsp"),
+    t("octavoEsp"),
+    t("novenoEsp"),
+    t("decimoEsp"),
+    t("undecimoEsp"),
+    t("ultimo"),
+  ];
   const [tipo, setTipo] = useState<number>(0);
+  const [indice, setIndice] = useState<number>(0);
   const [texto, setTexto] = useState<string>();
   const [nivelZoom, setNivelZoom] = useState<number>(0.5);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -18,9 +44,26 @@ const useMona = (t: TFunction<"mona", undefined>) => {
   const [indiceActual, setIndiceActual] = useState<number>(0);
   const imageRef = useRef<HTMLDivElement>(null);
   const textboxRef = useRef<HTMLDivElement>(null);
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
   const [arrastrando, setArrastrando] = useState<boolean>(false);
   const [fijo, setFijo] = useState<boolean>(false);
   const [etapa, setEtapa] = useState<number>(0);
+  const [escribiendoHecho, setEscribiendoHecho] = useState(false);
+
+  const manejarTeclas = useCallback(
+    (event: KeyboardEvent) => {
+      if (event.key === "ArrowRight") {
+        if (etapa + 1 <= (tipo === 1 ? 9 : 13) && tipo !== 0) {
+          setEtapa((prevEtapa) => prevEtapa + 1);
+        }
+      } else if (event.key === "ArrowLeft") {
+        if (tipo !== 0 && etapa - 1 > 0) {
+          setEtapa((prevEtapa) => prevEtapa - 1);
+        }
+      }
+    },
+    [etapa, tipo]
+  );
 
   const manejarFijo = () => {
     setFijo(false);
@@ -129,19 +172,47 @@ const useMona = (t: TFunction<"mona", undefined>) => {
   }, [arrastrando, empezarArrastre, posicion]);
 
   useEffect(() => {
-    console.log( textos[etapa - 1]?.length)
-    if (indiceActual < textos[etapa - 1]?.length && etapa > 0) {
+    window.addEventListener("keydown", manejarTeclas as any);
+
+    return () => {
+      window.removeEventListener("keydown", manejarTeclas as any);
+    };
+  }, [manejarTeclas]);
+
+  useEffect(() => {
+    if (
+      indiceActual <
+        (tipo == 1 ? textosJugador : textosEspectador)[etapa - 1]?.length &&
+      etapa > 0
+    ) {
       const timeout = setTimeout(() => {
-        setTexto((prevText) => prevText + textos[etapa - 1][indiceActual]);
+        setTexto(
+          (prevText) =>
+            prevText +
+            (tipo == 1 ? textosJugador : textosEspectador)[etapa - 1][
+              indiceActual
+            ]
+        );
         setIndiceActual((prevIndex) => prevIndex + 1);
+
+        if (textareaRef.current) {
+          textareaRef.current.scrollTop = textareaRef.current.scrollHeight;
+        }
       }, 50);
 
       return () => clearTimeout(timeout);
+    } else if (!escribiendoHecho) {
+      setEscribiendoHecho(true);
     }
-  }, [indiceActual]);
+  }, [indiceActual, etapa]);
 
   useEffect(() => {
+    setTexto("");
     setIndiceActual(0);
+    setEscribiendoHecho(false);
+    if (etapa > 0) {
+      setIndice(indice + 1 > 5 ? 0 : indice + 1);
+    }
   }, [etapa]);
 
   return {
@@ -159,6 +230,9 @@ const useMona = (t: TFunction<"mona", undefined>) => {
     etapa,
     setEtapa,
     texto,
+    textareaRef,
+    escribiendoHecho,
+    indice,
   };
 };
 
