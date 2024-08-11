@@ -1,9 +1,10 @@
 {
-  "agencia": "Agency Back",
-  "que": "Evaluate NPCs with $MONA and DIGITALAX NFTs. Claim your Agency back.",
+  "agencia": "Solve AI & Web3.",
+  "que": "Claim Your Agency Back.",
+  "unclaimed": "Unclaimed Value in Agency",
   "modo": "Select your Role:",
   "jugador": "Player",
-  "o": "or",
+  "o": "-or-",
   "espectador": "Spectator?",
   "almacenamiento": "Spectators evaluate and vote on the performance of NPCs, LLMs and storefront activity within the studio.",
   "eligible": "Spectate with $MONA, Genesis NFT, PODE or DIGITALAX NFTs. More keys = more agency and daily votes.",

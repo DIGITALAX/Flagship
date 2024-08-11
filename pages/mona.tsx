@@ -9,39 +9,82 @@ import Image from "next/legacy/image";
 
 const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
   const { t } = useTranslation("mona");
-  const { tipo, setTipo } = useMona();
+  const { tipo, setTipo, nivelZoom, containerRef, arrastrando, posicion } =
+    useMona();
 
   return (
     <div
-      className="flex flex-col bg-[#EFD3CD]justify-start items-center h-[900rem] min-h-full gap-20 overflow-hidden"
-      ref={rewind}
+      ref={containerRef}
+      className="relative w-full h-screen overflow-hidden bg-offBlack"
     >
-      <div className="absolute top-o left-0 w-full h-full">
+      <div
+        ref={rewind}
+        className="absolute top-20 flex w-full items-center justify-center h-fit flex flex-col gap-2 text-white"
+      >
+        <div className="relative break-words font-bit text-4xl">
+          {t("agencia")}
+        </div>
+        <div className="relative break-words font-bit text-xl"> {t("que")}</div>
+      </div>
+      <div
+        className="relative w-full h-full transition-transform duration-300 ease-out"
+        style={{
+          transform: `translate(${posicion.x}px, ${posicion.y}px) scale(${nivelZoom})`,
+          transformOrigin: "center",
+          cursor: arrastrando ? "grabbing" : "grab",
+        }}
+      >
         <Image
-          src={`${INFURA_GATEWAY}/ipfs/QmRnVg8MdWc2waE1AvdrpBpwgdkbtHaFzhPMjtVAv1ufiN`}
+          src={`${INFURA_GATEWAY}/ipfs/QmfSDeJw2C4ND1XTZWAhqFeVnV5doMX5q5KqQKz68BADrj`}
           layout="fill"
           objectFit="cover"
           priority
           draggable={false}
+          width={1346}
+          height={898}
+          className="transition-transform duration-300 ease-out"
         />
       </div>
-      <div className="relative top-0 left-0 w-full">
-        <Image
-          src={`${INFURA_GATEWAY}/ipfs/QmdGmbyXLYsB7reihSiH3DSAHcpBkL5XEzfS23VFaFtiHq`}
-          layout="responsive"
-          width={641}
-          height={6559}
-          objectFit="contain"
-          priority
-          draggable={false}
-        />
+      <div
+        style={{
+          position: "absolute" as const,
+          left: `${0.5 * 100}%`,
+          top: `${0.4 * 100}%`,
+          transform: `translate(${posicion.x}px, ${posicion.y}px) translate(-50%, -50%) scale(${nivelZoom})`,
+          fontSize: `${16 / nivelZoom}px`,
+        }}
+        className="flex flex-col gap-2 items-center justify-center text-black font-bit"
+      >
+        <div
+          className={`relative w-fit h-fit break-all cursor-sewingHS active:scale-95  ${
+            tipo && "underline"
+          }`}
+          id="sombra"
+          onClick={() => setTipo(true)}
+        >
+          {t("jugador")}
+        </div>
+        <div className="relative w-fit h-fit break-all" id="sombra">
+          {t("o")}
+        </div>
+        <div
+          className={`relative w-fit h-fit break-all cursor-sewingHS active:scale-95 ${
+            !tipo && "underline"
+          }`}
+          id="sombra"
+          onClick={() => setTipo(false)}
+        >
+          {t("espectador")}
+        </div>
       </div>
-      {/* <Curva
-        tipo={tipo}
-        textColors={textColors}
-        setTextColors={setTextColors}
-      /> */}
-      <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-start">
+      <div
+        className={`absolute bottom-20 w-full items-center justify-center h-fit flex text-white break-words font-futur text-5xl ${
+          nivelZoom < 0.5 ? "flex" : "hidden"
+        }`}
+      >
+        {t("unclaimed")}
+      </div>
+      {/* <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-start">
         <div className="relative flex flex-col items-center justify-center h-[50rem] text-center text-white font-bit">
           <div className="text-6xl flex items-center justify-center break-words w-fit h-fit px-4">
             {t("agencia")}
@@ -91,7 +134,7 @@ const Mona: NextPage<MonaProps> = ({ router, rewind }): JSX.Element => {
             {t("fase")}
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

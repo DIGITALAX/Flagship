@@ -1,9 +1,10 @@
 {
-  "agencia": "Devolución de Agencia",
-  "que": "Evalúe NPCs con $MONA y NFTs de DIGITALAX. Reclame tu devolución de Agencia.",
+  "agencia": "Solucione IA y Web3.",
+  "que": "Reclame Tu Agencia.",
+  "unclaimed": "Valor y Agencia Latente",
   "modo": "Elija su Modo:",
   "jugador": "¿Jugador",
-  "o": "o",
+  "o": "-o-",
   "espectador": "Espectador?",
   "almacenamiento": "Los espectadores evalúan y votan sobre el rendimiento de NPCs, LLMs y la actividad de las tiendas dentro del estudio.",
   "eligible": "Participe como espectador con $MONA, Genesis NFT, PODE o NFTs de DIGITALAX. Más llaves = más agencia y votos diarios.",
