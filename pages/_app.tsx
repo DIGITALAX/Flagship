@@ -22,6 +22,7 @@ import {
 } from "@rainbow-me/rainbowkit";
 import { merge } from "lodash";
 import RouterChange from "@/components/Layout/modules/RouterChange";
+import { DefaultSeo } from "next-seo";
 
 const walletTheme = merge(darkTheme(), {
   colors: {
@@ -195,6 +196,20 @@ function MyApp({ Component, pageProps }: AppProps) {
       <RainbowKitProvider chains={chains} theme={walletTheme}>
         <XMTPProvider dbVersion={2}>
           <Provider store={store}>
+            <DefaultSeo
+              title="DIGITALAX"
+              description="Emancipatory Lifestyle Tech."
+              openGraph={{
+                type: "website",
+                url: "https://www.digitalax.xyz/",
+                site_name: "DIGITALAX",
+              }}
+              twitter={{
+                handle: "@digitalax_",
+                site: "@digitalax_",
+                cardType: "summary_large_image",
+              }}
+            />
             <div
               className={[
                 "min-h-full h-auto min-w-screen w-screen relative selection:bg-skyBlue selection:text-dull cursor-sewingS bg-mainBg overflow-x-hidden",
@@ -212,6 +227,10 @@ function MyApp({ Component, pageProps }: AppProps) {
               />
               <Footer handleRewind={handleRewind} />
               <Modals />
+              <div style={{ display: "none" }}>
+                Web3, Web3 Fashion, Moda Web3, Open Source, CC0, Emma-Jane
+                MacKinnon-Lee, Open Source LLMs, DIGITALAX
+              </div>
             </div>
           </Provider>
         </XMTPProvider>
