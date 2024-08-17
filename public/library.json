@@ -178,5 +178,17 @@
     "link": "",
     "width": 25,
     "height": 275
+  },
+  {
+    "name": {
+      "en": "AUTOGRAPH QUARTERLY",
+      "es": "EL AUTÓGRAFO TRIMESTRAL"
+    },
+    "image": "QmVQs31SSv6GzaYfvRcziPkisVFbvXxK9SAbDYvFSG7gj3",
+    "number": "16",
+    "id": "sixteen",
+    "link": "https://cypher.digitalax.xyz/item/catalog/autograph-quarterly",
+    "width": 25,
+    "height": 275
   }
 ]
