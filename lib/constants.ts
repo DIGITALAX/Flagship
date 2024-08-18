@@ -375,6 +375,7 @@ export enum Idiomas {
   Farsi = "د",
   Japonés = "あ",
   Yiddish = "yi",
+  Francés = "fr",
 }
 
 export const idiomaAImagen: { [key in Idiomas]: string } = {
@@ -387,6 +388,7 @@ export const idiomaAImagen: { [key in Idiomas]: string } = {
   ["د"]: "QmTchZ7B2vrTnkKKBpqoYcmLQ8H9wxiNet7DWtmQeVzMdM",
   ["あ"]: "QmYz9Van9EVEZSLcnbMXS9bG5FzuL3jvEe5Hy5fcs361RK",
   ["yi"]: "QmVjE8UDvswAGXRCVFdqzwAHAMTjS1UjotfojFMqxWaVdg",
+  ["fr"]: "QmNZgw6NCiV4wU9h1R5DkaZGWwHXVKthRP45xtQYy4wtp5",
 };
 
 export const indiceAIdioma: { [key in number]: string } = {
@@ -399,6 +401,7 @@ export const indiceAIdioma: { [key in number]: string } = {
   [6]: "د",
   [7]: "あ",
   [8]: "yi",
+  [9]: "fr",
 };
 
 export const idiomaAIndice: { [key in Idiomas]: number } = {
@@ -411,6 +414,7 @@ export const idiomaAIndice: { [key in Idiomas]: number } = {
   ["د"]: 6,
   ["あ"]: 7,
   ["yi"]: 8,
+  ["fr"]: 9,
 };
 
 export const numberToItemTypeMap: { [key: number]: ItemType } = {
