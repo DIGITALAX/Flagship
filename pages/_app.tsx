@@ -23,6 +23,7 @@ import {
 import { merge } from "lodash";
 import RouterChange from "@/components/Layout/modules/RouterChange";
 import { DefaultSeo } from "next-seo";
+import Head from "next/head";
 
 const walletTheme = merge(darkTheme(), {
   colors: {
@@ -218,6 +219,26 @@ function MyApp({ Component, pageProps }: AppProps) {
                 .filter(Boolean)
                 .join(" ")}
             >
+              <Head>
+                <meta
+                  name="keywords"
+                  content="Web3, Web3 Fashion, Moda Web3, Open Source, CC0, Emma-Jane MacKinnon-Lee, Open Source LLMs, DIGITALAX, F3Manifesto, www.digitalax.xyz, www.f3manifesto.xyz, Women, Life, Freedom."
+                />
+                <meta name="robots" content="index, follow" />
+                <script
+                  type="application/ld+json"
+                  dangerouslySetInnerHTML={{
+                    __html: JSON.stringify({
+                      "@context": "https://schema.org",
+                      "@type": "WebSite",
+                      name: "DIGITALAX Flagship",
+                      description:
+                        "Web3, Web3 Fashion, Moda Web3, Open Source, CC0, Emma-Jane MacKinnon-Lee, Open Source LLMs, DIGITALAX, F3Manifesto, www.digitalax.xyz, www.f3manifesto.xyz, Women, Life, Freedom.",
+                      url: "https://www.digitalax.xyz/",
+                    }),
+                  }}
+                ></script>
+              </Head>
               <Component
                 {...pageProps}
                 heartColor={heartColor}
@@ -227,10 +248,6 @@ function MyApp({ Component, pageProps }: AppProps) {
               />
               <Footer handleRewind={handleRewind} />
               <Modals />
-              <div style={{ display: "none" }}>
-                Web3, Web3 Fashion, Moda Web3, Open Source, CC0, Emma-Jane
-                MacKinnon-Lee, Open Source LLMs, DIGITALAX, F3Manifesto, www.digitalax.xyz, www.f3manifesto.xyz, Women, Life, Freedom.
-              </div>
             </div>
           </Provider>
         </XMTPProvider>
