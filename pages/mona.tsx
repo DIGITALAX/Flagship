@@ -3,7 +3,6 @@ import ImagenCambio from "@/components/Mona/modules/ImagenCambio";
 import TextoCambio from "@/components/Mona/modules/TextoCambio";
 import { MonaProps } from "@/components/Mona/types/mona.types";
 import { INFURA_GATEWAY } from "@/lib/constants";
-import descriptionRegex from "@/lib/lens/helpers/descriptionRegex";
 import { NextPage } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";

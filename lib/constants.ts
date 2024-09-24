@@ -376,6 +376,9 @@ export enum Idiomas {
   Japonés = "あ",
   Yiddish = "yi",
   Francés = "fr",
+  Turco = "ç",
+  Húngaro = "ű",
+  Yolŋu = "ŋ",
 }
 
 export const idiomaAImagen: { [key in Idiomas]: string } = {
@@ -389,6 +392,9 @@ export const idiomaAImagen: { [key in Idiomas]: string } = {
   ["あ"]: "QmYz9Van9EVEZSLcnbMXS9bG5FzuL3jvEe5Hy5fcs361RK",
   ["yi"]: "QmVjE8UDvswAGXRCVFdqzwAHAMTjS1UjotfojFMqxWaVdg",
   ["fr"]: "QmNZgw6NCiV4wU9h1R5DkaZGWwHXVKthRP45xtQYy4wtp5",
+  ["ç"]: "QmNUBhcEpjjyHnsoR4ViowP3oNvh4trZ5H6snFD7Hm1hdy",
+  ["ű"]: "QmSJJkCDMN3bTdD3T6j1B2hfCzhnycpbitYAfMsSKNUohd",
+  ["ŋ"]: "Qmf11oxoyAe5vUbZAwHSTCCfRSWTMYijruBeABLrW4rhp7",
 };
 
 export const indiceAIdioma: { [key in number]: string } = {
@@ -402,6 +408,9 @@ export const indiceAIdioma: { [key in number]: string } = {
   [7]: "あ",
   [8]: "yi",
   [9]: "fr",
+  [10]: "ç",
+  [11]: "ű",
+  [12]: "ŋ",
 };
 
 export const idiomaAIndice: { [key in Idiomas]: number } = {
@@ -415,6 +424,9 @@ export const idiomaAIndice: { [key in Idiomas]: number } = {
   ["あ"]: 7,
   ["yi"]: 8,
   ["fr"]: 9,
+  ["ç"]: 10,
+  ["ű"]: 11,
+  ["ŋ"]: 12,
 };
 
 export const numberToItemTypeMap: { [key: number]: ItemType } = {

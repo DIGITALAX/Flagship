@@ -1,5 +1,4 @@
 import { TFunction } from "i18next";
-import { NextRouter } from "next/router";
 import { KeyboardEvent, useCallback, useEffect, useRef, useState } from "react";
 
 const useMona = (t: TFunction<"mona", undefined>) => {
