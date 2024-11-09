@@ -41,8 +41,18 @@ const Footer: FunctionComponent<FooterProps> = ({
             </div>
           </div>
         </div>
-        <div className="flex relative h-fit w-full md:w-72 lg:w-[20vw] text-xs md:text-[1vw] xl:text-[0.8vw] text-midWhite justify-center items-center font-lib break-all text-center md:text-left sm:text-right leading-8 whitespace-inline">
-          {t("maps")}
+
+        <div className="relative w-fit h-fit flex flex-col items-start justify-start gap-2">
+          <div
+            className="relative w-full h-fit flex items-end justify-end cursor-pointer"
+            onClick={() => window.open("https://status.digitalax.xyz/")}
+          >
+            <div className="relative h-3.5 w-3.5 flex items-center justify-center rounded-full opacity-75 animate-ping bg-green-500"></div>
+            <div className="absolute right-px flex items-center justify-center rounded-full h-3 w-3 bg-green-300"></div>
+          </div>
+          <div className="flex relative h-fit w-full md:w-72 lg:w-[20vw] text-xs md:text-[1vw] xl:text-[0.8vw] text-midWhite justify-center items-center font-lib break-all text-center md:text-left sm:text-right leading-8 whitespace-inline">
+            {t("maps")}
+          </div>
         </div>
       </div>
       <div className="relative flex w-full h-fit items-center justify-center gap-2 flex-col">
