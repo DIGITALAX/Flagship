@@ -1,6 +1,6 @@
 import Image from "next/legacy/image";
 import { FunctionComponent, ReactElement } from "react";
-import { BsTwitter } from "react-icons/bs";
+import { BsDiscord, BsTwitter } from "react-icons/bs";
 import { BiArrowToTop } from "react-icons/bi";
 import { INFURA_GATEWAY } from "../../../lib/constants";
 import { FooterProps } from "../types/layout.types";
@@ -121,9 +121,9 @@ const Footer: FunctionComponent<FooterProps> = ({
               component: <BsTwitter size={30} color={"#FFDCFF"} />,
             },
             {
-              link: "https://youtube.com/@digitalax",
-              title: "Youtube",
-              image: "Qmchp1UWTavZBxq9mTbjASESgRRmsFNXzmxzaMzRSf9aax",
+              link: "https://discord.gg/wz7Bxg4feG",
+              title: "Discord",
+              component: <BsDiscord size={30} color={"#FFDCFF"} />,
             },
           ].map(
             (
