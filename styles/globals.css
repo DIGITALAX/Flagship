@@ -361,7 +361,7 @@ html::-webkit-scrollbar-thumb:active {
 
 #static {
   margin: auto;
-  background-image: url(https://i.stack.imgur.com/uzEM4.png);
+  background-image: url(https://thedial.infura-ipfs.io/ipfs/QmT6qmYPgfQtS1jy5ukANSeaqDCbq8A1ZxXfhfc98EtRVQ);
   animation: anim 1s steps(2, end) infinite both;
   transform: translate3d(0, 0, 0);
 }
@@ -373,7 +373,7 @@ html::-webkit-scrollbar-thumb:active {
 
 #static2 {
   margin: auto;
-  background-image: url(https://i.stack.imgur.com/uzEM4.png);
+  background-image: url(https://thedial.infura-ipfs.io/ipfs/QmT6qmYPgfQtS1jy5ukANSeaqDCbq8A1ZxXfhfc98EtRVQ);
   display: flex;
   animation: anim2 1s steps(2, end) infinite both;
 

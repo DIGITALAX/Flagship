@@ -371,6 +371,19 @@ const DistroKit: NextPage<DistroProps> = ({
           </div>
         </div>
       </div>
+      <div className="relative w-full h-fit flex items-center justify-center">
+        <div className="relative flex w-40 sm:w-60 h-28">
+          <Image
+            layout="fill"
+            draggable={false}
+            className="cursor-sewingHS hover:opacity-70"
+            onClick={() => router.push("/prints")}
+            src={`${INFURA_GATEWAY}/ipfs/QmTLtTsCa2tDGf6FiN4jRtmT6fNffjtaG1htPEFWQMgRi7`}
+            objectFit="contain"
+            priority
+          />
+        </div>
+      </div>
       <div className="relative w-full h-fit min-h-fit bg-diy py-3 border-y-4 border-deep 2xl:py-5 justify-between items-center px-10 sm:px-40 min-w-full flex items-center flex-row gap-6">
         <div className="relative w-fit sm:w-full h-fit gap-2 sm:gap-8 flex flex-row items-center justify-start">
           {[
