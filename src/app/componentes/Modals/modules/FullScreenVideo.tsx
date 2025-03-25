@@ -79,7 +79,7 @@ const DraggableVideo: FunctionComponent<{
     >
       <div className="relative w-full h-fit flex flex-row items-center">
         <div
-          className="relative w-fit h-fit justify-start flex pb-2 cursor-pointer"
+          className="relative w-fit h-fit justify-start flex pb-2 cursor-sewingHS"
           onClick={() =>
             window.open(
               `https://cypher.digitalax.xyz/item/pub/${
@@ -226,7 +226,7 @@ const DraggableVideo: FunctionComponent<{
         >
           <div className="relative w-fit h-fit flex items-center justify-center gap-3">
             <div
-              className={`relative cursor-pointer w-3 h-3 flex items-center justify-center ${
+              className={`relative cursor-sewingHS w-3 h-3 flex items-center justify-center ${
                 (videoLoading?.play || videosLoading) && "animate-spin"
               }`}
               onClick={() =>
@@ -259,7 +259,7 @@ const DraggableVideo: FunctionComponent<{
           </div>
           <div className="relative w-fit h-fit flex items-center justify-center gap-3">
             <div
-              className=".volume relative cursor-pointer w-3 h-3 flex items-center justify-center"
+              className=".volume relative cursor-sewingHS w-3 h-3 flex items-center justify-center"
               onClick={() =>
                 context?.setFullScreenVideo({
                   open: context?.fullScreenVideo?.open,
@@ -287,7 +287,7 @@ const DraggableVideo: FunctionComponent<{
             </div>
 
             <div
-              className="relative cursor-pointer w-3 h-3 flex items-center justify-center -rotate-180"
+              className="relative cursor-sewingHS w-3 h-3 flex items-center justify-center -rotate-180"
               onClick={() => !videoLoading?.next && handleNextVideo(false)}
             >
               <Image
@@ -298,7 +298,7 @@ const DraggableVideo: FunctionComponent<{
               />
             </div>
             <div
-              className={`relative cursor-pointer w-3 h-3 flex items-center justify-center ${
+              className={`relative cursor-sewingHS w-3 h-3 flex items-center justify-center ${
                 videoLoading?.next && "animate-spin"
               }`}
               onClick={() => !videoLoading?.next && handleNextVideo(true)}
@@ -329,7 +329,7 @@ const DraggableVideo: FunctionComponent<{
         </div>
         <div className="relative w-full h-full flex flex-col items-center justify-center">
           <div
-            className="relative w-full h-2 bg-white/40 rounded-sm cursor-pointer"
+            className="relative w-full h-2 bg-white/40 rounded-sm cursor-sewingHS"
             onClick={(e) => handleSeek(e)}
           >
             <div

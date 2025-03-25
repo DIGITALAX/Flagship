@@ -44,7 +44,7 @@ const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
 
         <div className="relative w-fit h-fit flex flex-col items-start justify-start gap-2">
           <div
-            className="relative w-full h-fit flex items-end justify-end cursor-pointer"
+            className="relative w-full h-fit flex items-end justify-end cursor-sewingHS"
             onClick={() => window.open("https://status.digitalax.xyz/")}
           >
             <div className="relative h-3.5 w-3.5 flex items-center justify-center rounded-full opacity-75 animate-ping bg-green-500"></div>

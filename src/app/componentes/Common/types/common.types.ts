@@ -1,5 +1,6 @@
+import { SensorDescriptor, SensorOptions } from "@dnd-kit/core";
 import { Post } from "@lens-protocol/client";
-import { SetStateAction } from "react";
+import { RefObject, SetStateAction } from "react";
 
 export type FooterProps = {
   dict: any;
@@ -91,4 +92,14 @@ export type ScreenProps = {
   handleShop: () => void;
   setVideoLoading: (e: SetStateAction<boolean>) => void;
   videoLoading: boolean;
+};
+
+export type InfoProps = {
+  setInfoOpen: (e: SetStateAction<boolean>) => void;
+  dict: any;
+  position: {
+    x: number;
+    y: number;
+  };
+
 };

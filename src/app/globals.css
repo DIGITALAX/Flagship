@@ -13,6 +13,12 @@
 }
 
 @font-face {
+  font-family: "Abaddon";
+  font-weight: 400;
+  src: url("/fonts/abaddon.ttf");
+}
+
+@font-face {
   font-family: "Nerd Semi";
   font-weight: 400;
   src: url("/fonts/3270NerdFont-SemiCondensed.ttf");
@@ -167,6 +173,7 @@
   --font-aust: "Austral";
   --font-pot: "Bit Potion";
   --font-dos: "Dos";
+  --font-abd: "Abaddon";
 
   --color-offBlack: #111313;
   --color-offBlue: #01030c;
@@ -278,9 +285,6 @@
     font-size: var(--font-xxs);
   }
 
-  .font-holo {
-    font-family: var(--font-holo);
-  }
   .font-york {
     font-family: var(--font-york);
   }
@@ -322,6 +326,9 @@
   }
   .font-dos {
     font-family: var(--font-dos);
+  }
+  .font-abd {
+    font-family: var(--font-abd);
   }
 
   .bg-spots {

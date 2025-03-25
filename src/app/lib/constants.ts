@@ -414,6 +414,21 @@ export const idiomaAImagen: { [key in Idiomas]: string } = {
   ["ŋ"]: "Qmf11oxoyAe5vUbZAwHSTCCfRSWTMYijruBeABLrW4rhp7",
 };
 
+export const screenTranslate: { [key in string]: string } = {
+  ["descubre"]: "discover",
+  ["discover"]: "discover",
+  ["diseña"]: "design",
+  ["design"]: "design",
+  ["distribuye"]: "distro",
+  ["distro"]: "distro",
+  ["colecciona"]: "collect",
+  ["collect"]: "collect",
+  ["creative"]: "creative",
+  ["producción creativa"]: "creative",
+  ["cumple"]: "fulfill",
+  ["fulfill"]: "fulfill",
+};
+
 export const indiceAIdioma: { [key in number]: string } = {
   [0]: "en",
   [1]: "es",
