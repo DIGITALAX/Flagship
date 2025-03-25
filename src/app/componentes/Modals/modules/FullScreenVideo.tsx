@@ -1,0 +1,350 @@
+import { INFURA_GATEWAY } from "@/app/lib/constants";
+import { ModalContext } from "@/app/providers";
+import { Post, VideoMetadata } from "@lens-protocol/client";
+import Image from "next/legacy/image";
+import { FunctionComponent, JSX, useContext, useState } from "react";
+import { AiOutlineLoading } from "react-icons/ai";
+import useVideo from "../hooks/useVideo";
+import formatDuration from "@/app/lib/helpers/formatDuration";
+import {
+  DndContext,
+  PointerSensor,
+  TouchSensor,
+  useDraggable,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
+
+const FullScreenVideo: FunctionComponent = (): JSX.Element => {
+  const [position, setPosition] = useState<{ x: number; y: number }>({
+    x: 0,
+    y: 0,
+  });
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
+    useSensor(TouchSensor, { activationConstraint: { distance: 5 } })
+  );
+
+  return (
+    <DndContext
+      onDragEnd={(event) => {
+        if (event.delta) {
+          setPosition((prev) => ({
+            x: prev.x + event.delta.x,
+            y: prev.y + event.delta.y,
+          }));
+        }
+      }}
+      sensors={sensors}
+    >
+      <DraggableVideo position={position} />
+    </DndContext>
+  );
+};
+
+export default FullScreenVideo;
+
+const DraggableVideo: FunctionComponent<{
+  position: { x: number; y: number };
+}> = ({ position }) => {
+  const context = useContext(ModalContext);
+  const {
+    videoRef,
+    videoLoading,
+    handleNextVideo,
+    handlePlayPause,
+    handleSeek,
+    handleVolumeChange,
+    videosLoading,
+    setVideosLoading,
+  } = useVideo();
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({
+    id: "draggable-video",
+  });
+  const finalTransform = transform
+    ? `translate3d(${position.x + transform.x}px, ${
+        position.y + transform.y
+      }px, 0)`
+    : `translate3d(${position.x}px, ${position.y}px, 0)`;
+  return (
+    <div
+      ref={setNodeRef}
+      style={{ transform: finalTransform }}
+      {...listeners}
+      {...attributes}
+      className={
+        "fixed z-50 xl:w-1/3 sm:w-1/2 w-full h-fit px-4 md:px-8 pb-8 pt-4 cursor-grab active:cursor-grabbing items-center justify-center border-4 border-black rounded-lg top-40 left-0 sm:left-10 flex flex-col gap-3"
+      }
+      id="videoplayer"
+    >
+      <div className="relative w-full h-fit flex flex-row items-center">
+        <div
+          className="relative w-fit h-fit justify-start flex pb-2 cursor-pointer"
+          onClick={() =>
+            window.open(
+              `https://cypher.digitalax.xyz/item/pub/${
+                (
+                  context?.fullScreenVideo?.allVideos?.[
+                    context?.fullScreenVideo?.index
+                  ] as Post
+                )?.id
+              }`
+            )
+          }
+        >
+          <Image
+            src={`${INFURA_GATEWAY}/ipfs/Qmf6evtDntW5NPNp5vcGRpyG2LgK6qg5ndJ3kw7cNy4BuK`}
+            width={25}
+            height={25}
+            draggable={false}
+          />
+        </div>
+        <div
+          className="close"
+          onClick={() =>
+            context?.setFullScreenVideo({
+              open: false,
+              time: context?.fullScreenVideo?.time,
+              duration: context?.fullScreenVideo?.duration,
+              isPlaying: context?.fullScreenVideo?.isPlaying,
+              volume: context?.fullScreenVideo?.volume,
+              volumeOpen: context?.fullScreenVideo?.volumeOpen,
+              allVideos: context?.fullScreenVideo?.allVideos,
+              cursor: context?.fullScreenVideo?.cursor,
+              index: context?.fullScreenVideo?.index,
+            })
+          }
+        >
+          <Image
+            src={`${INFURA_GATEWAY}/ipfs/QmRtXzfqbJXXZ6fReUihpauh9nz6pmjUv5CKGm3oXquzh4`}
+            // layout="fill"
+            width={25}
+            height={25}
+            draggable={false}
+          />
+        </div>
+      </div>
+      <div className="relative w-full h-60 flex items-center justify-center rounded-md bg-black border-2 px-2 border-black">
+        {videoLoading?.videos ? (
+          <div className="relative w-fit h-fit flex items-center justify-center animate-spin opacity-50">
+            <AiOutlineLoading size={40} color="white" />
+          </div>
+        ) : (
+          <video
+            key={
+              (
+                (
+                  context?.fullScreenVideo?.allVideos?.[
+                    context?.fullScreenVideo?.index
+                  ] as Post
+                )?.metadata as VideoMetadata
+              )?.content
+            }
+            ref={videoRef}
+            draggable={false}
+            controls={false}
+            playsInline
+            autoPlay={true}
+            className="relative w-full h-full object-cover rounded-md"
+            onLoadedMetadata={() => {
+              setVideosLoading(false);
+
+              context?.setFullScreenVideo({
+                open: context?.fullScreenVideo?.open,
+                time: context?.fullScreenVideo?.time,
+                duration: videoRef?.current?.duration || 0,
+                isPlaying: context?.fullScreenVideo?.isPlaying,
+                volume: context?.fullScreenVideo?.volume,
+                volumeOpen: context?.fullScreenVideo?.volumeOpen,
+                allVideos: context?.fullScreenVideo?.allVideos,
+                cursor: context?.fullScreenVideo?.cursor,
+                index: context?.fullScreenVideo?.index,
+              });
+
+              if (context?.fullScreenVideo?.time != 0 && videoRef.current) {
+                videoRef.current.currentTime =
+                  context?.fullScreenVideo?.time || 0;
+              }
+            }}
+            onTimeUpdate={() =>
+              context?.setFullScreenVideo({
+                open: context?.fullScreenVideo?.open,
+                time: videoRef?.current?.currentTime || 0,
+                duration: context?.fullScreenVideo?.duration,
+                isPlaying: context?.fullScreenVideo?.isPlaying,
+                volume: context?.fullScreenVideo?.volume,
+                volumeOpen: context?.fullScreenVideo?.volumeOpen,
+                allVideos: context?.fullScreenVideo?.allVideos,
+                cursor: context?.fullScreenVideo?.cursor,
+                index: context?.fullScreenVideo?.index,
+              })
+            }
+            onVolumeChange={() =>
+              context?.setFullScreenVideo({
+                open: context?.fullScreenVideo?.open,
+                time: context?.fullScreenVideo?.time,
+                duration: context?.fullScreenVideo?.duration,
+                isPlaying: context?.fullScreenVideo?.isPlaying,
+                volume: videoRef?.current?.volume || 0,
+                volumeOpen: context?.fullScreenVideo?.volumeOpen,
+                allVideos: context?.fullScreenVideo?.allVideos,
+                cursor: context?.fullScreenVideo?.cursor,
+                index: context?.fullScreenVideo?.index,
+              })
+            }
+            onLoadStart={() => setVideosLoading(true)}
+            onEnded={() => handleNextVideo(true)}
+            poster={`${INFURA_GATEWAY}/ipfs/${
+              (
+                (
+                  context?.fullScreenVideo?.allVideos?.[
+                    context?.fullScreenVideo?.index
+                  ] as Post
+                )?.metadata as VideoMetadata
+              )?.content?.split("ipfs://")?.[1]
+            }`}
+          >
+            <source
+              src={`${INFURA_GATEWAY}/ipfs/${
+                (
+                  (
+                    context?.fullScreenVideo?.allVideos?.[
+                      context?.fullScreenVideo?.index
+                    ] as Post
+                  )?.metadata as VideoMetadata
+                )?.content?.split("ipfs://")?.[1]
+              }`}
+            />
+          </video>
+        )}
+      </div>
+      <div
+        className={`relative h-fit flex w-full gap-3 items-center justify-center flex-col md:flex-row flex-wrap`}
+      >
+        <div
+          className={`relative w-full h-full flex justify-between flex-row flex-wrap items-center gap-3`}
+        >
+          <div className="relative w-fit h-fit flex items-center justify-center gap-3">
+            <div
+              className={`relative cursor-pointer w-3 h-3 flex items-center justify-center ${
+                (videoLoading?.play || videosLoading) && "animate-spin"
+              }`}
+              onClick={() =>
+                (!videoLoading?.play || videosLoading) && handlePlayPause()
+              }
+            >
+              {videoLoading?.play || videosLoading ? (
+                <AiOutlineLoading size={15} color="white" />
+              ) : (
+                <Image
+                  src={`${INFURA_GATEWAY}/ipfs/${
+                    context?.fullScreenVideo?.isPlaying
+                      ? "Qmbg8t4xoNywhtCexD5Ln5YWvcKMXGahfwyK6UHpR3nBip"
+                      : "QmXw52mJFnzYXmoK8eExoHKv7YW9RBVEwSFtfvxXgy7sfp"
+                  }`}
+                  draggable={false}
+                  layout="fill"
+                />
+              )}
+            </div>
+            <div className="relative w-fit h-full flex items-center font-aust text-xs text-white">
+              <span className="text-rosa">
+                {formatDuration(context?.fullScreenVideo?.time || 0)}
+              </span>
+              /
+              <span className="text-light">
+                {formatDuration(context?.fullScreenVideo?.duration || 0)}
+              </span>
+            </div>
+          </div>
+          <div className="relative w-fit h-fit flex items-center justify-center gap-3">
+            <div
+              className=".volume relative cursor-pointer w-3 h-3 flex items-center justify-center"
+              onClick={() =>
+                context?.setFullScreenVideo({
+                  open: context?.fullScreenVideo?.open,
+                  time: context?.fullScreenVideo?.time,
+                  duration: context?.fullScreenVideo?.duration,
+                  isPlaying: context?.fullScreenVideo?.isPlaying,
+                  volume: context?.fullScreenVideo?.volume,
+                  volumeOpen: !context?.fullScreenVideo?.volumeOpen,
+                  allVideos: context?.fullScreenVideo?.allVideos,
+                  cursor: context?.fullScreenVideo?.cursor,
+                  index: context?.fullScreenVideo?.index,
+                })
+              }
+            >
+              <Image
+                src={`${INFURA_GATEWAY}/ipfs/${
+                  context?.fullScreenVideo?.volume === 0
+                    ? "QmVVzvq68RwGZFi46yKEthuG6PXQf74BaMW4yCrZCkgtzK"
+                    : "Qme1i88Yd1x4SJfgrSCFyXp7GELCZRnnPQeFUt6jbfPbqL"
+                }`}
+                layout="fill"
+                alt="volume"
+                draggable={false}
+              />
+            </div>
+
+            <div
+              className="relative cursor-pointer w-3 h-3 flex items-center justify-center -rotate-180"
+              onClick={() => !videoLoading?.next && handleNextVideo(false)}
+            >
+              <Image
+                src={`${INFURA_GATEWAY}/ipfs/QmcYHKZJWJjgibox8iLqNozENnkgD4CZQqYsmmVJpoYUyo`}
+                layout="fill"
+                alt="back"
+                draggable={false}
+              />
+            </div>
+            <div
+              className={`relative cursor-pointer w-3 h-3 flex items-center justify-center ${
+                videoLoading?.next && "animate-spin"
+              }`}
+              onClick={() => !videoLoading?.next && handleNextVideo(true)}
+            >
+              {videoLoading?.next ? (
+                <AiOutlineLoading size={15} color="white" />
+              ) : (
+                <Image
+                  src={`${INFURA_GATEWAY}/ipfs/QmcYHKZJWJjgibox8iLqNozENnkgD4CZQqYsmmVJpoYUyo`}
+                  layout="fill"
+                  alt="next"
+                  draggable={false}
+                />
+              )}
+            </div>
+          </div>
+          {context?.fullScreenVideo?.volumeOpen && (
+            <input
+              className="volume absolute right-1 bottom-7"
+              type="range"
+              max={1}
+              min={0}
+              step={0.01}
+              value={context?.fullScreenVideo?.volume}
+              onChange={(e) => handleVolumeChange(e)}
+            />
+          )}
+        </div>
+        <div className="relative w-full h-full flex flex-col items-center justify-center">
+          <div
+            className="relative w-full h-2 bg-white/40 rounded-sm cursor-pointer"
+            onClick={(e) => handleSeek(e)}
+          >
+            <div
+              className="absolute h-full bg-white/80 rounded-sm"
+              style={{
+                width: `${
+                  ((context?.fullScreenVideo?.time || 0) /
+                    (context?.fullScreenVideo?.duration || 0)) *
+                  100
+                }%`,
+              }}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

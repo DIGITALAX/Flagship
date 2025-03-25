@@ -1,0 +1,194 @@
+[
+  {
+    "name": {
+      "en": "CYPHER SEARCH",
+      "es": "BÚSQUEDA CIFRADA"
+    },
+    "image": "QmXdpVMP9c1whwfmq8J4qtcHUTMwTu2HK3ekKaZ2DfLnPQ",
+    "number": "1",
+    "id": "one",
+    "link": "https://cypher.digitalax.xyz",
+    "width": 25,
+    "height": 320
+  },
+  {
+    "name": {
+      "en": "THE MANUFACTORY",
+      "es": "LA FÁBRICA"
+    },
+    "image": "QmVQs31SSv6GzaYfvRcziPkisVFbvXxK9SAbDYvFSG7gj3",
+    "number": "2",
+    "id": "two",
+    "link": "https://themanufactory.xyz",
+    "width": 25,
+    "height": 80
+  },
+  {
+    "name": {
+      "en": "COIN OP",
+      "es": "COIN OP"
+    },
+    "image": "QmPDvX3Gs8xreaNwDi3fPUmwg37niWb6TaADrLVUTn2y2Y",
+    "number": "3",
+    "id": "three",
+    "link": "https://coinop.themanufactory.xyz",
+    "width": 25,
+    "height": 60
+  },
+  {
+    "name": {
+      "en": "MONA",
+      "es": "MONA"
+    },
+    "image": "QmPB3KnfK1SbW3B8eLeKmss1HtM3u2ZXqgPNSYDahp2rqA",
+    "number": "4",
+    "id": "four",
+    "link": "https://etherscan.io/token/0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A",
+    "width": 25,
+    "height": 60
+  },
+  {
+    "name": {
+      "en": "LIT LISTENER",
+      "es": "OYENTE DE LIT"
+    },
+    "image": "QmdDJzGxzNGamFZQRnL8dN6PHtTFV1eFhiB9hVc84JfNAd",
+    "number": "5",
+    "id": "five",
+    "link": "https://listener.irrevocable.dev",
+    "width": 25,
+    "height": 320
+  },
+  {
+    "name": {
+      "en": "PKPs",
+      "es": "PKPs"
+    },
+    "image": "QmewB33fdwgapHxEB6TJMyikF6bb8jJjYjGE4AEvMR44sH",
+    "number": "6",
+    "id": "six",
+    "link": "https://docs.irrevocable.dev",
+    "width": 25,
+    "height": 320
+  },
+  {
+    "name": {
+      "en": "CHROMADIN",
+      "es": "CHROMADIN"
+    },
+    "image": "QmVQ1NGyfHmMCD48aWbs7yAgeC8ch6oWm8kSYeikuagXp8",
+    "number": "7",
+    "id": "seven",
+    "link": "https://chromadin.xyz",
+    "width": 25,
+    "height": 320
+  },
+  {
+    "name": {
+      "en": "VISION QUESTS",
+      "es": "ODISEAS VISUALES"
+    },
+    "image": "QmQk9TqFivUqc6ktosoZVVih9o1uiY3r5Z7F3GCC1FpaJS",
+    "number": "8",
+    "id": "eight",
+    "link": "https://kinora.irrevocable.dev",
+    "width": 25,
+    "height": 320
+  },
+  {
+    "name": {
+      "en": "KINORA",
+      "es": "KINORA"
+    },
+    "image": "QmNmK82BkospCqyQjzHySwzEZXpzu4KwzDSWMtpppNW8tk",
+    "number": "9",
+    "id": "nine",
+    "link": "https://codex.irrevocable.dev",
+    "width": 25,
+    "height": 320
+  },
+  {
+    "name": {
+      "en": "ENGINEERING",
+      "es": "INGENIERÍA"
+    },
+    "image": "QmUaSzTcuoPWqHmdU4pu58maAZ3876JddCeRqPKTMVJ8DC",
+    "number": "10",
+    "id": "ten",
+    "link": "https://github.com/DIGITALAX/",
+    "width": 25,
+    "height": 150
+  },
+  {
+    "name": {
+      "en": "THE DIAL",
+      "es": "EL DIAL"
+    },
+    "image": "QmZ1hBVXHWK37h8bPKGqpLGogWwYVTTYTfkPp5DTmvK1ZT",
+    "number": "11",
+    "id": "eleven",
+    "link": "https://thedial.xyz",
+    "width": 25,
+    "height": 150
+  },
+  {
+    "name": {
+      "en": "WHITEPAPER V3",
+      "es": "PAPEL BLANCO V3"
+    },
+    "image": "QmXBoTMp9NKviigEfuVLtMvP3HsNRQUpQ7f9VpJzmry5dr",
+    "number": "12",
+    "id": "twelve",
+    "link": "https://www.digitalax.xyz/whitepaper",
+    "width": 25,
+    "height": 180
+  },
+  {
+    "name": {
+      "en": "LEGEND",
+      "es": "LEYENDA"
+    },
+    "image": "QmfUUvVP14gUbV9iG3WYNEudCDhEE4c91uCxcWGLjp7w1G",
+    "number": "13",
+    "id": "thirteen",
+    "link": "https://legend.irrevocable.dev",
+    "width": 25,
+    "height": 140
+  },
+  {
+    "name": {
+      "en": "LOOK: FASHION LOOT",
+      "es": "LOOK: LA MODA DE LOOT"
+    },
+    "image": "QmPRaPTK9pq511nwNFEHpVW22qrdpcNaHy7gaULDddztDy",
+    "number": "14",
+    "id": "fourteen",
+    "link": "https://etherscan.io/token/0xc97f4244839c13c6df4258228c60488fa05c8528",
+    "width": 25,
+    "height": 250
+  },
+  {
+    "name": {
+      "en": "TRANSPARENCY REPORTS",
+      "es": "INFORMES DE TRANSPARENCIA"
+    },
+    "image": "QmPaQy4y1PCxhsvewbP2BdRmbWhwupZvqDQkCqNVdm6sCg",
+    "number": "15",
+    "id": "fifteen",
+    "link": "",
+    "width": 25,
+    "height": 275
+  },
+  {
+    "name": {
+      "en": "AUTOGRAPH QUARTERLY",
+      "es": "EL AUTÓGRAFO TRIMESTRAL"
+    },
+    "image": "QmVQs31SSv6GzaYfvRcziPkisVFbvXxK9SAbDYvFSG7gj3",
+    "number": "16",
+    "id": "sixteen",
+    "link": "https://cypher.digitalax.xyz/item/catalog/autograph-quarterly",
+    "width": 25,
+    "height": 275
+  }
+]
