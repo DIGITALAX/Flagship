@@ -622,7 +622,40 @@ export const IMAGE_LOGS: {
     },
     description: {
       en: "Don't wait for the path to web3 public goods to open. Collect your own way",
-      es: "No esperes a que se abra el camino hacia los bienes públicos de web3. Forja tu propio camino.",
+      es: "No esperes a que se abra el camino hacia los bienes públicos de web3. Forja tu propio camino",
+    },
+  },
+  {
+    image: "QmeN4abaVYRNYuU42k7VZv2mV75QjUgznWBrwT3h14kih6",
+    title: {
+      en: "TripleA",
+      es: "TripleA",
+    },
+    description: {
+      en: "Machine wallets with their own agency, deploying capital through encrypted rails",
+      es: "Monederos autónomos con su propia agencia, moviendo capital a través de canales cifrados",
+    },
+  },
+  {
+    image: "QmepQu6K3CKdfewFiujiiEnt1UkomYieZZvrfHSNG8SxBW",
+    title: {
+      en: "Skyhunters",
+      es: "Skyhunters",
+    },
+    description: {
+      en: "It’s your hype-hunting wingman",
+      es: "Es tu cazador de hype que nunca se estrella",
+    },
+  },
+  {
+    image: "QmXhUc68vCuAS2Rxbfj4HJ8kuF2TqkhZfVc41nqS9SnZLy",
+    title: {
+      en: "Lucidity",
+      es: "Lucidity",
+    },
+    description: {
+      en: "ComfyStream workflows multiply faster than forums can index",
+      es: "Los flujos de trabajo en ComfyStream se multiplican más rápido de lo que los foros pueden indexar",
     },
   },
 ];

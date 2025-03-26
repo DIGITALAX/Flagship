@@ -41,7 +41,7 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
           </div>
         </div>
         <div className="relative w-full h-[70rem] sm:h-[50rem] half:h-[40rem] flex items-center justify-between gap-8 flex-col half:flex-row">
-          <div className="relative w-fit half:w-100 h-fit half:h-full flex half:flex-nowrap flex-wrap half:flex-col items-start font-bit text-white text-lg justify-start half:justify-between bg-gradient-to-b from-windows rounded-sm to-white/30 gap-4 p-3">
+          <div className="relative w-fit half:w-100 h-fit half:h-full flex half:flex-nowrap flex-wrap half:flex-col items-start font-bit text-white text-sm justify-start half:justify-between bg-gradient-to-b from-windows rounded-sm to-white/30 gap-4 p-3">
             {[
               dict?.log?.start,
               dict?.log?.cypher,
@@ -55,6 +55,9 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
               dict?.log?.lit,
               dict?.log?.dial,
               dict?.log?.legend,
+              "TripleA",
+              "Skyhunters",
+              "Lucidity",
             ].map((item: string, index: number) => {
               return (
                 <div
