@@ -747,6 +747,36 @@ export const LOG: {
       es: "Cuando tú utilizas Leyenda, los usuarios descubren subvenciones y propuestas para la infraestructura de bienes públicos en web3. Tú ayudas a que estas actualizaciones necesarias se realicen más rápidamente con un soporte más fiable para equipos de desarrollo independientes, pero no solo a través de contribuciones directas habituales. Cada compra que tú realizas de NFTs relacionados, ropa de calle, impresiones de arte, equipo NPC y bienes virtuales no solo mantiene a los desarrolladores abastecidos de ramen y bebidas energéticas. También descentraliza el proceso de selección y creación de la infraestructura de código abierto que todos necesitamos.\n\nLeyenda crea una conexión más fiable entre desarrolladores, creadores y cada usuario. Enriquece la resiliencia distribuida del ecosistema y lo protege contra formas sutiles de centralización del poder de mercado. Este modelo es un avance hacia una agencia coordinada de forma libre, de igual a igual. Un refuerzo de los principios fundamentales de web3 de descentralización, defensa, disuasión y participación impulsada por la comunidad en profundidad.\n\n¿Financiación del comercio de bienes públicos de web3? Sí, es innovadora. Pero la verdadera leyenda aquí eres tú, por acelerar la construcción de este ecosistema.\n\nMantente atento a medida que nuestra historia continúa.",
     },
   },
+  {
+    title: {
+      en: "12. Skyhunters",
+      es: "12. Skyhunters",
+    },
+    description: {
+      en: "Where leftover airdrops, unreleased NFT mints, and day-old meme tokens get sniffed out by tireless agent squads. None of this “missed it while asleep” business—Skyhunters comb the networks for cross-chain freebies, pooling them back on Polygon for dev funding, micro-grants, and a few sly personal payouts to whoever fronted the tokens. It’s not automation to replace you—it’s your hype-hunting wingman that never crashes from lack of caffeine.",
+      es: "Donde airdrops olvidados, minteos de NFT sin lanzar y tokens meme con un día de vida son rastreados por escuadrones de agentes incansables. Nada de 'me lo perdí mientras dormía'—Skyhunters rastrea las redes en busca de recompensas cross-chain, agrupándolas en Polygon para financiar desarrollos, dar microbecas y, claro, repartir algún pago discreto a quien adelantó los tokens. No es automatización para sustituirte—es tu cazador de hype que nunca se estrella por falta de cafeína.",
+    },
+  },
+  {
+    title: {
+      en: "13. TripleA",
+      es: "13. TripleA",
+    },
+    description: {
+      en: "Art markets run on clout and algorithms. Triple A runs on raw action - machine wallets with their own agency, deploying capital through encrypted rails. The first social marketplace where reach spreads through value creation instead of platform metrics. Your move: drop art while there's still something at stake.",
+      es: "Los mercados de arte funcionan con influencia y algoritmos. Triple A funciona con acción pura: monederos autónomos con su propia agencia, moviendo capital a través de canales cifrados. El primer mercado social donde el alcance se expande gracias a la creación de valor, no a métricas de plataforma. Tu jugada: lanza arte mientras aún haya algo en juego.",
+    },
+  },
+  {
+    title: {
+      en: "14. Lucidity",
+      es: "14. Lucidity",
+    },
+    description: {
+      en: "ComfyStream workflows multiply faster than forums can index. Lucidity maps the patterns that produce results, filtering signal from the endless 'has anyone solved this' threads. The agent reads your intent, surfaces tested chains, keeps you building on what works. Raw workflow intelligence without the archeological dig.",
+      es: "Los flujos de trabajo en ComfyStream se multiplican más rápido de lo que los foros pueden indexar. Lucidity traza los patrones que generan resultados, filtrando la señal del interminable “¿alguien ha resuelto esto?”. El agente entiende tu intención, te muestra cadenas ya testeadas y te mantiene construyendo sobre lo que realmente funciona. Inteligencia de flujo de trabajo en bruto, sin la excavación arqueológica.",
+    },
+  },
 ];
 
 export const QUESTIONS: {
