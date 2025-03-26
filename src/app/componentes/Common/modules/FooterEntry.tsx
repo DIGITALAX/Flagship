@@ -3,7 +3,7 @@
 import Image from "next/legacy/image";
 import { FunctionComponent, JSX, ReactElement, useContext } from "react";
 import { INFURA_GATEWAY } from "../../../lib/constants";
-import { BsDiscord, BsTwitter } from "react-icons/bs";
+import { BsTwitter } from "react-icons/bs";
 import { BiArrowToTop } from "react-icons/bi";
 import { FooterProps } from "../types/common.types";
 import { ModalContext } from "@/app/providers";
@@ -119,11 +119,6 @@ const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
               link: "https://twitter.com/digitalax_",
               title: "Twitter",
               component: <BsTwitter size={30} color={"#FFDCFF"} />,
-            },
-            {
-              link: "https://discord.gg/wz7Bxg4feG",
-              title: "Discord",
-              component: <BsDiscord size={30} color={"#FFDCFF"} />,
             },
           ].map(
             (
