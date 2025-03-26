@@ -423,10 +423,10 @@ export const screenTranslate: { [key in string]: string } = {
   ["distro"]: "distro",
   ["colecciona"]: "collect",
   ["collect"]: "collect",
-  ["creative"]: "creative",
+  ["creative production"]: "creative",
   ["producción creativa"]: "creative",
   ["cumple"]: "fulfill",
-  ["fulfill"]: "fulfill",
+  ["fulfillment"]: "fulfill",
 };
 
 export const indiceAIdioma: { [key in number]: string } = {
