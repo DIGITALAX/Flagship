@@ -47,30 +47,7 @@ const nextConfig: NextConfig = {
 
     return headersConfig;
   },
-  webpack: (config, { isServer, webpack }) => {
-    config.plugins.push(
-      new webpack.IgnorePlugin({
-        resourceRegExp: /^phaser3spectorjs$/,
-      })
-    );
-
-    config.experiments = {
-      asyncWebAssembly: true,
-      syncWebAssembly: true,
-      layers: true,
-    };
-
-    if (!isServer) {
-      config.output.webassemblyModuleFilename = "static/wasm/[modulehash].wasm";
-    } else {
-      config.module.rules.push({
-        test: /\.wasm$/,
-        type: "asset/resource",
-      });
-    }
-
-    return config;
-  },
+ 
 };
 
 export default nextConfig;
