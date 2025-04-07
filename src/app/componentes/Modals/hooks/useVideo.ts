@@ -9,6 +9,7 @@ import {
 } from "react";
 import { fetchPosts } from "@lens-protocol/client/actions";
 import { MainContentFocus, PageSize, Post } from "@lens-protocol/client";
+import { CHROMADIN } from "@/app/lib/constants";
 
 const useVideo = () => {
   const context = useContext(ModalContext);
@@ -150,12 +151,13 @@ const useVideo = () => {
         cursor: context?.fullScreenVideo?.cursor,
         pageSize: PageSize.Ten,
         filter: {
-          // authors: [CHROMADIN_ID],
+          authors: [CHROMADIN],
           metadata: {
             mainContentFocus: [MainContentFocus.Video],
           },
         },
       });
+
 
       if (!data?.isOk()) {
         setVideoLoading((prev) => ({
@@ -176,7 +178,7 @@ const useVideo = () => {
           ...context?.fullScreenVideo?.allVideos,
           ...(data?.value?.items || []),
         ] as Post[],
-        cursor: data?.value?.pageInfo.next,
+        cursor: data?.value?.pageInfo.next!,
         index: newIndex ? newIndex : 0,
       });
     } catch (err: any) {
@@ -191,11 +193,11 @@ const useVideo = () => {
   useEffect(() => {
     if (
       context?.fullScreenVideo?.open &&
-      context?.fullScreenVideo?.allVideos?.length < 1
+      context?.fullScreenVideo?.allVideos?.length < 1 && context?.lensClient
     ) {
       getVideos();
     }
-  }, [context?.fullScreenVideo?.open]);
+  }, [context?.fullScreenVideo?.open, context?.lensClient]);
 
   return {
     videoRef,

@@ -138,7 +138,7 @@ const DraggableVideo: FunctionComponent<{
                     context?.fullScreenVideo?.index
                   ] as Post
                 )?.metadata as VideoMetadata
-              )?.content
+              )?.video?.item
             }
             ref={videoRef}
             draggable={false}
@@ -201,7 +201,7 @@ const DraggableVideo: FunctionComponent<{
                     context?.fullScreenVideo?.index
                   ] as Post
                 )?.metadata as VideoMetadata
-              )?.content?.split("ipfs://")?.[1]
+              )?.video?.cover?.split("ipfs://")?.[1]
             }`}
           >
             <source
@@ -212,7 +212,7 @@ const DraggableVideo: FunctionComponent<{
                       context?.fullScreenVideo?.index
                     ] as Post
                   )?.metadata as VideoMetadata
-                )?.content?.split("ipfs://")?.[1]
+                )?.video?.item?.split("ipfs://")?.[1]
               }`}
             />
           </video>

@@ -8,6 +8,8 @@ export const DIGITALAX_ADDRESS: `0x${string}` =
   "0xAA3e5ee4fdC831e5274FE7836c95D670dC2502e6";
 export const IPFS_REGEX: RegExp = /\b(Qm[1-9A-Za-z]{44}|ba[A-Za-z2-7]{57})\b/;
 
+export const CHROMADIN: `0x${string}` =
+  "0x16a362A10C1f6Bc0565C8fFAd298f1c2761630C5";
 export const VIDEOS: string[] = [
   "QmPhfJ5E8m1LLdmBugGYwb7VTAG316ohRgt8EVTuM482ff",
   "Qmb9i71wcXk8AFQRrKdqcVcNGfR7ovLijPmxfkeKCjFc9o",
