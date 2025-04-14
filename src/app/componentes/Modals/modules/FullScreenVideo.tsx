@@ -194,26 +194,58 @@ const DraggableVideo: FunctionComponent<{
             }
             onLoadStart={() => setVideosLoading(true)}
             onEnded={() => handleNextVideo(true)}
-            poster={`${INFURA_GATEWAY}/ipfs/${
+            poster={
               (
                 (
                   context?.fullScreenVideo?.allVideos?.[
                     context?.fullScreenVideo?.index
                   ] as Post
                 )?.metadata as VideoMetadata
-              )?.video?.cover?.split("ipfs://")?.[1]
-            }`}
+              )?.video?.cover?.includes("https://")
+                ? (
+                    (
+                      context?.fullScreenVideo?.allVideos?.[
+                        context?.fullScreenVideo?.index
+                      ] as Post
+                    )?.metadata as VideoMetadata
+                  )?.video?.cover
+                : `${INFURA_GATEWAY}/ipfs/${
+                    (
+                      (
+                        context?.fullScreenVideo?.allVideos?.[
+                          context?.fullScreenVideo?.index
+                        ] as Post
+                      )?.metadata as VideoMetadata
+                    )?.video?.cover?.split("ipfs://")?.[1]
+                  }`
+            }
           >
             <source
-              src={`${INFURA_GATEWAY}/ipfs/${
+              src={
                 (
                   (
                     context?.fullScreenVideo?.allVideos?.[
                       context?.fullScreenVideo?.index
                     ] as Post
                   )?.metadata as VideoMetadata
-                )?.video?.item?.split("ipfs://")?.[1]
-              }`}
+                )?.video?.item?.includes("https://")
+                  ? (
+                      (
+                        context?.fullScreenVideo?.allVideos?.[
+                          context?.fullScreenVideo?.index
+                        ] as Post
+                      )?.metadata as VideoMetadata
+                    )?.video?.item
+                  : `${INFURA_GATEWAY}/ipfs/${
+                      (
+                        (
+                          context?.fullScreenVideo?.allVideos?.[
+                            context?.fullScreenVideo?.index
+                          ] as Post
+                        )?.metadata as VideoMetadata
+                      )?.video?.item?.split("ipfs://")?.[1]
+                    }`
+              }
             />
           </video>
         )}
