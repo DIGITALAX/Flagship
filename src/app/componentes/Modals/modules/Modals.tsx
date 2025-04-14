@@ -1,18 +1,10 @@
-"use client";
 
-import { ModalContext } from "@/app/providers";
-import { useContext } from "react";
-import BookMessage from "./BookMessage";
-import ImageLarge from "./ImageLarge";
-import FullScreenVideo from "./FullScreenVideo";
+import { tParams } from "@/app/[lang]/layout";
+import { getDictionary } from "@/app/[lang]/dictionaries";
+import ModalsEntry from "./ModalsEntry";
 
-export default function Modals() {
-  const context = useContext(ModalContext);
-  return (
-    <>
-      {context?.fullScreenVideo?.open && <FullScreenVideo />}
-      {context?.imageViewer && <ImageLarge />}
-      {context?.bookMessage?.open && <BookMessage />}
-    </>
-  );
+export default async function Modals({ params }: { params: tParams }) {
+  const { lang } = await params;
+  const dict = await (getDictionary as (locale: any) => Promise<any>)(lang);
+  return <ModalsEntry dict={dict} />;
 }

@@ -3,7 +3,9 @@ import { ModalContext } from "@/app/providers";
 import React, { FunctionComponent, JSX, useContext } from "react";
 import { RiEyeCloseFill } from "react-icons/ri";
 
-const BookMessage: FunctionComponent = (): JSX.Element | null => {
+const BookMessage: FunctionComponent<{ dict: any }> = ({
+  dict,
+}): JSX.Element | null => {
   const context = useContext(ModalContext);
   return (
     <div className="fixed inset-0 bg-offBlack bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-10">
@@ -50,7 +52,7 @@ const BookMessage: FunctionComponent = (): JSX.Element | null => {
             </div>
           ) : (
             <div className="font-aud text-center text-xl relative row-start-2 w-full h-fit text-midWhite">
-              The refresh of these pages is still in the works. Check back soon.
+              {dict?.common?.refresh}
             </div>
           )}
         </div>

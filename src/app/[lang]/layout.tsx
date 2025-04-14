@@ -57,7 +57,7 @@ export default function RootLayout({
             {children}
             <Footer params={params} />
           </div>
-          <Modals />
+          <Modals params={params} />
         </Providers>
       </body>
     </html>
