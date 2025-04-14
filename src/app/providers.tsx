@@ -87,6 +87,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
     open: false,
     allVideos: [],
     index: 0,
+    volume: 0.5
   });
   const [imageViewer, setImageViewer] = useState<
     | {
