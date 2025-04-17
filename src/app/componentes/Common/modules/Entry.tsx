@@ -16,7 +16,7 @@ const Entry: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
   const context = useContext(ModalContext);
   return (
     <div className="w-full h-full flex flex-col gap-2 items-center justify-start">
-      <div className="relative w-full h-fit flex pt-3 items-start justify-start">
+      <div className="relative w-full h-fit flex pt-3 items-start justify-start flex-row gap-1">
         <div className="relative w-fit h-fit flex">
           <div
             className="relative w-12 h-8 flex cursor-sewingHS"
@@ -27,6 +27,19 @@ const Entry: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
               draggable={false}
               layout="fill"
               objectFit="contain"
+            />
+          </div>
+        </div>
+        <div className="relative w-fit h-fit flex">
+          <div
+            className="relative w-9 h-8 flex cursor-sewingHS"
+            onClick={() => window.open("http://bridge.digitalax.xyz/")}
+          >
+            <Image
+              src={`${INFURA_GATEWAY}/ipfs/QmVceMKvPLRnyWHdHJnDiL13YuzdmqW5jwLhsXC3RWUGfa`}
+              draggable={false}
+              layout="fill"
+              objectFit="cover"
             />
           </div>
         </div>
