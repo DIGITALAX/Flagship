@@ -1,8 +1,11 @@
 import { FunctionComponent, JSX } from "react";
 import TileSwitch from "./TileSwitch";
-import { Masonry } from "masonic";
 import { Publication, TilesProps } from "../types/distro.types";
+import dynamic from "next/dynamic";
 
+const Masonry = dynamic(() => import("masonic").then(mod => mod.Masonry), {
+  ssr: false,
+});
 const Tiles: FunctionComponent<TilesProps> = ({
   searchLoading,
   searchItems,
@@ -47,7 +50,7 @@ const Tiles: FunctionComponent<TilesProps> = ({
             : searchItems
         }
         id="tileSearch"
-        render={renderTile}
+        render={renderTile as any}
         columnGutter={50}
         maxColumnCount={
           typeof window !== "undefined" && window.innerWidth < 1280 ? 1 : 2
