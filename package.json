@@ -22,6 +22,8 @@
     "@xmtp/content-type-reaction": "^2.0.1",
     "@xmtp/content-type-reply": "^2.0.1",
     "@xmtp/react-sdk": "^9.0.0",
+    "ajv": "^8.16.0",
+    "ajv-keywords": "^5.1.0",
     "@xmtp/user-preferences-bindings-wasm": "^0.3.6",
     "@xmtp/xmtp-js": "^13.0.4",
     "connectkit": "^1.8.2",
