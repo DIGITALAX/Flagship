@@ -1,9 +1,10 @@
 import { DIGITALAX_ADDRESS, idiomaAIndice, Idiomas } from "@/app/lib/constants";
-import { Client } from "@xmtp/xmtp-js";
+import { chains } from "@lens-chain/sdk/viem";
+import { Client } from "@xmtp/browser-sdk";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { createWalletClient, custom } from "viem";
-import { polygon } from "viem/chains";
+import { createWalletClient, custom, toBytes } from "viem";
+import { ethers } from "ethers";
 
 const useHeader = (address: `0x${string}` | undefined, dict: any) => {
   const path = usePathname();
@@ -24,13 +25,30 @@ const useHeader = (address: `0x${string}` | undefined, dict: any) => {
     try {
       const clientWallet = createWalletClient({
         account: address,
-        chain: polygon,
+        chain: chains.mainnet,
         transport: custom((window as any).ethereum),
       });
 
-      const client = await Client.create(clientWallet as any, {
-        env: "production",
-      });
+      const client = await Client.create(
+        {
+          type: "EOA",
+          getIdentifier: () => ({
+            identifier: address!.toLowerCase(),
+            identifierKind: "Ethereum",
+          }),
+          signMessage: async (message: string) => {
+            const signature = await clientWallet.signMessage({
+              account: address!,
+              message,
+            });
+            return toBytes(signature);
+          },
+        },
+        {
+          env: "production",
+        }
+      );
+
       setClient(client);
 
       return client;
@@ -53,20 +71,16 @@ const useHeader = (address: `0x${string}` | undefined, dict: any) => {
       if (!validClient) {
         validClient = await handleClient();
       }
-
-      const conversation = await validClient!.conversations?.newConversation(
+      const conversation = await validClient!.conversations.newDm(
         DIGITALAX_ADDRESS
       );
 
       if (message?.trim() !== "") {
-        const data = conversation.send(message);
-
-        if ((await data).sent) {
-          setMessage(dict.common.sent);
-          setTimeout(() => {
-            setMessage("");
-          }, 6000);
-        }
+        await conversation.send(message);
+        setMessage(dict.common.sent);
+        setTimeout(() => {
+          setMessage("");
+        }, 6000);
       }
     } catch (err: any) {
       console.error(err.message);

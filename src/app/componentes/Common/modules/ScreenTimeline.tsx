@@ -26,7 +26,6 @@ const ScreenTimeline: FunctionComponent<ScreenTimelineProps> = ({
   const { openSwitchNetworks, openOnboarding } = useModal();
   const { chainId, isConnected } = useAccount();
   const context = useContext(ModalContext);
-
   return (
     <div id="header" className="gap-4">
       <div className="relative w-full h-fit half:w-fit half:h-full flex items-start justify-start half:order-1 order-2">
@@ -141,8 +140,8 @@ const ScreenTimeline: FunctionComponent<ScreenTimelineProps> = ({
                       }`}
                       onClick={() =>
                         isConnected
-                          ? () => !messageLoading && handleSendMessage()
-                          : chainId !== 37111
+                          ? !messageLoading && handleSendMessage()
+                          : chainId !== 232
                           ? openSwitchNetworks?.()
                           : openOnboarding?.()
                       }
