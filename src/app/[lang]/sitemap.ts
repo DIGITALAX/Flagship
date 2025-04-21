@@ -1,15 +1,13 @@
 import { MetadataRoute } from "next";
 import { LOCALES } from "../lib/constants";
 
-export default async function sitemap(params: {
-  lang: string;
-}): Promise<MetadataRoute.Sitemap> {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${params.lang}`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}`,
     },
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${params.lang}/build-log`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/build-log`,
       alternates: Object.fromEntries(
         LOCALES.map((lang) => [
           lang,
@@ -18,7 +16,7 @@ export default async function sitemap(params: {
       ),
     },
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${params.lang}/distro-kit`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/distro-kit`,
       alternates: Object.fromEntries(
         LOCALES.map((lang) => [
           lang,
@@ -27,7 +25,7 @@ export default async function sitemap(params: {
       ),
     },
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${params.lang}/mona`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/mona`,
       alternates: Object.fromEntries(
         LOCALES.map((lang) => [
           lang,
@@ -36,7 +34,7 @@ export default async function sitemap(params: {
       ),
     },
     {
-      url: `${process.env.NEXT_PUBLIC_BASE_URL}/${params.lang}/prints`,
+      url: `${process.env.NEXT_PUBLIC_BASE_URL}/prints`,
       alternates: Object.fromEntries(
         LOCALES.map((lang) => [
           lang,

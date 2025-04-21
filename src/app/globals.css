@@ -356,9 +356,6 @@
     color: var(--color-mainText);
   }
 
-  .bg-mainBg {
-    background-color: var(--color-mainBg);
-  }
   .bg-mainText {
     background-color: var(--color-mainText);
   }
@@ -374,9 +371,7 @@
   .text-diyText {
     color: var(--color-diyText);
   }
-  .text-mainText {
-    color: var(--color-mainText);
-  }
+  
 
   .theme-cream {
     --color-mainBg: var(--color-midWhite);
