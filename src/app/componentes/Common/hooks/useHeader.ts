@@ -4,7 +4,6 @@ import { Client } from "@xmtp/browser-sdk";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { createWalletClient, custom, toBytes } from "viem";
-import { ethers } from "ethers";
 
 const useHeader = (address: `0x${string}` | undefined, dict: any) => {
   const path = usePathname();

@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.digitalax.xyz"),
   description: "Emancipatory Lifestyle Tech.",
   twitter: {
+    description: "Emancipatory Lifestyle Tech.",
     creator: "@digitalax_",
     site: "@digitalax_",
     card: "summary_large_image",
@@ -37,8 +38,9 @@ export const metadata: Metadata = {
     "Life",
     "Freedom",
   ],
+  creator: "Emma-Jane MacKinnon-Lee",
+  publisher: "Emma-Jane MacKinnon-Lee",
 };
-
 
 export async function generateStaticParams() {
   return [{ lang: "en" }, { lang: "es" }];
