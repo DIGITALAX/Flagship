@@ -1,6 +1,8 @@
 import { ItemType } from "../componentes/Common/types/common.types";
 import { PrintType } from "../componentes/Distro/types/distro.types";
 
+export const LOCALES: string[] = ["en", "es"];
+
 export const KINORA_QUEST_DATA: `0x${string}` =
   "0xB638b8e910f5852d9B2b69D250883EB3E8575092";
 export const INFURA_GATEWAY: string = "https://thedial.infura-ipfs.io";
