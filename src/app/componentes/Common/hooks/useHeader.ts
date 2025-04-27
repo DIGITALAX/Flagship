@@ -1,12 +1,13 @@
 import { DIGITALAX_ADDRESS, idiomaAIndice, Idiomas } from "@/app/lib/constants";
 import { chains } from "@lens-chain/sdk/viem";
 import { Client } from "@xmtp/browser-sdk";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { createWalletClient, custom, toBytes } from "viem";
 
 const useHeader = (address: `0x${string}` | undefined, dict: any) => {
   const path = usePathname();
+  const router = useRouter();
   const [messageLoading, setMessageLoading] = useState<boolean>(false);
   const [videoLoading, setVideoLoading] = useState<boolean>(false);
   const [currentVideo, setCurrentVideo] = useState<number>();
@@ -62,6 +63,16 @@ const useHeader = (address: `0x${string}` | undefined, dict: any) => {
     }
   }, []);
 
+  const changeLanguage = (lang: string) => {
+    const segments = path.split("/");
+    segments[1] = lang;
+    const newPath = segments.join("/");
+
+    document.cookie = `NEXT_LOCALE=${lang}; path=/; SameSite=Lax`;
+
+    router.push(newPath);
+  };
+
   const handleSendMessage = async (): Promise<void> => {
     if (!address) return;
     setMessageLoading(true);
@@ -97,6 +108,7 @@ const useHeader = (address: `0x${string}` | undefined, dict: any) => {
     messageLoading,
     setMessage,
     chosenLanguage,
+    changeLanguage,
     setChosenLanguage,
   };
 };

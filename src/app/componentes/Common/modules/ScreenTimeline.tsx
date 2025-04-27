@@ -11,8 +11,7 @@ import { ModalContext } from "@/app/providers";
 
 const ScreenTimeline: FunctionComponent<ScreenTimelineProps> = ({
   dict,
-  chosenLanguage,
-  setChosenLanguage,
+  changeLanguage,
   setMessage,
   setVideoLoading,
   videoLoading,
@@ -22,6 +21,8 @@ const ScreenTimeline: FunctionComponent<ScreenTimelineProps> = ({
   handleSendMessage,
   changeVideo,
   handleShop,
+  chosenLanguage,
+  setChosenLanguage,
 }): JSX.Element => {
   const { openSwitchNetworks, openOnboarding } = useModal();
   const { chainId, isConnected } = useAccount();
@@ -311,9 +312,10 @@ const ScreenTimeline: FunctionComponent<ScreenTimelineProps> = ({
           dict={dict}
           currentVideo={currentVideo}
           changeVideo={changeVideo}
-          setChosenLanguage={setChosenLanguage}
-          chosenLanguage={chosenLanguage}
+          changeLanguage={changeLanguage}
           handleShop={handleShop}
+          chosenLanguage={chosenLanguage}
+          setChosenLanguage={setChosenLanguage}
         />
         <div className="relative w-full h-[60vh] half:h-full flex items-center justify-center bg-mainText rounded-sm overflow-hidden border-4 border-mainText">
           <Video

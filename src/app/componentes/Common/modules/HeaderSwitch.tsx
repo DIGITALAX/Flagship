@@ -6,8 +6,7 @@ import { ModalContext } from "@/app/providers";
 
 const HeaderSwitch: FunctionComponent<HeaderSwitchProps> = ({
   dict,
-  chosenLanguage,
-  setChosenLanguage,
+  changeLanguage,
   setMessage,
   setVideoLoading,
   videoLoading,
@@ -17,6 +16,8 @@ const HeaderSwitch: FunctionComponent<HeaderSwitchProps> = ({
   handleShop,
   messageLoading,
   handleSendMessage,
+  chosenLanguage,
+  setChosenLanguage,
 }): JSX.Element => {
   const context = useContext(ModalContext);
   switch (context?.timeline) {
@@ -24,8 +25,7 @@ const HeaderSwitch: FunctionComponent<HeaderSwitchProps> = ({
       return (
         <ScreenTimeline
           dict={dict}
-          chosenLanguage={chosenLanguage}
-          setChosenLanguage={setChosenLanguage}
+          changeLanguage={changeLanguage}
           setMessage={setMessage}
           setVideoLoading={setVideoLoading}
           videoLoading={videoLoading}
@@ -35,6 +35,8 @@ const HeaderSwitch: FunctionComponent<HeaderSwitchProps> = ({
           handleSendMessage={handleSendMessage}
           changeVideo={changeVideo}
           handleShop={handleShop}
+          chosenLanguage={chosenLanguage}
+          setChosenLanguage={setChosenLanguage}
         />
       );
 
@@ -43,12 +45,13 @@ const HeaderSwitch: FunctionComponent<HeaderSwitchProps> = ({
         <Screen
           currentVideo={currentVideo}
           changeVideo={changeVideo}
-          chosenLanguage={chosenLanguage}
-          setChosenLanguage={setChosenLanguage}
+          changeLanguage={changeLanguage}
           dict={dict}
           handleShop={handleShop}
           setVideoLoading={setVideoLoading}
           videoLoading={videoLoading}
+          chosenLanguage={chosenLanguage}
+          setChosenLanguage={setChosenLanguage}
         />
       );
   }

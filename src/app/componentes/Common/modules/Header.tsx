@@ -16,8 +16,6 @@ const Header: FunctionComponent<HeaderProps> = ({
   const { address } = useAccount();
   const {
     changeVideo,
-    chosenLanguage,
-    setChosenLanguage,
     setMessage,
     setVideoLoading,
     videoLoading,
@@ -25,6 +23,9 @@ const Header: FunctionComponent<HeaderProps> = ({
     message,
     messageLoading,
     handleSendMessage,
+    changeLanguage,
+    chosenLanguage,
+    setChosenLanguage
   } = useHeader(address, dict);
   return (
     <div
@@ -35,6 +36,7 @@ const Header: FunctionComponent<HeaderProps> = ({
         dict={dict}
         chosenLanguage={chosenLanguage}
         setChosenLanguage={setChosenLanguage}
+        changeLanguage={changeLanguage}
         setMessage={setMessage}
         setVideoLoading={setVideoLoading}
         videoLoading={videoLoading}

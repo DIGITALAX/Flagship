@@ -20,12 +20,13 @@ import {
 const Screen: FunctionComponent<ScreenProps> = ({
   dict,
   currentVideo,
-  setChosenLanguage,
-  chosenLanguage,
+  changeLanguage,
   changeVideo,
   handleShop,
   videoLoading,
   setVideoLoading,
+  chosenLanguage,
+  setChosenLanguage,
 }): JSX.Element => {
   const context = useContext(ModalContext);
   const {
@@ -112,10 +113,11 @@ const Screen: FunctionComponent<ScreenProps> = ({
       <div className="relative w-full h-full flex items-center justify-start flex-col gap-3 half:order-2 order-1">
         <Bar
           dict={dict}
+          chosenLanguage={chosenLanguage}
+          setChosenLanguage={setChosenLanguage}
           currentVideo={currentVideo}
           changeVideo={changeVideo}
-          setChosenLanguage={setChosenLanguage}
-          chosenLanguage={chosenLanguage}
+          changeLanguage={changeLanguage}
           handleShop={handleShop}
         />
         <DndContext

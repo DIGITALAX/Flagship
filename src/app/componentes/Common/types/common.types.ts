@@ -40,8 +40,7 @@ export interface FullScreenVideo {
 
 export type ScreenTimelineProps = {
   dict: any;
-  chosenLanguage: number;
-  setChosenLanguage: (e: SetStateAction<number>) => void;
+  changeLanguage: (lang: string) => void;
   setMessage: (e: SetStateAction<string>) => void;
   setVideoLoading: (e: SetStateAction<boolean>) => void;
   videoLoading: boolean;
@@ -51,12 +50,13 @@ export type ScreenTimelineProps = {
   handleSendMessage: () => Promise<void>;
   changeVideo: (index: number) => void;
   handleShop: () => void;
+  setChosenLanguage: (e: SetStateAction<number>) => void;
+  chosenLanguage: number;
 };
 
 export type HeaderSwitchProps = {
   dict: any;
-  chosenLanguage: number;
-  setChosenLanguage: (e: SetStateAction<number>) => void;
+  changeLanguage: (lang: string) => void;
   setMessage: (e: SetStateAction<string>) => void;
   setVideoLoading: (e: SetStateAction<boolean>) => void;
   videoLoading: boolean;
@@ -66,14 +66,17 @@ export type HeaderSwitchProps = {
   handleSendMessage: () => Promise<void>;
   changeVideo: (index: number) => void;
   handleShop: () => void;
+  setChosenLanguage: (e: SetStateAction<number>) => void;
+  chosenLanguage: number;
 };
 
 export type BarProps = {
   dict: any;
-  currentVideo: number | undefined;
-  changeVideo: (index: number) => void;
   setChosenLanguage: (e: SetStateAction<number>) => void;
   chosenLanguage: number;
+  currentVideo: number | undefined;
+  changeVideo: (index: number) => void;
+  changeLanguage: (lang: string) => void;
   handleShop: () => void;
 };
 
@@ -86,12 +89,13 @@ export type VideoProps = {
 export type ScreenProps = {
   dict: any;
   currentVideo: number | undefined;
-  setChosenLanguage: (e: SetStateAction<number>) => void;
-  chosenLanguage: number;
+  changeLanguage: (lang: string) => void;
   changeVideo: (index: number) => void;
   handleShop: () => void;
   setVideoLoading: (e: SetStateAction<boolean>) => void;
   videoLoading: boolean;
+  setChosenLanguage: (e: SetStateAction<number>) => void;
+  chosenLanguage: number;
 };
 
 export type InfoProps = {
@@ -101,5 +105,4 @@ export type InfoProps = {
     x: number;
     y: number;
   };
-
 };

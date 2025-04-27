@@ -12,7 +12,6 @@ import {
   PiArrowFatLinesRightFill,
 } from "react-icons/pi";
 import Heart from "./Heart";
-import { usePathname, useRouter } from "next/navigation";
 import { BarProps } from "../types/common.types";
 import Marquee from "react-fast-marquee";
 
@@ -22,11 +21,11 @@ const Bar: FunctionComponent<BarProps> = ({
   changeVideo,
   setChosenLanguage,
   chosenLanguage,
-  handleShop
+  handleShop,
+  changeLanguage,
 }): JSX.Element => {
   const context = useContext(ModalContext);
-  const router = useRouter();
-  const path = usePathname();
+
   return (
     <>
       <div className="relative w-full h-fit flex mr-0 flex-row gap-4 items-end justify-end">
@@ -63,12 +62,7 @@ const Bar: FunctionComponent<BarProps> = ({
             <div
               onClick={() => {
                 if (chosenLanguage === 0 || chosenLanguage === 1) {
-                  router.replace(
-                    path.replace(
-                      /\/(en|es)\//g,
-                      `/${indiceAIdioma[chosenLanguage]}/`
-                    )
-                  );
+                  changeLanguage(indiceAIdioma[chosenLanguage]);
                 }
               }}
               className={`text-xxs flex items-center justify-center px-2 border border-mainText rounded-sm h-6 w-full ${
