@@ -2,7 +2,7 @@ import { FunctionComponent, JSX, useContext } from "react";
 import { HeaderProps } from "../types/common.types";
 import { ModalContext } from "@/app/providers";
 import Image from "next/legacy/image";
-import { INFURA_GATEWAY } from "@/app/lib/constants";
+import { INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
 import { useAccount } from "wagmi";
 import useHeader from "../hooks/useHeader";
 import HeaderSwitch from "./HeaderSwitch";
@@ -78,7 +78,7 @@ const Header: FunctionComponent<HeaderProps> = ({
             <div className="relative w-fit h-fit flex items-center justify-center sm:order-2 order-1">
               <div className="relative h-12 w-12 flex items-center justify-center">
                 <Image
-                  src={`${INFURA_GATEWAY}/ipfs/QmYbjMNQAVuQSWNNQ5AKbQtt4Dxw2ax4SvLNwKhCNDniL2`}
+                  src={`${INFURA_GATEWAY_INTERNAL}QmYbjMNQAVuQSWNNQ5AKbQtt4Dxw2ax4SvLNwKhCNDniL2`}
                   layout="fill"
                   draggable={false}
                   priority
@@ -171,7 +171,7 @@ const Header: FunctionComponent<HeaderProps> = ({
                       layout="fill"
                       objectFit="cover"
                       priority
-                      src={`${INFURA_GATEWAY}/ipfs/${item.image}`}
+                      src={`${INFURA_GATEWAY_INTERNAL}${item.image}`}
                     />
                   </div>
                 </div>

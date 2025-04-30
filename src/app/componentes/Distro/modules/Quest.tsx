@@ -2,7 +2,7 @@ import Image from "next/legacy/image";
 import { FunctionComponent, JSX } from "react";
 import InteractBar from "./InteractBar";
 import { QuestProps } from "../types/distro.types";
-import { INFURA_GATEWAY } from "@/app/lib/constants";
+import { INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
 
 const Quest: FunctionComponent<QuestProps> = ({
   publication,
@@ -29,7 +29,7 @@ const Quest: FunctionComponent<QuestProps> = ({
                 height={60}
                 priority
                 draggable={false}
-                src={`${INFURA_GATEWAY}/ipfs/QmbkoC8UbWJS49X6sxyBNfro8guEokUoT74KvaC6DfdmNg`}
+                src={`${INFURA_GATEWAY_INTERNAL}QmbkoC8UbWJS49X6sxyBNfro8guEokUoT74KvaC6DfdmNg`}
               />
             </div>
           </div>
@@ -42,7 +42,7 @@ const Quest: FunctionComponent<QuestProps> = ({
                 className="rounded-sm"
                 layout="fill"
                 draggable={false}
-                src={`${INFURA_GATEWAY}/ipfs/${
+                src={`${INFURA_GATEWAY_INTERNAL}${
                   publication?.questMetadata?.cover?.split("ipfs://")?.[1]
                 }`}
                 objectFit="cover"
@@ -84,7 +84,7 @@ const Quest: FunctionComponent<QuestProps> = ({
               >
                 <Image
                   layout="fill"
-                  src={`${INFURA_GATEWAY}/ipfs/QmZ4v5pzdnCBeyKnS9VrjZiEAbUpAVy8ECArNcpxBt6Tw4`}
+                  src={`${INFURA_GATEWAY_INTERNAL}QmZ4v5pzdnCBeyKnS9VrjZiEAbUpAVy8ECArNcpxBt6Tw4`}
                   draggable={false}
                 />
               </div>
@@ -117,7 +117,7 @@ const Quest: FunctionComponent<QuestProps> = ({
                 <Image
                   draggable={false}
                   layout="fill"
-                  src={`${INFURA_GATEWAY}/ipfs/QmcopbBnP4dJgRKCHJ7TN7nHFt5wpe6w8VBhztaBXGYvft`}
+                  src={`${INFURA_GATEWAY_INTERNAL}QmcopbBnP4dJgRKCHJ7TN7nHFt5wpe6w8VBhztaBXGYvft`}
                 />
               </div>
               <div className="relative w-fit h-fit flex items-center justify-center">{`Max Player Count: ${
@@ -156,7 +156,7 @@ const Quest: FunctionComponent<QuestProps> = ({
               <Image
                 draggable={false}
                 layout="fill"
-                src={`${INFURA_GATEWAY}/ipfs/QmVa8AWMYyAfcQAEpbqdUoRSxSkntpH1DEMpdyajZWz4AR`}
+                src={`${INFURA_GATEWAY_INTERNAL}QmVa8AWMYyAfcQAEpbqdUoRSxSkntpH1DEMpdyajZWz4AR`}
               />
             </div>
           </div>

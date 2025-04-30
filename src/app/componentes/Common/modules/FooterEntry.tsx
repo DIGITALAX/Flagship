@@ -2,7 +2,7 @@
 
 import Image from "next/legacy/image";
 import { FunctionComponent, JSX, ReactElement, useContext } from "react";
-import { INFURA_GATEWAY } from "../../../lib/constants";
+import { INFURA_GATEWAY_INTERNAL } from "../../../lib/constants";
 import { BsTwitter } from "react-icons/bs";
 import { BiArrowToTop } from "react-icons/bi";
 import { FooterProps } from "../types/common.types";
@@ -20,7 +20,7 @@ const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
           >
             <Image
               layout="fill"
-              src={`${INFURA_GATEWAY}/ipfs/QmSvQQsELrcEaGrQ2L2Lak8F2hgMeiBxw7MwhCrog6snDj`}
+              src={`${INFURA_GATEWAY_INTERNAL}QmSvQQsELrcEaGrQ2L2Lak8F2hgMeiBxw7MwhCrog6snDj`}
               priority
               draggable={false}
             />
@@ -84,7 +84,7 @@ const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
               className={`relative w-36 h-4 flex items-center justify-center`}
             >
               <Image
-                src={`${INFURA_GATEWAY}/ipfs/QmXbwk3dg9GKWhjVTQGsrt6dKARFCyqNz71ssUo2SGx1zc`}
+                src={`${INFURA_GATEWAY_INTERNAL}QmXbwk3dg9GKWhjVTQGsrt6dKARFCyqNz71ssUo2SGx1zc`}
                 draggable={false}
                 layout="fill"
                 priority
@@ -145,7 +145,7 @@ const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
                       item.component
                     ) : (
                       <Image
-                        src={`${INFURA_GATEWAY}/ipfs/${item.image}`}
+                        src={`${INFURA_GATEWAY_INTERNAL}${item.image}`}
                         layout="fill"
                         draggable={false}
                       />

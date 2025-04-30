@@ -1,7 +1,7 @@
 import { FunctionComponent, JSX } from "react";
 import Image from "next/legacy/image";
 import { useRouter, usePathname } from "next/navigation";
-import { INFURA_GATEWAY } from "@/app/lib/constants";
+import { INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
 import Feature from "./Feature";
 
 const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
@@ -41,14 +41,14 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
                     draggable={false}
                     layout="fill"
                     objectFit="cover"
-                    src={`${INFURA_GATEWAY}/ipfs/${item.image}`}
+                    src={`${INFURA_GATEWAY_INTERNAL}${item.image}`}
                   />
                 </div>
                 <div className="absolute w-1/2 flex items-center justify-center h-8 bottom-0">
                   <Image
                     draggable={false}
                     layout="fill"
-                    src={`${INFURA_GATEWAY}/ipfs/QmZH2zUKZAPVbveywrG5GaApLgY4oTFvefrCkRtQvUeWRo`}
+                    src={`${INFURA_GATEWAY_INTERNAL}QmZH2zUKZAPVbveywrG5GaApLgY4oTFvefrCkRtQvUeWRo`}
                   />
                   <div
                     className={`relative w-fit h-fit flex items-center top-1 justify-center font-bit text-white  ${
@@ -72,7 +72,7 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
               <Image
                 draggable={false}
                 layout="fill"
-                src={`${INFURA_GATEWAY}/ipfs/QmXHebiLPG3ofJEzNMcXveTKwjGnZhCM9rztbGNNKQADju`}
+                src={`${INFURA_GATEWAY_INTERNAL}QmXHebiLPG3ofJEzNMcXveTKwjGnZhCM9rztbGNNKQADju`}
               />
             </div>
           </div>
@@ -84,7 +84,7 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
               <Image
                 draggable={false}
                 layout="fill"
-                src={`${INFURA_GATEWAY}/ipfs/QmbUzFRbM2skDzHajWEcGhmUVzrCRpLVMC9qoN2FTYTPqb`}
+                src={`${INFURA_GATEWAY_INTERNAL}QmbUzFRbM2skDzHajWEcGhmUVzrCRpLVMC9qoN2FTYTPqb`}
               />
             </div>
           </div>

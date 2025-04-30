@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { useContext } from "react";
 import Heart from "../Common/modules/Heart";
 import {
-  INFURA_GATEWAY,
+  INFURA_GATEWAY_INTERNAL,
   POSTER_IMAGES,
   PRINT_IMAGES,
   TV_IMAGES,
@@ -62,7 +62,7 @@ export default function PrintsEntry({ dict }: { dict: any }) {
               <Image
                 layout="responsive"
                 draggable={false}
-                src={`${INFURA_GATEWAY}/ipfs/${image}`}
+                src={`${INFURA_GATEWAY_INTERNAL}${image}`}
                 objectFit="contain"
                 priority
                 width={512}
@@ -75,7 +75,7 @@ export default function PrintsEntry({ dict }: { dict: any }) {
           <Image
             layout="responsive"
             draggable={false}
-            src={`${INFURA_GATEWAY}/ipfs/QmZCkTKy86qV8BiZwxjbCoSQxeGoaGVLVZcBUtgbECMwez`}
+            src={`${INFURA_GATEWAY_INTERNAL}QmZCkTKy86qV8BiZwxjbCoSQxeGoaGVLVZcBUtgbECMwez`}
             objectFit="contain"
             priority
             width={512}
@@ -86,7 +86,7 @@ export default function PrintsEntry({ dict }: { dict: any }) {
           <Image
             layout="responsive"
             draggable={false}
-            src={`${INFURA_GATEWAY}/ipfs/QmXdpVMP9c1whwfmq8J4qtcHUTMwTu2HK3ekKaZ2DfLnPQ`}
+            src={`${INFURA_GATEWAY_INTERNAL}QmXdpVMP9c1whwfmq8J4qtcHUTMwTu2HK3ekKaZ2DfLnPQ`}
             objectFit="contain"
             priority
             width={512}
@@ -97,7 +97,7 @@ export default function PrintsEntry({ dict }: { dict: any }) {
           <Image
             layout="responsive"
             draggable={false}
-            src={`${INFURA_GATEWAY}/ipfs/QmPAUJTJDdjmWWwVuY93ihWEyQcGyY6vKXnzx7TSzHKaqe`}
+            src={`${INFURA_GATEWAY_INTERNAL}QmPAUJTJDdjmWWwVuY93ihWEyQcGyY6vKXnzx7TSzHKaqe`}
             objectFit="contain"
             priority
             width={512}
@@ -108,7 +108,7 @@ export default function PrintsEntry({ dict }: { dict: any }) {
           <Image
             layout="responsive"
             draggable={false}
-            src={`${INFURA_GATEWAY}/ipfs/QmasNRJJQpbYu9dmp6zyGQN61AuLjWpwmbtaa7tFhe8U8d`}
+            src={`${INFURA_GATEWAY_INTERNAL}QmasNRJJQpbYu9dmp6zyGQN61AuLjWpwmbtaa7tFhe8U8d`}
             objectFit="contain"
             priority
             width={512}
@@ -119,7 +119,7 @@ export default function PrintsEntry({ dict }: { dict: any }) {
           <Image
             layout="responsive"
             draggable={false}
-            src={`${INFURA_GATEWAY}/ipfs/Qmb2dNxfbZAKhCgkyRNusgQYtYE95ngEQL291uTre3yBsz`}
+            src={`${INFURA_GATEWAY_INTERNAL}Qmb2dNxfbZAKhCgkyRNusgQYtYE95ngEQL291uTre3yBsz`}
             objectFit="contain"
             priority
             width={512}
@@ -130,7 +130,7 @@ export default function PrintsEntry({ dict }: { dict: any }) {
           <Image
             layout="responsive"
             draggable={false}
-            src={`${INFURA_GATEWAY}/ipfs/QmP2wbPYNBzxkATSFkSjqE9KaeYudCKe9HNEcNdNJXqbMc`}
+            src={`${INFURA_GATEWAY_INTERNAL}QmP2wbPYNBzxkATSFkSjqE9KaeYudCKe9HNEcNdNJXqbMc`}
             objectFit="contain"
             priority
             width={512}
@@ -141,7 +141,7 @@ export default function PrintsEntry({ dict }: { dict: any }) {
           <Image
             layout="responsive"
             draggable={false}
-            src={`${INFURA_GATEWAY}/ipfs/QmcmP1TXb1xsNDTzPgm9ott1YQ64ZSR8rPwsXJhm1pRT3S`}
+            src={`${INFURA_GATEWAY_INTERNAL}QmcmP1TXb1xsNDTzPgm9ott1YQ64ZSR8rPwsXJhm1pRT3S`}
             objectFit="contain"
             priority
             width={512}
@@ -154,7 +154,7 @@ export default function PrintsEntry({ dict }: { dict: any }) {
               <Image
                 layout="responsive"
                 draggable={false}
-                src={`${INFURA_GATEWAY}/ipfs/${image}`}
+                src={`${INFURA_GATEWAY_INTERNAL}${image}`}
                 objectFit="contain"
                 priority
                 width={512}
@@ -169,7 +169,7 @@ export default function PrintsEntry({ dict }: { dict: any }) {
               <Image
                 layout="responsive"
                 draggable={false}
-                src={`${INFURA_GATEWAY}/ipfs/${image}`}
+                src={`${INFURA_GATEWAY_INTERNAL}${image}`}
                 objectFit="contain"
                 priority
                 width={512}

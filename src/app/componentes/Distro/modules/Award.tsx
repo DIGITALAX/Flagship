@@ -1,7 +1,7 @@
 import { FunctionComponent, JSX, useContext } from "react";
 import Image from "next/legacy/image";
 import { AwardProps } from "../types/distro.types";
-import { INFURA_GATEWAY } from "@/app/lib/constants";
+import { INFURA_GATEWAY, INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
 import toHexWithLeadingZero from "@/app/lib/helpers/leadingZero";
 import { ModalContext } from "@/app/providers";
 
@@ -18,7 +18,7 @@ const Award: FunctionComponent<AwardProps> = ({
           layout="fill"
           objectFit="cover"
           draggable={false}
-          src={`${INFURA_GATEWAY}/ipfs/${
+          src={`${INFURA_GATEWAY_INTERNAL}${
             publication?.questMetadata?.cover?.split("ipfs://")?.[1]
           }`}
         />
@@ -46,7 +46,7 @@ const Award: FunctionComponent<AwardProps> = ({
             >
               <div className="relative w-4 h-4 flex items-end justify-end">
                 <Image
-                  src={`${INFURA_GATEWAY}/ipfs/QmRkAoLMAh2hxZfh5WvaxuxRUMhs285umdJWuvLa5wt6Ht`}
+                  src={`${INFURA_GATEWAY_INTERNAL}QmRkAoLMAh2hxZfh5WvaxuxRUMhs285umdJWuvLa5wt6Ht`}
                   draggable={false}
                   layout="fill"
                 />
@@ -74,7 +74,7 @@ const Award: FunctionComponent<AwardProps> = ({
               draggable={false}
               layout="fill"
               objectFit="cover"
-              src={`${INFURA_GATEWAY}/ipfs/${
+              src={`${INFURA_GATEWAY_INTERNAL}${
                 publication?.rewardMetadata?.images?.[0]?.split("ipfs://")?.[1]
               }`}
             />

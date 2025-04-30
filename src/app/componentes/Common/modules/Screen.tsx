@@ -4,7 +4,7 @@ import { ScreenProps } from "../types/common.types";
 import Image from "next/legacy/image";
 import {
   BG_SCREENS,
-  INFURA_GATEWAY,
+  INFURA_GATEWAY_INTERNAL,
   screenTranslate,
 } from "@/app/lib/constants";
 import { ModalContext } from "@/app/providers";
@@ -101,7 +101,7 @@ const Screen: FunctionComponent<ScreenProps> = ({
                 draggable={false}
                 objectFit="cover"
                 layout="fill"
-                src={`${INFURA_GATEWAY}/ipfs/QmfDDXoCxm3YZFHX1aAStSfbzqEQJPXyPBRqgU39dgqr8G`}
+                src={`${INFURA_GATEWAY_INTERNAL}QmfDDXoCxm3YZFHX1aAStSfbzqEQJPXyPBRqgU39dgqr8G`}
               />
             </div>
             <div className="relative w-fit h-20 half:h-full flex items-end justify-end">
@@ -143,7 +143,7 @@ const Screen: FunctionComponent<ScreenProps> = ({
                       draggable={false}
                       objectFit="cover"
                       layout="fill"
-                      src={`${INFURA_GATEWAY}/ipfs/${
+                      src={`${INFURA_GATEWAY_INTERNAL}${
                         BG_SCREENS[context?.screen?.index]
                       }`}
                     />
@@ -218,7 +218,7 @@ const Screen: FunctionComponent<ScreenProps> = ({
                           objectFit="contain"
                           layout="fill"
                           draggable={false}
-                          src={`${INFURA_GATEWAY}/ipfs/QmcVNg25dNCCniDEitMZDosbwc1MwKzF3dwjU45X7jLqHW`}
+                          src={`${INFURA_GATEWAY_INTERNAL}QmcVNg25dNCCniDEitMZDosbwc1MwKzF3dwjU45X7jLqHW`}
                         />
                       </div>
                     </div>
@@ -232,7 +232,7 @@ const Screen: FunctionComponent<ScreenProps> = ({
                             objectFit="contain"
                             layout="fill"
                             draggable={false}
-                            src={`${INFURA_GATEWAY}/ipfs/QmNzHcQTDDWMmZXvdP9xfYFACnZK3zw9uZ9Nw8LwEoq8Fh`}
+                            src={`${INFURA_GATEWAY_INTERNAL}QmNzHcQTDDWMmZXvdP9xfYFACnZK3zw9uZ9Nw8LwEoq8Fh`}
                           />
                         </div>
                       </div>
@@ -248,7 +248,7 @@ const Screen: FunctionComponent<ScreenProps> = ({
                             objectFit="contain"
                             layout="fill"
                             draggable={false}
-                            src={`${INFURA_GATEWAY}/ipfs/QmWvsRFTsnNfDCTD7MWm7aMuTYx61yLNGufpxqSoHpsnWi`}
+                            src={`${INFURA_GATEWAY_INTERNAL}QmWvsRFTsnNfDCTD7MWm7aMuTYx61yLNGufpxqSoHpsnWi`}
                           />
                         </div>
                       </div>
@@ -266,7 +266,7 @@ const Screen: FunctionComponent<ScreenProps> = ({
                             objectFit="contain"
                             layout="fill"
                             draggable={false}
-                            src={`${INFURA_GATEWAY}/ipfs/${
+                            src={`${INFURA_GATEWAY_INTERNAL}${
                               pause
                                 ? "QmWJvh3VR59sDtWkjgnfsd1gKcfrnU8RJhBYjbeQGoYGiM"
                                 : "QmeDt8Kxgj1DC69wNxoyS3RBMWGMVxJvq5e3yyv1doCrmu"

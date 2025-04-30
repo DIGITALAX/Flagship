@@ -16,16 +16,23 @@ const nextConfig: NextConfig = {
         hostname: "thedial.infura-ipfs.io",
         pathname: "/ipfs/**",
       },
+      {
+        protocol: "https",
+        hostname: "digitalax.xyz",
+        pathname: "/api/infura/**",
+      },
     ],
+
     unoptimized: true,
   },
- 
-
   trailingSlash: true,
   async headers() {
     let headersConfig: any[] = [];
 
-    const allowedOrigins = ["https://thedial.infura-ipfs.io"];
+    const allowedOrigins = [
+      "https://thedial.infura-ipfs.io",
+      "https://digitalax.xyz",
+    ];
     allowedOrigins.forEach((origin) => {
       headersConfig.push({
         source: "/(.*)",
@@ -49,7 +56,6 @@ const nextConfig: NextConfig = {
 
     return headersConfig;
   },
- 
 };
 
 export default nextConfig;

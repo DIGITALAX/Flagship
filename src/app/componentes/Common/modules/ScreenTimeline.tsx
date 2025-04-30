@@ -1,4 +1,4 @@
-import { INFURA_GATEWAY } from "@/app/lib/constants";
+import { INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
 import { useModal } from "connectkit";
 import Image from "next/legacy/image";
 import { FunctionComponent, JSX, useContext } from "react";
@@ -45,7 +45,7 @@ const ScreenTimeline: FunctionComponent<ScreenTimelineProps> = ({
               objectFit="fill"
               draggable={false}
               priority
-              src={`${INFURA_GATEWAY}/ipfs/QmVdLxvGcosPWi3DLREjbPWUwf7Q5AXroxxBg5CHD4q4qM`}
+              src={`${INFURA_GATEWAY_INTERNAL}QmVdLxvGcosPWi3DLREjbPWUwf7Q5AXroxxBg5CHD4q4qM`}
             />
           </div>
           <div className="absolute top-0 left-0 w-full h-full justify-start items-start flex half:hidden">
@@ -54,7 +54,7 @@ const ScreenTimeline: FunctionComponent<ScreenTimelineProps> = ({
               objectFit="fill"
               priority
               draggable={false}
-              src={`${INFURA_GATEWAY}/ipfs/QmYWuUrkVNoSpz2NAr3V1hLqoucb48uTFsRthHR9trKY5V`}
+              src={`${INFURA_GATEWAY_INTERNAL}QmYWuUrkVNoSpz2NAr3V1hLqoucb48uTFsRthHR9trKY5V`}
             />
           </div>
           <div className="relative w-full sm:w-fit h-fit flex flex-col preG:flex-row half:flex-col gap-8 sm:gap-3 half:gap-6 items-center justify-center">
@@ -78,7 +78,7 @@ const ScreenTimeline: FunctionComponent<ScreenTimelineProps> = ({
                       layout="fill"
                       priority
                       draggable={false}
-                      src={`${INFURA_GATEWAY}/ipfs/QmSpjYvvdRtRzyN6cjRL1SGbSKDu5mDAwZtqb1WPZcH7Q9`}
+                      src={`${INFURA_GATEWAY_INTERNAL}QmSpjYvvdRtRzyN6cjRL1SGbSKDu5mDAwZtqb1WPZcH7Q9`}
                     />
                   </div>
                   <div
@@ -101,7 +101,7 @@ const ScreenTimeline: FunctionComponent<ScreenTimelineProps> = ({
                       layout="fill"
                       draggable={false}
                       priority
-                      src={`${INFURA_GATEWAY}/ipfs/QmSpjYvvdRtRzyN6cjRL1SGbSKDu5mDAwZtqb1WPZcH7Q9`}
+                      src={`${INFURA_GATEWAY_INTERNAL}QmSpjYvvdRtRzyN6cjRL1SGbSKDu5mDAwZtqb1WPZcH7Q9`}
                     />
                   </div>
                   <div
@@ -119,7 +119,7 @@ const ScreenTimeline: FunctionComponent<ScreenTimelineProps> = ({
                   layout="fill"
                   draggable={false}
                   priority
-                  src={`${INFURA_GATEWAY}/ipfs/QmSfBUFGogXohAgLYimvy1ArU4aUrLyYCZ7EDuFELudWm7`}
+                  src={`${INFURA_GATEWAY_INTERNAL}QmSfBUFGogXohAgLYimvy1ArU4aUrLyYCZ7EDuFELudWm7`}
                 />
               </div>
               <div className="relative p-2 flex items-start justify-center w-full sm:w-52 h-44 sm:h-48 min-h-fit text-orilla text-sm text-left">
@@ -183,7 +183,7 @@ const ScreenTimeline: FunctionComponent<ScreenTimelineProps> = ({
                       layout="fill"
                       draggable={false}
                       priority
-                      src={`${INFURA_GATEWAY}/ipfs/QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
+                      src={`${INFURA_GATEWAY_INTERNAL}QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
                     />
                   </div>
                   <div
@@ -205,7 +205,7 @@ const ScreenTimeline: FunctionComponent<ScreenTimelineProps> = ({
                       layout="fill"
                       priority
                       draggable={false}
-                      src={`${INFURA_GATEWAY}/ipfs/QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
+                      src={`${INFURA_GATEWAY_INTERNAL}QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
                     />
                   </div>
                   <div
@@ -229,7 +229,7 @@ const ScreenTimeline: FunctionComponent<ScreenTimelineProps> = ({
                       layout="fill"
                       priority
                       draggable={false}
-                      src={`${INFURA_GATEWAY}/ipfs/QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
+                      src={`${INFURA_GATEWAY_INTERNAL}QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
                     />
                   </div>
                   <div
@@ -251,7 +251,7 @@ const ScreenTimeline: FunctionComponent<ScreenTimelineProps> = ({
                       layout="fill"
                       draggable={false}
                       priority
-                      src={`${INFURA_GATEWAY}/ipfs/QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
+                      src={`${INFURA_GATEWAY_INTERNAL}QmSzjxP1u5yReRefw3sTLW8G5QRBuHRztgRFyrn1YXuQTR`}
                     />
                   </div>
                   <div
@@ -272,7 +272,7 @@ const ScreenTimeline: FunctionComponent<ScreenTimelineProps> = ({
                   layout="fill"
                   priority
                   draggable={false}
-                  src={`${INFURA_GATEWAY}/ipfs/QmSpjYvvdRtRzyN6cjRL1SGbSKDu5mDAwZtqb1WPZcH7Q9`}
+                  src={`${INFURA_GATEWAY_INTERNAL}QmSpjYvvdRtRzyN6cjRL1SGbSKDu5mDAwZtqb1WPZcH7Q9`}
                 />
               </div>
               <div
@@ -288,7 +288,7 @@ const ScreenTimeline: FunctionComponent<ScreenTimelineProps> = ({
                   <Image
                     layout="fill"
                     priority
-                    src={`${INFURA_GATEWAY}/ipfs/QmX8kDkP3rdgqeEauqzsbwL8zP4hGwtTKxrT3Xmw7R2feL`}
+                    src={`${INFURA_GATEWAY_INTERNAL}QmX8kDkP3rdgqeEauqzsbwL8zP4hGwtTKxrT3Xmw7R2feL`}
                     draggable={false}
                   />
                 </div>
@@ -298,7 +298,7 @@ const ScreenTimeline: FunctionComponent<ScreenTimelineProps> = ({
                   <Image
                     layout="fill"
                     priority
-                    src={`${INFURA_GATEWAY}/ipfs/QmSkppQ8Z9M4cYR4NLDD8wMUVyB7j9cmoe6ABjQhnTWkfv`}
+                    src={`${INFURA_GATEWAY_INTERNAL}QmSkppQ8Z9M4cYR4NLDD8wMUVyB7j9cmoe6ABjQhnTWkfv`}
                     draggable={false}
                   />
                 </div>

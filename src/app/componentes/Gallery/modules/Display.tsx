@@ -1,4 +1,4 @@
-import { INFURA_GATEWAY } from "@/app/lib/constants";
+import { INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
 import Image from "next/legacy/image";
 import { FunctionComponent, JSX } from "react";
 import Gallery from "./Gallery";
@@ -42,7 +42,7 @@ const Display: FunctionComponent<DisplayProps> = ({
               }
             >
               <Image
-                src={`${INFURA_GATEWAY}/ipfs/QmV8P1Hx2mAx6TQeE6S9nvCuByK8p5wYKmX38a6WaDcfD6`}
+                src={`${INFURA_GATEWAY_INTERNAL}QmV8P1Hx2mAx6TQeE6S9nvCuByK8p5wYKmX38a6WaDcfD6`}
                 height={30}
                 width={30}
                 priority
@@ -61,7 +61,7 @@ const Display: FunctionComponent<DisplayProps> = ({
               }
             >
               <Image
-                src={`${INFURA_GATEWAY}/ipfs/QmfLgTmhWRefCb6jHFP1Em1hKQWzxq2QDXcXrT1cqZMZx9`}
+                src={`${INFURA_GATEWAY_INTERNAL}QmfLgTmhWRefCb6jHFP1Em1hKQWzxq2QDXcXrT1cqZMZx9`}
                 height={30}
                 width={30}
                 priority
@@ -88,7 +88,7 @@ const Display: FunctionComponent<DisplayProps> = ({
               className={`flex items-center justify-center relative w-fit h-fit`}
             >
               <Image
-                src={`${INFURA_GATEWAY}/ipfs/QmbDMPggX1dz6VC4c8hNNT4td62ArBaCiDCG2mewNqFZN2`}
+                src={`${INFURA_GATEWAY_INTERNAL}QmbDMPggX1dz6VC4c8hNNT4td62ArBaCiDCG2mewNqFZN2`}
                 height={10}
                 width={20}
                 priority

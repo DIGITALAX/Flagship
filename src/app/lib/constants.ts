@@ -9,6 +9,7 @@ export const INFURA_GATEWAY: string = "https://thedial.infura-ipfs.io";
 export const DIGITALAX_ADDRESS: string =
   "e0deaff9be0da5309d2b19bcb0c133397b2bb20be563ab038e265b0800ddcf57";
 export const IPFS_REGEX: RegExp = /\b(Qm[1-9A-Za-z]{44}|ba[A-Za-z2-7]{57})\b/;
+export const INFURA_GATEWAY_INTERNAL: string = "https://digitalax.xyz/api/infura/";
 
 export const CHROMADIN: `0x${string}` =
   "0x16a362A10C1f6Bc0565C8fFAd298f1c2761630C5";

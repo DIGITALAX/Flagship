@@ -1,6 +1,6 @@
 import Image from "next/legacy/image";
 import { FunctionComponent, JSX, useContext } from "react";
-import { INFURA_GATEWAY } from "../../../lib/constants";
+import { INFURA_GATEWAY_INTERNAL } from "../../../lib/constants";
 import { usePathname } from "next/navigation";
 import useLibrary from "../hooks/useLibrary";
 import { ModalContext } from "@/app/providers";
@@ -20,7 +20,7 @@ const Shelf: FunctionComponent = (): JSX.Element => {
         <Image
           layout="fill"
           objectFit="cover"
-          src={`${INFURA_GATEWAY}/ipfs/${currentBook?.image}`}
+          src={`${INFURA_GATEWAY_INTERNAL}${currentBook?.image}`}
           draggable={false}
           key={currentBook?.image}
         />
@@ -39,7 +39,7 @@ const Shelf: FunctionComponent = (): JSX.Element => {
             className={`relative w-7 h-5 flex items-center justify-center cursor-sewingHS hover:scale-95`}
           >
             <Image
-              src={`${INFURA_GATEWAY}/ipfs/QmbDMPggX1dz6VC4c8hNNT4td62ArBaCiDCG2mewNqFZN2`}
+              src={`${INFURA_GATEWAY_INTERNAL}QmbDMPggX1dz6VC4c8hNNT4td62ArBaCiDCG2mewNqFZN2`}
               layout="fill"
               priority
               draggable={false}
@@ -74,7 +74,7 @@ const Shelf: FunctionComponent = (): JSX.Element => {
                   id="circle"
                 >
                   <Image
-                    src={`${INFURA_GATEWAY}/ipfs/QmWjDJUU55GTA1oLzKLWKwJW8REbZ7m39kr2Pc38HgiZ5t`}
+                    src={`${INFURA_GATEWAY_INTERNAL}QmWjDJUU55GTA1oLzKLWKwJW8REbZ7m39kr2Pc38HgiZ5t`}
                     layout="fill"
                     className="opacity-50"
                     priority
@@ -109,7 +109,7 @@ const Shelf: FunctionComponent = (): JSX.Element => {
           className={`relative md:rotate-0 rotate-90 w-6 h-40 items-center justify-center flex`}
         >
           <Image
-            src={`${INFURA_GATEWAY}/ipfs/QmdqGRG1tr9mPSCWNUGPiHq1pGpLkhgyFg8o6SN9LKrd8o`}
+            src={`${INFURA_GATEWAY_INTERNAL}QmdqGRG1tr9mPSCWNUGPiHq1pGpLkhgyFg8o6SN9LKrd8o`}
             layout="fill"
             priority
             objectFit="contain"
@@ -127,7 +127,7 @@ const Shelf: FunctionComponent = (): JSX.Element => {
           onClick={() => handleLastBook()}
         >
           <Image
-            src={`${INFURA_GATEWAY}/ipfs/QmP2nsKxT7rvPxdkhCfsTPWuDvLGCDmb2KMhUJ2pYqftPQ`}
+            src={`${INFURA_GATEWAY_INTERNAL}QmP2nsKxT7rvPxdkhCfsTPWuDvLGCDmb2KMhUJ2pYqftPQ`}
             layout="fill"
             objectFit="contain"
             draggable={false}

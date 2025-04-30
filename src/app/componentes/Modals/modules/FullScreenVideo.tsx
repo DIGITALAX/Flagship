@@ -1,4 +1,4 @@
-import { INFURA_GATEWAY } from "@/app/lib/constants";
+import { INFURA_GATEWAY, INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
 import { ModalContext } from "@/app/providers";
 import { Post, VideoMetadata } from "@lens-protocol/client";
 import Image from "next/legacy/image";
@@ -93,7 +93,7 @@ const DraggableVideo: FunctionComponent<{
           }
         >
           <Image
-            src={`${INFURA_GATEWAY}/ipfs/Qmf6evtDntW5NPNp5vcGRpyG2LgK6qg5ndJ3kw7cNy4BuK`}
+            src={`${INFURA_GATEWAY_INTERNAL}Qmf6evtDntW5NPNp5vcGRpyG2LgK6qg5ndJ3kw7cNy4BuK`}
             width={25}
             height={25}
             draggable={false}
@@ -116,7 +116,7 @@ const DraggableVideo: FunctionComponent<{
           }
         >
           <Image
-            src={`${INFURA_GATEWAY}/ipfs/QmRtXzfqbJXXZ6fReUihpauh9nz6pmjUv5CKGm3oXquzh4`}
+            src={`${INFURA_GATEWAY_INTERNAL}QmRtXzfqbJXXZ6fReUihpauh9nz6pmjUv5CKGm3oXquzh4`}
             // layout="fill"
             width={25}
             height={25}
@@ -269,7 +269,7 @@ const DraggableVideo: FunctionComponent<{
                 <AiOutlineLoading size={15} color="white" />
               ) : (
                 <Image
-                  src={`${INFURA_GATEWAY}/ipfs/${
+                  src={`${INFURA_GATEWAY_INTERNAL}${
                     context?.fullScreenVideo?.isPlaying
                       ? "Qmbg8t4xoNywhtCexD5Ln5YWvcKMXGahfwyK6UHpR3nBip"
                       : "QmXw52mJFnzYXmoK8eExoHKv7YW9RBVEwSFtfvxXgy7sfp"
@@ -307,7 +307,7 @@ const DraggableVideo: FunctionComponent<{
               }
             >
               <Image
-                src={`${INFURA_GATEWAY}/ipfs/${
+                src={`${INFURA_GATEWAY_INTERNAL}${
                   context?.fullScreenVideo?.volume === 0
                     ? "QmVVzvq68RwGZFi46yKEthuG6PXQf74BaMW4yCrZCkgtzK"
                     : "Qme1i88Yd1x4SJfgrSCFyXp7GELCZRnnPQeFUt6jbfPbqL"
@@ -323,7 +323,7 @@ const DraggableVideo: FunctionComponent<{
               onClick={() => !videoLoading?.next && handleNextVideo(false)}
             >
               <Image
-                src={`${INFURA_GATEWAY}/ipfs/QmcYHKZJWJjgibox8iLqNozENnkgD4CZQqYsmmVJpoYUyo`}
+                src={`${INFURA_GATEWAY_INTERNAL}QmcYHKZJWJjgibox8iLqNozENnkgD4CZQqYsmmVJpoYUyo`}
                 layout="fill"
                 alt="back"
                 draggable={false}
@@ -339,7 +339,7 @@ const DraggableVideo: FunctionComponent<{
                 <AiOutlineLoading size={15} color="white" />
               ) : (
                 <Image
-                  src={`${INFURA_GATEWAY}/ipfs/QmcYHKZJWJjgibox8iLqNozENnkgD4CZQqYsmmVJpoYUyo`}
+                  src={`${INFURA_GATEWAY_INTERNAL}QmcYHKZJWJjgibox8iLqNozENnkgD4CZQqYsmmVJpoYUyo`}
                   layout="fill"
                   alt="next"
                   draggable={false}

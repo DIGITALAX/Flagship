@@ -1,7 +1,7 @@
 import { FunctionComponent, JSX } from "react";
 import Image from "next/legacy/image";
 import Marquee from "react-fast-marquee";
-import { INFURA_GATEWAY, SLIDER_IMAGES } from "../../../lib/constants";
+import { INFURA_GATEWAY_INTERNAL, SLIDER_IMAGES } from "../../../lib/constants";
 
 const Slider: FunctionComponent = (): JSX.Element => {
   return (
@@ -23,7 +23,7 @@ const Slider: FunctionComponent = (): JSX.Element => {
                 className={`h-60 w-60 relative flex items-center justify-center`}
               >
                 <Image
-                  src={`${INFURA_GATEWAY}/ipfs/${image}`}
+                  src={`${INFURA_GATEWAY_INTERNAL}${image}`}
                   objectFit="cover"
                   layout="fill"
                   priority

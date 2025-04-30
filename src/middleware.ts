@@ -18,8 +18,15 @@ function getLocale(request: NextRequest) {
   return match(languages, locales, defaultLocale);
 }
 
+function isBot(userAgent: string) {
+  return /googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou/i.test(
+    userAgent
+  );
+}
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
+  const userAgent = request.headers.get("user-agent") || "";
 
   if (
     pathname.startsWith("/_next") ||
@@ -36,10 +43,19 @@ export function middleware(request: NextRequest) {
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   );
 
+  if (pathnameHasLocale) {
+    return NextResponse.next();
+  }
 
-  if (pathnameHasLocale) return NextResponse.next();
+  if (isBot(userAgent)) {
+    return NextResponse.next();
+  }
 
   const locale = getLocale(request);
+
+  if (locale === defaultLocale) {
+    return NextResponse.next();
+  }
 
   const response = NextResponse.redirect(
     new URL(`/${locale}${pathname}`, request.url)

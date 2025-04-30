@@ -2,7 +2,7 @@ import {
   idiomaAImagen,
   Idiomas,
   indiceAIdioma,
-  INFURA_GATEWAY,
+  INFURA_GATEWAY_INTERNAL
 } from "@/app/lib/constants";
 import { ModalContext } from "@/app/providers";
 import Image from "next/legacy/image";
@@ -81,7 +81,7 @@ const Bar: FunctionComponent<BarProps> = ({
             <div className="relative w-8 h-10 flex items-center justify-center">
               <Image
                 layout="fill"
-                src={`${INFURA_GATEWAY}/ipfs/${
+                src={`${INFURA_GATEWAY_INTERNAL}${
                   idiomaAImagen[indiceAIdioma[chosenLanguage] as Idiomas]
                 }`}
                 draggable={false}
@@ -125,7 +125,7 @@ const Bar: FunctionComponent<BarProps> = ({
             }}
           >
             <Image
-              src={`${INFURA_GATEWAY}/ipfs/QmYVHgyAQLxcoP5o23n3jXNnA9N9C93WqpM2heAegty7hU`}
+              src={`${INFURA_GATEWAY_INTERNAL}QmYVHgyAQLxcoP5o23n3jXNnA9N9C93WqpM2heAegty7hU`}
               height={20}
               width={60}
               priority

@@ -5,7 +5,7 @@ import MediaSwitch from "./MediaSwitch";
 import { ChromadinProps } from "../types/distro.types";
 import { Post } from "@lens-protocol/client";
 import { ModalContext } from "@/app/providers";
-import { INFURA_GATEWAY } from "@/app/lib/constants";
+import { INFURA_GATEWAY, INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
 
 const Chromadin: FunctionComponent<ChromadinProps> = ({
   publication,
@@ -105,7 +105,7 @@ const Chromadin: FunctionComponent<ChromadinProps> = ({
             <div className="relative w-10 h-10 flex">
               <Image
                 layout="fill"
-                src={`${INFURA_GATEWAY}/ipfs/QmZ4v5pzdnCBeyKnS9VrjZiEAbUpAVy8ECArNcpxBt6Tw4`}
+                src={`${INFURA_GATEWAY_INTERNAL}QmZ4v5pzdnCBeyKnS9VrjZiEAbUpAVy8ECArNcpxBt6Tw4`}
                 draggable={false}
               />
             </div>

@@ -1,8 +1,6 @@
-import { INFURA_GATEWAY, VIDEOS } from "@/app/lib/constants";
-import { ModalContext } from "@/app/providers";
+import { INFURA_GATEWAY, INFURA_GATEWAY_INTERNAL, VIDEOS } from "@/app/lib/constants";
 import Image from "next/legacy/image";
-import { FunctionComponent, JSX, useContext } from "react";
-import Marquee from "react-fast-marquee";
+import { FunctionComponent, JSX } from "react";
 import { VideoProps } from "../types/common.types";
 
 const Video: FunctionComponent<VideoProps> = ({
@@ -10,8 +8,6 @@ const Video: FunctionComponent<VideoProps> = ({
   setVideoLoading,
   videoLoading,
 }): JSX.Element => {
-  const context = useContext(ModalContext);
-
   return (
     <>
       <video
@@ -37,7 +33,7 @@ const Video: FunctionComponent<VideoProps> = ({
           <div className="relative w-52 h-8 flex items-center justify-center animate-pulse">
             <Image
               layout="fill"
-              src={`${INFURA_GATEWAY}/ipfs/QmX8kDkP3rdgqeEauqzsbwL8zP4hGwtTKxrT3Xmw7R2feL`}
+              src={`${INFURA_GATEWAY_INTERNAL}QmX8kDkP3rdgqeEauqzsbwL8zP4hGwtTKxrT3Xmw7R2feL`}
               draggable={false}
               priority
             />

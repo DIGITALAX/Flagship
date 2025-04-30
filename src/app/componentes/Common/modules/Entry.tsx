@@ -7,7 +7,7 @@ import Display from "../../Gallery/modules/Display";
 import Library from "../../Library/modules/Library";
 import Slider from "./Slider";
 import Image from "next/legacy/image";
-import { INFURA_GATEWAY } from "@/app/lib/constants";
+import { INFURA_GATEWAY, INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
 import useEntry from "../hooks/useEntry";
 import { ModalContext } from "@/app/providers";
 
@@ -23,7 +23,7 @@ const Entry: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
             onClick={() => context?.setTimeline(!context?.timeline)}
           >
             <Image
-              src={`${INFURA_GATEWAY}/ipfs/QmWSm9JrQN4h9DG6wA9qLLFUbw2LtznNaW4GRBMJhDfZTH`}
+              src={`${INFURA_GATEWAY_INTERNAL}QmWSm9JrQN4h9DG6wA9qLLFUbw2LtznNaW4GRBMJhDfZTH`}
               draggable={false}
               layout="fill"
               objectFit="contain"
@@ -36,7 +36,7 @@ const Entry: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
             onClick={() => window.open("http://bridge.digitalax.xyz/")}
           >
             <Image
-              src={`${INFURA_GATEWAY}/ipfs/QmVceMKvPLRnyWHdHJnDiL13YuzdmqW5jwLhsXC3RWUGfa`}
+              src={`${INFURA_GATEWAY_INTERNAL}QmVceMKvPLRnyWHdHJnDiL13YuzdmqW5jwLhsXC3RWUGfa`}
               draggable={false}
               layout="fill"
               objectFit="cover"
@@ -66,7 +66,7 @@ const Entry: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
             <Image
               layout="fill"
               objectFit="cover"
-              src={`${INFURA_GATEWAY}/ipfs/QmXnDtWEvHA2PNZeQWxVd1KotF5JGvfBp4hbcvgTuE3pdk`}
+              src={`${INFURA_GATEWAY_INTERNAL}QmXnDtWEvHA2PNZeQWxVd1KotF5JGvfBp4hbcvgTuE3pdk`}
               draggable={false}
             />
           </div>

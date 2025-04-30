@@ -1,7 +1,7 @@
 import Image from "next/legacy/image";
 import { FunctionComponent, JSX } from "react";
 import { FeatureProps } from "../types/gallery.types";
-import { INFURA_GATEWAY } from "@/app/lib/constants";
+import { INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
 
 const Feature: FunctionComponent<FeatureProps> = ({
   title,
@@ -19,7 +19,7 @@ const Feature: FunctionComponent<FeatureProps> = ({
       <Image
         draggable={false}
         layout="fill"
-        src={`${INFURA_GATEWAY}/ipfs/${image}`}
+        src={`${INFURA_GATEWAY_INTERNAL}${image}`}
         objectFit="cover"
         priority
       />

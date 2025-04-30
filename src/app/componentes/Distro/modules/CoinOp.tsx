@@ -5,7 +5,7 @@ import PrintType from "./PrintType";
 import { CoinOpProps, PrintType as PrintTagType } from "../types/distro.types";
 import { ModalContext } from "@/app/providers";
 import { Post } from "@lens-protocol/client";
-import { INFURA_GATEWAY, printTypeToString } from "@/app/lib/constants";
+import { INFURA_GATEWAY_INTERNAL, printTypeToString } from "@/app/lib/constants";
 
 const CoinOp: FunctionComponent<CoinOpProps> = ({
   publication,
@@ -37,7 +37,7 @@ const CoinOp: FunctionComponent<CoinOpProps> = ({
         {publication?.collectionMetadata?.images?.[0] && (
           <Image
             layout="fill"
-            src={`${INFURA_GATEWAY}/ipfs/${
+            src={`${INFURA_GATEWAY_INTERNAL}${
               publication?.collectionMetadata?.images?.[0]?.split(
                 "ipfs://"
               )?.[1]
@@ -72,14 +72,14 @@ const CoinOp: FunctionComponent<CoinOpProps> = ({
                   <div className="relative w-5 h-5 flex items-center justify-center">
                     <Image
                       layout="fill"
-                      src={`${INFURA_GATEWAY}/ipfs/QmcK1EJdp5HFuqPUds3WjgoSPmoomiWfiroRFa3bQUh5Xj`}
+                      src={`${INFURA_GATEWAY_INTERNAL}QmcK1EJdp5HFuqPUds3WjgoSPmoomiWfiroRFa3bQUh5Xj`}
                       draggable={false}
                     />
                   </div>
                   <div className="relative w-5 h-5 flex items-center justify-center">
                     <Image
                       layout="fill"
-                      src={`${INFURA_GATEWAY}/ipfs/QmYzbyMb3okS1RKhxogJZWT56kCFjVcXZWk1aJiA8Ch2xi`}
+                      src={`${INFURA_GATEWAY_INTERNAL}QmYzbyMb3okS1RKhxogJZWT56kCFjVcXZWk1aJiA8Ch2xi`}
                       draggable={false}
                     />
                   </div>
@@ -101,7 +101,7 @@ const CoinOp: FunctionComponent<CoinOpProps> = ({
                 <Image
                   layout="fill"
                   draggable={false}
-                  src={`${INFURA_GATEWAY}/ipfs/${
+                  src={`${INFURA_GATEWAY_INTERNAL}${
                     filterConstants?.styles?.filter(
                       (item) =>
                         item?.[0]?.toLowerCase() ==
@@ -143,7 +143,7 @@ const CoinOp: FunctionComponent<CoinOpProps> = ({
             >
               <Image
                 layout="fill"
-                src={`${INFURA_GATEWAY}/ipfs/QmZ4v5pzdnCBeyKnS9VrjZiEAbUpAVy8ECArNcpxBt6Tw4`}
+                src={`${INFURA_GATEWAY_INTERNAL}QmZ4v5pzdnCBeyKnS9VrjZiEAbUpAVy8ECArNcpxBt6Tw4`}
                 draggable={false}
               />
             </div>
@@ -159,7 +159,7 @@ const CoinOp: FunctionComponent<CoinOpProps> = ({
           <div className="relative ml-auto flex items-center justify-center w-20 h-20 rounded-sm border border-white bg-amo/30">
             <Image
               layout="fill"
-              src={`${INFURA_GATEWAY}/ipfs/${
+              src={`${INFURA_GATEWAY_INTERNAL}${
                 publication?.collectionMetadata?.images?.[1]?.split(
                   "ipfs://"
                 )?.[1]

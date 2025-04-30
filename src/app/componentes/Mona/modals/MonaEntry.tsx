@@ -1,6 +1,6 @@
 "use client";
 
-import { INFURA_GATEWAY } from "@/app/lib/constants";
+import { INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
 import { ModalContext } from "@/app/providers";
 import Image from "next/legacy/image";
 import { useContext } from "react";
@@ -44,7 +44,7 @@ export default function MonaEntry({ dict }: { dict: any }) {
             <Image
               layout="fill"
               draggable={false}
-              src={`${INFURA_GATEWAY}/ipfs/Qmc6s8sgzJ89T6SmBV3UXd8KxHN2K66Ch2sGzdvuCUnb3j`}
+              src={`${INFURA_GATEWAY_INTERNAL}Qmc6s8sgzJ89T6SmBV3UXd8KxHN2K66Ch2sGzdvuCUnb3j`}
             />
           </div>
           {tipo !== 0 && (
@@ -60,7 +60,7 @@ export default function MonaEntry({ dict }: { dict: any }) {
                 <Image
                   layout="fill"
                   draggable={false}
-                  src={`${INFURA_GATEWAY}/ipfs/QmeVHRRfnxScAnnxie67nT9dpmD6wcHVLtcBG7R9ZzXjNQ`}
+                  src={`${INFURA_GATEWAY_INTERNAL}QmeVHRRfnxScAnnxie67nT9dpmD6wcHVLtcBG7R9ZzXjNQ`}
                 />
               </div>
               <div
@@ -78,7 +78,7 @@ export default function MonaEntry({ dict }: { dict: any }) {
                 <Image
                   layout="fill"
                   draggable={false}
-                  src={`${INFURA_GATEWAY}/ipfs/QmbBsJ3ng2pjTrkJ19gxqHiLqy73FrSSwMNfrgq1u8kiZa`}
+                  src={`${INFURA_GATEWAY_INTERNAL}QmbBsJ3ng2pjTrkJ19gxqHiLqy73FrSSwMNfrgq1u8kiZa`}
                 />
               </div>
             </div>
@@ -91,7 +91,7 @@ export default function MonaEntry({ dict }: { dict: any }) {
                   draggable={false}
                   objectFit="cover"
                   className="rounded-lg"
-                  src={`${INFURA_GATEWAY}/ipfs/QmUpXfxfa8RWo1REe5ux3jJs5UWyebknCcVHFiMXKjFhBU`}
+                  src={`${INFURA_GATEWAY_INTERNAL}QmUpXfxfa8RWo1REe5ux3jJs5UWyebknCcVHFiMXKjFhBU`}
                 />
               </div>
               <div
@@ -130,7 +130,7 @@ export default function MonaEntry({ dict }: { dict: any }) {
                 layout="fill"
                 draggable={false}
                 objectFit="contain"
-                src={`${INFURA_GATEWAY}/ipfs/${
+                src={`${INFURA_GATEWAY_INTERNAL}${
                   [
                     "QmVdS3wEJrHg92ohiW4NtSMFtHYWQ2PEAWzcPnda8x9vNs",
                     "QmUwnZzChWa25DCWf4pKK3H4iF4ppjx3TgVpfdCjN9kmGU",
@@ -147,7 +147,7 @@ export default function MonaEntry({ dict }: { dict: any }) {
                 <Image
                   layout="fill"
                   draggable={false}
-                  src={`${INFURA_GATEWAY}/ipfs/QmXx822b1snWb1yhoUvzqrLD5ELSNmm1AzbpdjiKng6Ppb`}
+                  src={`${INFURA_GATEWAY_INTERNAL}QmXx822b1snWb1yhoUvzqrLD5ELSNmm1AzbpdjiKng6Ppb`}
                 />
               </div>
             </div>

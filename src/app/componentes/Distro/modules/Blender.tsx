@@ -1,6 +1,6 @@
 import Image from "next/legacy/image";
 import { FunctionComponent, JSX } from "react";
-import { BLENDER_IMAGES, INFURA_GATEWAY } from "../../../lib/constants";
+import { BLENDER_IMAGES, INFURA_GATEWAY_INTERNAL } from "../../../lib/constants";
 import { BlenderProps } from "../types/distro.types";
 
 const Blender: FunctionComponent<BlenderProps> = ({
@@ -26,7 +26,7 @@ const Blender: FunctionComponent<BlenderProps> = ({
                 <Image
                   height={20}
                   width={20}
-                  src={`${INFURA_GATEWAY}/ipfs/QmW5crWDqbtPECQDief39xyMKZCCTBRV3YbTwpLmepC1aR`}
+                  src={`${INFURA_GATEWAY_INTERNAL}QmW5crWDqbtPECQDief39xyMKZCCTBRV3YbTwpLmepC1aR`}
                   priority
                   draggable={false}
                 />
@@ -58,7 +58,7 @@ const Blender: FunctionComponent<BlenderProps> = ({
                     >
                       <Image
                         layout="fill"
-                        src={`${INFURA_GATEWAY}/ipfs/QmPKWsvnkYgpuyNuPw7DtBKKBkbJtuG7YLi7U56BqSazwy`}
+                        src={`${INFURA_GATEWAY_INTERNAL}QmPKWsvnkYgpuyNuPw7DtBKKBkbJtuG7YLi7U56BqSazwy`}
                         priority
                         draggable={false}
                       />
@@ -88,7 +88,7 @@ const Blender: FunctionComponent<BlenderProps> = ({
                     className={`rounded-lg w-full midi:w-60 h-24 sm:h-40 midi:h-60 border-2 border-offBlack relative flex bg-offBlack`}
                   >
                     <Image
-                      src={`${INFURA_GATEWAY}/ipfs/${image}`}
+                      src={`${INFURA_GATEWAY_INTERNAL}${image}`}
                       layout="fill"
                       priority
                       className="rounded-lg"
@@ -135,7 +135,7 @@ const Blender: FunctionComponent<BlenderProps> = ({
             <div className="relative flex items-center justify-center w-full h-full px-3 midi:px-8 pt-8 pb-1">
               <div className={`relative bg-offBlack w-full h-[30rem]`}>
                 <Image
-                  src={`${INFURA_GATEWAY}/ipfs/Qmb1qasXpS7hthiXxNnmctgYqAP4kzxFWYMt7RQBtAmgMc`}
+                  src={`${INFURA_GATEWAY_INTERNAL}Qmb1qasXpS7hthiXxNnmctgYqAP4kzxFWYMt7RQBtAmgMc`}
                   layout="fill"
                   priority
                   draggable={false}

@@ -2,7 +2,7 @@ import Image from "next/legacy/image";
 import { FunctionComponent, JSX } from "react";
 import numeral from "numeral";
 import { InteractBarProps } from "../types/distro.types";
-import { INFURA_GATEWAY } from "@/app/lib/constants";
+import { INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
 
 const InteractBar: FunctionComponent<InteractBarProps> = ({
   col,
@@ -52,7 +52,7 @@ const InteractBar: FunctionComponent<InteractBarProps> = ({
                 >
                   <Image
                     layout="fill"
-                    src={`${INFURA_GATEWAY}/ipfs/${item.image}`}
+                    src={`${INFURA_GATEWAY_INTERNAL}${item.image}`}
                     draggable={false}
                   />
                 </div>

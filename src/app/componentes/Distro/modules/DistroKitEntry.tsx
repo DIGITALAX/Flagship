@@ -6,7 +6,7 @@ import Marquee from "react-fast-marquee";
 import { useContext } from "react";
 import { ModalContext } from "@/app/providers";
 import Heart from "../../Common/modules/Heart";
-import { INFURA_GATEWAY, TEMPLATES, TV_IMAGES } from "@/app/lib/constants";
+import { INFURA_GATEWAY, INFURA_GATEWAY_INTERNAL, TEMPLATES, TV_IMAGES } from "@/app/lib/constants";
 import { usePathname, useRouter } from "next/navigation";
 import useDistro from "../hooks/useDistro";
 import useCypherSearch from "../hooks/useCypherSearch";
@@ -46,7 +46,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
           <div className="relative w-full sm:w-4/5 flex items-center justify-center h-48 sm:h-4/5">
             <Image
               draggable={false}
-              src={`${INFURA_GATEWAY}/ipfs/QmReLFeUVH6yjTbmyF3buLYgHamYHqJBKF8zKmy5GjsEL2`}
+              src={`${INFURA_GATEWAY_INTERNAL}QmReLFeUVH6yjTbmyF3buLYgHamYHqJBKF8zKmy5GjsEL2`}
               layout="fill"
               priority
             />
@@ -121,7 +121,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
               layout="fill"
               objectFit="cover"
               draggable={false}
-              src={`${INFURA_GATEWAY}/ipfs/QmVW9yFu54JqPX8otXvdSEdhud2S44axyztXbifAQSqcgW`}
+              src={`${INFURA_GATEWAY_INTERNAL}QmVW9yFu54JqPX8otXvdSEdhud2S44axyztXbifAQSqcgW`}
             />
           </div>
         </div>
@@ -138,7 +138,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
               <Image
                 layout="fill"
                 objectFit="cover"
-                src={`${INFURA_GATEWAY}/ipfs/QmSD1oBGb7wXrT4BJVxShL1DEWDAyXx4hwjLZg76Hq82vL`}
+                src={`${INFURA_GATEWAY_INTERNAL}QmSD1oBGb7wXrT4BJVxShL1DEWDAyXx4hwjLZg76Hq82vL`}
                 draggable={false}
               />
               <div className="relative flex w-full h-fit midi:h-full">
@@ -194,7 +194,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
                 objectFit="cover"
                 layout="fill"
                 objectPosition={"top"}
-                src={`${INFURA_GATEWAY}/ipfs/Qme8xXmkD3ktvzK2NeopaDQEHu5ALrsgZfHy9TchwULdgP`}
+                src={`${INFURA_GATEWAY_INTERNAL}Qme8xXmkD3ktvzK2NeopaDQEHu5ALrsgZfHy9TchwULdgP`}
                 draggable={false}
               />
             </div>
@@ -212,7 +212,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
               <div className="relative w-6 h-8 hover:rotate-12 cursor-sewingHS flex items-center justify-center">
                 <Image
                   layout="fill"
-                  src={`${INFURA_GATEWAY}/ipfs/QmZ8bkkHce5sv1PjmhpYNPZDTyAQ5cskjFPvYg1KQ1YWKQ`}
+                  src={`${INFURA_GATEWAY_INTERNAL}QmZ8bkkHce5sv1PjmhpYNPZDTyAQ5cskjFPvYg1KQ1YWKQ`}
                   className="justify-center"
                   draggable={false}
                 />
@@ -292,7 +292,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
                       <Image
                         layout="fill"
                         objectFit="contain"
-                        src={`${INFURA_GATEWAY}/ipfs/${image[0]}`}
+                        src={`${INFURA_GATEWAY_INTERNAL}${image[0]}`}
                         draggable={false}
                       />
                     </div>
@@ -317,7 +317,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
             className="absolute h-full w-full object-cover rounded-3xl flex border-4 md:border-8 border-mainText bg-mainText items-center"
           >
             <source
-              src={`${INFURA_GATEWAY}/ipfs/QmQ4M9Xou5oemWyMKVTU9HrkVdMqNNy2r5tTxxomqnnpL7`}
+              src={`${INFURA_GATEWAY_INTERNAL}QmQ4M9Xou5oemWyMKVTU9HrkVdMqNNy2r5tTxxomqnnpL7`}
               type="video/mp4"
             ></source>
           </video>
@@ -337,7 +337,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
                   }
                 >
                   <Image
-                    src={`${INFURA_GATEWAY}/ipfs/${image}`}
+                    src={`${INFURA_GATEWAY_INTERNAL}${image}`}
                     layout="fill"
                     priority
                     draggable={false}
@@ -354,7 +354,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
               className={`absolute flex items-center justify-center bottom-4 right-4 hover:rotate-180 cursor-sewingHS active:mix-blend-color-dodge z-10 w-10 h-10 2xl:w-14 2xl:h-14`}
             >
               <Image
-                src={`${INFURA_GATEWAY}/ipfs/QmYdpBCKCGp2rMgWaDePE8UeuCUPywuWTJ9qEE9XwrJmBU`}
+                src={`${INFURA_GATEWAY_INTERNAL}QmYdpBCKCGp2rMgWaDePE8UeuCUPywuWTJ9qEE9XwrJmBU`}
                 layout="fill"
                 priority
                 draggable={false}
@@ -370,7 +370,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
             draggable={false}
             className="cursor-sewingHS hover:opacity-70"
             onClick={() => router.push("/prints")}
-            src={`${INFURA_GATEWAY}/ipfs/QmTLtTsCa2tDGf6FiN4jRtmT6fNffjtaG1htPEFWQMgRi7`}
+            src={`${INFURA_GATEWAY_INTERNAL}QmTLtTsCa2tDGf6FiN4jRtmT6fNffjtaG1htPEFWQMgRi7`}
             objectFit="contain"
             priority
           />
@@ -392,7 +392,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
                   <Image
                     layout="fill"
                     className={`rounded-full`}
-                    src={`${INFURA_GATEWAY}/ipfs/${image}`}
+                    src={`${INFURA_GATEWAY_INTERNAL}${image}`}
                     priority
                     draggable={false}
                   />
@@ -407,7 +407,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
               layout="fill"
               objectFit="cover"
               className={`rounded-full`}
-              src={`${INFURA_GATEWAY}/ipfs/QmV6abRqyRq1hs82LV226fgjUHn8pa9roiA4K8PYwHfw9f`}
+              src={`${INFURA_GATEWAY_INTERNAL}QmV6abRqyRq1hs82LV226fgjUHn8pa9roiA4K8PYwHfw9f`}
               priority
               draggable={false}
             />
@@ -428,7 +428,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
             className={`relative flex border-4 md:border-8 w-full h-[57vw] pb-2 rounded-xl border-mainText bg-mainText`}
           >
             <Image
-              src={`${INFURA_GATEWAY}/ipfs/Qme1kXGZZWYQQVWRXYarxdHn97PwKorxyyXm8g237Fav8u`}
+              src={`${INFURA_GATEWAY_INTERNAL}Qme1kXGZZWYQQVWRXYarxdHn97PwKorxyyXm8g237Fav8u`}
               layout="fill"
               className="w-full rounded-xl"
               priority
@@ -442,7 +442,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
                 className="relative max-w-none border-gray-900 border-4 md:border-8 w-[14vw] h-[18vw] object-cover flex  bg-offBlack"
               >
                 <source
-                  src={`${INFURA_GATEWAY}/ipfs/Qmf8TfPYHbUUbaeVmpGwRQRYXENfNz3JEVwa76nRAt6BjR`}
+                  src={`${INFURA_GATEWAY_INTERNAL}Qmf8TfPYHbUUbaeVmpGwRQRYXENfNz3JEVwa76nRAt6BjR`}
                   type="video/mp4"
                 ></source>
               </video>
@@ -460,7 +460,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
               <Image
                 height={15}
                 width={60}
-                src={`${INFURA_GATEWAY}/ipfs/QmUcmM6bagB18xKFhSgqpBPxvMuuD7VkTW89on5guyLYsE`}
+                src={`${INFURA_GATEWAY_INTERNAL}QmUcmM6bagB18xKFhSgqpBPxvMuuD7VkTW89on5guyLYsE`}
                 priority
                 draggable={false}
               />
@@ -494,7 +494,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
             >
               <Image
                 layout="fill"
-                src={`${INFURA_GATEWAY}/ipfs/QmNMLRCxVeubxtYNzaTaVciTKcBYtSp1c1UaN2yFDhduiD`}
+                src={`${INFURA_GATEWAY_INTERNAL}QmNMLRCxVeubxtYNzaTaVciTKcBYtSp1c1UaN2yFDhduiD`}
                 priority
                 draggable={false}
               />
@@ -507,7 +507,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
             >
               <Image
                 layout="fill"
-                src={`${INFURA_GATEWAY}/ipfs/QmWoJ4fvb9uojxiPKadtY83r8jTAuSiPKEZZrcb5jqDFRq`}
+                src={`${INFURA_GATEWAY_INTERNAL}QmWoJ4fvb9uojxiPKadtY83r8jTAuSiPKEZZrcb5jqDFRq`}
                 priority
                 draggable={false}
               />
@@ -542,7 +542,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
                   className="relative w-60 h-60 flex items-center justify-center rounded-md mr-3"
                 >
                   <Image
-                    src={`${INFURA_GATEWAY}/ipfs/${image}`}
+                    src={`${INFURA_GATEWAY_INTERNAL}${image}`}
                     objectFit={"contain"}
                     layout={"fill"}
                     objectPosition="top"

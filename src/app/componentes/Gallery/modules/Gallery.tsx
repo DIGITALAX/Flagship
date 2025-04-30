@@ -1,6 +1,6 @@
 import Image from "next/legacy/image";
 import { FunctionComponent, JSX, useContext } from "react";
-import { INFURA_GATEWAY, numberToItemTypeMap } from "../../../lib/constants";
+import { INFURA_GATEWAY, INFURA_GATEWAY_INTERNAL, numberToItemTypeMap } from "../../../lib/constants";
 import { Creation, GalleryProps } from "../types/gallery.types";
 import { ModalContext } from "@/app/providers";
 
@@ -80,7 +80,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                       }
                     >
                       <Image
-                        src={`${INFURA_GATEWAY}/ipfs/${
+                        src={`${INFURA_GATEWAY_INTERNAL}${
                           token.collectionMetadata?.images?.[0]?.split(
                             "ipfs://"
                           )?.[1]

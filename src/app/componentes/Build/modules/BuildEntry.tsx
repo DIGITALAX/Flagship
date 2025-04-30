@@ -9,7 +9,7 @@ import useLog from "../hooks/useLog";
 import Heart from "../../Common/modules/Heart";
 import {
   IMAGE_LOGS,
-  INFURA_GATEWAY,
+  INFURA_GATEWAY_INTERNAL,
   LOG,
   QUESTIONS,
 } from "@/app/lib/constants";
@@ -84,7 +84,7 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
               className="rounded-sm"
               layout="fill"
               objectFit={currentImage > 1 ? "cover" : "contain"}
-              src={`${INFURA_GATEWAY}/ipfs/${IMAGE_LOGS[currentImage].image}`}
+              src={`${INFURA_GATEWAY_INTERNAL}${IMAGE_LOGS[currentImage].image}`}
             />
             {currentImage > 1 && (
               <div

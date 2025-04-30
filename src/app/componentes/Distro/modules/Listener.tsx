@@ -6,7 +6,7 @@ import {
   ListenerProps,
   PrintType as PrintTagType,
 } from "./../types/distro.types";
-import { INFURA_GATEWAY, printTypeToString } from "@/app/lib/constants";
+import { INFURA_GATEWAY, INFURA_GATEWAY_INTERNAL, printTypeToString } from "@/app/lib/constants";
 import { Post } from "@lens-protocol/client";
 import { ModalContext } from "@/app/providers";
 
@@ -41,7 +41,7 @@ const Listener: FunctionComponent<ListenerProps> = ({
           {publication?.collectionMetadata?.images && (
             <Image
               layout="fill"
-              src={`${INFURA_GATEWAY}/ipfs/${
+              src={`${INFURA_GATEWAY_INTERNAL}${
                 publication?.collectionMetadata?.images?.[0]?.split(
                   "ipfs://"
                 )?.[1]
@@ -90,7 +90,7 @@ const Listener: FunctionComponent<ListenerProps> = ({
               >
                 <Image
                   layout="fill"
-                  src={`${INFURA_GATEWAY}/ipfs/QmZ4v5pzdnCBeyKnS9VrjZiEAbUpAVy8ECArNcpxBt6Tw4`}
+                  src={`${INFURA_GATEWAY_INTERNAL}QmZ4v5pzdnCBeyKnS9VrjZiEAbUpAVy8ECArNcpxBt6Tw4`}
                   draggable={false}
                 />
               </div>
@@ -106,7 +106,7 @@ const Listener: FunctionComponent<ListenerProps> = ({
             <div className="relative ml-auto flex items-center justify-center w-20 h-20 rounded-sm border border-white bg-amo/30">
               <Image
                 layout="fill"
-                src={`${INFURA_GATEWAY}/ipfs/${
+                src={`${INFURA_GATEWAY_INTERNAL}${
                   publication?.collectionMetadata?.images?.[1]?.split(
                     "ipfs://"
                   )?.[1]
