@@ -14,7 +14,7 @@ const useHeader = (address: `0x${string}` | undefined, dict: any) => {
   const [message, setMessage] = useState<string>(dict?.common?.encrypt);
   const [client, setClient] = useState<Client | undefined>();
   const [chosenLanguage, setChosenLanguage] = useState<number>(
-    idiomaAIndice[path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as Idiomas]
+    idiomaAIndice[(path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] ?? "en") as Idiomas]
   );
 
   const changeVideo = (index: number) => {
