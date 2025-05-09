@@ -6,7 +6,7 @@ export default function NotFoundEntry({ dict }: { dict: any }) {
   const router = useRouter();
   return (
     <div className="relative min-h-screen min-w-screen h-screen w-screen flex items-center justify-center cursor-sewingS">
-      <div className="relative w-fit h-fit flex flex-row gap-2 items-center justify-center text-mainText font-fira p-6 text-center">
+      <h1 className="relative w-fit h-fit flex flex-row gap-2 items-center justify-center text-mainText font-fira p-6 text-center">
         {dict?.[404]?.glitch} 
         <div
           onClick={() => router.push("/")}
@@ -14,7 +14,7 @@ export default function NotFoundEntry({ dict }: { dict: any }) {
         >
           {dict?.[404]?.home}
         </div>
-      </div>
+      </h1>
     </div>
   );
 }

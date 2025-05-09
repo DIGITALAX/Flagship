@@ -285,6 +285,10 @@
     font-size: var(--font-xxs);
   }
 
+  .bg-amo {
+    background-color: var(--color-amo);
+  }
+
   .font-york {
     font-family: var(--font-york);
   }

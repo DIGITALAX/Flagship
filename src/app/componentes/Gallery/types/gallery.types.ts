@@ -4,31 +4,29 @@ import { RefObject } from "react";
 
 export interface Creation {
   amount: string;
-  pubId: string;
   uri: string;
-  profileId: string;
+  postId: string;
   printType: string;
-  prices: string[];
+  price: string;
   acceptedTokens: string[];
-  owner: string;
-  soldTokens: string;
-  fulfillerPercent: string;
-  fulfillerBase: string;
+  designer: string;
+  tokenIdsMinted: string;
   fulfiller: string;
-  designerPercent: string;
-  dropId: string;
-  dropCollectionIds: string[];
+  drop: {
+    dropId: string;
+    metadata: {
+      cover: string;
+      title: string
+    }
+    uri: string
+  }
   collectionId: string;
   unlimited: boolean;
   origin: string;
   profile: Account;
   publication: Post | undefined;
   blockTimestamp: string;
-  dropMetadata: {
-    dropTitle: string;
-    dropCover: string;
-  };
-  collectionMetadata: {
+  metadata: {
     access: string[];
     visibility: string;
     colors: string[];

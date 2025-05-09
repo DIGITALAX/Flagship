@@ -3,7 +3,7 @@ import { LOCALES } from "../lib/constants";
 
 const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://digitalax.xyz";
 
-const PATHS = ["/", "/build-log", "/distro-kit", "/mona", "/prints"];
+const PATHS = ["/", "/build-log/", "/distro-kit/", "/mona/", "/prints/"];
 
 export async function GET() {
   const urls = PATHS.map((path) => {

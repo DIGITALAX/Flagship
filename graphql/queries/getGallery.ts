@@ -1,7 +1,6 @@
 import { graphPrintClient } from "@/app/lib/client";
 import { FetchResult, gql } from "@apollo/client";
 
-
 export const getAllCollections = async (
   first: number,
   skip: number
@@ -9,14 +8,18 @@ export const getAllCollections = async (
   let timeoutId: NodeJS.Timeout | undefined;
   const queryPromise = graphPrintClient.query({
     query: gql(`
-    query($first: Int, $skip: Int, $orderBy: String) {
-      collectionCreateds(first: $first, skip: $skip, orderDirection: desc, orderBy: blockTimestamp) {
+    query($first: Int, $skip: Int) {
+      collectionCreateds(first: $first, skip: $skip, orderDirection: desc, orderBy: postId) {
         amount
-        dropMetadata {
-          dropCover
-          dropTitle
+        drop {
+          dropId
+          uri
+                  metadata {
+          cover
+          title
         }
-        collectionMetadata {
+        }
+        metadata {
           access
           visibility
           video
@@ -26,7 +29,6 @@ export const getAllCollections = async (
           style
           tags
           prompt
-          profileHandle
           sizes
           microbrand
           mediaTypes
@@ -35,24 +37,17 @@ export const getAllCollections = async (
           description
           audio
           colors
-          communities
           images
           microbrandCover
         }
-        pubId
-        profileId
+        postId
         acceptedTokens
         uri
         printType
-        prices
-        owner
-        soldTokens
-        fulfillerPercent
-        fulfillerBase
+        price
+        designer
+        tokenIdsMinted
         fulfiller
-        designerPercent
-        dropId
-        dropCollectionIds
         collectionId
         unlimited
         origin
@@ -93,14 +88,10 @@ export const getGallery = async (
   let timeoutId: NodeJS.Timeout | undefined;
   const queryPromise = graphPrintClient.query({
     query: gql(`
-    query($first: Int, $skip: Int, $orderDirection: String, $orderBy: String) {
-      collectionCreateds(first: $first, skip: $skip, orderDirection: $orderDirection, orderBy: blockTimestamp, origin: $origin, collectionMetadata_: {mediaTypes_contains_nocase: "static"}) {
-        amount
-        dropMetadata {
-          dropCover
-          dropTitle
-        }
-        collectionMetadata {
+    query($first: Int, $skip: Int, $orderDirection: String) {
+      collectionCreateds(first: $first, skip: $skip, orderDirection: $orderDirection, orderBy: postId, origin: $origin, collectionMetadata_: {mediaTypes_contains_nocase: "static"}) {
+        
+        metadata {
           access
           visibility
           video
@@ -110,7 +101,6 @@ export const getGallery = async (
           style
           tags
           prompt
-          profileHandle
           sizes
           microbrand
           mediaTypes
@@ -119,28 +109,10 @@ export const getGallery = async (
           description
           audio
           colors
-          communities
           images
           microbrandCover
         }
-        pubId
-        profileId
-        acceptedTokens
-        uri
-        printType
-        prices
-        owner
-        soldTokens
-        fulfillerPercent
-        fulfillerBase
-        fulfiller
-        designerPercent
-        dropId
-        dropCollectionIds
-        collectionId
-        unlimited
-        origin
-        blockTimestamp
+       
       }
     }
   `),

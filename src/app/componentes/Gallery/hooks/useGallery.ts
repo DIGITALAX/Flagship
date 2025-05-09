@@ -14,18 +14,19 @@ const useGallery = () => {
     try {
       const data = await getGallery(
         105,
-        [0, 100, 50, 30, 200].sort(() => Math.random() - 0.5)[0],
+        [10, 80, 150, 300].sort(() => Math.random() - 0.5)[0],
         ["asc", "desc"].sort(() => Math.random() - 0.5)[0]
       );
 
+
       const promises = await Promise.all(
         data?.data?.collectionCreateds?.map(
-          async (item: { uri: string; collectionMetadata: {} }) => {
-            if (!item?.collectionMetadata) {
-              const collectionMetadata = await fetchIPFSJSON(item?.uri);
+          async (item: { uri: string; metadata: {} }) => {
+            if (!item?.metadata) {
+              const metadata = await fetchIPFSJSON(item?.uri);
               return {
                 ...item,
-                collectionMetadata,
+                metadata,
               };
             } else {
               return item;

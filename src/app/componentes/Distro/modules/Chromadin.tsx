@@ -14,8 +14,8 @@ const Chromadin: FunctionComponent<ChromadinProps> = ({
 
   return (
     <div
-      className="relative w-full h-fit flex items-end justify-center flex flex-col rounded-sm border border-sol p-4 gap-4"
-      id={publication?.pubId}
+      className="relative w-full h-fit flex items-end justify-center flex flex-col rounded-sm border border-cost p-4 gap-4 bg-amo/30"
+      id={publication?.postId}
     >
       <InteractBar publication={publication?.publication as Post} />
       <div className="relative flex flex-col items-center justify-start w-full h-fit gap-5">
@@ -24,18 +24,18 @@ const Chromadin: FunctionComponent<ChromadinProps> = ({
             className="w-full h-72 rounded-sm bg-amo/30 border border-white cursor-sewingHS relative"
             onClick={() =>
               context?.setImageViewer({
-                type: publication?.collectionMetadata?.mediaTypes?.[0],
+                type: publication?.metadata?.mediaTypes?.[0],
                 content: `${INFURA_GATEWAY}/ipfs/${
-                  publication?.collectionMetadata?.mediaTypes?.[0] == "video"
-                    ? publication?.collectionMetadata?.video?.split(
+                  publication?.metadata?.mediaTypes?.[0] == "video"
+                    ? publication?.metadata?.video?.split(
                         "ipfs://"
                       )?.[1]
-                    : publication?.collectionMetadata?.mediaTypes?.[0] ==
+                    : publication?.metadata?.mediaTypes?.[0] ==
                       "audio"
-                    ? publication?.collectionMetadata?.mediaCover?.split(
+                    ? publication?.metadata?.mediaCover?.split(
                         "ipfs://"
                       )?.[1]
-                    : publication?.collectionMetadata?.images?.[0]?.split(
+                    : publication?.metadata?.images?.[0]?.split(
                         "ipfs://"
                       )?.[1]
                 }`,
@@ -43,18 +43,18 @@ const Chromadin: FunctionComponent<ChromadinProps> = ({
             }
           >
             <MediaSwitch
-              type={publication?.collectionMetadata?.mediaTypes?.[0]}
+              type={publication?.metadata?.mediaTypes?.[0]}
               srcUrl={
-                publication?.collectionMetadata?.mediaTypes?.[0] == "video"
-                  ? publication?.collectionMetadata?.video
-                  : publication?.collectionMetadata?.mediaTypes?.[0] == "audio"
+                publication?.metadata?.mediaTypes?.[0] == "video"
+                  ? publication?.metadata?.video
+                  : publication?.metadata?.mediaTypes?.[0] == "audio"
                   ? `${INFURA_GATEWAY}/ipfs/${
-                      publication?.collectionMetadata?.audio?.split(
+                      publication?.metadata?.audio?.split(
                         "ipfs://"
                       )?.[1]
                     }`
                   : `${INFURA_GATEWAY}/ipfs/${
-                      publication?.collectionMetadata?.images?.[0]?.split(
+                      publication?.metadata?.images?.[0]?.split(
                         "ipfs://"
                       )?.[1]
                     }`
@@ -69,10 +69,10 @@ const Chromadin: FunctionComponent<ChromadinProps> = ({
                 position: "relative",
               }}
               srcCover={
-                publication?.collectionMetadata?.mediaTypes?.[0] == "video" ||
-                publication?.collectionMetadata?.mediaTypes?.[0] == "audio"
+                publication?.metadata?.mediaTypes?.[0] == "video" ||
+                publication?.metadata?.mediaTypes?.[0] == "audio"
                   ? `${INFURA_GATEWAY}/ipfs/${
-                      publication?.collectionMetadata?.mediaCover?.split(
+                      publication?.metadata?.mediaCover?.split(
                         "ipfs://"
                       )?.[1]
                     }`
@@ -85,7 +85,7 @@ const Chromadin: FunctionComponent<ChromadinProps> = ({
         <div className="relative flex flex-row justify-between gap-2 w-full h-fit items-center">
           <div className="relative gap-1 flex flex-col items-start justify-center">
             <div className="relative flex w-fit h-fit break-words text-nuba font-bit text-lg uppercase">
-              {publication?.collectionMetadata?.title}
+              {publication?.metadata?.title}
             </div>
             <div className="relative w-fit h-fit flex text-mos text-sm font-bit uppercase cursor-sewingHS">
               {publication?.profile?.username?.localName}
@@ -95,7 +95,7 @@ const Chromadin: FunctionComponent<ChromadinProps> = ({
             className="relative w-fit h-fit flex items-end justify-center mb-0 cursor-sewingHS active:scale-95"
             onClick={() =>
               window.open(
-                `https://cypher.digitalax.xyz/item/chromadin/${publication?.collectionMetadata?.title?.replaceAll(
+                `https://cypher.digitalax.xyz/item/chromadin/${publication?.metadata?.title?.replaceAll(
                   " ",
                   "_"
                 )}`

@@ -160,9 +160,9 @@ export default function MonaEntry({ dict }: { dict: any }) {
           nivelZoom < 1 ? "flex" : "hidden"
         }`}
       >
-        <div className="relative break-words font-retro text-2xl sm:text-4xl text-center">
+        <h1 className="relative break-words font-retro text-2xl sm:text-4xl text-center">
           {dict.mona.agencia}
-        </div>
+        </h1>
         <div className="relative break-words font-retro text-base sm:text-xl">
           {dict.mona.que}
         </div>

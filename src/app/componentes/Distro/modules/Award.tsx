@@ -2,7 +2,6 @@ import { FunctionComponent, JSX, useContext } from "react";
 import Image from "next/legacy/image";
 import { AwardProps } from "../types/distro.types";
 import { INFURA_GATEWAY, INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
-import toHexWithLeadingZero from "@/app/lib/helpers/leadingZero";
 import { ModalContext } from "@/app/providers";
 
 const Award: FunctionComponent<AwardProps> = ({
@@ -36,13 +35,13 @@ const Award: FunctionComponent<AwardProps> = ({
             </div>
             <div
               className="relative w-fit h-fit flex items-center justify-center cursor-sewingHS"
-              onClick={() =>
-                window.open(
-                  `https://cypher.digitalax.xyz/item/kinora/${toHexWithLeadingZero(
-                    Number(publication?.profileId)
-                  )}-${toHexWithLeadingZero(Number(publication?.pubId))}`
-                )
-              }
+              // onClick={() =>
+              //   window.open(
+              //     `https://cypher.digitalax.xyz/item/kinora/${toHexWithLeadingZero(
+              //       Number(publication?.p)
+              //     )}-${toHexWithLeadingZero(Number(publication?.pubId))}`
+              //   )
+              // }
             >
               <div className="relative w-4 h-4 flex items-end justify-end">
                 <Image

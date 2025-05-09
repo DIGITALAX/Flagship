@@ -71,7 +71,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                       onClick={() =>
                         context?.setImageViewer({
                           content: `${INFURA_GATEWAY}/ipfs/${
-                            token.collectionMetadata?.images?.[0]?.split(
+                            token.metadata?.images?.[0]?.split(
                               "ipfs://"
                             )?.[1]
                           }`,
@@ -81,14 +81,14 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                     >
                       <Image
                         src={`${INFURA_GATEWAY_INTERNAL}${
-                          token.collectionMetadata?.images?.[0]?.split(
+                          token.metadata?.images?.[0]?.split(
                             "ipfs://"
                           )?.[1]
                         }`}
                         layout="fill"
                         objectFit="cover"
                         priority
-                        key={token.collectionMetadata?.images?.[0]}
+                        key={token.metadata?.images?.[0]}
                         draggable={false}
                       />
                       <div className="absolute bg-black/70 top-0 left-0 flex items-end justify-end w-full h-full font-lib text-midWhite invisible group-hover:visible group-active:visible">
@@ -101,7 +101,7 @@ const Gallery: FunctionComponent<GalleryProps> = ({
                               window.open(
                                 `https://cypher.digitalax.xyz/item/${
                                   numberToItemTypeMap[Number(token?.origin)]
-                                }/${token?.collectionMetadata?.title?.replaceAll(
+                                }/${token?.metadata?.title?.replaceAll(
                                   " ",
                                   "_"
                                 )}`

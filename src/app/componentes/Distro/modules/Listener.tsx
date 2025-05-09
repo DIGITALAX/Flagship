@@ -16,8 +16,8 @@ const Listener: FunctionComponent<ListenerProps> = ({
   const context = useContext(ModalContext);
   return (
     <div
-      className="relative w-full h-fit flex items-end justify-center flex rounded-sm border border-sol"
-      id={publication?.pubId}
+      className="relative w-full h-fit flex items-end justify-center flex rounded-sm border border-cost bg-amo/30"
+      id={publication?.postId}
     >
       <div
         id="explainerBg"
@@ -29,20 +29,20 @@ const Listener: FunctionComponent<ListenerProps> = ({
           className="relative flex w-full h-100 items-center justify-center border border-white bg-amo/30 cursor-sewingHS"
           onClick={() =>
             context?.setImageViewer({
-              type: publication?.collectionMetadata?.mediaTypes?.[0],
+              type: publication?.metadata?.mediaTypes?.[0],
               content: `${INFURA_GATEWAY}/ipfs/${
-                publication?.collectionMetadata?.images?.[0]?.split(
+                publication?.metadata?.images?.[0]?.split(
                   "ipfs://"
                 )?.[1]
               }`,
             })
           }
         >
-          {publication?.collectionMetadata?.images && (
+          {publication?.metadata?.images && (
             <Image
               layout="fill"
               src={`${INFURA_GATEWAY_INTERNAL}${
-                publication?.collectionMetadata?.images?.[0]?.split(
+                publication?.metadata?.images?.[0]?.split(
                   "ipfs://"
                 )?.[1]
               }`}
@@ -66,9 +66,9 @@ const Listener: FunctionComponent<ListenerProps> = ({
               className={`relative items-start justify-center uppercase break-words font-ignite w-fit h-fit text-xl`}
               id="noCode"
             >
-              {publication?.collectionMetadata?.title?.length > 20
-                ? publication?.collectionMetadata?.title?.slice(0, 20) + "..."
-                : publication?.collectionMetadata?.title}
+              {publication?.metadata?.title?.length > 20
+                ? publication?.metadata?.title?.slice(0, 20) + "..."
+                : publication?.metadata?.title}
             </div>
             <div
               className={`relative w-fit h-fit flex text-white font-vcr uppercase text-sm`}
@@ -81,7 +81,7 @@ const Listener: FunctionComponent<ListenerProps> = ({
                 className="relative w-10 h-10 flex items-center justify-center cursor-sewingHS active:scale-95"
                 onClick={() =>
                   window.open(
-                    `https://cypher.digitalax.xyz/item/listener/${publication?.collectionMetadata?.title?.replaceAll(
+                    `https://cypher.digitalax.xyz/item/listener/${publication?.metadata?.title?.replaceAll(
                       " ",
                       "_"
                     )}`
@@ -98,16 +98,16 @@ const Listener: FunctionComponent<ListenerProps> = ({
               <div
                 className={`relative items-center justify-center uppercase break-words font-vcr text-ballena w-fit h-fit text-2xl`}
               >
-                ${Number(publication?.prices?.[0] || 0)}
+                ${Number(publication?.price || 0)}
               </div>
             </div>
           </div>
-          {publication?.collectionMetadata?.images?.slice(1)?.length > 0 && (
+          {publication?.metadata?.images?.slice(1)?.length > 0 && (
             <div className="relative ml-auto flex items-center justify-center w-20 h-20 rounded-sm border border-white bg-amo/30">
               <Image
                 layout="fill"
                 src={`${INFURA_GATEWAY_INTERNAL}${
-                  publication?.collectionMetadata?.images?.[1]?.split(
+                  publication?.metadata?.images?.[1]?.split(
                     "ipfs://"
                   )?.[1]
                 }`}

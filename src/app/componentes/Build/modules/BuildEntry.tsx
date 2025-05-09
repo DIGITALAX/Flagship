@@ -27,12 +27,12 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
           className="relative w-full h-fit flex flex-col sm:flex-row justify-between gap-10 sm:gap-4 pt-4 items-center"
           ref={context?.rewind}
         >
-          <div
+          <h1
             className="relative w-fit h-fit flex font-rain text-white text-4xl mr-0 items-center justify-center cursor-sewingHS"
             onClick={() => router.push("/")}
           >
             DIGITALAX
-          </div>
+          </h1>
           <div className="relative w-fit h-fit flex ml-0 items-center justify-center flex-col sm:flex-row gap-3">
             <div className="relative w-fit h-fit flex font-bit text-white text-2xl sm:text-4xl mr-0 items-center justify-center top-1">
               {dict?.log?.build}

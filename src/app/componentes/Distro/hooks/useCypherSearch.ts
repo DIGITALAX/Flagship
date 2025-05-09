@@ -1,21 +1,12 @@
 import fetchIPFSJSON from "@/app/lib/helpers/fetchIPFSJson";
 import { useContext, useEffect, useState } from "react";
-import {
-  Award,
-  Creation,
-  FilterValues,
-  Publication,
-  Quest,
-} from "../types/distro.types";
+import { Award, FilterValues, Publication, Quest } from "../types/distro.types";
 import { numberToItemTypeMap } from "@/app/lib/constants";
 import mixArrays from "@/app/lib/helpers/mixArrays";
 import { getAllCollections } from "../../../../../graphql/queries/getGallery";
-import { getQuests } from "../../../../../graphql/queries/getQuests";
-import { getAllRewards } from "../../../../../graphql/queries/getAwards";
-import handleAwardsData from "@/app/lib/helpers/handleAwardsData";
-import handleQuestData from "@/app/lib/helpers/handleQuestData";
 import handleCollectionProfilesAndPublications from "@/app/lib/helpers/handleCollectionProfilesAndPublications";
 import { ModalContext } from "@/app/providers";
+import { Creation } from "../../Gallery/types/gallery.types";
 
 const useCypherSearch = () => {
   const context = useContext(ModalContext);
@@ -32,18 +23,18 @@ const useCypherSearch = () => {
       awards: Award[] | undefined = [];
 
     try {
-      const collData = await getAllCollections(50, 0);
+      const collData = await getAllCollections(50, 250);
       collections = await handleCollectionProfilesAndPublications(
         collData?.data?.collectionCreateds,
         context?.lensClient!
       );
-      const kinoraItems = await getQuests(50, 0);
-      quests = await handleQuestData(
-        kinoraItems?.data?.questInstantiateds,
-        context?.lensClient!
-      );
-      const data = await getAllRewards(50, 0);
-      awards = await handleAwardsData(data?.data?.rewards);
+      // const kinoraItems = await getQuests(50, 0);
+      // quests = await handleQuestData(
+      //   kinoraItems?.data?.questInstantiateds,
+      //   context?.lensClient!
+      // );
+      // const data = await getAllRewards(50, 0);
+      // awards = await handleAwardsData(data?.data?.rewards);
 
       const allItems = [
         collections?.map((item) => ({

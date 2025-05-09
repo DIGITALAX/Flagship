@@ -48,7 +48,7 @@ const Header: FunctionComponent<HeaderProps> = ({
         handleShop={handleShop}
       />
       <div className="font-mag w-full flex h-fit text-[16vw] relative items-center justify-center">
-        <div
+        <h1
           className="flex items-center justify-center relative w-fit h-fit cursor-sewingHS"
           onClick={() => {
             context?.setScreen(undefined);
@@ -56,7 +56,7 @@ const Header: FunctionComponent<HeaderProps> = ({
           }}
         >
           DIGITALAX
-        </div>
+        </h1>
       </div>
       <div className="relative w-full h-fit flex items-center justify-between gap-10 half:gap-6 bg-offBlack flex-col px-2 py-3">
         <div className="relative w-full h-fit flex flex-row justify-between items-center flex-wrap gap-3">

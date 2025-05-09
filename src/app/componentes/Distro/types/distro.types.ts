@@ -1,6 +1,7 @@
 import { Account, Post } from "@lens-protocol/client";
 import { NextRouter } from "next/router";
 import { ChangeEvent, RefObject, SetStateAction } from "react";
+import { Creation } from "../../Gallery/types/gallery.types";
 
 export type BlenderProps = {
   blenderPage: number;
@@ -97,60 +98,6 @@ export interface Gate {
     amount: string;
   }[];
   oneOf: boolean;
-}
-
-export interface Creation {
-  amount: string;
-  pubId: string;
-  uri: string;
-  profileId: string;
-  printType: string;
-  prices: string[];
-  acceptedTokens: string[];
-  owner: string;
-  soldTokens: string;
-  fulfillerPercent: string;
-  fulfillerBase: string;
-  fulfiller: string;
-  designerPercent: string;
-  dropId: string;
-  dropCollectionIds: string[];
-  collectionId: string;
-  unlimited: boolean;
-  origin: string;
-  profile: Account;
-  publication:
-    | (Post & {
-        decrypted: any;
-      })
-    | undefined;
-  blockTimestamp: string;
-  dropMetadata: {
-    dropTitle: string;
-    dropCover: string;
-  };
-  collectionMetadata: {
-    access: string[];
-    visibility: string;
-    colors: string[];
-    sizes: string[];
-    mediaCover: string;
-    description: string;
-    communities: string[];
-    title: string;
-    tags: string[];
-    prompt: string;
-    mediaTypes: string[];
-    profileHandle: string;
-    microbrandCover: string;
-    microbrand: string;
-    images: string[];
-    video: string;
-    audio: string;
-    onChromadin: string;
-    sex: string;
-    style: string;
-  };
 }
 
 export interface Publication {

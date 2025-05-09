@@ -1,8 +1,7 @@
 import fetchIPFSJSON from "./fetchIPFSJson";
-import toHexWithLeadingZero from "./leadingZero";
-import { Creation } from "@/app/componentes/Distro/types/distro.types";
 import { fetchPost } from "@lens-protocol/client/actions";
 import { Account, Post, PublicClient } from "@lens-protocol/client";
+import { Creation } from "@/app/componentes/Gallery/types/gallery.types";
 
 const handleCollectionProfilesAndPublications = async (
   collections: Creation[],
@@ -11,11 +10,9 @@ const handleCollectionProfilesAndPublications = async (
   try {
     const promises = [...(collections || [])]?.map(
       async (collection: Creation) => {
-        if (collection?.profileId && collection?.pubId) {
+        if (collection?.postId) {
           const publication = await fetchPost(lensClient, {
-            post: `${toHexWithLeadingZero(
-              Number(collection?.profileId)
-            )}-${toHexWithLeadingZero(Number(collection?.pubId))}`,
+            post: collection?.postId,
           });
 
           if (!publication?.isOk()) {
@@ -42,11 +39,11 @@ export default handleCollectionProfilesAndPublications;
 
 const collectionFixer = async (collection: Creation): Promise<Creation> => {
   let ipfs = {};
-  if (!collection?.collectionMetadata?.title && collection?.pubId) {
+  if (!collection?.metadata?.title && collection?.postId) {
     let data = await fetchIPFSJSON(collection?.uri);
     const { cover, ...rest } = data;
     ipfs = {
-      collectionMetadata: {
+      metadata: {
         ...rest,
         mediaCover: rest?.cover,
       },
@@ -59,53 +56,44 @@ const collectionFixer = async (collection: Creation): Promise<Creation> => {
 
   return {
     ...coll,
-    collectionMetadata: {
-      ...coll?.collectionMetadata,
+    metadata: {
+      ...coll?.metadata,
       sizes:
-        typeof coll?.collectionMetadata?.sizes === "string"
-          ? (coll?.collectionMetadata?.sizes as any)
+        typeof coll?.metadata?.sizes === "string"
+          ? (coll?.metadata?.sizes as any)
               ?.split(",")
               ?.map((word: string) => word.trim())
               ?.filter((word: string) => word.length > 0)
-          : coll?.collectionMetadata?.sizes,
+          : coll?.metadata?.sizes,
       colors:
-        typeof coll?.collectionMetadata?.colors === "string"
-          ? (coll?.collectionMetadata?.colors as any)
+        typeof coll?.metadata?.colors === "string"
+          ? (coll?.metadata?.colors as any)
               ?.split(",")
               ?.map((word: string) => word.trim())
               ?.filter((word: string) => word.length > 0)
-          : coll?.collectionMetadata?.colors,
+          : coll?.metadata?.colors,
       mediaTypes:
-        typeof coll?.collectionMetadata?.mediaTypes === "string"
-          ? (coll?.collectionMetadata?.mediaTypes as any)
+        typeof coll?.metadata?.mediaTypes === "string"
+          ? (coll?.metadata?.mediaTypes as any)
               ?.split(",")
               ?.map((word: string) => word.trim())
               ?.filter((word: string) => word.length > 0)
-          : coll?.collectionMetadata?.mediaTypes,
+          : coll?.metadata?.mediaTypes,
       access:
-        typeof coll?.collectionMetadata?.access === "string"
-          ? (coll?.collectionMetadata?.access as any)
+        typeof coll?.metadata?.access === "string"
+          ? (coll?.metadata?.access as any)
               ?.split(",")
               ?.map((word: string) => word.trim())
               ?.filter((word: string) => word.length > 0)
-          : coll?.collectionMetadata?.access,
-      communities:
-        typeof coll?.collectionMetadata?.communities === "string"
-          ? (coll?.collectionMetadata?.communities as any)
-              ?.split(",")
-              ?.map((word: string) => word.trim())
-              ?.filter((word: string) => word.length > 0)
-          : coll?.collectionMetadata?.communities,
+          : coll?.metadata?.access,
       tags:
-        typeof coll?.collectionMetadata?.tags === "string"
-          ? (coll?.collectionMetadata?.tags as any)
+        typeof coll?.metadata?.tags === "string"
+          ? (coll?.metadata?.tags as any)
               ?.split(",")
               ?.map((word: string) => word.trim())
               ?.filter((word: string) => word.length > 0)
-          : coll?.collectionMetadata?.tags,
+          : coll?.metadata?.tags,
     },
-    prices: coll?.prices?.map((price: string) =>
-      String(Number(price) / 10 ** 18)
-    ),
+    price:  String(Number(coll?.price) / 10 ** 18),
   } as Creation;
 };
