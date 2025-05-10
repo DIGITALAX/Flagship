@@ -9,18 +9,18 @@ export async function GET() {
   const urls = PATHS.map((path) => {
     const alternates = LOCALES.map(
       (locale) => `
-        <xhtml:link 
+        <link 
           rel="alternate" 
           hreflang="${locale}" 
-          href="${baseUrl}/${locale}${path === "/" ? "" : path}" />
+          href="${baseUrl}/${locale}${path === "/" ? "" : path}" ></link>
       `
     ).join("");
 
     const xDefault = `
-      <xhtml:link 
+      <link 
         rel="alternate" 
         hreflang="x-default" 
-        href="${baseUrl}${path}" />
+        href="${baseUrl}${path}" ></link>
     `;
 
     return `
