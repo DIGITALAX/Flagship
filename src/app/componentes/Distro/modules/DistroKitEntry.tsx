@@ -6,7 +6,12 @@ import Marquee from "react-fast-marquee";
 import { useContext } from "react";
 import { ModalContext } from "@/app/providers";
 import Heart from "../../Common/modules/Heart";
-import { INFURA_GATEWAY, INFURA_GATEWAY_INTERNAL, TEMPLATES, TV_IMAGES } from "@/app/lib/constants";
+import {
+  INFURA_GATEWAY,
+  INFURA_GATEWAY_INTERNAL,
+  TEMPLATES,
+  TV_IMAGES,
+} from "@/app/lib/constants";
 import { usePathname, useRouter } from "next/navigation";
 import useDistro from "../hooks/useDistro";
 import useCypherSearch from "../hooks/useCypherSearch";
@@ -209,7 +214,10 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
               className="relative flex  w-full md:w-8 h-8 md:h-full  saturate-0 border border-amarillo rounded-sm"
             ></div>
             <div className="relative w-8 h-fit bg-offWhite hidden md:flex items-center justify-center p-1 rounded-sm">
-              <div className="relative w-6 h-8 hover:rotate-12 cursor-sewingHS flex items-center justify-center">
+              <div
+                className="relative w-6 h-8 hover:rotate-12 cursor-sewingHS flex items-center justify-center"
+                onClick={() => window.open("https://web3fashion.medium.com/")}
+              >
                 <Image
                   layout="fill"
                   src={`${INFURA_GATEWAY_INTERNAL}QmZ8bkkHce5sv1PjmhpYNPZDTyAQ5cskjFPvYg1KQ1YWKQ`}
