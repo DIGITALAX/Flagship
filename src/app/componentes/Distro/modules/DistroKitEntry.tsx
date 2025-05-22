@@ -216,6 +216,7 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
             <div className="relative w-8 h-fit bg-offWhite hidden md:flex items-center justify-center p-1 rounded-sm">
               <div
                 className="relative w-6 h-8 hover:rotate-12 cursor-sewingHS flex items-center justify-center"
+                title="https://web3fashion.medium.com/"
                 onClick={() => window.open("https://web3fashion.medium.com/")}
               >
                 <Image
