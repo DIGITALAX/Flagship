@@ -402,6 +402,7 @@ export enum Idiomas {
   Turco = "ç",
   Húngaro = "ű",
   Yolŋu = "ŋ",
+  Gaelic = "gd",
 }
 
 export const idiomaAImagen: { [key in Idiomas]: string } = {
@@ -418,6 +419,7 @@ export const idiomaAImagen: { [key in Idiomas]: string } = {
   ["ç"]: "QmNUBhcEpjjyHnsoR4ViowP3oNvh4trZ5H6snFD7Hm1hdy",
   ["ű"]: "QmSJJkCDMN3bTdD3T6j1B2hfCzhnycpbitYAfMsSKNUohd",
   ["ŋ"]: "Qmf11oxoyAe5vUbZAwHSTCCfRSWTMYijruBeABLrW4rhp7",
+  ["gd"]: "QmUzrNvabPJXnZZXsaHDKNoSNTzbQiUjGaRA4dU2aFBJmk",
 };
 
 export const screenTranslate: { [key in string]: string } = {
@@ -449,6 +451,7 @@ export const indiceAIdioma: { [key in number]: string } = {
   [10]: "ç",
   [11]: "ű",
   [12]: "ŋ",
+  [13]: "gd",
 };
 
 export const idiomaAIndice: { [key in Idiomas]: number } = {
@@ -465,6 +468,7 @@ export const idiomaAIndice: { [key in Idiomas]: number } = {
   ["ç"]: 10,
   ["ű"]: 11,
   ["ŋ"]: 12,
+  ["gd"]: 13,
 };
 
 export const BG_SCREENS: string[] = [
