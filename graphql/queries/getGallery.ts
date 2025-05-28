@@ -14,7 +14,7 @@ export const getAllCollections = async (
         drop {
           dropId
           uri
-                  metadata {
+          metadata {
           cover
           title
         }
@@ -90,7 +90,7 @@ export const getGallery = async (
     query: gql(`
     query($first: Int, $skip: Int, $orderDirection: String) {
       collectionCreateds(first: $first, skip: $skip, orderDirection: $orderDirection, orderBy: postId, origin: $origin, collectionMetadata_: {mediaTypes_contains_nocase: "static"}) {
-        
+        uri
         metadata {
           access
           visibility
