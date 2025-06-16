@@ -123,7 +123,7 @@ export async function GET() {
 
     const images = path?.images
       .map((cid) => {
-        const url = `${INFURA_GATEWAY_INTERNAL}${cid?.image}/`;
+        const url = `${INFURA_GATEWAY_INTERNAL}${cid?.image}`;
         return `
       <image:image>
         <image:loc>${url}</image:loc>
