@@ -17,7 +17,10 @@ export default function PrintsEntry({ dict }: { dict: any }) {
   const context = useContext(ModalContext);
   const router = useRouter();
   return (
-    <div className="min-w-screen min-h-full h-full flex flex-col bg-mainBg justify-start items-center pb-28 gap-32" id="noScroll">
+    <div
+      className="min-w-screen min-h-full h-full flex flex-col bg-mainBg justify-start items-center pb-28 gap-32"
+      id="noScroll"
+    >
       <div className="relative w-full h-fit flex flex-col items-center justify-start gap-3">
         <div
           className="relative w-full h-fit flex flex-col sm:flex-row justify-between gap-10 sm:gap-4 pt-4 px-2 sm:px-6 items-center"
@@ -40,21 +43,6 @@ export default function PrintsEntry({ dict }: { dict: any }) {
           </div>
         </div>
       </div>
-
-      <Head>
-        <title>{dict?.prints?.prints}</title>
-        <meta
-          name="description"
-          content="We write prompts, design styles & build code for protocol-ecosystems where web3 fashion & latent machines draw distances between ideas & reality closer each day."
-        />
-        <link rel="icon" href="/favicon.ico" />
-        <meta property="og:site_name" content="DIGITALAX" />
-        <meta
-          property="og:image"
-          content="https://www.digitalax.xyz/card.png/"
-        />
-        <meta property="og:type" content="website" />
-      </Head>
       <div className="relative w-1/2 h-fit flex items-start justify-start flex-col">
         {PRINT_IMAGES.map((image, index) => {
           return (

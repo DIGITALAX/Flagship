@@ -59,21 +59,6 @@ export default function DistroKitEntry({ dict }: { dict: any }) {
         </div>
       </div>
 
-      <Head>
-        <title>{dict?.distro?.distro}</title>
-        <meta
-          name="description"
-          content="We write prompts, design styles & build code for protocol-ecosystems where web3 fashion & latent machines draw distances between ideas & reality closer each day."
-        />
-        <link rel="icon" href="/favicon.ico" />
-        <meta property="og:site_name" content="DIGITALAX" />
-        <meta
-          property="og:image"
-          content="https://www.digitalax.xyz/card.png/"
-        />
-        <meta property="og:type" content="website" />
-      </Head>
-
       <div className="relative w-full h-fit flex justify-center items-center px-2 sm:px-8">
         <div className="relative w-full h-fit md:h-[30rem] flex flex-col md:flex-row justify-between gap-10 items-center">
           <div className="relative w-full h-full font-bit text-mainText flex items-center justify-between border-2 border-verde flex-col p-2">

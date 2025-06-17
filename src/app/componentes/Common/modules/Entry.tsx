@@ -46,20 +46,7 @@ const Entry: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
       </div>
       <div className="w-full h-full flex flex-col gap-12 items-center justify-start">
         <Header dict={dict} handleShop={handleShop} />
-        <Head>
-          <title>DIGITALAX</title>
-          <meta
-            name="description"
-            content="We write prompts, design styles & build code for protocol-ecosystems where web3 fashion & latent machines draw distances between ideas & reality closer each day."
-          />
-          <link rel="icon" href="/favicon.ico" />
-          <meta property="og:site_name" content="DIGITALAX" />
-          <meta
-            property="og:image"
-            content="https://www.digitalax.xyz/card.png/"
-          />
-          <meta property="og:type" content="website" />
-        </Head>
+
         <Display dict={dict} shop={shop} />
         <div className="w-[95vw] half:w-[80vw] relative flex items-center justify-center min-h-[120vw] h-[120vh]  md:h-[180vh] border-2 md:border-8 bg-mainText border-diy">
           <div className="relative w-full h-full flex items-center justify-center">
