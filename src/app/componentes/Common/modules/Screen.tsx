@@ -148,7 +148,7 @@ const Screen: FunctionComponent<ScreenProps> = ({
                       }`}
                     />
                   </div>
-                  <div className="relative w-full h-fit flex flex-col items-start justify-start gap-2">
+                  <div className="relative w-full h-fit flex flex-col items-start justify-start gap-2 text-white">
                     <div className="relative w-full h-fit flex flex-col sm:flex-row justify-start sm:justify-between items-start sm:items-center gap-5 font-dos">
                       <div className="relative w-fit h-fit text-3xl uppercase flex">
                         {context?.screen?.title}
