@@ -94,7 +94,8 @@ const Shelf: FunctionComponent = (): JSX.Element => {
               <div className="absolute w-fit flex items-start justify-center top-1/2 text-lg font-lib h-12 rotate-90 border-2 border-offBlack py-2 px-3 bg-offWhite text-offBlack whitespace-nowrap">
                 {
                   book.name[
-                    path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as "en" | "es"
+                    (path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as "en" | "es") ??
+                      "en"
                   ]
                 }
               </div>

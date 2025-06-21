@@ -110,7 +110,9 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
                 >
                   {
                     IMAGE_LOGS[currentImage].description[
-                      path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as "en" | "es"
+                      (path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as
+                        | "en"
+                        | "es") ?? "en"
                     ]
                   }
                 </div>
@@ -168,7 +170,9 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
                   <div className="relative w-fit h-fit flex items-center justify-start text-xl">
                     {
                       item.title[
-                        path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as "en" | "es"
+                        (path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as
+                          | "en"
+                          | "es") ?? "en"
                       ]
                     }
                   </div>
@@ -181,7 +185,9 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
                     dangerouslySetInnerHTML={{
                       __html: descriptionRegex(
                         item.description?.[
-                          path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as "en" | "es"
+                          (path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as
+                            | "en"
+                            | "es") ?? "en"
                         ] || "",
                         false
                       ),
@@ -218,7 +224,9 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
                   <div className="relative w-fit h-fit flex items-center justify-start text-xl">
                     {
                       item.title[
-                        path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as "en" | "es"
+                        (path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as
+                          | "en"
+                          | "es") ?? "en"
                       ]
                     }
                   </div>
@@ -231,7 +239,9 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
                     dangerouslySetInnerHTML={{
                       __html: descriptionRegex(
                         item.description?.[
-                          path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as "en" | "es"
+                          (path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as
+                            | "en"
+                            | "es") ?? "en"
                         ] || "",
                         false
                       ),
