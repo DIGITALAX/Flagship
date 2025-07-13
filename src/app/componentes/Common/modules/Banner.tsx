@@ -10,10 +10,10 @@ const Banner: FunctionComponent<{ dict: any }> = ({
   if (!isVisible) return null;
 
   return (
-    <div className="absolute z-50 w-full h-fit flex flex-row gap-2 items-center justify-between px-4 py-2 bg-[#30322f] text-[#FEE62F] font-grav overflow-hidden border-2 border-[#FEE62F]">
+    <div className="absolute z-50 w-full h-fit flex flex-col sm:flex-row gap-2 items-center justify-between px-4 py-2 bg-[#30322f] text-[#FEE62F] font-grav overflow-hidden border-2 border-[#FEE62F]">
       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-20 w-full h-full animate-[shimmer_3s_ease-in-out_infinite] -translate-x-full"></div>
       <div
-        className="flex w-fit h-fit cursor-sewingHS"
+        className="flex w-fit h-fit cursor-sewingHS order-2 sm:order-1"
         onClick={() => window.open("https://web3fashionweek.com", "_blank")}
       >
         {dict.common?.bannerText}
@@ -23,7 +23,7 @@ const Banner: FunctionComponent<{ dict: any }> = ({
           setIsVisible(false);
           sessionStorage.setItem("web3FashionWeekBannerDismissed", "true");
         }}
-        className="relative cursor-sewingHS w-6 h-6 flex items-center justify-center text-xl"
+        className="relative cursor-sewingHS w-6 h-6 flex items-center justify-center text-xl order-1 sm:order-2"
       >
         ×
       </div>
