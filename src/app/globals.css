@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 @font-face {
   font-family: "Letter Magic";
   font-weight: 400;
@@ -10,6 +11,12 @@
   font-family: "Dos";
   font-weight: 400;
   src: url("/fonts/Dos.ttf");
+}
+
+@font-face {
+  font-family: "Grav";
+  font-weight: 400;
+  src: url("/fonts/Gravity.otf");
 }
 
 @font-face {
@@ -174,6 +181,7 @@
   --font-pot: "Bit Potion";
   --font-dos: "Dos";
   --font-abd: "Abaddon";
+  --font-grav: "Grav";
 
   --color-offBlack: #111313;
   --color-offBlue: #01030c;
@@ -268,7 +276,7 @@
   --cursor-sewingS: url("https://thedial.infura-ipfs.io/ipfs/QmToSnjBTxyQgVAGGWyXsrZQ3WSvHVAJUyBz4EzXWAqKTj"),
     auto;
   --cursor-sewingHS: url("https://thedial.infura-ipfs.io/ipfs/Qmb79KwJPZtvKXhXpHBrFJKkM2gpk29boL5kPehrF6FaC1"),
-    auto;
+    pointer;
 
   --bg-spots: url("https://thedial.infura-ipfs.io/ipfs/QmXcLBvsHDC8kNDe3WFQHzPpotVKG1AHsAHou1AbiYe6yp");
   --bg-ruido: url("https://thedial.infura-ipfs.io/ipfs/QmVEauHNPMTjyfYvLaz3tJeoEmubApYeMy7EpKycL12umE");
@@ -309,6 +317,9 @@
   }
   .font-mana {
     font-family: var(--font-mana);
+  }
+  .font-grav {
+    font-family: var(--font-grav);
   }
   .font-conso {
     font-family: var(--font-conso);
@@ -375,7 +386,6 @@
   .text-diyText {
     color: var(--color-diyText);
   }
-  
 
   .theme-cream {
     --color-mainBg: var(--color-midWhite);
@@ -1151,4 +1161,14 @@ body.stop-scrolling {
 
 #sombra2::-webkit-scrollbar-thumb:active {
   background-color: transparent !important;
+}
+
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
