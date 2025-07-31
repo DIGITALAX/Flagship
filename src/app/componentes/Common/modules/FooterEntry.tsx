@@ -157,20 +157,26 @@ const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
           </div>
         </div>
       </div>
-      <div className="relative w-full h-full bg-black flex overflow-x-hidden py-2">
-          <MarqueeText
-            gradient={false}
-            speed={20}
-            direction={"left"}
-            pauseOnHover
-            className="z-0"
-          >
-            <div
-              className="relative w-full h-fit text-white text-xs font-lib uppercase flex flex-row gap-10 items-center"
-            
-            >{` Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 `}</div>
-          </MarqueeText>
+      <div className="relative items-center bg-offBlack text-offWhite justify-between text-center font-lib text-xs w-full pb-2 pt-6 px-2 flex">
+        <div className="relative w-fit h-fit flex">{dict?.footer?.comms}</div>
+        <div
+          className="relative w-fit h-fit flex cursor-sewingHS"
+          onClick={() => window.open("https://cc0web3fashion.com/forum/")}
+        >
+          {dict?.footer?.foro}
         </div>
+      </div>
+      <div className="relative w-full h-full bg-black flex overflow-x-hidden py-2">
+        <MarqueeText
+          gradient={false}
+          speed={20}
+          direction={"left"}
+          pauseOnHover
+          className="z-0"
+        >
+          <div className="relative w-full h-fit text-white text-xs font-lib uppercase flex flex-row gap-10 items-center">{` Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 `}</div>
+        </MarqueeText>
+      </div>
     </div>
   );
 };
