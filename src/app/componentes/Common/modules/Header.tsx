@@ -76,7 +76,7 @@ const Header: FunctionComponent<HeaderProps> = ({
               </div>
             </div>
             <div className="relative w-fit h-fit flex items-center justify-center sm:order-2 order-1">
-              <div className="relative h-12 w-12 flex items-center justify-center">
+              <div className="relative h-12 w-12 flex items-center justify-center cursor-sewingHS" onClick={() => window.open("https://globaldesignernetwork.com/")}>
                 <Image
                   src={`${INFURA_GATEWAY_INTERNAL}QmYbjMNQAVuQSWNNQ5AKbQtt4Dxw2ax4SvLNwKhCNDniL2`}
                   layout="fill"
