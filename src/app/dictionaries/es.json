@@ -137,6 +137,7 @@
   "log": {
     "build": "REGISTRO DE DESARROLLO",
     "start": "Inicio",
+    "fgo": "Propiedad Fraccionaria de Prendas",
     "cypher": "Cypher",
     "npc": "El Estudio NPC",
     "coin": "Coin Op",

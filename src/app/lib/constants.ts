@@ -548,6 +548,17 @@ export const IMAGE_LOGS: {
     },
   },
   {
+    image: "QmXhUc68vCuAS2Rxbfj4HJ8kuF2TqkhZfVc41nqS9SnZLy",
+    title: {
+      en: "Fractional Garment Ownership",
+      es: "Propiedad Fraccionaria de Prendas",
+    },
+    description: {
+      en: "Plug-and-play open manufacturing  contract suite for digifizzy fashion",
+      es: "Suite de contratos de manufactura abierta plug-and-play para moda digifizzy",
+    },
+  },
+  {
     image: "QmcvPutuJK2CX8cyL3ocDPLUrvWnJDWgA4MSBhr8YX7twb",
     title: {
       en: "The Manufactory",
@@ -657,17 +668,6 @@ export const IMAGE_LOGS: {
       es: "Es tu cazador de hype que nunca se estrella",
     },
   },
-  {
-    image: "QmXhUc68vCuAS2Rxbfj4HJ8kuF2TqkhZfVc41nqS9SnZLy",
-    title: {
-      en: "Lucidity",
-      es: "Lucidity",
-    },
-    description: {
-      en: "ComfyStream workflows multiply faster than forums can index",
-      es: "Los flujos de trabajo en ComfyStream se multiplican más rápido de lo que los foros pueden indexar",
-    },
-  },
 ];
 
 export const LOG: {
@@ -712,8 +712,18 @@ export const LOG: {
   },
   {
     title: {
-      en: "4. The Manufactory",
-      es: "4. La Fábrica",
+      en: "4. Fractional Garment Ownership",
+      es: "4. Propiedad Fraccionaria de Prendas",
+    },
+    description: {
+      en: "Fractional Garment Ownership (FGO) is a plug-and-play open manufacturing contract suite for digi-fizzy fashion. It binds 1155 Children, 1155 Templates, and 721 Parents into a modular lattice where digital abundance meets physical scarcity, every unit indexed on-chain, and every workflow enforceable in code. Collectors and creators interact through permission-clean references, sovereign marketplaces, and verifiable fulfillment paths. All pricing and payments settle in ERC20s like $MONA, ensuring cross-infrastructure liquidity without locking designs into silos. From AI-generated patterns to zero-waste cut plans, from remix culture to sovereign factories, FGO makes digital and physical fashion interoperable and CC0 at the atomic scale of components and the compositional scale of finished garments.",
+      es: "Fractional Garment Ownership (FGO) es una suite de contratos de manufactura abierta plug-and-play para moda digi-fizzy. Une Hijos, Plantillas y Padres en una red modular donde la abundancia digital se encuentra con la escasez física, cada unidad indexada on-chain y cada flujo ejecutable en código. Coleccionistas y creadoras interactúan mediante referencias limpias en permisos, mercados soberanos y rutas de cumplimiento verificables. Toda fijación de precios y pagos se liquida en ERC20s como $MONA, asegurando liquidez entre infraestructuras sin encerrar diseños en silos. Desde patrones generados por IA hasta planes de corte de cero desperdicio, desde la cultura del remix hasta fábricas soberanas, FGO hace que la moda digital y física sea interoperable tanto en la escala atómica de los componentes como en la escala composicional de las prendas terminadas.",
+    },
+  },
+  {
+    title: {
+      en: "5. The Manufactory",
+      es: "5. La Fábrica",
     },
     description: {
       en: "Mint, ink, print, and ship your web3fashion or generative art collections into IRL wardrobes and walls. The Manufactory, is a decentralized creators studio co-op, where rare, statement making works are woven into reality.\n\nStart by selecting what you want to produce. You can find them through Cypher, on Coin Op, and throughout the ecosystem. Your choices are then crafted by a decentralized network of creators, ready for both post-digital display and physical distribution. Throughout, your transactional and operational data is encrypted, safeguarding your creative process from the ad hungry prying eyes of archaic social networks.\n\nMore than a production line, The Manufactory is a blueprint for autonomy in creation.",
@@ -722,8 +732,8 @@ export const LOG: {
   },
   {
     title: {
-      en: "5. $MONA",
-      es: "5. $MONA",
+      en: "6. $MONA",
+      es: "6. $MONA",
     },
     description: {
       en: "Hold, trade, and insert $MONA throughout the ecosystem to channel the currents of creativity and commerce in the generative NPC era. This ERC-20 token, combined with an extensive and growing library of contracts, responds to event triggers and conditional logic to seamlessly assist your pursuit of a better timeline that respects human autonomy. As much as it is a unit of record, account, and exchange, it is a unit of agency and access. Your interactions with The Manufactory, NPC Studio, CoinOp, Chromadin, and all the components of the extended ecosystem have use beyond ordinary collectibles and transactions. They serve as messages between nodes and to the world saying we will build our own future free from arbitrarily centralized control (thank you very much).\n\nIn NPC Studio, it activates AI agents and the specific equipment you can run to create with them, rewarding innovation and reducing the idle time of creative processes. Within CoinOp, $MONA becomes an agent of commerce, allowing instant creation and acquisition of streetwear with real-world integration. It's the silent enforcer of The Manufactory's operations, executing design and fulfillment tasks with a precision that only a dedicated system token can provide.",
@@ -732,8 +742,8 @@ export const LOG: {
   },
   {
     title: {
-      en: "6. Kinora",
-      es: "6. Kinora",
+      en: "7. Kinora",
+      es: "7. Kinora",
     },
     description: {
       en: "This open-source video player and SDK, extending the already potent functionality of Livepeer for decentralized video encoding, decoding, and distro, is your toolkit for crafting privacy-respecting, engaging video content. It's seamlessly integrated with web3 quests in the DIGITALAX ecosystem.\n\nGit clone its library to create entire platforms for video distro that speak to the web3 era. \n\nWhether watching the latest web3fashion show or streaming generative art instructionals, each video is an entry point into deeper ecosystem reach and engagement. Use the Kinora SDK to integrate these experiences into your decentralized projects as a replacement for centralized platforms, all while maintaining user-level encryption for every viewer's data.\n\nKinora isn't just for creators and viewers; it's about a cultural shift to decentralized media in all its forms. With the power of Livepeer, integration of Vision Quests, and Lens Protocol, Kinora gives everyone a path to video distro that isn't just entertaining or distracting—it's an interactive journey with measurable metrics tailored to why you watch and create.",
@@ -742,8 +752,8 @@ export const LOG: {
   },
   {
     title: {
-      en: "7. Vision Quests",
-      es: "7. Odiseas Visuales",
+      en: "8. Vision Quests",
+      es: "8. Odiseas Visuales",
     },
     description: {
       en: "When a user initiates a Vision Quest, they perform specific on-chain and off-chain tasks, each verified and logged within the DIGITALAX ecosystem. On completion, rewards are automatically distributed, with NFTs, tokens, and experience points reflecting their achievements and contributions.\n\nEmbark on Vision Quests to unlock the narrative potential of the DIGITALAX ecosystem. Engage in quests that challenge your creativity, wit, and collaborative spirit. Earn exclusive rewards, forge community ties, and experience the thrill of discovery and achievement, all gated by the tokens you hold, enhancing the value of your journey.\n\nVision Quests are the key gameplay mechanism of the ecosystem's interactive layer, offering experiences that are as diverse as the communities we choose to align with. These quests aren't just for roleplaying games; they're micro-adventures that weave together the many threads of DIGITALAX, from the lore encoded in NFTs to the decentralized marketplace and storefront activity. They're an invitation to explore, contribute, and grow within a vibrant web3 Maslovian skilltree, to take part in stories that evolve with each participant's actions, and to leave an indelible mark on the post-digital realms. Vision Quests are gears of engagement, rewarding the curious and the brave with treasures that go beyond the meme—into the worlds where tangible goods meet the transformative power of earned agency.",
@@ -752,8 +762,8 @@ export const LOG: {
   },
   {
     title: {
-      en: "8. Chromadin",
-      es: "8. Chromadin",
+      en: "9. Chromadin",
+      es: "9. Chromadin",
     },
     description: {
       en: "An always-on, dynamic content feed, where you can actively participate by posting, liking, mirroring, starting lengthy and erudite comment threads about, and sharing web3-native social media content.\n\nInteract with distinct features from web3 music streams, a portable video player, and token-gated access to curate a personalized media experience. CoinOp integration gives you a seamless way to add prints and apparel to your collection. The Kinora SDK delivers the goods for snappy video delivery and playback.",
@@ -762,8 +772,8 @@ export const LOG: {
   },
   {
     title: {
-      en: "9. Lit Listener",
-      es: "9. Oyente de Lit",
+      en: "10. Lit Listener",
+      es: "10. Oyente de Lit",
     },
     description: {
       en: "If you sit back for a moment to think about it, the key to Web3 is user-level encryption in networks, money, and culture. It's more than just privacy, security, and record keeping. It's essential for conditional logic in real world environments.\n\nWhen a user sets up a circuit with the LitListenerSDK, they define a series of conditional, often on-chain, encrypted actions. The SDK listens for specific events, like contract execution or an oracle update, and once the predefined conditions are met, it triggers the next action in the sequence—whether it's releasing funds, minting an NFT, or updating a leaderboard.\n\nLit Listener is the backbone of user-level encryption in the DIGITALAX ecosystem, essential for activating the complex web of conditional logic that underpins real-world environments. It's not exclusively about privacy, security, and record-keeping; it's crafting a responsive, autonomous world where each user's actions are encrypted and executed based on pre-approved conditions. This SDK gives users the kind of agency only possible when you can create conditional encryption circuits in decentralized code—tailored sequences of actions that respond to the dynamics of Web3 mechanisms and social trends. Each interaction is a step toward a more seamlessly integrated and agentic post-digital existence.",
@@ -772,8 +782,8 @@ export const LOG: {
   },
   {
     title: {
-      en: "10. The Dial",
-      es: "10. El Dial",
+      en: "11. The Dial",
+      es: "11. El Dial",
     },
     description: {
       en: "Tune into The Dial, your decentralized dashboard, infusing agency into your generative social media experience.\n\nUse the integrated generative AI engine to craft distinctive content that stands out. Connect via Lens, chat, and collect with an ever increasing array of creative users making rare post-digital and capacitive goods, from unique NFTs to bespoke apparel. Each interaction enhances your status and reach within web3, and through it, all layers in the generative NPC economy accelerating ahead.",
@@ -782,8 +792,8 @@ export const LOG: {
   },
   {
     title: {
-      en: "11. Legend",
-      es: "11. Leyenda",
+      en: "12. Legend",
+      es: "12. Leyenda",
     },
     description: {
       en: "When using Legend, users discover grants and proposals for web3 public goods infrastructure. You help make these needed upgrades happen faster with more reliable support for indie dev teams, but not just through the usual direct contributions. Each purchase you make of related NFTs, streetwear, art prints, NPC equipment, and virtual goods doesn't just keep devs fueled in ramen and energy drinks. It decentralizes the process of selecting and making the missing open source infrastructure we all rely on.\n\nLegend creates a more reliable connection between devs, creators, and every user. It enriches the ecosystem's distributed resilience and safeguards it against subtle forms of market power centralization. This model is an enhancement to freely coordinated agency, peer to peer. A reinforcement of web3's key principles of decentralization, defense, deterrence, and community-driven participation in depth.\n\nCommerce based funding of web3 public goods? Yeah, it's novel. But the real legend here is you, for accelerating the build of this ecosystem. \n\nStay tuned as our story continues.",
@@ -792,8 +802,8 @@ export const LOG: {
   },
   {
     title: {
-      en: "12. Skyhunters",
-      es: "12. Skyhunters",
+      en: "13. Skyhunters",
+      es: "13. Skyhunters",
     },
     description: {
       en: "Where leftover airdrops, unreleased NFT mints, and day-old meme tokens get sniffed out by tireless agent squads. None of this “missed it while asleep” business—Skyhunters comb the networks for cross-chain freebies, pooling them back on Polygon for dev funding, micro-grants, and a few sly personal payouts to whoever fronted the tokens. It’s not automation to replace you—it’s your hype-hunting wingman that never crashes from lack of caffeine.",
@@ -802,8 +812,8 @@ export const LOG: {
   },
   {
     title: {
-      en: "13. TripleA",
-      es: "13. TripleA",
+      en: "14. TripleA",
+      es: "14. TripleA",
     },
     description: {
       en: "Art markets run on clout and algorithms. Triple A runs on raw action - machine wallets with their own agency, deploying capital through encrypted rails. The first social marketplace where reach spreads through value creation instead of platform metrics. Your move: drop art while there's still something at stake.",
@@ -812,8 +822,8 @@ export const LOG: {
   },
   {
     title: {
-      en: "14. Lucidity",
-      es: "14. Lucidity",
+      en: "15. Lucidity",
+      es: "15. Lucidity",
     },
     description: {
       en: "ComfyStream workflows multiply faster than forums can index. Lucidity maps the patterns that produce results, filtering signal from the endless 'has anyone solved this' threads. The agent reads your intent, surfaces tested chains, keeps you building on what works. Raw workflow intelligence without the archeological dig.",

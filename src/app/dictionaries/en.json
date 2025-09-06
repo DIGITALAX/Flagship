@@ -136,6 +136,7 @@
   },
   "log": {
     "build": "BUILD LOG",
+    "fgo": "Fractional Garment Ownership",
     "start": "Start",
     "cypher": "Cypher",
     "npc": "NPC Studio",

@@ -25,7 +25,7 @@ const Header: FunctionComponent<HeaderProps> = ({
     handleSendMessage,
     changeLanguage,
     chosenLanguage,
-    setChosenLanguage
+    setChosenLanguage,
   } = useHeader(address, dict);
   return (
     <div
@@ -103,9 +103,9 @@ const Header: FunctionComponent<HeaderProps> = ({
               title: "TripleA",
             },
             {
-              link: "https://lucidity.agentmeme.xyz",
+              link: "https://globaldesignernetwork.com",
               image: "QmNdZYLwjEpwYVR7VyDqNq1G1hMcnKRxebvk4pFpKMAZEy",
-              title: "Lucidity",
+              title: "GDN",
             },
             {
               link: "https://skyhunters.agentmeme.xyz",

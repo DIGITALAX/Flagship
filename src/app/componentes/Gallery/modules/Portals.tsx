@@ -93,8 +93,8 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
           {[
             {
               image: "QmfAQag73312yoCehj62rLTMyCMWxNE5rK6ikHGDdXqHn7",
-              title: "Lucidity",
-              link: "https://lucidity.agentmeme.xyz/",
+              title: "FGO",
+              link: "https://fgo.themanufactory.xyz/",
             },
             {
               image: "QmPRURdUCv5ArkhqyhHn6aicHbQVMATDyL1wzmT55bK2Nr",

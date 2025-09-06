@@ -47,6 +47,7 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
               dict?.log?.cypher,
               dict?.log?.npc,
               dict?.log?.coin,
+              dict?.log?.fgo,
               dict?.log?.manu,
               "Mona",
               dict?.log?.kinora,
@@ -57,7 +58,6 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
               dict?.log?.legend,
               "TripleA",
               "Skyhunters",
-              "Lucidity",
             ].map((item: string, index: number) => {
               return (
                 <div
