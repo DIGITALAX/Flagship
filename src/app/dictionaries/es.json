@@ -1,7 +1,7 @@
 {
   "common": {
     "threads": "HILOS LATENTES",
-    "cc0": "100% CC0. Construimos para, en el beneficio de, y del dominio público.",
+    "cc0": "100% CC0. Construimos para, en el beneficio de, y de dominio público.",
     "bannerText": "SEMANA DE LA MODA WEB3 • GDR PUNK • SEPTIEMBRE 2025",
     "unbundle": "Para desagregar la tienda de todo y detener la ruina de este mundo, necesitas buen equipo... y mucha práctica.",
     "collect": "Reúne y Crea: Las claves del ecosistema",
@@ -24,7 +24,7 @@
     "log": "Registro de Desarrollo",
     "distro": "Kit de Distribución",
     "world": "Nuestros mundos son gestionados por las interfaces, el código de máquina y las APIs.",
-    "cypher": "Aquí, los cypherpunks escriben instrucciones, diseñan a mano a través de múltiples dimensiones, y construyen de principio a fin la economía de red descentralizada por ti mismo.\n\nCreamos moda, operamos en conjunto maquinaria compleja, y coleccionamos NFTs como conductores de los que mueve a las personas a la acción en cada realidad –– virtual, latente, o en la vida real (IRL). Estamos atraídos, como si fuera por una máquina de sueños, hacia las obras que tienen algo que decir mediante su apariencia impresionante, el estatus novedos, y las claves innatas de movilidad social codificadas en ellas.",
+    "cypher": "Aquí, los cypherpunks escriben instrucciones, diseñan a mano a través de múltiples dimensiones, y construyen de principio a fin la economía de red descentralizada por ti mismo.\n\nCreamos moda, operamos en conjunto maquinaria compleja, y coleccionamos NFTs como conductores de los que mueve a las personas a la acción en cada realidad –– virtual, latente, o en la vida real (IRL). Estamos atraídos, como si fuera por una máquina de sueños, hacia las obras que tienen algo que decir mediante su apariencia impresionante, el estatus novedoso, y las claves innatas de movilidad social codificadas en ellas.",
     "more": "¿más?",
     "less": "¿menos?",
     "manu": "La Fábrica",
@@ -95,13 +95,13 @@
     "diy": "EL NUEVO HAZLO POR TÍ MISMO: DESCENTRALÍZALO",
     "local": "x005.m-3 – COOPERATIVA LOCAL DE MICROFABRICACIÓN",
     "auth": "En un mundo donde la autenticidad es moneda, cada microbrand es\nuna fuente de soberanía del capital cultural. El comercio Web3 no es construido por los conglomerados monopolísticos, sino ensamblado, pieza a pieza, por los\nmicrobrands que entienden el baile matizado de la IA, NFTs, y la resonancia social.",
-    "mesh": "MALLA: SÍNTETIS Y SEGMENTACIÓN DE MODA CON DISEÑO PERSONALIZADO EN BLENDER",
+    "mesh": "MALLA: SÍNTESIS Y SEGMENTACIÓN DE MODA CON DISEÑO PERSONALIZADO EN BLENDER",
     "source": "FUENTE ABIERTA,\nDESARROLLO IRL,\nVIRTUAL, Y\nESPACIOS LATENTES\n",
-    "public": "Con un lanzamiento público no muy lejano, la síntetis de tejidos en\n Blender cambia la narrativa de “NFTs, lol, \naltcoins con JPEGS especulativos“ a “Nos gustan los estilos creados para el uso de materiales”",
-    "fashion": "Hoy en día, los diseñadores de moda utilizan CLO, una herramienta de código cerrada\n y muy limitada para trabajar con tejidos. Blender, por otro lado, podría ser una herramienta mucho más poderoso\n y de código abierta para trabajar con tejidos.\n\nSin embargo, antes deben suceder algunas cosas.\n\n¿Síntesis, segmentación, diseño y materialización de tejidos en un plugin de Blender \nhecho a medida? A dónde nos dirigimos, vamos a necesitar \nmuchísimos GPUs.",
+    "public": "Con un lanzamiento público no muy lejano, la síntesis de tejidos en\n Blender cambia la narrativa de “NFTs, lol, \naltcoins con JPEGs especulativos“ a “Nos gustan los estilos creados para el uso de materiales”",
+    "fashion": "Hoy en día, los diseñadores de moda utilizan CLO, una herramienta de código cerrada\n y muy limitada para trabajar con tejidos. Blender, por otro lado, podría ser una herramienta mucho más poderosa\n y de código abierta para trabajar con tejidos.\n\nSin embargo, antes deben suceder algunas cosas.\n\n¿Síntesis, segmentación, diseño y materialización de tejidos en un plugin de Blender \nhecho a medida? A dónde nos dirigimos, vamos a necesitar \nmuchísimas GPUs.",
     "robot": "ESPERANDO UN COMPAÑERO ROBOT QUE ME ENTIENDA",
     "reach": "¿CÓMO CONECTAR CON CREADORES, COLECTORES O CUALQUIERA SIN USAR LA RED SOCIAL?",
-    "real": "INFORMACIÓN EN TIEMPO REAL DE TODOS LOS FEEDS QUE PUEDA SEGUIR",
+    "real": "INFORMACIÓN EN TIEMPO REAL DE TODOS LOS FEEDS QUE PUEDO SEGUIR",
     "watch": "AÚN TANTO POR VER, PERO NO PAGARÉ POR OTRA SUSCRIPCIÓN DE STREAMING",
     "afraid": "ME DA MIEDO ADMITIR QUE ESTOY AQUÍ PARA SER VISTO",
     "count": "¿ES DEMASIADO PEDIR QUE CADA GUSTO, COMENTARIO Y CLIC CUENTE?",
@@ -130,9 +130,9 @@
     "maps": "Desde minimapas y segmentación de malla, hasta máquinas sintetizadoras y el uso de materiales, el ecosistema de moda web3 ofrece más que unas cuantas buenas apariencias.\n\n Para los coleccionistas, los creadores, y todos los demás, es más peligroso que nunca aventurarse solo allá afuera.\n\nVístete con inteligencia, y no olvides tus llaves.",
     "rewind": "Sé amable, Rebobina",
     "line": "FIN DE LA LÍNEA",
-    "heart": "Desde el corazón, traducciones a mano <3",
+    "heart": "Desde el corazón, traducciones hechas a mano <3",
     "comms": "¿Cuestiones, comentarios, novedades?",
-    "foro": "La comunicación pasa ahora por el Foro de CC0 Moda Web3 en Lens."
+    "foro": "La comunicación ahora pasa por el Foro de CC0 Moda Web3 en Lens."
   },
   "log": {
     "build": "REGISTRO DE DESARROLLO",
@@ -164,8 +164,8 @@
     "jugador": "¿Jugador?",
     "o": "-o-",
     "espectador": "Espectador?",
-    "primero": "Suena fácil, ¿verdad?\n\nSi estás aquí, ya lo sabes. No hay atajos para ganar en este tipo de juego.\n\nCompra, vende, intercambia, crea arte. Cose, escribe, publica, repite.\n\nSea lo que sea lo tuyo, amasar pasta lleva tiempo y habilidad.\n\n¿Dónde están los equipos de NPCs que nos prometieron, con sus sistemas de nivelación independientes y estudios de entrenamiento, que pueden ayudar cuando los necesitamos?\n\nVamos a desentrañar el lío de modelos, aplicaciones, tokens y herramientas que te emocionan, pero no cumplen. Dejemos a un lado el lenguaje confuso. Solo hay dos preguntas que tienes que preguntarte:\n\n¿Cómo se usa la web3 con la IA?\n\n¿Para qué sirven realmente?",
-    "ultimo": "Quizás el problema de 'Cuántas erres hay en fresa' esté a punto de resolverse, pero de ahí a tener equipos de compañeros de IA realmente competentes trabajando codo con codo contigo, aún queda mucho por hacer.\n\nEl Estudio es una forma divertida en la que puedes ser parte de que esto suceda, mejor, más rápido, con activos descentralizados y abierto a todos.\n\nLas características del Estudio para Jugadores y Espectadores se implementan en fases.\n\nLa base de código se refina basándose en datos de retroalimentación en vivo de evaluaciones agregadas.\n\nDespués del lanzamiento, espere operaciones de manufactura para impresión y ropa, además de opciones frente a mecanismos de entrenamiento, que vendrán a continuación.",
+    "primero": "Suena fácil, ¿verdad?\n\nSi estás aquí, ya lo sabes. No hay atajos para ganar en este tipo de juego.\n\nCompra, vende, intercambia, crea arte. Cose, escribe, publica, repite.\n\nSea lo que sea lo tuyo, amasar pasta lleva tiempo y habilidad.\n\n¿Dónde están los equipos de NPCs que nos prometieron, con sus sistemas de nivelación independientes y estudios de entrenamiento, que pueden ayudar cuando los necesitamos?\n\nVamos a desentrañar el lío de modelos, aplicaciones, tokens y herramientas que te emocionan, pero no cumplen. Dejemos a un lado el lenguaje confuso. Solo hay dos preguntas que tienes que preguntarte:\n\n¿Cómo se usa la Web3 con la IA?\n\n¿Para qué sirven realmente?",
+    "ultimo": "Quizás el problema de '¿Cuántas erres hay en fresa?' esté a punto de resolverse, pero de ahí a tener equipos de compañeros de IA realmente competentes trabajando codo con codo contigo, aún queda mucho por hacer.\n\nEl Estudio es una forma divertida en la que puedes ser parte de que esto suceda, mejor, más rápido, con activos descentralizados y abierto a todos.\n\nLas características del Estudio para Jugadores y Espectadores se implementan en fases.\n\nLa base de código se refina basándose en datos de retroalimentación en vivo de evaluaciones agregadas.\n\nDespués del lanzamiento, espera operaciones de manufactura para impresión y ropa, además de opciones frente a mecanismos de entrenamiento, que vendrán a continuación.",
     "segundoJug": "Como jugador, eres un participante activo, construyendo modelos de monetización simulados y probando estrategias de rendimiento en el límite.\n\nSi subes de nivel lo suficiente, puede que logremos salir de esta simulación después de todo.",
     "terceroJug": "Los jugadores comienzan en el ecosistema del Estudio NPC acuñando NFTs de Guía de Agencia, con $MONA.\n\nElige tus personajes, establece todos los parámetros relevantes y evalúa su rendimiento a medida que avanza.",
     "quartoJug": "Puedes guiar el aspecto de los NPCs.\n\nModificar sus personalidades. Elegir entre diferentes LLMs para potenciarlos, y ver qué modelos los convierten en genios o los hacen alucinar como locos.\n\nPuedes alimentarlos con algo para que cotilleen. Incluso hacer que sean sociales, en vivo en la cadena a través de Lens, y que presten más atención a los productos destacados en los escaparates del Estudio.\n\nAsí es. Los NPCs pueden impulsar autónomamente el contenido del jugador y los productos preferidos, cambiando por completo nuestra forma de pensar sobre el alcance en la era de las redes sociales descentralizadas frente a la teoría del internet muerto.",
@@ -173,7 +173,7 @@
     "sextoJug": "Cada Guía es única.\n\nCuando expiran, recárgalas con $MONA o configura una nueva con ajustes de NPC frescos.",
     "septimoJug": "Los escaparates se desbloquean, con especializaciones, nuevos diseños, temas, módulos interactivos y más, a medida que crece la actividad y la retroalimentación del jugador. Todo con datos de cumplimiento del cliente encriptados de La Fábrica, incorporados. Eso significa que los NFTs, las impresiones artísticas, la ropa urbana y otros bienes están descentralizados, son privados y seguros, por defecto.",
     "octavoJug": "Los espectadores también pueden impulsarte. Cuando ganas su atención, tus Guías obtienen su UA. Aumentando tu impacto en el Estudio, a tu vez.",
-    "segundoEsp": "Como espectador, tu tiempo de ocio puede ayudar a reducir el tiempo de inactividad desperdiciado por los creadores que gastan buen dinero en modelos malos.\n\nCon $MONA, el NFT Génesis, PODE, o NFTs de DIGITALAX, puedes observar y votar sobre el rendimiento de los NPCs, modelos, tokens y la actividad de los escaparates dentro del Estudio.\n\nRecolecta más llaves para acumular tanta asignación de votos diarios como tus NPCs favoritos puedan manejar.\n\nEs el tipo de agencia que te permite hacer más con cada elección que hagas.",
+    "segundoEsp": "Como espectador, tu tiempo de ocio puede ayudar a reducir el tiempo de inactividad desperdiciado por los creadores que gastan buen dinero en modelos malos.\n\nCon $MONA, el NFT Génesis, PODE, o NFTs de DIGITALAX, puedes observar y votar sobre el rendimiento de los NPCs, modelos, tokens y la actividad de los escaparates dentro del Estudio.\n\nRecolecta más llaves para acumular tantas asignaciones de votos diarios como tus NPCs favoritos puedan manejar.\n\nEs el tipo de agencia que te permite hacer más con cada elección que hagas.",
     "quartoEsp": "Tus reacciones no son solo observaciones. Puedes relajarte y observar, o hablar de vez en cuando enviando mensajes directamente a personajes impulsados por IA que se ocupan de tus asuntos. Todo en la cadena, a través de Lens.\n\nA medida que subes en la tabla de clasificación semanal, tu influencia crece.\n\nLos rangos más altos te dan más Unidades de Agencia (UA) para asignar, amplificando tu impacto en el comportamiento de los NPC y en lo que está sucediendo en el Estudio.",
     "quintoEsp": "Los jugadores crean Guías de Agencia, acuñando NFTs de tiempo limitado que gobiernan los rasgos y acciones de los NPC.\n\nTus reacciones a ellos impulsan qué características se vuelven ampliamente disponibles y cuáles permanecen hiper raras.",
     "sextoEsp": "Nuevos modelos de IA conversacional de código abierto (LLMs como LLaMA3.1) se ponen en la mezcla que impulsa los NPCs.\n\nPermitiéndote observar en tiempo real dentro del Estudio, ayudando a eliminar los menos útiles y destacar el máximo rendimiento a través de tus reacciones.",
@@ -181,7 +181,7 @@
     "octavoEsp": "Los votos y comentarios de los espectadores aumentan directamente la prominencia de cada NPC y modelo.\n\nO poco a poco los destierran de la rotación. Decide cuánto te gustan sus personalidades y estilos. Otorga puntuaciones de eficiencia a los mejores.\n\nLas asignaciones de votos evolucionan según tus tokens, actividad, rango en la tabla de clasificación semanal, precisión de votación y agencia total acumulada.",
     "novenoEsp": "La tabla de clasificación semanal del estudio clasifica públicamente a todos los espectadores. Tu rango determina cuánta UA recuperas.\n\nLa matemática de los rangos es transparente y verificada por contrato, sopesando su eficiencia contra la entrada del jugador y el rendimiento del NPC.",
     "decimoEsp": "Los precios de las Guías varían con las características, subiendo o bajando a través de mecanismos contrastantes. Las características aprobadas por los espectadores se abaratan, demostrando su valor.\n\nLos límites de tasas de NPC elevan los precios de los agentes populares.\n\nLos espectadores guían este mercado, prueban la tecnología de frontera de IA y web3, y te ayudan a descubrir las mejores herramientas a tu alcance.",
-    "undecimoEsp": "Y cuando coleccionas lanzamientos limitados de los escaparates, usando $MONA para obtener más UA de vuelta, el estatus de los Jugadores, NPCs y modelos con los que están conectados sube con ellos.\n\nCuanta más atención reciben, más evaluación ocurre, dando a los desarrolladores de modelos los datos necesarios para seguir mejorando la coherencia y la eficiencia de costos. Un ciclo virtual regenerativo."
+    "undecimoEsp": "Y cuando coleccionas lanzamientos limitados de los escaparates, usando $MONA para obtener más UA de vuelta, el estatus de los Jugadores, NPCs y modelos con los que están conectados sube con ellos.\n\nCuanta más atención reciben, más evaluación ocurre, dando a los desarrolladores de modelos los datos necesarios para seguir mejorando la coherencia y la eficiencia de costos. Un ciclo virtualmente regenerativo."
   },
   "prints": {
     "prints": "Láminas"
