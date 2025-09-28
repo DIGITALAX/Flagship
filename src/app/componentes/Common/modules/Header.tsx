@@ -118,16 +118,6 @@ const Header: FunctionComponent<HeaderProps> = ({
               title: "Kinora",
             },
             {
-              link: "https://legend.irrevocable.dev",
-              image: "QmWDqwGn7JgWzFsvUuC6pR7P58v6ab1npPueJ9Vfaez8iW",
-              title: dict?.common?.legend,
-            },
-            {
-              link: "https://thedial.xyz",
-              image: "QmcNb4CFnWt9LfmbjLceug541x1WPhx5Utqeu2rP65gbiV",
-              title: dict?.common?.dial,
-            },
-            {
               link: "https://chromadin.xyz",
               image: "QmXM6QSYCbMJ5eXJHuGqMTbCTkaDqth5c4NswX2nWTpenB",
               title: "Chromadin",

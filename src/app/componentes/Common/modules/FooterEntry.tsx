@@ -3,7 +3,7 @@
 import Image from "next/legacy/image";
 import { FunctionComponent, JSX, ReactElement, useContext } from "react";
 import { INFURA_GATEWAY_INTERNAL } from "../../../lib/constants";
-import { BsTwitter } from "react-icons/bs";
+import { BsQuestionCircle } from "react-icons/bs";
 import { BiArrowToTop } from "react-icons/bi";
 import { FooterProps } from "../types/common.types";
 import { ModalContext } from "@/app/providers";
@@ -120,9 +120,9 @@ const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
                 title: "Autograph",
               },
               {
-                link: "https://twitter.com/digitalax_",
-                title: "Twitter",
-                component: <BsTwitter size={30} color={"#FFDCFF"} />,
+                link: "https://cc0web3fashion.com/forum/",
+                title: "Web3 Fashion Forum",
+                component: <BsQuestionCircle size={30} color={"#FFDCFF"} />,
               },
             ].map(
               (
