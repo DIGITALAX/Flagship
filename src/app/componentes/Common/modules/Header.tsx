@@ -76,7 +76,12 @@ const Header: FunctionComponent<HeaderProps> = ({
               </div>
             </div>
             <div className="relative w-fit h-fit flex items-center justify-center sm:order-2 order-1">
-              <div className="relative h-12 w-12 flex items-center justify-center cursor-sewingHS" onClick={() => window.open("https://globaldesignernetwork.com/")}>
+              <div
+                className="relative h-12 w-12 flex items-center justify-center cursor-sewingHS"
+                onClick={() =>
+                  window.open("https://globaldesignernetwork.com/")
+                }
+              >
                 <Image
                   src={`${INFURA_GATEWAY_INTERNAL}QmYbjMNQAVuQSWNNQ5AKbQtt4Dxw2ax4SvLNwKhCNDniL2`}
                   layout="fill"
@@ -106,6 +111,11 @@ const Header: FunctionComponent<HeaderProps> = ({
               link: "https://globaldesignernetwork.com",
               image: "QmNdZYLwjEpwYVR7VyDqNq1G1hMcnKRxebvk4pFpKMAZEy",
               title: "GDN",
+            },
+            {
+              link: "https://ionic.digitalax.xyz",
+              image: "QmRbivMtkQehehTW8oEM3H2DqcSCFnCXK1W7AwYmzRz6wn",
+              title: "Ionic",
             },
             {
               link: "https://skyhunters.agentmeme.xyz",

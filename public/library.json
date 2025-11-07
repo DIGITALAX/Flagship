@@ -190,5 +190,17 @@
     "link": "https://cypher.digitalax.xyz/item/catalog/autograph-quarterly",
     "width": 25,
     "height": 275
+  },
+  {
+    "name": {
+      "es": "MODA WEB3 CC0",
+      "en": "CC0 WEB3 FASHION"
+    },
+    "image": "QmRvToqB2HFS2rB7ey9B5RyZ9UZ5MrGYVL4eT3Zob2uEvx",
+    "number": "17",
+    "id": "seventeen",
+    "link": "https://cc0web3fashion.com/",
+    "width": 25,
+    "height": 275
   }
 ]

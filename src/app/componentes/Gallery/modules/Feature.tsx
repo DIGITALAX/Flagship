@@ -18,6 +18,8 @@ const Feature: FunctionComponent<FeatureProps> = ({
     >
       <Image
         draggable={false}
+        title={title}
+        alt={title}
         layout="fill"
         src={`${INFURA_GATEWAY_INTERNAL}${image}`}
         objectFit="cover"

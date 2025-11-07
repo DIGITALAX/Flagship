@@ -101,43 +101,11 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
               title: "Skyhunters",
               link: "https://skyhunters.agentmeme.xyz/",
             },
+
             {
-              image: "QmTLX8JxYry2TZgwdbb4DL6HBvUsESgAC2mEhrQBBk4K3a",
-              title: "TripleA",
-              link: "https://triplea.agentmeme.xyz/",
-            },
-          ].map(
-            (
-              item: {
-                image: string;
-                title: string;
-                link: string;
-              },
-              index: number
-            ) => {
-              return (
-                <Feature
-                  key={index}
-                  image={item.image}
-                  title={item.title}
-                  link={item.link}
-                  router={router}
-                />
-              );
-            }
-          )}
-        </div>
-        <div className="relative w-full h-fit flex items-center justify-center flex-col sm:flex-row">
-          {[
-            {
-              image: "QmZ9jPeuD1SNRuFx2SjQSJGSR445FoMHV3WU9ddW7S7mb7",
-              title: dict?.common?.studio,
-              link: "https://npcstudio.xyz/",
-            },
-            {
-              image: "QmQvYzGUxZ65CNL7GvcqphAeBegJ19r23nmu9uHmPQ6Dc6",
-              title: "Chromadin",
-              link: "https://www.chromadin.xyz/",
+              image: "QmYXNG1QarpiSBaVd6RYj4HEKgngt49zPMWdRxQQKdB9va",
+              title: "FGO Futures",
+              link: "https://futures.themanufactory.xyz/",
             },
           ].map(
             (
@@ -168,6 +136,40 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
               link: "https://coinop.themanufactory.xyz/",
             },
             {
+              image: "QmQvYzGUxZ65CNL7GvcqphAeBegJ19r23nmu9uHmPQ6Dc6",
+              title: "Chromadin",
+              link: "https://www.chromadin.xyz/",
+            },
+          ].map(
+            (
+              item: {
+                image: string;
+                title: string;
+                link: string;
+              },
+              index: number
+            ) => {
+              return (
+                <Feature
+                  key={index}
+                  image={item.image}
+                  title={item.title}
+                  link={item.link}
+                  router={router}
+                />
+              );
+            }
+          )}
+        </div>
+        <div className="relative w-full h-fit flex items-center justify-center flex-col sm:flex-row">
+          {[
+            {
+              image: "QmZ9jPeuD1SNRuFx2SjQSJGSR445FoMHV3WU9ddW7S7mb7",
+              title: dict?.common?.studio,
+              link: "https://npcstudio.xyz/",
+            },
+
+            {
               image: "Qmc1G3A1AdiUyjWsbX9MU8jinapN7Cy1mHb9kFsieysSno",
               title: "Kinora",
               link: "https://kinora.irrevocable.dev/",
@@ -197,8 +199,8 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
           {[
             {
               image: "Qmbuv1tSD437oRELndaJHEjjGE73xgjJFaFdWzVCrtbADn",
-              title: "Mona",
-              link: "/mona",
+              title: "Tokens",
+              link: "/tokens",
             },
             {
               image: "QmQ81mzd6V5b57rXabEQQaWEg6zSxVY3tLHafx3XGVm14s",
@@ -229,9 +231,9 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
         <div className="relative w-full h-fit flex items-center justify-center flex-col sm:flex-row">
           {[
             {
-              image: "QmYXNG1QarpiSBaVd6RYj4HEKgngt49zPMWdRxQQKdB9va",
-              title: dict?.common?.listener,
-              link: "https://listener.irrevocable.dev/",
+              image: "QmTLX8JxYry2TZgwdbb4DL6HBvUsESgAC2mEhrQBBk4K3a",
+              title: "TripleA",
+              link: "https://triplea.agentmeme.xyz/",
             },
             {
               image: "QmNcrdusMU9qch4imSkCFtgSNXHVhd8fin8Ur6ySLKFERz",
