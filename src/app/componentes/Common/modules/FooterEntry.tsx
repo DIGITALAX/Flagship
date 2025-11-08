@@ -157,12 +157,9 @@ const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
           </div>
         </div>
       </div>
-      <div className="relative items-center bg-offBlack text-offWhite justify-between text-center font-lib text-xs w-full pb-2 pt-6 px-2 flex">
+      <div className="relative items-center bg-offBlack text-offWhite justify-center font-lib text-center text-xs gap-3 w-full pb-2 pt-6 px-2 flex flex-col">
         <div className="relative w-fit h-fit flex">{dict?.footer?.comms}</div>
-        <div
-          className="relative w-fit h-fit flex cursor-sewingHS"
-          onClick={() => window.open("https://cc0web3fashion.com/forum/")}
-        >
+        <div className="relative w-fit h-fit flex">
           {dict?.footer?.foro}
         </div>
       </div>
