@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache, HttpLink } from "@apollo/client";
 
 const httpLinkPrint = new HttpLink({
-  uri: `https://gateway.thegraph.com/api/${process.env.NEXT_PUBLIC_GRAPH_KEY}/subgraphs/id/5BRsShsfv6tEucvDwGtrstRhg1fpvx2pMRWh5GDovE9K`,
+  uri: "/api/graphql/print",
 });
 
 export const graphPrintClient = new ApolloClient({
@@ -10,7 +10,7 @@ export const graphPrintClient = new ApolloClient({
 });
 
 const httpLinkKinora = new HttpLink({
-  uri: `https://gateway-arbitrum.network.thegraph.com/api/${process.env.NEXT_PUBLIC_GRAPH_KEY}/subgraphs/id/DKi4s9USksFKEobZaofL3QAST4SQGhuEtsBJcBY4Dn8`,
+  uri: "/api/graphql/kinora",
 });
 
 export const graphKinoraClient = new ApolloClient({
