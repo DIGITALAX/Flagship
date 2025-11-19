@@ -7,6 +7,7 @@
     "collect": "Reúne y Crea: Las claves del ecosistema",
     "bend": "NO DOBLAR",
     "shop": "IR DE COMPRAS",
+    "tokens": "Equipo & Tokens",
     "refresh": "Estas páginas aún se están actualizando. Vuelve pronto.",
     "welcome": "bienvenido al gran lanzamiento de la aplicación para todo.\n\nEquipa tu fuerza laboral de IA. Entrena para reducir el tiempo de inactividad. Intenta sobrevivir en estilo.",
     "maze": "Encuentra tu camino a través del laberinto @ cypher",
@@ -152,7 +153,8 @@
     "built": "lo que ha sido construido y",
     "dev": "lo que está en desarrollo",
     "general": "Visión General del Ecosistema",
-    "legend": "Leyenda"
+    "legend": "Leyenda",
+    "comp": "Fabricación Computacional"
   },
   "mona": {
     "agencia": "Soluciona IA y Web3.",
@@ -185,5 +187,23 @@
   },
   "prints": {
     "prints": "Láminas"
+  },
+  "tokens": {
+    "awake": "¿Todavía despierto, Anon?",
+    "chat": "¿Por qué no charlas con tu máquina?",
+    "llms": "LLMs.txt",
+    "description": "Taller de máquinas a las 3AM. Las ingenieras de DIGITALAX. Rust, Solidity, TS, Forge, RTX 4090, Pro 6000. Los flujos de trabajo se quedan locales: configuraciones Comfy, cadenas de video, plataformas de difusión, SDXL, FLUX, ILLUSTRIOUS, WAN2.1.",
+    "treasury": "Tesorería",
+    "treasuryText": "Multi-sig en la red principal de Ethereum. Transacciones salientes activas entre 2020–22; informes de transparencia en la estantería. El firmante de la tesorería sembró el pool ETH/MONA en mainnet y el pool ETH/MATIC en Polygon. Todos los tokens UNI-V2 aún se conservan. Los recursos iniciales del génesis de 2020 y los primeros mints de NFT respaldaron la construcción del protocolo y la actividad del ecosistema. Sin VCs, rondas privadas, hombres de traje, jamás. Desde 2022 en adelante, el uso se redujo al mantenimiento de infraestructura y costos de despliegue a medida que las operaciones se desplazaron hacia agentes on-chain. Se mantienen 843 MONA de la asignación original de 1000 unidades. Esto se canalizará a través de pools de distribución automatizados vinculados a la actividad de la aplicación y métricas del protocolo; los contratos para esto están en progreso. Las entradas de la tesorería se desarrollan solo cuando las aplicaciones lo hacen; los sistemas pre-mercado no generan tracción hasta que la pila computacional esté en su lugar. Los flujos de trabajo de medios impulsados por IA son los que ponen en línea la economía.",
+    "grants": "Subvenciones",
+    "grantsText": "El sistema de subvenciones en web3 está roto. Cada constructor lo sabe. Lo aprendimos de primera mano más de una vez, pero aun así lanzamos aplicaciones a través de tecnología genuinamente interesante.\n\nLit Protocol, 2023: SDK de listener y herramientas de eventos PKP sin código.\nKinora con Livepeer, 2023: SDK y aplicación de quest de video on-chain.\nLens Protocol, 2024: Navegación de canales Chromadin, incorporación de creadores, Dial Pirate Radio S1&2.",
+    "tokensTitle": "Tokens",
+    "tokensText": "Un protocolo no puede ejecutar economía on-chain con vibes. Necesita tokens como primitivas para coordinar agentes, pools, flujos y lógica de aplicación. La soberanía económica no existe sin unidades que el sistema (y solidity) puedan mover, bloquear, medir o enrutar.\n\n$MONA — ERC20\nLanzado en 2020 después del mint Genesis. Límite de 11,300.\nEthereum mainnet, Polygon, Lens mainnet.\nLiquidez sembrada por el protocolo en ETH y Polygon; las posiciones LP se mantienen.\nSin asignación de equipo. La tesorería mantiene 843 MONA de la asignación original de 1000.\nUsado en: Coin Op, Chromadin, Skyhunters, FGO, FGO Futures, Kinora, NPC Studio, Global Designer Network, Cypher Search, TripleA.\n\nGENESIS — 721\nMint inicial del protocolo, 2020 en Ethereum. Límite de 500.\nStaking para pools MONA y gobernanza del protocolo.\nMint V3 disponible en Lens.\nUsado en: actividad de bot de liquidación en FGO Futures, actividad de conductor de evaluación, integraciones Ionic, y roles de consejo + proponente de Skyhunters, mints W3FW 2025.\n\nIONIC — 721\nMint inicial del protocolo, 2020 en Ethereum.\nStaking para MONA, evaluaciones DLTA, W3FW, Realm Runways, airdrops IRL & Digital.\nAhora en forma v3 en Lens.\nAnteriormente PODE; nombre actualizado.\nUsado en: actividad de bot de liquidación en FGO Futures, actividad de conductor de evaluación, integraciones Ionic, y roles de consejo + proponente de Skyhunters, mints W3FW 2025.\n\nW3F — ERC20\nLens mainnet.\nGobernanza y coordinación para la Global Designer Network.\nGanado a través de mintear colecciones y actividad de mercado en GDN.",
+    "privacy": "Privacidad & Encriptación",
+    "privacyText": "La privacidad no es opcional aquí, es capa base. El cumplimiento inicial se ejecutó a través de Lit PKPs. Cuando Lit se movió a un modelo de pago por uso, eliminamos la dependencia y cambiamos todo a nuestra propia infraestructura de encriptación basada en wallet interna. Cada mercado de cumplimiento en todas las aplicaciones ahora ejecuta canales de clave privada entre comprador y cumplidor solamente. El protocolo no realiza recopilación de datos en sus aplicaciones o contratos: sin cookies, sin captura de correo electrónico, sin seguimiento, sin identificadores, sin almacenamiento off-chain. Para más información sobre nuestro enfoque de encriptación, escucha a continuación.",
+    "social": "Canales Sociales",
+    "socialText": "La comunicación se ha consolidado en un área de superficie más descentralizada. El formato largo se movió de Medium a Fountain (@fudfaq), con publicaciones ocasionales de Mirror cuando el gas de mainnet tenía sentido. La conversación se movió de Discord a Lens y el foro Web3 Fashion CC0. Las capas anteriores como Telegram, LinkedIn y Discord están completamente retiradas. No ejecutamos canales laterales, ni grupos derivados.",
+    "build": "Ciclo de Desarrollo Activo",
+    "buildText": "Actualización ESPA: juegos descentralizados, esports y sistemas narrativos ejecutándose a través de flujos de trabajo generativos.\nLa fabricación computacional continúa en paralelo.\nContratos de distribución automatizados para MONA de la Tesorería."
   }
 }

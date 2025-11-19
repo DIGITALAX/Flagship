@@ -49,7 +49,7 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
               dict?.log?.coin,
               dict?.log?.fgo,
               dict?.log?.manu,
-              "Mona",
+              dict?.log?.comp,
               dict?.log?.kinora,
               dict?.log?.vision,
               "Chromadin",

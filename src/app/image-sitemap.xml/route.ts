@@ -66,7 +66,7 @@ const PATHS = [
     })),
   },
   {
-    route: "/mona/",
+    route: "/computational-manufacturing/",
     images: [
       "QmfSDeJw2C4ND1XTZWAhqFeVnV5doMX5q5KqQKz68BADrj",
       "QmfSDeJw2C4ND1XTZWAhqFeVnV5doMX5q5KqQKz68BADrj",
@@ -100,6 +100,31 @@ const PATHS = [
       image,
       title: TITLES[i + 142],
     })),
+  },
+  {
+    route: "/tokens/",
+    images: [
+      {
+        title: "OT-P53",
+        image: "QmNkwQdKLVQQdrEtcFeHpF2dLzrxU3uuWrKUEF1Trdf3B3",
+      },
+      {
+        title: "VNO-7L4",
+        image: "QmWZVBQLd8XWWkiSQiXcTsBcx4mnDkbGCQwobbdoY941Hj",
+      },
+      {
+        title: "ENI-GX19",
+        image: "QmWzhzMy9XQn1HFgKCT3t7caDkVoGWBdh2o7vcL5hkZbdM",
+      },
+      {
+        title: "CRY-M0D7",
+        image: "QmZ525CgjsuFTfrVj9xULtkL4ntqQxRCFS3ZS7Dj42xGHr",
+      },
+      {
+        title: "SIG-A2C",
+        image: "QmVtfTBZg3A1rrwJxc4sg9gsG7GJa3Q3PBUZi76F1izThQ",
+      },
+    ],
   },
 ];
 

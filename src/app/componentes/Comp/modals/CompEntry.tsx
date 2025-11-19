@@ -4,11 +4,11 @@ import { INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
 import { ModalContext } from "@/app/providers";
 import Image from "next/legacy/image";
 import { useContext } from "react";
-import useMona from "../hooks/useMona";
 import ImagenCambio from "./ImagenCambio";
 import TextoCambio from "./TextoCambio";
+import useComp from "../hooks/useComp";
 
-export default function MonaEntry({ dict }: { dict: any }) {
+export default function CompEntry({ dict }: { dict: any }) {
   const context = useContext(ModalContext);
   const {
     tipo,
@@ -27,7 +27,7 @@ export default function MonaEntry({ dict }: { dict: any }) {
     texto,
     textareaRef,
     indice,
-  } = useMona(dict);
+  } = useComp(dict);
 
   return (
     <div

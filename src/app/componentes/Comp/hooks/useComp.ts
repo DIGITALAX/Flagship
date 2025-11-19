@@ -1,6 +1,6 @@
 import { KeyboardEvent, useCallback, useEffect, useRef, useState } from "react";
 
-const useMona = (dict: any) => {
+const useComp = (dict: any) => {
   const textosJugador: string[] = [
     dict?.mona?.primero,
     dict?.mona?.segundoJug,
@@ -239,4 +239,4 @@ const useMona = (dict: any) => {
   };
 };
 
-export default useMona;
+export default useComp;

@@ -96,12 +96,12 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
               title: "FGO",
               link: "https://fgo.themanufactory.xyz/",
             },
-            {
-              image: "QmPRURdUCv5ArkhqyhHn6aicHbQVMATDyL1wzmT55bK2Nr",
-              title: "Skyhunters",
-              link: "https://skyhunters.agentmeme.xyz/",
-            },
 
+            {
+              image: "QmRXPA7y26Vd6BALHLbTmoj7W2cYKNx4tuuHqzBoTv6fCP",
+              title: dict?.common?.tokens,
+              link: "/tokens",
+            },
             {
               image: "QmYXNG1QarpiSBaVd6RYj4HEKgngt49zPMWdRxQQKdB9va",
               title: "FGO Futures",
@@ -199,8 +199,8 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
           {[
             {
               image: "Qmbuv1tSD437oRELndaJHEjjGE73xgjJFaFdWzVCrtbADn",
-              title: "Tokens",
-              link: "/tokens",
+              title: dict?.log?.comp,
+              link: "/computational-manufacturing",
             },
             {
               image: "QmQ81mzd6V5b57rXabEQQaWEg6zSxVY3tLHafx3XGVm14s",
@@ -239,6 +239,39 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
               image: "QmNcrdusMU9qch4imSkCFtgSNXHVhd8fin8Ur6ySLKFERz",
               title: dict?.common?.manu,
               link: "https://themanufactory.xyz/",
+            },
+          ].map(
+            (
+              item: {
+                image: string;
+                title: string;
+                link: string;
+              },
+              index: number
+            ) => {
+              return (
+                <Feature
+                  key={index}
+                  image={item.image}
+                  title={item.title}
+                  link={item.link}
+                  router={router}
+                />
+              );
+            }
+          )}
+        </div>
+        <div className="relative w-full h-fit flex items-center justify-center flex-col sm:flex-row">
+          {[
+            {
+              image: "QmPRURdUCv5ArkhqyhHn6aicHbQVMATDyL1wzmT55bK2Nr",
+              title: "Skyhunters",
+              link: "https://skyhunters.agentmeme.xyz/",
+            },
+            {
+              image: "QmbabgkCyusNAPNcM2XdJsw83FkBK35fxd7QLa8w4SEMJE",
+              title: "Ionic",
+              link: "https://ionic.digitalax.xyz/",
             },
           ].map(
             (

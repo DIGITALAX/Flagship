@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Neco";
+  font-weight: 400;
+  src: url("/fonts/NecoMedium.otf");
+}
+
+@font-face {
+  font-family: "Stardom";
+  font-weight: 400;
+  src: url("/fonts/StardomRegular.otf");
+}
+
+@font-face {
+  font-family: "Chillax";
+  font-weight: 400;
+  src: url("/fonts/ChillaxMedium.otf");
+}
 
 @font-face {
   font-family: "Letter Magic";
@@ -182,6 +199,9 @@
   --font-dos: "Dos";
   --font-abd: "Abaddon";
   --font-grav: "Grav";
+  --font-star: "Stardom";
+  --font-neco: "Neco";
+  --font-chill: "Chillax";
 
   --color-offBlack: #111313;
   --color-offBlue: #01030c;
@@ -297,6 +317,15 @@
     background-color: var(--color-amo);
   }
 
+  .font-star {
+    font-family: var(--font-star);
+  }
+  .font-neco {
+    font-family: var(--font-neco);
+  }
+  .font-chill {
+    font-family: var(--font-chill);
+  }
   .font-york {
     font-family: var(--font-york);
   }
@@ -1163,7 +1192,6 @@ body.stop-scrolling {
   background-color: transparent !important;
 }
 
-
 @keyframes shimmer {
   0% {
     transform: translateX(-100%);
@@ -1171,4 +1199,10 @@ body.stop-scrolling {
   100% {
     transform: translateX(100%);
   }
+}
+
+
+.cypher {
+  border: solid .5em black;
+  border-image: linear-gradient(#2596be 17.5%, #FEE52C 17.5%, #FE86E3 35%, #F6F4F3 35%, #F6F4F3 52.5%, #DCD84F 52.5%, #DCD84F 70%, #F087E1 70%, #FAE230 87.5%) 5 5;
 }

@@ -1,12 +1,12 @@
-import MonaEntry from "@/app/componentes/Mona/modals/MonaEntry";
 import { Suspense } from "react";
 import Wrapper from "../componentes/Common/modules/Wrapper";
 import { getDictionary } from "../[lang]/dictionaries";
 import { Metadata } from "next";
 import { LOCALES } from "../lib/constants";
+import TokensEntry from "../componentes/Tokens/modules/TokensEntry";
 
 export const metadata: Metadata = {
-  title: "Tokens",
+  title: "Team & Tokens",
   alternates: {
     canonical: `https://digitalax.xyz/tokens/`,
     languages: LOCALES.reduce((acc, item) => {
@@ -23,7 +23,7 @@ export default async function Tokens() {
       dict={dict}
       page={
         <Suspense fallback={<></>}>
-          <MonaEntry dict={dict} />
+          <TokensEntry dict={dict} />
         </Suspense>
       }
     />

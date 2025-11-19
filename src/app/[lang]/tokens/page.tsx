@@ -1,11 +1,11 @@
-import MonaEntry from "@/app/componentes/Mona/modals/MonaEntry";
+import TokensEntry from "@/app/componentes/Tokens/modules/TokensEntry";
 import { getDictionary } from "../dictionaries";
 import { tParams } from "../layout";
 import { LOCALES } from "@/app/lib/constants";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mona",
+  title: "Team & Tokens",
   alternates: {
     canonical: `https://digitalax.xyz/tokens/`,
     languages: LOCALES.reduce((acc, item) => {
@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function Tokens({ params }: { params: tParams }) {
+export default async function ComputationalManufacturing({ params }: { params: tParams }) {
   const { lang } = await params;
 
   const dict = await (getDictionary as (locale: any) => Promise<any>)(lang);
-  return <MonaEntry dict={dict} />;
+  return <TokensEntry dict={dict} />;
 }

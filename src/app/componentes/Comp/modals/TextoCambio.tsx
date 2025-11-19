@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react";
-import { TextCambioProps } from "../types/mona.types";
 import { usePathname } from "next/navigation";
+import { TextCambioProps } from "../types/comp.types";
 
 const TextoCambio: FunctionComponent<TextCambioProps> = ({
   tipo,

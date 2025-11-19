@@ -1,0 +1,76 @@
+# DIGITALAX - Team & Tokens
+
+## Machine Shop at 3AM
+
+Machine shop at 3AM. Las ingenieras de DIGITALAX. Rust, Solidity, TS, Forge, RTX 4090, Pro 6000. Workflows stay local: Comfy setups, video chains, diffusion rigs, SDXL, FLUX, ILLUSTRIOUS, WAN2.1.
+
+---
+
+## Treasury
+
+Ethereum mainnet multi-sig. Active outbound transactions between 2020–22; transparency reports in the bookshelf. Treasury signer seeded the ETH/MONA pool on mainnet and the ETH/MATIC pool on Polygon. All UNI-V2 tokens still held. Initial resources from the 2020 genesis and early NFT mints supported protocol build-out and ecosystem activity. No VCs, private rounds, men in suits, ever. From 2022 onward, usage narrowed to infrastructure upkeep and deployment costs as operations shifted toward on-chain agents. 843 MONA are held from the original 1000-unit allocation. This will route through automated distribution pools tied to application activity and protocol metrics; the contracts for this are in progress. Treasury inflows develop only when the applications do; pre-market systems don't generate traction until the computational stack is in place. AI-driven media workflows are what bring the economics online.
+
+---
+
+## Grants
+
+The grant system in web3 is broken. Every builder knows it. We learnt that first-hand more than once, but still pushed out apps across some genuinely interesting tech.
+
+Lit Protocol, 2023: listener SDK and no-code PKP event tooling.
+Kinora with Livepeer, 2023: on-chain video quest SDK and app.
+Lens Protocol, 2024: Chromadin channel surfing, creator onboarding, Dial Pirate Radio S1&2.
+
+---
+
+## Tokens
+
+A protocol can't execute on-chain economics with vibes. It needs tokens as primitives to coordinate agents, pools, flows, and application logic. Economic sovereignty doesn't exist without units the system (and solidity) can move, lock, measure, or route.
+
+$MONA — ERC20
+Launched 2020 after Genesis mint. 11,300 cap.
+Ethereum mainnet, Polygon, Lens mainnet.
+Liquidity seeded by the protocol on ETH and Polygon; LP positions remain held.
+No team allocation. Treasury holds 843 MONA from the original 1000 allocation.
+Used across: Coin Op, Chromadin, Skyhunters, FGO, FGO Futures, Kinora, NPC Studio, Global Designer Network, Cypher Search, TripleA.
+
+GENESIS — 721
+Initial protocol mint, 2020 on Ethereum. 500 cap.
+Staking for MONA pools and protocol governance.
+V3 mint available on Lens.
+Used in: settlement bot activity on FGO Futures, appraisal conductor activity, Ionic integrations, and Skyhunters' council + proposer roles, W3FW 2025 mints.
+
+IONIC — 721
+Initial protocol mint, 2020 on Ethereum.
+Staking for MONA, DLTA appraisals, W3FW, Realm Runways, IRL & Digital airdrops.
+Now in v3 form on Lens.
+Previously PODE; name updated.
+Used in: settlement bot activity on FGO Futures, appraisal conductor activity, Ionic integrations, and Skyhunters' council + proposer roles, W3FW 2025 mints.
+
+W3F — ERC20
+Lens mainnet.
+Governance and coordination for the Global Designer Network.
+Earned through minting collections and market activity on GDN.
+
+---
+
+## Privacy & Encryption
+
+Privacy is not optional here, it is base layer. Early fulfillment ran through Lit PKPs. When Lit moved to a pay to use model, we dropped the dependency and shifted everything into our own internal wallet based encryption infrastructure. Every fulfillment market in all apps now runs private key channels between buyer and fulfiller only. The protocol does no data collection across its applications or contracts: no cookies, no email capture, no tracking, no identifiers, no off-chain storage. For more on our encryption approach, listen below.
+
+---
+
+## Social Channels
+
+Communication has consolidated into a more decentralised surface area. Long-form moved from Medium to Fountain (@fudfaq), with occasional Mirror posts when mainnet gas made sense. Conversation moved from Discord into Lens and the Web3 Fashion CC0 forum. Earlier layers like Telegram, LinkedIn and Discord are fully retired. We don't run any side channels, no offshoot groups.
+
+---
+
+## Active Build Cycle
+
+ESPA upgrade: decentralised gaming, esports, and narrative systems running through generative workflows.
+Computational manufacturing continues in parallel.
+Automated distribution contracts for Treasury MONA.
+
+---
+
+For more information, visit: https://digitalax.xyz

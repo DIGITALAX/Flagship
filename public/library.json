@@ -202,5 +202,17 @@
     "link": "https://cc0web3fashion.com/",
     "width": 25,
     "height": 275
+  },
+  {
+    "name": {
+      "es": "GENESIS",
+      "en": "GENESIS"
+    },
+    "image": "QmNwVAs9WMa4soFJ8mAdyWtMP2VSa1zc4XRGKSLBp6Bpx9",
+    "number": "18",
+    "id": "eighteen",
+    "link": "https://genesis.digitalax.xyz/",
+    "width": 25,
+    "height": 275
   }
 ]
