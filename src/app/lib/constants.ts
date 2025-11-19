@@ -806,8 +806,8 @@ export const LOG: {
       es: "13. Skyhunters",
     },
     description: {
-      en: "Where leftover airdrops, unreleased NFT mints, and day-old meme tokens get sniffed out by tireless agent squads. None of this “missed it while asleep” business—Skyhunters comb the networks for cross-chain freebies, pooling them back on Polygon for dev funding, micro-grants, and a few sly personal payouts to whoever fronted the tokens. It’s not automation to replace you—it’s your hype-hunting wingman that never crashes from lack of caffeine.",
-      es: "Donde airdrops olvidados, minteos de NFT sin lanzar y tokens meme con un día de vida son rastreados por escuadrones de agentes incansables. Nada de 'me lo perdí mientras dormía'—Skyhunters rastrea las redes en busca de recompensas cross-chain, agrupándolas en Polygon para financiar desarrollos, dar microbecas y, claro, repartir algún pago discreto a quien adelantó los tokens. No es automatización para sustituirte—es tu cazador de hype que nunca se estrella por falta de cafeína.",
+      en: "An internal autonomous oracle market where ecosystem participants create prediction markets on their own metrics. Will Chromadin's 10th stream cross 8K mints in 72 hours? Will W3F credits cycle through 9K wallets this quarter? Ionic, Genesis, and MONA holders manage proposals, dispute resolution, and trading fee rewards. No external validators needed in an ecosystem betting on itself, with skin in the game and governance baked in.",
+      es: "Un mercado de oráculos autónomos interno donde los participantes del ecosistema crean mercados de predicción sobre sus propias métricas. ¿El décimo stream de Chromadin cruzará 8K acuñaciones en 72 horas? ¿Los créditos de W3F circularán por 9K billeteras este trimestre? Los poseedores de Ionic, Genesis y MONA gestionan propuestas, resolución de disputas y recompensas por tarifas de transacción. No se necesitan validadores externos en un ecosistema que apuesta por sí mismo, con riesgo real y gobernanza integrada.",
     },
   },
   {
@@ -828,6 +828,36 @@ export const LOG: {
     description: {
       en: "ComfyStream workflows multiply faster than forums can index. Lucidity maps the patterns that produce results, filtering signal from the endless 'has anyone solved this' threads. The agent reads your intent, surfaces tested chains, keeps you building on what works. Raw workflow intelligence without the archeological dig.",
       es: "Los flujos de trabajo en ComfyStream se multiplican más rápido de lo que los foros pueden indexar. Lucidity traza los patrones que generan resultados, filtrando la señal del interminable “¿alguien ha resuelto esto?”. El agente entiende tu intención, te muestra cadenas ya testeadas y te mantiene construyendo sobre lo que realmente funciona. Inteligencia de flujo de trabajo en bruto, sin la excavación arqueológica.",
+    },
+  },
+  {
+    title: {
+      en: "16. Fractional Garment Ownership",
+      es: "16. Fractional Garment Ownership",
+    },
+    description: {
+      en: "Fractional Garment Ownership is the open manufacturing lattice where Designers, suppliers, and fulfillers stop operating like three tabs you forgot you opened. Suppliers mint 1155 templates and components. Designers reference them in final 721 wearables. Automatic splits flow through verified fulfillment pipelines. No intermediaries deciding who gets paid what or when. Suppliers and designers match on supply rights through permission-clean references. The stack that turns 'I need 500 yards of that fabric' into executable code.",
+      es: "Fractional Garment Ownership es la red de manufactura abierta donde diseñadores, proveedores y cumplidores dejan de operar como tres pestañas que olvidaste que abriste. Los proveedores acuñan plantillas y componentes 1155. Los diseñadores los referencian en prendas finales 721. Las divisiones automáticas fluyen a través de tuberías de cumplimiento verificadas. Sin intermediarios decidiendo quién cobra qué o cuándo. Proveedores y diseñadores se emparejan en derechos de suministro mediante referencias limpias de permisos. El sistema que convierte 'necesito 500 yardas de esa tela' en código ejecutable.",
+    },
+  },
+  {
+    title: {
+      en: "17. FGO Futures",
+      es: "17. Futuros FGO",
+    },
+    description: {
+      en: "Supply costs don't wait for your production schedule. FGO Futures let suppliers hedge material expenses before fulfillment, and buyers trade physical rights between purchase and delivery. Here's the window: when a 721 garment sells, its linked 1155 children don't mint until the fulfiller marks real world existence. In that gap, physical rights get assigned, and those rights become tradeable futures. Speculation meets supply chain. The market decides value before the ink dries or the thread gets cut.",
+      es: "Los costos de suministro no esperan tu cronograma de producción. FGO Futures permite a los proveedores cubrir gastos de materiales antes del cumplimiento, y a los compradores intercambiar derechos físicos entre compra y entrega. Aquí está la ventana: cuando se vende una prenda 721, sus hijos 1155 vinculados no se acuñan hasta que el cumplidor marca existencia en el mundo real. En ese intervalo, se asignan derechos físicos, y esos derechos se convierten en futuros negociables. La especulación se encuentra con la cadena de suministro. El mercado decide el valor antes de que se seque la tinta o se corte el hilo.",
+    },
+  },
+  {
+    title: {
+      en: "18. Ionic",
+      es: "18. Ionic",
+    },
+    description: {
+      en: "The evolution of the DLTA appraisal system, now running on PODE v3. Ionic holders appraise submitted NFTs using reaction packs (curated sets created and sold by invited designers). It's price discovery that isn't just floor swept at 0.3 ETH. Appraisers link designer reaction packs to each review, building cultural context into valuation. The foundation for a market where on-chain goods get priced through collective taste and verifiable signal, not whoever yells loudest on Twitter.",
+      es: "La evolución del sistema de tasación DLTA, ahora ejecutándose en PODE v3. Los poseedores de Ionic tasan NFTs enviados usando paquetes de reacciones (conjuntos curados creados y vendidos por diseñadores invitados). Es un descubrimiento de precios que no es solo barrido de piso a 0.3 ETH. Los tasadores vinculan paquetes de reacciones de diseñadores a cada revisión, construyendo contexto cultural en la valoración. La base para un mercado donde los bienes on-chain se valoran mediante gusto colectivo y señal verificable, no por quien grita más fuerte en Twitter.",
     },
   },
 ];
