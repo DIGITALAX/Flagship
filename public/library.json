@@ -214,5 +214,17 @@
     "link": "https://genesis.digitalax.xyz/",
     "width": 25,
     "height": 275
+  },
+  {
+    "name": {
+      "es": "FUD FAQ",
+      "en": "FUD FAQ"
+    },
+    "image": "QmTWQoDnE4mcSoQUgh6oJyzf46gKaUPE1EiCCAnu1saPG2",
+    "number": "19",
+    "id": "nineteen",
+    "link": "https://fountain.ink/u/fudfaq/",
+    "width": 25,
+    "height": 275
   }
 ]
