@@ -106,8 +106,8 @@ const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
             {[
               {
                 image: "QmWVdyGgXbPL5SiRnQwALHvWzAnyiXBos1oB4TVTqg7saV",
-                link: "https://blog.digitalax.xyz/",
-                title: "Blog",
+                link: "https://fountain.ink/u/digiink",
+                title: "Ink",
               },
               {
                 image: "QmP5349vcKLNXUhtLyZWQXB8vEbFwRcKLzzB93vxkLsvpw",
@@ -159,9 +159,7 @@ const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
       </div>
       <div className="relative items-center bg-offBlack text-offWhite justify-center font-lib text-center text-xs gap-3 w-full pb-2 pt-6 px-2 flex flex-col">
         <div className="relative w-fit h-fit flex">{dict?.footer?.comms}</div>
-        <div className="relative w-fit h-fit flex">
-          {dict?.footer?.foro}
-        </div>
+        <div className="relative w-fit h-fit flex">{dict?.footer?.foro}</div>
       </div>
       <div className="relative w-full h-full bg-black flex overflow-x-hidden py-2">
         <MarqueeText
