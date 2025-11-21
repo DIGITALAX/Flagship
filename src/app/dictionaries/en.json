@@ -201,7 +201,7 @@
     "privacy": "Privacy & Encryption",
     "privacyText": "Privacy is not optional here, it is base layer. Early fulfillment ran through Lit PKPs. When Lit moved to a pay to use model, we dropped the dependency and shifted everything into our own internal wallet based encryption infrastructure. Every fulfillment market in all apps now runs private key channels between buyer and fulfiller only. The protocol does no data collection across its applications or contracts: no cookies, no email capture, no tracking, no identifiers, no off-chain storage. For more on our encryption approach, listen below.",
     "social": "Social Channels",
-    "socialText": "Communication has consolidated into a more decentralised surface area. Long-form moved from Medium to Fountain (@fudfaq), with occasional Mirror posts when mainnet gas made sense. Conversation moved from Discord into Lens and the Web3 Fashion CC0 forum. Earlier layers like Telegram, LinkedIn and Discord are fully retired. We don't run any side channels, no offshoot groups.",
+    "socialText": "Communication has consolidated into a more decentralised surface area. Long-form moved from Medium to Fountain (@digiink, @fudfaq), with occasional Mirror posts when mainnet gas made sense. Conversation moved from Discord into Lens and the Web3 Fashion CC0 forum. Earlier layers like Telegram, LinkedIn and Discord are fully retired. We don't run any side channels, no offshoot groups.",
     "build": "Active Build Cycle",
     "buildText": "ESPA upgrade: decentralised gaming, esports, and narrative systems running through generative workflows.\nComputational manufacturing continues in parallel.\nAutomated distribution contracts for Treasury MONA."
   }
