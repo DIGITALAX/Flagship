@@ -174,7 +174,7 @@ Privacy is not optional here, it is base layer. Early fulfillment ran through Li
 
 ## Social Channels
 
-Communication has consolidated into a more decentralised surface area. Long-form moved from Medium to Fountain (@fudfaq), with occasional Mirror posts when mainnet gas made sense. Conversation moved from Discord into Lens and the Web3 Fashion CC0 forum. Earlier layers like Telegram, LinkedIn and Discord are fully retired. We don't run any side channels, no offshoot groups.
+Communication has consolidated into a more decentralised surface area. Long-form moved from Medium to Fountain (@digiink, @fudfaq), with occasional Mirror posts when mainnet gas made sense. Conversation moved from Discord into Lens and the Web3 Fashion CC0 forum. Earlier layers like Telegram, LinkedIn and Discord are fully retired. We don't run any side channels, no offshoot groups.
 
 ---
 
