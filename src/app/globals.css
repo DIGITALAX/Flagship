@@ -1201,8 +1201,33 @@ body.stop-scrolling {
   }
 }
 
-
 .cypher {
-  border: solid .5em black;
-  border-image: linear-gradient(#2596be 17.5%, #FEE52C 17.5%, #FE86E3 35%, #F6F4F3 35%, #F6F4F3 52.5%, #DCD84F 52.5%, #DCD84F 70%, #F087E1 70%, #FAE230 87.5%) 5 5;
+  border: solid 0.5em black;
+  border-image: linear-gradient(
+      #2596be 17.5%,
+      #fee52c 17.5%,
+      #fe86e3 35%,
+      #f6f4f3 35%,
+      #f6f4f3 52.5%,
+      #dcd84f 52.5%,
+      #dcd84f 70%,
+      #f087e1 70%,
+      #fae230 87.5%
+    )
+    5 5;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.animate-blink {
+  animation: blink 0.8s steps(1) infinite;
 }

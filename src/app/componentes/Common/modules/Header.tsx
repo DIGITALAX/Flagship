@@ -6,6 +6,7 @@ import { INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
 import { useAccount } from "wagmi";
 import useHeader from "../hooks/useHeader";
 import HeaderSwitch from "./HeaderSwitch";
+import Type from "./Type";
 
 const Header: FunctionComponent<HeaderProps> = ({
   dict,
@@ -48,15 +49,8 @@ const Header: FunctionComponent<HeaderProps> = ({
         handleShop={handleShop}
       />
       <div className="font-mag w-full flex h-fit text-[16vw] relative items-center justify-center">
-        <h1
-          className="flex items-center justify-center relative w-fit h-fit cursor-sewingHS"
-          onClick={() => {
-            context?.setScreen(undefined);
-            changeVideo(7);
-          }}
-        >
-          DIGITALAX
-        </h1>
+      
+        <Type />
       </div>
       <div className="relative w-full h-fit flex items-center justify-between gap-10 half:gap-6 bg-offBlack flex-col px-2 py-3">
         <div className="relative w-full h-fit flex flex-row justify-between items-center flex-wrap gap-3">
@@ -92,7 +86,13 @@ const Header: FunctionComponent<HeaderProps> = ({
             </div>
           </div>
           <div className="relative flex flex-row gap-4 flex items-end justify-center w-fit h-fit">
-            <div className="relative w-fit h-fit flex items-center justify-center font-bit text-xs md:text-sm text-ama whitespace-inline text-right">
+            <div
+              className="relative w-fit h-fit flex items-center justify-center font-bit text-xs md:text-sm text-ama whitespace-inline text-right cursor-sewingHS"
+              onClick={() => {
+                context?.setScreen(undefined);
+                changeVideo(7);
+              }}
+            >
               {dict?.common?.ecosystem}
             </div>
             <div className="relative w-fit h-fit flex items-center justify-center font-bit text-sm text-ama">
