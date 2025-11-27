@@ -9,6 +9,7 @@ const DOMAIN = ".COMPUTER";
 export default function Type() {
   const [phase, setPhase] = useState(0);
   const [index, setIndex] = useState(0);
+  const [cursorOn, setCursorOn] = useState(true);
 
   useEffect(() => {
     const tick = setInterval(() => {
@@ -31,6 +32,13 @@ export default function Type() {
 
     return () => clearInterval(tick);
   }, [phase, index]);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCursorOn((v) => !v);
+    }, 450);
+    return () => clearInterval(id);
+  }, []);
 
   const u = phase;
   const text: string =
@@ -68,18 +76,26 @@ export default function Type() {
   return (
     <h1
       className="flex items-center justify-center relative w-fit h-fit cursor-sewingHS"
-      onClick={() => window.open("https://dx.computer")}
+      onClick={() => window.open("https://digitalax.xyz")}
     >
       <span
         style={{
           transform: `scale(${scale})`,
           transformOrigin: "center",
-          display: "inline-block",
+          display: "inline-flex",
+          alignItems: "center",
         }}
       >
         {text}
+        <span
+          style={{
+            marginLeft: "0.1em",
+            opacity: cursorOn ? 1 : 0,
+          }}
+        >
+          |
+        </span>
       </span>
-      <span className="ml-1 animate-blink">|</span>
     </h1>
   );
 }
