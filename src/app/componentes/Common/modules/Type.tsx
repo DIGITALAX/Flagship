@@ -41,24 +41,39 @@ export default function Type() {
   }, []);
 
   const u = phase;
-  const text: string =
-    u === 0
-      ? WORD.slice(0, index)
-      : u === 1
-      ? WORD
-      : u === 2
-      ? "D" + MIDDLE.slice(0, Math.max(0, 7 - index)) + "X"
-      : u === 3
-      ? "DX" + DOMAIN.slice(0, index)
-      : u === 4
-      ? "DX" + DOMAIN
-      : u === 5
-      ? "DX" + DOMAIN.slice(0, Math.max(0, DOMAIN.length - index))
-      : u === 6
-      ? "D" + MIDDLE.slice(0, index) + "X"
-      : u === 7
-      ? WORD
-      : "";
+
+  let text = "";
+  let cursorPos = 0;
+
+  if (u === 0) {
+    text = WORD.slice(0, index);
+    cursorPos = text.length;
+  } else if (u === 1) {
+    text = WORD;
+    cursorPos = text.length;
+  } else if (u === 2) {
+    const mid = MIDDLE.slice(0, Math.max(0, 7 - index));
+    text = "D" + mid + "X";
+    cursorPos = text.length - 1;
+  } else if (u === 3) {
+    const domPart = DOMAIN.slice(0, index);
+    text = "DX" + domPart;
+    cursorPos = text.length;
+  } else if (u === 4) {
+    text = "DX" + DOMAIN;
+    cursorPos = text.length;
+  } else if (u === 5) {
+    const domPart = DOMAIN.slice(0, Math.max(0, DOMAIN.length - index));
+    text = "DX" + domPart;
+    cursorPos = text.length;
+  } else if (u === 6) {
+    const mid = MIDDLE.slice(0, index);
+    text = "D" + mid + "X";
+    cursorPos = text.length;
+  } else if (u === 7) {
+    text = WORD;
+    cursorPos = text.length;
+  }
 
   const maxShrink = 0.25;
   let scale = 1;
@@ -73,6 +88,9 @@ export default function Type() {
     scale = 1 - maxShrink * p;
   }
 
+  const before = text.slice(0, cursorPos);
+  const after = text.slice(cursorPos);
+
   return (
     <h1
       className="flex items-center justify-center relative w-fit h-fit cursor-sewingHS"
@@ -86,15 +104,17 @@ export default function Type() {
           alignItems: "center",
         }}
       >
-        {text}
+        {before}
         <span
           style={{
-            marginLeft: "0.1em",
+            marginLeft: "0.05em",
+            marginRight: "0.05em",
             opacity: cursorOn ? 1 : 0,
           }}
         >
           |
         </span>
+        {after}
       </span>
     </h1>
   );
