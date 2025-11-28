@@ -94,7 +94,7 @@ export default function Type() {
   return (
     <h1
       className="flex items-center justify-center relative w-fit h-fit cursor-sewingHS"
-      onClick={() => window.open("https://digitalax.xyz")}
+      onClick={() => window.open("https://dx.computer")}
     >
       <span
         style={{
