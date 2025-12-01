@@ -73,7 +73,7 @@ export default function TokensEntry({ dict }: { dict: any }) {
               loop
               className="object-cover w-60 cypher h-80 flex"
               draggable={false}
-              poster={`${INFURA_GATEWAY}/ipfs/QmX79fkoiXBsRZysBkYhNhetzv6HT58baSbZ4wp86xTHbn`}
+              poster={`${INFURA_GATEWAY}/ipfs/QmRXf8a7HGrjArjRrpVfqLw5kq2xPCGuUy53c7vg4QgDzd`}
             >
               <source
                 src={`${INFURA_GATEWAY}/ipfs/QmcaH88ccwLPVQ91ZDNjJMrq3QN7JkyxmBZwTq59bKHm8s`}
@@ -103,7 +103,7 @@ export default function TokensEntry({ dict }: { dict: any }) {
               loop
               className="object-cover w-60 cypher h-80 flex"
               draggable={false}
-              poster={`${INFURA_GATEWAY}/ipfs/QmRXf8a7HGrjArjRrpVfqLw5kq2xPCGuUy53c7vg4QgDzd`}
+              poster={`${INFURA_GATEWAY}/ipfs/QmX79fkoiXBsRZysBkYhNhetzv6HT58baSbZ4wp86xTHbn`}
             >
               <source
                 src={`${INFURA_GATEWAY}/ipfs/QmYo9ZgbAWMTPA99dSDLcf4LZcQQXDv63pPcK1ddDssXtZ`}
