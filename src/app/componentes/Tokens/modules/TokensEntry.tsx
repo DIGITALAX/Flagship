@@ -1,6 +1,8 @@
 "use client";
 
 import { INFURA_GATEWAY } from "@/app/lib/constants";
+import { ModalContext } from "@/app/providers";
+import { useContext } from "react";
 import { MdOutlineArrowOutward } from "react-icons/md";
 
 export default function TokensEntry({ dict }: { dict: any }) {
@@ -12,10 +14,14 @@ export default function TokensEntry({ dict }: { dict: any }) {
       console.error(err);
     }
   };
+  const context = useContext(ModalContext);
   return (
     <div className="relative w-full bg-black flex min-h-screen items-center flex-col px-3 gap-20 py-10">
       <div className="relative w-fit font-star text-white text-center items-center justify-center h-fit flex flex-col gap-3 text-sm">
-        <div className="relative w-fit h-fit flex text-4xl">
+        <div
+          className="relative w-fit h-fit flex text-4xl"
+          ref={context?.rewind}
+        >
           {dict.tokens.awake}
         </div>
         <div className="elative w-fit h-fit flex">{dict.tokens.chat}</div>
