@@ -103,9 +103,9 @@ const Header: FunctionComponent<HeaderProps> = ({
         <div className="relative w-full h-fit flex flex-row gap-1.5 items-end justify-end sm:flex-nowrap flex-wrap">
           {[
             {
-              link: "https://triplea.agentmeme.xyz",
+              link: "https://web3fashionweek.com",
               image: "Qma67BUsoc3mqP48XWoHod3gYLr6MGSC6er422GWcHuNti",
-              title: "TripleA",
+              title: "W3FW",
             },
             {
               link: "https://globaldesignernetwork.com",
@@ -118,9 +118,9 @@ const Header: FunctionComponent<HeaderProps> = ({
               title: "Ionic",
             },
             {
-              link: "https://skyhunters.agentmeme.xyz",
+              link: "https://genesis.digitalax.xyz",
               image: "QmQZZNZVgQ6ywBoAAAEBxUNTprVJmeM9gjPHvvhxmMNRse",
-              title: "Skyhunters",
+              title: "Genesis",
             },
             {
               link: "https://kinora.irrevocable.dev",

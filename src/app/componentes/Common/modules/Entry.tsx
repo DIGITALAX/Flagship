@@ -17,7 +17,7 @@ const Entry: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
   const context = useContext(ModalContext);
   return (
     <div className="w-full h-full flex flex-col gap-2 items-center justify-start">
-      <Banner dict={dict} />
+      {/* <Banner dict={dict} /> */}
       <div className="relative w-full h-fit flex pt-3 items-start justify-start flex-row gap-1">
         <div className="relative w-fit h-fit flex">
           <div
