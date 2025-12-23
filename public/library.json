@@ -226,5 +226,17 @@
     "link": "https://fountain.ink/u/fudfaq/",
     "width": 25,
     "height": 275
+  },
+  {
+    "name": {
+      "en": "WEB3 FASHION WEEK",
+      "es": "LA SEMANA DE LA MODA WEB3"
+    },
+    "image": "QmeZUi7SD9GhRjYridcpCaMZMXQ8DQqrV1FUjXb34PQWiV",
+    "number": "15",
+    "id": "fifteen",
+    "link": "https://web3fashionweek.com/",
+    "width": 25,
+    "height": 250
   }
 ]
