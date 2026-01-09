@@ -3,3 +3,4 @@ Allow: /
 
 Sitemap: https://digitalax.xyz/sitemap.xml
 Sitemap: https://digitalax.xyz/image-sitemap.xml
+Sitemap: https://digitalax.xyz/video-sitemap.xml

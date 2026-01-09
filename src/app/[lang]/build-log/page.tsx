@@ -4,16 +4,48 @@ import { tParams } from "../layout";
 import BuildLogEntry from "@/app/componentes/Build/modules/BuildEntry";
 import { LOCALES } from "@/app/lib/constants";
 
-export const metadata: Metadata = {
-  title: "Build Log",
-  alternates: {
-    canonical: `https://digitalax.xyz/build-log/`,
-    languages: LOCALES.reduce((acc, item) => {
-      acc[item] = `https://digitalax.xyz/${item}/build-log/`;
-      return acc;
-    }, {} as { [key: string]: string }),
-  },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: tParams;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  const canonical = `https://digitalax.xyz/${lang}/build-log/`;
+
+  return {
+    title: "Build Log",
+    description:
+      "We write prompts, design styles & build code for protocol-ecosystems where web3 fashion & latent machines draw distances between ideas & reality closer each day.",
+    alternates: {
+      canonical,
+      languages: LOCALES.reduce((acc, item) => {
+        acc[item] = `https://digitalax.xyz/${item}/build-log/`;
+        return acc;
+      }, {} as { [key: string]: string }),
+    },
+    openGraph: {
+      title: "Build Log | DIGITALAX",
+      description:
+        "We write prompts, design styles & build code for protocol-ecosystems where web3 fashion & latent machines draw distances between ideas & reality closer each day.",
+      url: canonical,
+      siteName: "DIGITALAX",
+      images: [
+        {
+          url: "https://digitalax.xyz/opengraph-image.png",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Build Log | DIGITALAX",
+      description:
+        "We write prompts, design styles & build code for protocol-ecosystems where web3 fashion & latent machines draw distances between ideas & reality closer each day.",
+      site: "@digitalax_",
+      creator: "@digitalax_",
+      images: ["https://digitalax.xyz/opengraph-image.png"],
+    },
+  };
+}
 
 
 export default async function BuildLog({ params }: { params: tParams }) {

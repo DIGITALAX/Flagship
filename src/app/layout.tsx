@@ -6,7 +6,10 @@ import { LOCALES } from "./lib/constants";
 export type tParams = Promise<{ lang: string }>;
 
 export const metadata: Metadata = {
-  title: "DIGITALAX",
+  title: {
+    default: "DIGITALAX",
+    template: "%s | DIGITALAX",
+  },
   metadataBase: new URL("https://digitalax.xyz/"),
   description: "Emancipatory Lifestyle Tech.",
   twitter: {

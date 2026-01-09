@@ -124,31 +124,68 @@ const PATHS = [
         title: "SIG-A2C",
         image: "QmVtfTBZg3A1rrwJxc4sg9gsG7GJa3Q3PBUZi76F1izThQ",
       },
+      {
+        title: "OT-P53 Poster",
+        image: "QmRbrWWpD6E77KvYj9thKwmWMesxxieqLmNE5Va2nZ9Qe2",
+      },
+      {
+        title: "VNO-7L4 Poster",
+        image: "QmNxoYwkyMQBzJnjd2xASstM1bYGWYgmnkdd23bKL1T75A",
+      },
+      {
+        title: "ENI-GX19 Poster",
+        image: "QmRXf8a7HGrjArjRrpVfqLw5kq2xPCGuUy53c7vg4QgDzd",
+      },
+      {
+        title: "CRY-M0D7 Poster",
+        image: "QmSKgwMv3YehejfQzi1jBChZu8znJmrKVPE1w2ZpgozTi7",
+      },
+      {
+        title: "SIG-A2C Poster",
+        image: "QmX79fkoiXBsRZysBkYhNhetzv6HT58baSbZ4wp86xTHbn",
+      },
+      {
+        title: "Privacy Poster",
+        image: "https://chromadin.xyz/api/infura/QmenggnmziozxNAazvbPH7Dafh2MxT87DqXiYiykRgDJm2",
+      },
     ],
   },
 ];
 
-export async function GET() {
-  const urls = PATHS.map((path) => {
-    const alternates = LOCALES.map(
-      (locale) => `
+const buildAlternates = (route: string) => {
+  const alternates = LOCALES.map(
+    (locale) => `
         <xhtml:link 
           rel="alternate" 
           hreflang="${locale}" 
-          href="${baseUrl}/${locale}${path?.route}" />
+          href="${baseUrl}/${locale}${route}" />
       `
-    ).join("");
+  ).join("");
 
-    const xDefault = `
+  const xDefault = `
       <xhtml:link 
         rel="alternate" 
         hreflang="x-default" 
-        href="${baseUrl}${path?.route}" />
+        href="${baseUrl}${route}" />
     `;
 
+  return `${alternates}${xDefault}`;
+};
+
+const buildLocs = (route: string) => [
+  `${baseUrl}${route}`,
+  ...LOCALES.map((locale) => `${baseUrl}/${locale}${route}`),
+];
+
+export async function GET() {
+  const urls = PATHS.flatMap((path) => {
+    const alternates = buildAlternates(path.route);
     const images = path?.images
       .map((cid) => {
-        const url = `${INFURA_GATEWAY_INTERNAL}${cid?.image}`;
+        const url =
+          typeof cid?.image === "string" && cid.image.startsWith("http")
+            ? cid.image
+            : `${INFURA_GATEWAY_INTERNAL}${cid?.image}`;
         return `
       <image:image>
         <image:loc>${url}</image:loc>
@@ -159,14 +196,15 @@ export async function GET() {
       })
       .join("");
 
-    return `
+    return buildLocs(path.route).map(
+      (loc) => `
       <url>
-        <loc>${baseUrl}${path?.route}</loc>
+        <loc>${loc}</loc>
         ${alternates}
-        ${xDefault}
         ${images}
       </url>
-    `;
+    `
+    );
   }).join("");
 
   const body = `<?xml version="1.0" encoding="UTF-8"?>

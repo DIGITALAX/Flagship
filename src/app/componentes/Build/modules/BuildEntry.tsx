@@ -1,6 +1,5 @@
 "use client";
 
-import Head from "next/head";
 import Image from "next/legacy/image";
 import { useContext } from "react";
 import { ModalContext } from "@/app/providers";
@@ -121,20 +120,6 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
           </div>
         </div>
       </div>
-      <Head>
-        <title>Build Log</title>
-        <meta
-          name="description"
-          content="We write prompts, design styles & build code for protocol-ecosystems where web3 fashion & latent machines draw distances between ideas & reality closer each day."
-        />
-        <link rel="icon" href="/favicon.ico" />
-        <meta property="og:site_name" content="DIGITALAX" />
-        <meta
-          property="og:image"
-          content="https://www.digitalax.xyz/card.png/"
-        />
-        <meta property="og:type" content="website" />
-      </Head>
       <div className="relative w-full h-fit flex flex-col items-center justify-start gap-14 text-white font-bit">
         <div className="relative w-fit h-fit flex items-center justify-center gap-1 text-sm preG:text-2xl flex-col">
           <div className="relative w-fit h-fit flex items-center justify-center break-words">

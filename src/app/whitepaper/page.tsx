@@ -1,32 +1,35 @@
-import Head from "next/head";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Whitepaper V3",
+  description: "DIGITALAX Whitepaper V3.",
+  alternates: {
+    canonical: "https://digitalax.xyz/whitepaper/",
+  },
+  openGraph: {
+    title: "Whitepaper V3 | DIGITALAX",
+    description: "DIGITALAX Whitepaper V3.",
+    url: "https://digitalax.xyz/whitepaper/",
+    siteName: "DIGITALAX",
+    images: [
+      {
+        url: "https://digitalax.xyz/opengraph-image.png",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Whitepaper V3 | DIGITALAX",
+    description: "DIGITALAX Whitepaper V3.",
+    site: "@digitalax_",
+    creator: "@digitalax_",
+    images: ["https://digitalax.xyz/opengraph-image.png"],
+  },
+};
 
 export default function Whitepaper() {
   return (
     <div className="relative w-full h-screen flex">
-      <Head>
-        <title>Whitepaper V3</title>
-        <meta name="og:url" content="https://www.digitalax.xyz/whitepaper" />
-        <meta name="og:title" content="Whitepaper V3" />
-        <meta name="og:description" content="Whitepaper V3" />
-        <meta name="og:image" content="https://www.digitalax.xyz/card.png" />
-        <meta name="twitter:card" content="summary" />
-        <meta name="og:url" content="https://www.digitalax.xyz/whitepaper" />
-        <meta name="og:image" content="https://www.digitalax.xyz/whitepaper" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@digitalax" />
-        <meta name="twitter:creator" content="@digitalax" />
-        <meta
-          name="twitter:image"
-          content="https://www.digitalax.xyz/whitepaper"
-        />
-        <meta
-          name="twitter:url"
-          content="https://www.digitalax.xyz/whitepaper"
-        />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="canonical" href="https://www.digitalax.xyz/whitepaper" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-      </Head>
       <embed
         className="w-full h-full relative flex"
         src="/digitalaxwhitepaperv3.pdf"
