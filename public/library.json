@@ -233,9 +233,33 @@
       "es": "LA SEMANA DE LA MODA WEB3"
     },
     "image": "QmeZUi7SD9GhRjYridcpCaMZMXQ8DQqrV1FUjXb34PQWiV",
-    "number": "15",
-    "id": "fifteen",
+    "number": "20",
+    "id": "twenty",
     "link": "https://web3fashionweek.com/",
+    "width": 25,
+    "height": 250
+  },
+  {
+    "name": {
+      "en": "GLOBAL MODELS SYNDICATE",
+      "es": "GLOBAL MODELS SYNDICATE"
+    },
+    "image": "QmZ7QEyvUjbq6Nh1nX21EMiVAjKaY7itqLM8MeTXadmZZc",
+    "number": "21",
+    "id": "twentyone",
+    "link": "https://gms.globaldesignernetwork.com/",
+    "width": 25,
+    "height": 250
+  },
+  {
+    "name": {
+      "en": "REALM RUNWAY",
+      "es": "REALM RUNWAY"
+    },
+    "image": "QmQCvP5XaRbgnr1BgiuwJjdC6sStfUXzr1qUuPNfe3GdxY",
+    "number": "22",
+    "id": "twentytwo",
+    "link": "https://runway.globaldesignernetwork.com/",
     "width": 25,
     "height": 250
   }

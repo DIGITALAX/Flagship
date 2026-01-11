@@ -808,6 +808,18 @@ html::-webkit-scrollbar-thumb:active {
   background-color: #fcdba1;
 }
 
+#twenty {
+  background-color: #a1fcc7;
+}
+
+#twentyone {
+  background-color: #ea29ff;
+}
+
+#twentytwo {
+  background-color: #cb5252;
+}
+
 #library::-webkit-scrollbar {
   width: 1vw;
 }
