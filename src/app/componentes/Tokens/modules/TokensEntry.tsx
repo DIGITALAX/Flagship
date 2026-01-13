@@ -22,14 +22,14 @@ export default function TokensEntry({ dict }: { dict: any }) {
           className="relative w-fit h-fit flex text-4xl"
           ref={context?.rewind}
         >
-          {dict.tokens.awake}
+          {dict?.tokens?.awake}
         </div>
-        <div className="elative w-fit h-fit flex">{dict.tokens.chat}</div>
+        <div className="elative w-fit h-fit flex">{dict?.tokens?.chat}</div>
         <div
           className="relative w-fit h-fit gap-2 flex items-center justify-center flex-row cursor-sewingHS hover:opacity-80"
           onClick={() => window.open("https://digitalax.xyz/llms.txt")}
         >
-          <div className="relative w-fit h-fit flex">{dict.tokens.llms}</div>
+          <div className="relative w-fit h-fit flex">{dict?.tokens?.llms}</div>
           <MdOutlineArrowOutward
             className="relative w-fit h-fit flex"
             color="white"
@@ -39,7 +39,10 @@ export default function TokensEntry({ dict }: { dict: any }) {
 
       <div className="relative w-full max-w-xl font-chill text-white text-center items-center justify-center h-fit flex flex-col gap-4 text-sm">
         <div className="relative w-fit h-fit flex">
-          {dict.tokens.description}
+          {dict?.tokens?.description}
+        </div>
+        <div className="relative w-fit h-fit flex">
+          {dict?.tokens?.walkaway}
         </div>
         <div className="relative w-fit font-neco text-white text-center items-center justify-center h-fit flex flex-row flex-wrap justify-between gap-7 text-sm">
           <div className="relative w-fit h-fit flex flex-col gap-2">
@@ -126,34 +129,34 @@ export default function TokensEntry({ dict }: { dict: any }) {
             onClick={handleTreasuryClick}
             className="relative w-fit h-fit flex font-neco text-3xl cursor-sewingHS hover:underline"
           >
-            {dict.tokens.treasury}
+            {dict?.tokens?.treasury}
           </div>
           <div className="relative w-fit h-fit flex font-star text-xs">
-            {dict.tokens.treasuryText}
+            {dict?.tokens?.treasuryText}
           </div>
         </div>
         <div className="relative w-full h-fit flex flex-col gap-2">
           <div className="relative w-fit h-fit flex font-neco text-3xl">
-            {dict.tokens.grants}
+            {dict?.tokens?.grants}
           </div>
           <div className="relative w-fit h-fit flex font-star text-xs whitespace-pre-line">
-            {dict.tokens.grantsText}
+            {dict?.tokens?.grantsText}
           </div>
         </div>
         <div className="relative w-full h-fit flex flex-col gap-2">
           <div className="relative w-fit h-fit flex font-neco text-3xl">
-            {dict.tokens.tokensTitle}
+            {dict?.tokens?.tokensTitle}
           </div>
           <div className="relative w-fit h-fit flex font-star text-xs whitespace-pre-line">
-            {dict.tokens.tokensText}
+            {dict?.tokens?.tokensText}
           </div>
         </div>
         <div className="relative w-full h-fit flex flex-col gap-2 pb-3">
           <div className="relative w-fit h-fit flex font-neco text-3xl">
-            {dict.tokens.privacy}
+            {dict?.tokens?.privacy}
           </div>
           <div className="relative w-fit h-fit flex font-star text-xs">
-            {dict.tokens.privacyText}
+            {dict?.tokens?.privacyText}
           </div>
           <video
             draggable={false}
@@ -166,18 +169,18 @@ export default function TokensEntry({ dict }: { dict: any }) {
         </div>
         <div className="relative w-full h-fit flex flex-col gap-2">
           <div className="relative w-fit h-fit flex font-neco text-3xl">
-            {dict.tokens.social}
+            {dict?.tokens?.social}
           </div>
           <div className="relative w-fit h-fit flex font-star text-xs">
-            {dict.tokens.socialText}
+            {dict?.tokens?.socialText}
           </div>
         </div>
         <div className="relative w-full h-fit flex flex-col gap-2">
           <div className="relative w-fit h-fit flex font-neco text-3xl">
-            {dict.tokens.build}
+            {dict?.tokens?.build}
           </div>
           <div className="relative w-fit h-fit flex font-star text-xs whitespace-pre-line">
-            {dict.tokens.buildText}
+            {dict?.tokens?.buildText}
           </div>
         </div>
       </div>
