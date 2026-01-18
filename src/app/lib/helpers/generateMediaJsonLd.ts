@@ -44,27 +44,25 @@ export const generateImageJsonLd = ({
     ? `https://arweave.net/${url.split("ar://")[1]?.replace(/"/g, "")?.trim()}`
     : url;
 
-  return {
+  const schema: any = {
     "@context": "https://schema.org",
     "@type": "ImageObject",
     contentUrl: resolvedUrl,
     url: resolvedUrl,
-    ...(title && { name: title }),
-    ...(description && { description }),
-    ...(creator && {
-      creator: {
-        "@type": "Person",
-        name: creator,
-      },
-    }),
-    ...(tags && Array.isArray(tags) && tags.length > 0 && { keywords: tags.join(", ") }),
-    ...(datePublished && { datePublished }),
     publisher: {
       "@type": "Organization",
       name: "DIGITALAX",
       url: "https://digitalax.xyz/",
     },
   };
+
+  if (title) schema.name = title;
+  if (description) schema.description = description;
+  if (creator) schema.creator = { "@type": "Person", name: creator };
+  if (tags && Array.isArray(tags) && tags.length > 0) schema.keywords = tags.join(", ");
+  if (datePublished) schema.datePublished = datePublished;
+
+  return schema;
 };
 
 export const generateVideoJsonLd = ({
@@ -91,23 +89,11 @@ export const generateVideoJsonLd = ({
       : thumbnailUrl
     : undefined;
 
-  return {
+  const schema: any = {
     "@context": "https://schema.org",
     "@type": "VideoObject",
     contentUrl: resolvedUrl,
     url: resolvedUrl,
-    ...(resolvedThumbnail && { thumbnailUrl: resolvedThumbnail }),
-    ...(title && { name: title }),
-    ...(description && { description }),
-    ...(creator && {
-      creator: {
-        "@type": "Person",
-        name: creator,
-      },
-    }),
-    ...(tags && Array.isArray(tags) && tags.length > 0 && { keywords: tags.join(", ") }),
-    ...(datePublished && { datePublished }),
-    ...(duration && { duration }),
     uploadDate: datePublished || new Date().toISOString(),
     publisher: {
       "@type": "Organization",
@@ -115,6 +101,16 @@ export const generateVideoJsonLd = ({
       url: "https://digitalax.xyz/",
     },
   };
+
+  if (resolvedThumbnail) schema.thumbnailUrl = resolvedThumbnail;
+  if (title) schema.name = title;
+  if (description) schema.description = description;
+  if (creator) schema.creator = { "@type": "Person", name: creator };
+  if (tags && Array.isArray(tags) && tags.length > 0) schema.keywords = tags.join(", ");
+  if (datePublished) schema.datePublished = datePublished;
+  if (duration) schema.duration = duration;
+
+  return schema;
 };
 
 export const generateAudioJsonLd = ({
@@ -132,28 +128,26 @@ export const generateAudioJsonLd = ({
     ? `https://arweave.net/${url.split("ar://")[1]?.replace(/"/g, "")?.trim()}`
     : url;
 
-  return {
+  const schema: any = {
     "@context": "https://schema.org",
     "@type": "AudioObject",
     contentUrl: resolvedUrl,
     url: resolvedUrl,
-    ...(title && { name: title }),
-    ...(description && { description }),
-    ...(creator && {
-      creator: {
-        "@type": "Person",
-        name: creator,
-      },
-    }),
-    ...(tags && Array.isArray(tags) && tags.length > 0 && { keywords: tags.join(", ") }),
-    ...(datePublished && { datePublished }),
-    ...(duration && { duration }),
     publisher: {
       "@type": "Organization",
       name: "DIGITALAX",
       url: "https://digitalax.xyz/",
     },
   };
+
+  if (title) schema.name = title;
+  if (description) schema.description = description;
+  if (creator) schema.creator = { "@type": "Person", name: creator };
+  if (tags && Array.isArray(tags) && tags.length > 0) schema.keywords = tags.join(", ");
+  if (datePublished) schema.datePublished = datePublished;
+  if (duration) schema.duration = duration;
+
+  return schema;
 };
 
 export const generateCreativeWorkJsonLd = ({
@@ -185,45 +179,43 @@ export const generateCreativeWorkJsonLd = ({
       : img
   );
 
-  return {
+  const schema: any = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
     url,
-    ...(title && { name: title }),
-    ...(description && { description }),
-    ...(creator && {
-      creator: {
-        "@type": "Person",
-        name: creator,
-      },
-    }),
-    ...(resolvedImages && resolvedImages.length > 0 && { image: resolvedImages }),
-    ...(video && {
-      video: generateVideoJsonLd({
-        url: video,
-        title,
-        description,
-        creator,
-        tags,
-        datePublished,
-      }),
-    }),
-    ...(audio && {
-      audio: generateAudioJsonLd({
-        url: audio,
-        title,
-        description,
-        creator,
-        tags,
-        datePublished,
-      }),
-    }),
-    ...(tags && Array.isArray(tags) && tags.length > 0 && { keywords: tags.join(", ") }),
-    ...(datePublished && { datePublished }),
     publisher: {
       "@type": "Organization",
       name: "DIGITALAX",
       url: "https://digitalax.xyz/",
     },
   };
+
+  if (title) schema.name = title;
+  if (description) schema.description = description;
+  if (creator) schema.creator = { "@type": "Person", name: creator };
+  if (resolvedImages && resolvedImages.length > 0) schema.image = resolvedImages;
+  if (video) {
+    schema.video = generateVideoJsonLd({
+      url: video,
+      title,
+      description,
+      creator,
+      tags,
+      datePublished,
+    });
+  }
+  if (audio) {
+    schema.audio = generateAudioJsonLd({
+      url: audio,
+      title,
+      description,
+      creator,
+      tags,
+      datePublished,
+    });
+  }
+  if (tags && Array.isArray(tags) && tags.length > 0) schema.keywords = tags.join(", ");
+  if (datePublished) schema.datePublished = datePublished;
+
+  return schema;
 };
