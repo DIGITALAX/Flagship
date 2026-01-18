@@ -2,11 +2,9 @@
 
 import { FunctionComponent, JSX, useContext } from "react";
 import Header from "./Header";
-import Head from "next/head";
 import Display from "../../Gallery/modules/Display";
 import Library from "../../Library/modules/Library";
 import Slider from "./Slider";
-import Banner from "./Banner";
 import Image from "next/legacy/image";
 import { INFURA_GATEWAY, INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
 import useEntry from "../hooks/useEntry";
@@ -26,6 +24,7 @@ const Entry: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
   const videoJsonLd = heroVideos.map((video: string) => {
     return generateVideoJsonLd({
       url: `ipfs://${video}`,
+      thumbnailUrl: `ipfs://QmXnDtWEvHA2PNZeQWxVd1KotF5JGvfBp4hbcvgTuE3pdk`,
       title: "DIGITALAX Creative Showcase",
       description: "Creative content from DIGITALAX community",
       creator: "DIGITALAX",

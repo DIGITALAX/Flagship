@@ -17,45 +17,50 @@ const Listener: FunctionComponent<ListenerProps> = ({
   const context = useContext(ModalContext);
 
   const listenerJsonLd = publication?.metadata?.audio
-    ? {
-        "@context": "https://schema.org",
-        "@type": "MusicRecording",
-        name: publication?.metadata?.title,
-        description: publication?.metadata?.description,
-        audio: generateAudioJsonLd({
-          url: publication?.metadata?.audio,
-          title: publication?.metadata?.title,
+    ? (() => {
+        const schema: any = {
+          "@context": "https://schema.org",
+          "@type": "MusicRecording",
+          name: publication?.metadata?.title,
           description: publication?.metadata?.description,
-          creator:
-            publication?.profile?.username?.localName ||
-            publication?.metadata?.profileHandle,
-          tags: publication?.metadata?.tags,
-        }),
-        image: publication?.metadata?.images?.[0]
-          ? generateImageJsonLd({
-              url: publication?.metadata?.images[0],
-              title: publication?.metadata?.title,
-              creator:
-                publication?.profile?.username?.localName ||
-                publication?.metadata?.profileHandle,
-            })
-          : undefined,
-        offers: {
-          "@type": "Offer",
-          price: Number(publication?.price || 0),
-          priceCurrency: "USD",
-          availability: "https://schema.org/InStock",
-          url: `https://cypher.digitalax.xyz/item/listener/${publication?.metadata?.title?.replaceAll(
-            " ",
-            "_"
-          )}`,
-        },
-        publisher: {
-          "@type": "Organization",
-          name: "DIGITALAX",
-          url: "https://digitalax.xyz/",
-        },
-      }
+          audio: generateAudioJsonLd({
+            url: publication?.metadata?.audio,
+            title: publication?.metadata?.title,
+            description: publication?.metadata?.description,
+            creator:
+              publication?.profile?.username?.localName ||
+              publication?.metadata?.profileHandle,
+            tags: publication?.metadata?.tags,
+          }),
+          offers: {
+            "@type": "Offer",
+            price: Number(publication?.price || 0),
+            priceCurrency: "USD",
+            availability: "https://schema.org/InStock",
+            url: `https://cypher.digitalax.xyz/item/listener/${publication?.metadata?.title?.replaceAll(
+              " ",
+              "_"
+            )}`,
+          },
+          publisher: {
+            "@type": "Organization",
+            name: "DIGITALAX",
+            url: "https://digitalax.xyz/",
+          },
+        };
+
+        if (publication?.metadata?.images?.[0]) {
+          schema.image = generateImageJsonLd({
+            url: publication.metadata.images[0],
+            title: publication?.metadata?.title,
+            creator:
+              publication?.profile?.username?.localName ||
+              publication?.metadata?.profileHandle,
+          });
+        }
+
+        return schema;
+      })()
     : null;
 
   return (
