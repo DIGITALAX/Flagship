@@ -1,4 +1,4 @@
-import { INFURA_GATEWAY, IPFS_REGEX } from "../constants";
+import { INFURA_GATEWAY } from "../constants";
 
 interface ImageJsonLdParams {
   url: string;
@@ -57,7 +57,7 @@ export const generateImageJsonLd = ({
         name: creator,
       },
     }),
-    ...(tags && tags.length > 0 && { keywords: tags.join(", ") }),
+    ...(tags && Array.isArray(tags) && tags.length > 0 && { keywords: tags.join(", ") }),
     ...(datePublished && { datePublished }),
     publisher: {
       "@type": "Organization",
@@ -105,7 +105,7 @@ export const generateVideoJsonLd = ({
         name: creator,
       },
     }),
-    ...(tags && tags.length > 0 && { keywords: tags.join(", ") }),
+    ...(tags && Array.isArray(tags) && tags.length > 0 && { keywords: tags.join(", ") }),
     ...(datePublished && { datePublished }),
     ...(duration && { duration }),
     uploadDate: datePublished || new Date().toISOString(),
@@ -145,7 +145,7 @@ export const generateAudioJsonLd = ({
         name: creator,
       },
     }),
-    ...(tags && tags.length > 0 && { keywords: tags.join(", ") }),
+    ...(tags && Array.isArray(tags) && tags.length > 0 && { keywords: tags.join(", ") }),
     ...(datePublished && { datePublished }),
     ...(duration && { duration }),
     publisher: {
@@ -218,7 +218,7 @@ export const generateCreativeWorkJsonLd = ({
         datePublished,
       }),
     }),
-    ...(tags && tags.length > 0 && { keywords: tags.join(", ") }),
+    ...(tags && Array.isArray(tags) && tags.length > 0 && { keywords: tags.join(", ") }),
     ...(datePublished && { datePublished }),
     publisher: {
       "@type": "Organization",
