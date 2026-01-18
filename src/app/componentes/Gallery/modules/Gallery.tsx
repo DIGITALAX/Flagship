@@ -3,6 +3,7 @@ import { FunctionComponent, JSX, useContext } from "react";
 import { INFURA_GATEWAY, INFURA_GATEWAY_INTERNAL, numberToItemTypeMap } from "../../../lib/constants";
 import { Creation, GalleryProps } from "../types/gallery.types";
 import { ModalContext } from "@/app/providers";
+import { generateCreativeWorkJsonLd } from "../../../lib/helpers/generateMediaJsonLd";
 
 const Gallery: FunctionComponent<GalleryProps> = ({
   more,
@@ -12,12 +13,41 @@ const Gallery: FunctionComponent<GalleryProps> = ({
   dict,
 }): JSX.Element => {
   const context = useContext(ModalContext);
+
+  const galleryJsonLd = gallery?.slice(currentIndex * 21, (currentIndex + 1) * 21).map((token: Creation) => {
+    const creatorHandle = token.metadata?.profileHandle || (typeof token.profile?.username === "string" ? token.profile?.username : token.profile?.username?.value) || "DIGITALAX";
+
+    return generateCreativeWorkJsonLd({
+      url: `https://cypher.digitalax.xyz/item/${numberToItemTypeMap[Number(token?.origin)]}/${token?.metadata?.title?.replaceAll(" ", "_")}`,
+      title: token.metadata?.title,
+      description: token.metadata?.description,
+      creator: creatorHandle,
+      images: token.metadata?.images,
+      video: token.metadata?.video,
+      audio: token.metadata?.audio,
+      tags: token.metadata?.tags,
+      datePublished: token.blockTimestamp,
+    });
+  });
+
   return (
-    <div
-      className={`overflow-hidden ${
-        more ? "h-full" : "h-[60vh] md:h-[100vh] lg:h-[155vh]"
-      } w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start relative gap-5 2xl:justify-start`}
-    >
+    <>
+      {galleryJsonLd && galleryJsonLd.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": galleryJsonLd,
+            }),
+          }}
+        />
+      )}
+      <div
+        className={`overflow-hidden ${
+          more ? "h-full" : "h-[60vh] md:h-[100vh] lg:h-[155vh]"
+        } w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start relative gap-5 2xl:justify-start`}
+      >
       {galleryLoading
         ? [
             Array.from({ length: 7 }),
@@ -118,7 +148,8 @@ const Gallery: FunctionComponent<GalleryProps> = ({
               </div>
             );
           })}
-    </div>
+      </div>
+    </>
   );
 };
 

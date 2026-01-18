@@ -6,17 +6,42 @@ import { ChromadinProps } from "../types/distro.types";
 import { Post } from "@lens-protocol/client";
 import { ModalContext } from "@/app/providers";
 import { INFURA_GATEWAY, INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
+import { generateCreativeWorkJsonLd } from "@/app/lib/helpers/generateMediaJsonLd";
 
 const Chromadin: FunctionComponent<ChromadinProps> = ({
   publication,
 }): JSX.Element => {
   const context = useContext(ModalContext);
 
+  const chromadinJsonLd = generateCreativeWorkJsonLd({
+    url: `https://cypher.digitalax.xyz/item/chromadin/${publication?.metadata?.title?.replaceAll(
+      " ",
+      "_"
+    )}`,
+    title: publication?.metadata?.title,
+    description: publication?.metadata?.description,
+    creator:
+      publication?.profile?.username?.localName ||
+      publication?.metadata?.profileHandle,
+    images: publication?.metadata?.images,
+    video: publication?.metadata?.video,
+    audio: publication?.metadata?.audio,
+    tags: publication?.metadata?.tags,
+  });
+
   return (
     <div
       className="relative w-full h-fit flex items-end justify-center flex flex-col rounded-sm border border-cost p-4 gap-4 bg-amo/30"
       id={publication?.postId}
     >
+      {chromadinJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(chromadinJsonLd),
+          }}
+        />
+      )}
       <InteractBar publication={publication?.publication as Post} />
       <div className="relative flex flex-col items-center justify-start w-full h-fit gap-5">
         <div className="relative flex flex-row w-full justifty-between items-start h-fit gap-4">

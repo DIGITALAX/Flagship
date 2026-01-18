@@ -11,12 +11,41 @@ import Image from "next/legacy/image";
 import { INFURA_GATEWAY, INFURA_GATEWAY_INTERNAL } from "@/app/lib/constants";
 import useEntry from "../hooks/useEntry";
 import { ModalContext } from "@/app/providers";
+import { generateVideoJsonLd } from "@/app/lib/helpers/generateMediaJsonLd";
 
 const Entry: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
   const { shop, handleShop } = useEntry();
   const context = useContext(ModalContext);
+
+  const heroVideos = [
+    "QmaU44DD7KEPAfQfrYB1hGs8KJVr2G2Ua7BzkNd9iRcC47",
+    "QmQoDj9jjU81mgBfdXT8P83EZmyrXRQmL6scNGgaMTivys",
+    "QmSztbqHjXyghFm6xr9vT89Yw68aq6BZPsEu9g5eGBNmZG",
+  ];
+
+  const videoJsonLd = heroVideos.map((video: string) => {
+    return generateVideoJsonLd({
+      url: `ipfs://${video}`,
+      title: "DIGITALAX Creative Showcase",
+      description: "Creative content from DIGITALAX community",
+      creator: "DIGITALAX",
+      datePublished: new Date().toISOString(),
+    });
+  });
+
   return (
     <div className="w-full h-full flex flex-col gap-2 items-center justify-start">
+      {videoJsonLd && videoJsonLd.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": videoJsonLd,
+            }),
+          }}
+        />
+      )}
       {/* <Banner dict={dict} /> */}
       <div className="relative w-full h-fit flex pt-3 items-start justify-start flex-row gap-1">
         <div className="relative w-fit h-fit flex">
@@ -60,11 +89,7 @@ const Entry: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
             />
           </div>
           <div className="absolute left-6 2xl:bottom-1/3 bottom-32 sm:bottom-60 w-fit h-fit flex flex-col gap-6 items-center justify-center">
-            {[
-              "QmaU44DD7KEPAfQfrYB1hGs8KJVr2G2Ua7BzkNd9iRcC47",
-              "QmQoDj9jjU81mgBfdXT8P83EZmyrXRQmL6scNGgaMTivys",
-              "QmSztbqHjXyghFm6xr9vT89Yw68aq6BZPsEu9g5eGBNmZG",
-            ].map((video: string, index: number) => {
+            {heroVideos.map((video: string, index: number) => {
               return (
                 <div
                   key={index}

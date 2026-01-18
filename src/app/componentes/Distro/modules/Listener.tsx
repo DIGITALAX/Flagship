@@ -9,16 +9,68 @@ import {
 import { INFURA_GATEWAY, INFURA_GATEWAY_INTERNAL, printTypeToString } from "@/app/lib/constants";
 import { Post } from "@lens-protocol/client";
 import { ModalContext } from "@/app/providers";
+import { generateAudioJsonLd, generateImageJsonLd } from "@/app/lib/helpers/generateMediaJsonLd";
 
 const Listener: FunctionComponent<ListenerProps> = ({
   publication,
 }): JSX.Element => {
   const context = useContext(ModalContext);
+
+  const listenerJsonLd = publication?.metadata?.audio
+    ? {
+        "@context": "https://schema.org",
+        "@type": "MusicRecording",
+        name: publication?.metadata?.title,
+        description: publication?.metadata?.description,
+        audio: generateAudioJsonLd({
+          url: publication?.metadata?.audio,
+          title: publication?.metadata?.title,
+          description: publication?.metadata?.description,
+          creator:
+            publication?.profile?.username?.localName ||
+            publication?.metadata?.profileHandle,
+          tags: publication?.metadata?.tags,
+        }),
+        image: publication?.metadata?.images?.[0]
+          ? generateImageJsonLd({
+              url: publication?.metadata?.images[0],
+              title: publication?.metadata?.title,
+              creator:
+                publication?.profile?.username?.localName ||
+                publication?.metadata?.profileHandle,
+            })
+          : undefined,
+        offers: {
+          "@type": "Offer",
+          price: Number(publication?.price || 0),
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+          url: `https://cypher.digitalax.xyz/item/listener/${publication?.metadata?.title?.replaceAll(
+            " ",
+            "_"
+          )}`,
+        },
+        publisher: {
+          "@type": "Organization",
+          name: "DIGITALAX",
+          url: "https://digitalax.xyz/",
+        },
+      }
+    : null;
+
   return (
     <div
       className="relative w-full h-fit flex items-end justify-center flex rounded-sm border border-cost bg-amo/30"
       id={publication?.postId}
     >
+      {listenerJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(listenerJsonLd),
+          }}
+        />
+      )}
       <div
         id="explainerBg"
         className="relative w-full h-full flex items-end justify-center flex-col gap-4 p-4"

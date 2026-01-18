@@ -10,6 +10,7 @@ import {
   numberToItemTypeMap,
   printTypeToString,
 } from "@/app/lib/constants";
+import { generateImageJsonLd } from "@/app/lib/helpers/generateMediaJsonLd";
 
 const CoinOp: FunctionComponent<CoinOpProps> = ({
   publication,
@@ -17,11 +18,50 @@ const CoinOp: FunctionComponent<CoinOpProps> = ({
 }): JSX.Element => {
   const context = useContext(ModalContext);
 
+  const productJsonLd = publication?.metadata?.images?.[0]
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        name: publication?.metadata?.title,
+        description: publication?.metadata?.description,
+        image: generateImageJsonLd({
+          url: publication?.metadata?.images[0],
+          title: publication?.metadata?.title,
+          description: publication?.metadata?.description,
+          creator:
+            publication?.profile?.username?.localName ||
+            publication?.metadata?.profileHandle,
+          tags: publication?.metadata?.tags,
+        }),
+        offers: {
+          "@type": "Offer",
+          price: Number(publication?.price || 0),
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+          url: `https://cypher.digitalax.xyz/item/${
+            numberToItemTypeMap[Number(publication?.origin)]
+          }/${publication?.metadata?.title?.replaceAll(" ", "_")}`,
+        },
+        brand: {
+          "@type": "Brand",
+          name: "DIGITALAX",
+        },
+      }
+    : null;
+
   return (
     <div
       className="relative w-full h-fit flex items-end justify-center flex flex-col rounded-sm border border-cost p-4 gap-4 bg-amo/30"
       id={publication?.postId}
     >
+      {productJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(productJsonLd),
+          }}
+        />
+      )}
       {publication?.metadata?.tags?.includes("kinora") && (
         <div
           className="w-full h-full rounded-sm flex top-0 left-0 absolute bg-nave"

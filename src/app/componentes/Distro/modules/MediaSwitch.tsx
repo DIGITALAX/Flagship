@@ -3,6 +3,7 @@ import { FunctionComponent, JSX, useState } from "react";
 import Waveform from "./Waveform";
 import { MediaProps } from "../types/distro.types";
 import { INFURA_GATEWAY } from "@/app/lib/constants";
+import { generateImageJsonLd, generateVideoJsonLd, generateAudioJsonLd } from "@/app/lib/helpers/generateMediaJsonLd";
 
 const MediaSwitch: FunctionComponent<MediaProps> = ({
   type,
@@ -25,11 +26,38 @@ const MediaSwitch: FunctionComponent<MediaProps> = ({
     duration: 0,
     isPlaying: false,
   });
+
+  const mediaJsonLd =
+    type?.toLowerCase() === "video"
+      ? generateVideoJsonLd({
+          url: srcUrl,
+          thumbnailUrl: srcCover,
+          title: "DIGITALAX Video",
+          creator: "DIGITALAX",
+        })
+      : type?.toLowerCase() === "audio"
+      ? generateAudioJsonLd({
+          url: srcUrl,
+          title: "DIGITALAX Audio",
+          creator: "DIGITALAX",
+        })
+      : generateImageJsonLd({
+          url: srcUrl,
+          title: "DIGITALAX Image",
+          creator: "DIGITALAX",
+        });
+
   switch (type?.toLowerCase()) {
     case "video":
       const keyValueVideo = srcUrl;
       return (
         <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(mediaJsonLd),
+            }}
+          />
           <div id={keyValueVideo} style={classNameVideo}>
             <video
               style={classNameVideo}
@@ -102,6 +130,12 @@ const MediaSwitch: FunctionComponent<MediaProps> = ({
       const keyValueAudio = srcUrl + Math.random().toString();
       return (
         <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(mediaJsonLd),
+            }}
+          />
           <Image
             src={srcCover!}
             layout="fill"
@@ -122,14 +156,22 @@ const MediaSwitch: FunctionComponent<MediaProps> = ({
 
     default:
       return (
-        <Image
-          src={srcUrl}
-          layout="fill"
-          objectFit={objectFit ? "contain" : "cover"}
-          objectPosition={"center"}
-          className={classNameImage}
-          draggable={false}
-        />
+        <>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(mediaJsonLd),
+            }}
+          />
+          <Image
+            src={srcUrl}
+            layout="fill"
+            objectFit={objectFit ? "contain" : "cover"}
+            objectPosition={"center"}
+            className={classNameImage}
+            draggable={false}
+          />
+        </>
       );
   }
 };

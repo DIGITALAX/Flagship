@@ -1,11 +1,47 @@
 import { ModalContext } from "@/app/providers";
 import Image from "next/legacy/image";
 import { FunctionComponent, JSX, useContext } from "react";
+import { generateImageJsonLd, generateVideoJsonLd, generateAudioJsonLd } from "@/app/lib/helpers/generateMediaJsonLd";
 
 const ImageLarge: FunctionComponent = (): JSX.Element => {
   const context = useContext(ModalContext);
+
+  const mediaJsonLd = context?.imageViewer?.content
+    ? context?.imageViewer?.type === "image/png" ||
+      context?.imageViewer?.type === "image/gif" ||
+      context?.imageViewer?.type === "image/webp" ||
+      context?.imageViewer?.type === "image/jpeg" ||
+      context?.imageViewer?.type === "image/jpg" ||
+      (!context?.imageViewer?.type?.includes("video") &&
+        !context?.imageViewer?.type?.includes("audio"))
+      ? generateImageJsonLd({
+          url: context.imageViewer.content,
+          title: "DIGITALAX Media",
+          creator: "DIGITALAX",
+        })
+      : context?.imageViewer?.type?.includes("audio")
+      ? generateAudioJsonLd({
+          url: context.imageViewer.content,
+          title: "DIGITALAX Audio",
+          creator: "DIGITALAX",
+        })
+      : generateVideoJsonLd({
+          url: context.imageViewer.content,
+          title: "DIGITALAX Video",
+          creator: "DIGITALAX",
+        })
+    : null;
+
   return (
     <div className="inset-0 justify-center fixed z-50 bg-opacity-50 backdrop-blur-sm overflow-y-hidden grid grid-flow-col auto-cols-auto w-full h-auto">
+      {mediaJsonLd && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(mediaJsonLd),
+          }}
+        />
+      )}
       <div
         className="relative w-screen h-full col-start-1 justify-self-center grid grid-flow-col auto-cols-auto self-start cursor-sewingHS"
         onClick={() => context?.setImageViewer(undefined)}
