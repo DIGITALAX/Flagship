@@ -28,7 +28,7 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
               title: string;
               link: string;
             },
-            index: number
+            index: number,
           ) => {
             return (
               <div
@@ -62,7 +62,7 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
                 </div>
               </div>
             );
-          }
+          },
         )}
       </div>
       <div className="relative w-full h-fit flex items-center justify-center flex-col">
@@ -114,7 +114,7 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
                 title: string;
                 link: string;
               },
-              index: number
+              index: number,
             ) => {
               return (
                 <Feature
@@ -125,7 +125,7 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
                   router={router}
                 />
               );
-            }
+            },
           )}
         </div>
         <div className="relative w-full h-fit flex items-center justify-center flex-col sm:flex-row">
@@ -147,7 +147,7 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
                 title: string;
                 link: string;
               },
-              index: number
+              index: number,
             ) => {
               return (
                 <Feature
@@ -158,7 +158,7 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
                   router={router}
                 />
               );
-            }
+            },
           )}
         </div>
         <div className="relative w-full h-fit flex items-center justify-center flex-col sm:flex-row">
@@ -181,7 +181,7 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
                 title: string;
                 link: string;
               },
-              index: number
+              index: number,
             ) => {
               return (
                 <Feature
@@ -192,7 +192,7 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
                   router={router}
                 />
               );
-            }
+            },
           )}
         </div>
         <div className="relative w-full h-fit flex items-center justify-center flex-col sm:flex-row">
@@ -214,7 +214,7 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
                 title: string;
                 link: string;
               },
-              index: number
+              index: number,
             ) => {
               return (
                 <Feature
@@ -225,7 +225,7 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
                   router={router}
                 />
               );
-            }
+            },
           )}
         </div>
         <div className="relative w-full h-fit flex items-center justify-center flex-col sm:flex-row">
@@ -247,7 +247,7 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
                 title: string;
                 link: string;
               },
-              index: number
+              index: number,
             ) => {
               return (
                 <Feature
@@ -258,7 +258,7 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
                   router={router}
                 />
               );
-            }
+            },
           )}
         </div>
         <div className="relative w-full h-fit flex items-center justify-center flex-col sm:flex-row">
@@ -280,7 +280,7 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
                 title: string;
                 link: string;
               },
-              index: number
+              index: number,
             ) => {
               return (
                 <Feature
@@ -291,7 +291,7 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
                   router={router}
                 />
               );
-            }
+            },
           )}
         </div>
       </div>
@@ -313,6 +313,62 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
             className="relative flex items-center justify-center w-full h-1"
           ></div>
         </div>
+      </div>
+      <div className="relative w-full h-fit flex items-center justify-between gap-7 flex-col sm:flex-row">
+        {[
+          {
+            image: "QmaypLSGFpFVUTK5W1sfcCfwD6EffmpfJxvqgcnuinkQpw",
+            title: "Staking",
+            link: "https://staking.digitalax.xyz/",
+          },
+          {
+            image: "QmfUL2T7i7knFW6k6qXSe7vRtJmFFdZddvagvQodVLWGpp",
+            title: "Quiltoide",
+            link: "https://quiltoide.digitalax.xyz/",
+          },
+        ].map(
+          (
+            item: {
+              image: string;
+              title: string;
+              link: string;
+            },
+            index: number,
+          ) => {
+            return (
+              <div
+                key={index}
+                className="relative w-full h-[26rem] border border-amarillo flex items-center justify-center cursor-sewingHS bg-amarillo"
+                onClick={() => window.open(item.link)}
+              >
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <Image
+                    draggable={false}
+                    layout="fill"
+                    objectFit="cover"
+                    src={`${INFURA_GATEWAY_INTERNAL}${item.image}`}
+                  />
+                </div>
+                <div className="absolute w-1/2 flex items-center justify-center h-8 bottom-0">
+                  <Image
+                    draggable={false}
+                    layout="fill"
+                    src={`${INFURA_GATEWAY_INTERNAL}QmZH2zUKZAPVbveywrG5GaApLgY4oTFvefrCkRtQvUeWRo`}
+                  />
+                  <div
+                    className={`relative w-fit h-fit flex items-center top-1 justify-center font-bit text-white  ${
+                      path?.includes("/es/")
+                        ? "text-xxs lg:text-base"
+                        : "text-xs md:text-lg"
+                    }`}
+                  >
+                    {item.title}
+                  </div>
+                </div>
+              </div>
+            );
+          },
+        )}
       </div>
     </div>
   );
