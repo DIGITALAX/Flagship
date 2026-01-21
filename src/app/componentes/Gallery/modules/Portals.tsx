@@ -323,8 +323,8 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
           },
           {
             image: "QmfUL2T7i7knFW6k6qXSe7vRtJmFFdZddvagvQodVLWGpp",
-            title: "Quiltoide",
-            link: "https://quiltoide.digitalax.xyz/",
+            title: "Matroid",
+            link: "https://matroid.digitalax.xyz/",
           },
         ].map(
           (
