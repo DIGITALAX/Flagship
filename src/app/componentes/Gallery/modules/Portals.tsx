@@ -321,6 +321,11 @@ const Portals: FunctionComponent<{ dict: any }> = ({ dict }): JSX.Element => {
             title: "Staking",
             link: "https://staking.digitalax.xyz/",
           },
+             {
+            image: "QmdDJtL8RBMavy4hUu9dKtNZWyLT66Lq12A9krZbrUYuKQ",
+            title: "Ganda",
+            link: "https://ganda.digitalax.xyz/",
+          },
           {
             image: "QmfUL2T7i7knFW6k6qXSe7vRtJmFFdZddvagvQodVLWGpp",
             title: "Matroid",
