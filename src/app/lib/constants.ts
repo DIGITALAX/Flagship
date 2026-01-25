@@ -860,6 +860,36 @@ export const LOG: {
       es: "La evolución del sistema de tasación DLTA, ahora ejecutándose en PODE v3. Los poseedores de Ionic tasan NFTs enviados usando paquetes de reacciones (conjuntos curados creados y vendidos por diseñadores invitados). Es un descubrimiento de precios que no es solo barrido de piso a 0.3 ETH. Los tasadores vinculan paquetes de reacciones de diseñadores a cada revisión, construyendo contexto cultural en la valoración. La base para un mercado donde los bienes on-chain se valoran mediante gusto colectivo y señal verificable, no por quien grita más fuerte en Twitter.",
     },
   },
+  {
+    title: {
+      en: "19. GANDA",
+      es: "19. GANDA",
+    },
+    description: {
+      en: "A view screen for skill-based mini games, oriented around AI model interaction. Play, spectate and react with on-chain sticker packs, forked from Ionic. Outsmart Franco-era ghosts through stenography in locked wards, pass signals between civil wars and unfinished civilisations, and crash land on a misplaced planet of fractal dust and broken plazas.",
+      es: "Una pantalla de visualización para mini juegos basados en habilidad, orientados alrededor de la interacción con modelos de IA. Juega, observa y reacciona con paquetes de pegatinas on-chain, bifurcados de Ionic. Supera en astucia a fantasmas de la era franquista mediante estenografía en salas cerradas, pasa señales entre guerras civiles y civilizaciones inacabadas, y aterriza forzosamente en un planeta mal ubicado de polvo fractal y plazas rotas.",
+    },
+  },
+  {
+    title: {
+      en: "20. Staking",
+      es: "20. Staking",
+    },
+    description: {
+      en: "Access legacy staking, v1 on Ethereum, v2 on Polygon. Withdraw balances, collect residual rewards, fan back out across the network, and then, drop straight into the V3 Matroid pools on Lens.",
+      es: "Accede al staking heredado, v1 en Ethereum, v2 en Polygon. Retira saldos, recoge recompensas residuales, expándete de nuevo a través de la red, y luego, lánzate directo a los pools V3 Matroid en Lens.",
+    },
+  },
+  {
+    title: {
+      en: "21. Matroid",
+      es: "21. Matroid",
+    },
+    description: {
+      en: "Permissionless smart contract suite that distributes $MONA to projects based on token flow activity.<br/><br/>The matroid kit records $MONA in-and-out flows directly from integrated contracts, aggregates activity into shared epochs, and resolves distribution automatically with no off-chain dependencies.<br/><br/>Projects receive treasury $MONA in proportion to their epoch activity, configure how rewards split across global and project staking pools (ERC20 and NFT), and extend incentives outward to $MONA, genesis, pode, and fashion nft holders. Staking and slashing operate on the same surface, allowing participants to stake, receive rewards, and vote on misaligned activity as part of a single, continuous on-chain structure.",
+      es: "Suite de contratos inteligentes sin permisos que distribuye $MONA a proyectos basándose en la actividad de flujo de tokens.<br/><br/>El kit matroid registra flujos de entrada y salida de $MONA directamente desde contratos integrados, agrega la actividad en épocas compartidas, y resuelve la distribución automáticamente sin dependencias off-chain.<br/><br/>Los proyectos reciben $MONA de tesorería en proporción a su actividad de época, configuran cómo se dividen las recompensas entre pools de staking globales y de proyecto (ERC20 y NFT), y extienden incentivos hacia afuera a los tenedores de $MONA, genesis, pode, y nfts de moda. El staking y slashing operan en la misma superficie, permitiendo a los participantes hacer staking, recibir recompensas, y votar sobre actividad desalineada como parte de una estructura on-chain única y continua.",
+    },
+  },
 ];
 
 export const QUESTIONS: {
