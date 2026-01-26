@@ -166,6 +166,10 @@ export default function TokensEntry({ dict }: { dict: any }) {
           >
             <source src="https://gw.ipfs-lens.dev/ipfs/bafybeibfjkzskjddb2qfvzsmiohoc2mk7ti6ti5g7dtfmxj4jlmtwwkdbm" />
           </video>
+          <div
+            className="relative w-fit h-fit flex font-star text-xs"
+            dangerouslySetInnerHTML={{ __html: dict?.tokens?.data ?? "" }}
+          ></div>
         </div>
         <div className="relative w-full h-fit flex flex-col gap-2">
           <div className="relative w-fit h-fit flex font-neco text-3xl">

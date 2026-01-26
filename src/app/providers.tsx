@@ -69,6 +69,10 @@ export const config = createConfig(
       [chains.mainnet.id]: http("https://rpc.lens.xyz"),
     },
     ssr: true,
+    walletConnectOptions: {
+      enableAnalytics: false,
+      enableNetworkView: false,
+    },
   })
 );
 
