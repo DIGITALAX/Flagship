@@ -183,9 +183,9 @@ Communication has consolidated into a more decentralised surface area. Long-form
 
 ## Active Build Cycle
 
-ESPA upgrade: decentralised gaming, esports, and narrative systems running through generative workflows.
+Matroid: Automated distribution contracts for Treasury MONA.
+Ganda: decentralised gaming, esports, and narrative systems running through generative workflows (prev. ESPA).
 Computational manufacturing continues in parallel.
-Automated distribution contracts for Treasury MONA.
 
 ---
 
