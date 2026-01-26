@@ -5,8 +5,8 @@ const nextConfig: NextConfig = {
   experimental: {
     scrollRestoration: true,
     optimizeCss: true,
-    telemetry: false,
   },
+  telemetry: false,
   eslint: {
     ignoreDuringBuilds: true,
   },

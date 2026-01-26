@@ -10,6 +10,13 @@ import {
 import { HEART_COLORS, THEME_COLORS } from "./lib/constants";
 import { WagmiProvider, createConfig, http } from "wagmi";
 import { ConnectKitProvider, getDefaultConfig } from "connectkit";
+import {
+  coinbaseWallet,
+  injected,
+  safe,
+  walletConnect,
+} from "@wagmi/connectors";
+import { familyAccountsConnector } from "family";
 import { chains } from "@lens-chain/sdk/viem";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { FullScreenVideo } from "./componentes/Common/types/common.types";
@@ -57,22 +64,63 @@ export const ModalContext = createContext<
   | undefined
 >(undefined);
 
+const appName = "DIGITALAX";
+const appDescription = "Emancipatory Lifestyle Tech.";
+const appUrl = "https://digitalax.xyz";
+const appIcon = "https://digitalax.xyz/favicon.ico";
+const walletConnectProjectId = process.env
+  .NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID as string;
+const hasAllAppData = Boolean(appName && appIcon && appDescription && appUrl);
+
+const shouldUseSafeConnector =
+  typeof window !== "undefined" && window.parent !== window;
+
+const connectors = [
+  familyAccountsConnector(),
+  ...(shouldUseSafeConnector
+    ? [
+        safe({
+          allowedDomains: [/gnosis-safe.io$/, /app.safe.global$/],
+        }),
+      ]
+    : []),
+  injected({ target: "metaMask" }),
+  coinbaseWallet({
+    appName,
+    appLogoUrl: appIcon,
+    overrideIsMetaMask: false,
+  }),
+  ...(walletConnectProjectId
+    ? [
+        walletConnect({
+          showQrModal: false,
+          projectId: walletConnectProjectId,
+          metadata: hasAllAppData
+            ? {
+                name: appName,
+                description: appDescription,
+                url: appUrl,
+                icons: [appIcon],
+              }
+            : undefined,
+          telemetryEnabled: false,
+        }),
+      ]
+    : []),
+];
+
 export const config = createConfig(
   getDefaultConfig({
-    appName: "DIGITALAX",
-    walletConnectProjectId: process.env
-      .NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID as string,
-    appUrl: "https://digitalax.xyz",
-    appIcon: "https://digitalax.xyz/favicon.ico",
+    appName,
+    walletConnectProjectId,
+    appUrl,
+    appIcon,
     chains: [chains.mainnet],
     transports: {
       [chains.mainnet.id]: http("https://rpc.lens.xyz"),
     },
+    connectors,
     ssr: true,
-    walletConnectOptions: {
-      enableAnalytics: false,
-      enableNetworkView: false,
-    },
   })
 );
 
