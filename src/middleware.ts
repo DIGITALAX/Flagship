@@ -2,8 +2,36 @@ import { match } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 import { NextRequest, NextResponse } from "next/server";
 
-let locales = ["en", "es"];
-let defaultLocale = "en";
+const locales = ["en", "es"];
+const defaultLocale = "en";
+const CANONICAL_HOST = "digitalax.xyz";
+const TRACKING_QUERY_KEYS = new Set([
+  "gclid",
+  "fbclid",
+  "msclkid",
+  "mc_cid",
+  "mc_eid",
+  "_hsenc",
+  "_hsmi",
+  "ref",
+  "referrer",
+  "utm_referrer",
+]);
+
+function removeTrackingParams(url: URL) {
+  let changed = false;
+  const keys = [...url.searchParams.keys()];
+
+  keys.forEach((key) => {
+    const lowerKey = key.toLowerCase();
+    if (lowerKey.startsWith("utm_") || TRACKING_QUERY_KEYS.has(lowerKey)) {
+      url.searchParams.delete(key);
+      changed = true;
+    }
+  });
+
+  return changed;
+}
 
 function getLocale(request: NextRequest) {
   const cookieLocale = request.cookies.get("NEXT_LOCALE")?.value;
@@ -25,8 +53,26 @@ function isBot(userAgent: string) {
 }
 
 export function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl;
+  const normalizedUrl = request.nextUrl.clone();
+  const { pathname } = normalizedUrl;
   const userAgent = request.headers.get("user-agent") || "";
+  const host =
+    request.headers.get("host")?.toLowerCase() || normalizedUrl.host.toLowerCase();
+
+  let shouldRedirect = false;
+
+  if (host === `www.${CANONICAL_HOST}`) {
+    normalizedUrl.host = CANONICAL_HOST;
+    shouldRedirect = true;
+  }
+
+  if (removeTrackingParams(normalizedUrl)) {
+    shouldRedirect = true;
+  }
+
+  if (shouldRedirect) {
+    return NextResponse.redirect(normalizedUrl, 308);
+  }
 
   if (
     pathname.startsWith("/_next") ||
@@ -34,6 +80,7 @@ export function middleware(request: NextRequest) {
     pathname.startsWith("/fonts") ||
     pathname.startsWith("/favicon.ico") ||
     pathname.startsWith("/api") ||
+    pathname.startsWith("/robots.txt") ||
     pathname.startsWith("/opengraph-image.png") ||
     pathname.startsWith("/sitemap.xml") ||
     pathname.startsWith("/image-sitemap.xml") ||
@@ -72,6 +119,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next|images|llms.txt|fonts|favicon.ico|opengraph-image.png|api|sitemap|image-sitemap.xml|video-sitemap.xml).*)",
+    "/((?!_next|images|llms.txt|robots.txt|fonts|favicon.ico|opengraph-image.png|api|sitemap|image-sitemap.xml|video-sitemap.xml).*)",
   ],
 };

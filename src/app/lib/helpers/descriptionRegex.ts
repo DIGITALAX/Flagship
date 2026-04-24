@@ -1,3 +1,40 @@
+const DOMAIN_WITH_PATH_REGEX =
+  /^(?:[a-z0-9-]+\.)+[a-z]{2,}(?::\d+)?(?:[/?#].*)?$/i;
+
+const splitTokenEdges = (token: string) => {
+  const prefix = token.match(/^[([{<"'`]+/)?.[0] ?? "";
+  const suffix = token.match(/[)\]}>.,!?;:'"`]+$/)?.[0] ?? "";
+  const core = token.slice(prefix.length, token.length - suffix.length);
+
+  return { prefix, core, suffix };
+};
+
+const normalizeExternalUrl = (token: string): string | null => {
+  if (!token) return null;
+
+  let candidate = token.trim();
+
+  // Fix malformed protocol like "https:/example.com".
+  candidate = candidate.replace(/^https?:\/(?!\/)/i, (protocol) => `${protocol}/`);
+
+  if (/^www\./i.test(candidate)) {
+    candidate = `https://${candidate}`;
+  } else if (!/^https?:\/\//i.test(candidate)) {
+    if (!DOMAIN_WITH_PATH_REGEX.test(candidate)) {
+      return null;
+    }
+    candidate = `https://${candidate}`;
+  }
+
+  try {
+    const parsed = new URL(candidate);
+    if (!["http:", "https:"].includes(parsed.protocol)) return null;
+    return parsed.toString();
+  } catch {
+    return null;
+  }
+};
+
 const descriptionRegex = (description: string, colorChange: boolean) => {
   if (description.trim() == "" || !description) return "";
 
@@ -20,32 +57,32 @@ const descriptionRegex = (description: string, colorChange: boolean) => {
     } else {
       const words = line.split(/(?=[@#])|\s+/);
       const styledWords = words.map((word) => {
-        if (word[0] === "#") {
+        const { prefix, core, suffix } = splitTokenEdges(word);
+        if (!core) return word;
+
+        if (core[0] === "#") {
           return colorChange
-            ? `<em id="hashtags" style="color: #f9ed00; font-style: normal; word-break: break-all; margin-right: 4px;">${word}</em>`
-            : `<em id="hashtags" style="color: #81A8F8; font-style: normal; word-break: break-all; margin-right: 4px;">${word}</em>`;
-        } else if (word[0] === "@") {
+            ? `${prefix}<em id="hashtags" style="color: #f9ed00; font-style: normal; word-break: break-all; margin-right: 4px;">${core}</em>${suffix}`
+            : `${prefix}<em id="hashtags" style="color: #81A8F8; font-style: normal; word-break: break-all; margin-right: 4px;">${core}</em>${suffix}`;
+        } else if (core[0] === "@") {
           const link = `https://cypher.digitalax.xyz/autograph/${
-            word?.includes(".lens")
-              ? word?.replace(".lens", "").replace("@", "")
-              : word?.replace("@", "")
+            core?.includes(".lens")
+              ? core?.replace(".lens", "").replace("@", "")
+              : core?.replace("@", "")
           }`;
           return colorChange
-            ? ` <a href="${link}" rel="noreferrer" target="_blank" style="word-break: break-all; margin-right: 4px;"> <span style="color: #f9ed00;">${word}</span> </a> `
-            : ` <a href="${link}" target="_blank" rel="noreferrer" style="word-break: break-all; margin-right: 4px;"> <span style="color: #81A8F8;">${word}</span> </a> `;
-        } else if (
-          word.startsWith("http") ||
-          word.startsWith("www.") ||
-          word.endsWith(".xyz") ||
-          word.endsWith(".com")
-        ) {
-          const url = word?.includes("//") ? word : `//${word}`;
-          return colorChange
-            ? ` <a href="${url}" style="word-break: break-all; margin-right: 4px;" target="_blank" rel="noreferrer"> <span style="color: #f9ed00;">${word}</span> </a> `
-            : ` <a href="${url}" style="word-break: break-all; margin-right: 4px;" target="_blank" rel="noreferrer"> <span style="color: #81A8F8;">${word}</span> </a> `;
-        } else {
-          return word;
+            ? `${prefix}<a href="${link}" rel="noreferrer" target="_blank" style="word-break: break-all; margin-right: 4px;"> <span style="color: #f9ed00;">${core}</span> </a>${suffix}`
+            : `${prefix}<a href="${link}" target="_blank" rel="noreferrer" style="word-break: break-all; margin-right: 4px;"> <span style="color: #81A8F8;">${core}</span> </a>${suffix}`;
         }
+
+        const normalizedUrl = normalizeExternalUrl(core);
+        if (normalizedUrl) {
+          return colorChange
+            ? `${prefix}<a href="${normalizedUrl}" style="word-break: break-all; margin-right: 4px;" target="_blank" rel="noreferrer nofollow ugc"> <span style="color: #f9ed00;">${core}</span> </a>${suffix}`
+            : `${prefix}<a href="${normalizedUrl}" style="word-break: break-all; margin-right: 4px;" target="_blank" rel="noreferrer nofollow ugc"> <span style="color: #81A8F8;">${core}</span> </a>${suffix}`;
+        }
+
+        return word;
       });
       return `<span>${styledWords.join(" ")}</span>`;
     }
