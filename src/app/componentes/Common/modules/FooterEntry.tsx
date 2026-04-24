@@ -106,8 +106,8 @@ const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
             {[
               {
                 image: "QmWVdyGgXbPL5SiRnQwALHvWzAnyiXBos1oB4TVTqg7saV",
-                link: "https://fountain.ink/u/digiink",
-                title: "Ink",
+                link: "https://thedial.xyz/",
+                title: "The Dial",
               },
               {
                 image: "QmP5349vcKLNXUhtLyZWQXB8vEbFwRcKLzzB93vxkLsvpw",
