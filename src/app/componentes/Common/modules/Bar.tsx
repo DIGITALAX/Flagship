@@ -1,4 +1,5 @@
 import {
+  idiomaADisplay,
   idiomaAImagen,
   Idiomas,
   indiceAIdioma,
@@ -25,6 +26,7 @@ const Bar: FunctionComponent<BarProps> = ({
   changeLanguage,
 }): JSX.Element => {
   const context = useContext(ModalContext);
+  const activeLanguages = [0, 1, 2, 4];
 
   return (
     <>
@@ -46,7 +48,8 @@ const Bar: FunctionComponent<BarProps> = ({
                 <PiArrowFatLinesLeftFill size={20} />
               </div>
               <div className="relative w-fit h-fit flex items-center justify-center">
-                {indiceAIdioma[chosenLanguage]}
+                {idiomaADisplay[indiceAIdioma[chosenLanguage]] ??
+                  indiceAIdioma[chosenLanguage]}
               </div>
               <div
                 className="relative flex items-center justify-center w-fit h-fit active:scale-95 cursor-sewingHS"
@@ -61,17 +64,17 @@ const Bar: FunctionComponent<BarProps> = ({
             </div>
             <div
               onClick={() => {
-                if (chosenLanguage === 0 || chosenLanguage === 1) {
+                if (activeLanguages.includes(chosenLanguage)) {
                   changeLanguage(indiceAIdioma[chosenLanguage]);
                 }
               }}
               className={`text-xxs flex items-center justify-center px-2 border border-mainText rounded-sm h-6 w-full ${
-                (chosenLanguage === 0 || chosenLanguage === 1) &&
+                activeLanguages.includes(chosenLanguage) &&
                 "cursor-sewingHS active:scale-95"
               }`}
             >
               ~*{" "}
-              {chosenLanguage !== 0 && chosenLanguage !== 1
+              {!activeLanguages.includes(chosenLanguage)
                 ? dict?.common?.soon
                 : dict?.common?.ve}{" "}
               *~
@@ -136,7 +139,7 @@ const Bar: FunctionComponent<BarProps> = ({
             {dict?.common?.bend}
           </div>
         </div>
-        <div className="relative w-96 h-9 rounded-r-md text-sm overflow-x-hidden whitespace-nowrap flex items-center justify-center text-offBlack">
+        <div className="relative w-96 h-9 rounded-r-md text-sm overflow-x-hidden whitespace-nowrap flex items-center justify-center text-offBlack" dir="ltr">
           <div className="absolute w-full h-full top-0 left-0 z-0 flex items-center justify-center border-y border-r border-mainText bg-white rounded-r-md">
             <Marquee
               className="z-0"
@@ -145,7 +148,7 @@ const Bar: FunctionComponent<BarProps> = ({
               gradient={false}
             >
               {" "}
-              {`${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉`}{" "}
+              {`${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉 ${dict?.common?.shop} ❤️ 👉`}{" "}
             </Marquee>
           </div>
           <div

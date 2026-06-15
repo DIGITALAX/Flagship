@@ -88,7 +88,7 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
             {currentImage > 1 && (
               <div
                 className={`absolute bottom-3 right-3 w-48 h-fit border border-white rounded-md bg-black/70 px-2 py-3 flex flex-col items-center gap-5 justify-center text-white text-center ${
-                  path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] == "es"
+                  path.match(/(?<=\/)(en|es|br|ar)(?=\/)/)?.[0] == "es"
                     ? "font-bit"
                     : "font-mana"
                 }`}
@@ -96,20 +96,20 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
                 <div className="relative w-fit h-fit flex items-center jutify-center text-lg break-words">
                   {
                     IMAGE_LOGS[currentImage].title[
-                      path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as "en" | "es"
+                      path.match(/(?<=\/)(en|es|br|ar)(?=\/)/)?.[0] as "en" | "es"
                     ]
                   }
                 </div>
                 <div
                   className={`relative w-fit h-fit flex items-center jutify-center break-words ${
-                    path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] == "es"
+                    path.match(/(?<=\/)(en|es|br|ar)(?=\/)/)?.[0] == "es"
                       ? "text-base"
                       : "text-sm"
                   }`}
                 >
                   {
                     IMAGE_LOGS[currentImage].description[
-                      (path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as
+                      (path.match(/(?<=\/)(en|es|br|ar)(?=\/)/)?.[0] as
                         | "en"
                         | "es") ?? "en"
                     ]
@@ -155,7 +155,7 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
                   <div className="relative w-fit h-fit flex items-center justify-start text-xl">
                     {
                       item.title[
-                        (path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as
+                        (path.match(/(?<=\/)(en|es|br|ar)(?=\/)/)?.[0] as
                           | "en"
                           | "es") ?? "en"
                       ]
@@ -163,14 +163,14 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
                   </div>
                   <div
                     className={`relative w-fit h-fit flex items-center  break-words whitespace-pre-line justify-start text-solapa ${
-                      path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] == "es"
+                      path.match(/(?<=\/)(en|es|br|ar)(?=\/)/)?.[0] == "es"
                         ? "font-bit text-sm"
                         : "font-mana text-xs"
                     }`}
                     dangerouslySetInnerHTML={{
                       __html: descriptionRegex(
                         item.description?.[
-                          (path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as
+                          (path.match(/(?<=\/)(en|es|br|ar)(?=\/)/)?.[0] as
                             | "en"
                             | "es") ?? "en"
                         ] || "",
@@ -209,7 +209,7 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
                   <div className="relative w-fit h-fit flex items-center justify-start text-xl">
                     {
                       item.title[
-                        (path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as
+                        (path.match(/(?<=\/)(en|es|br|ar)(?=\/)/)?.[0] as
                           | "en"
                           | "es") ?? "en"
                       ]
@@ -217,14 +217,14 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
                   </div>
                   <div
                     className={`relative w-fit h-fit flex items-center whitespace-nowrap break-words whitespace-pre-line	justify-start text-solapa ${
-                      path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] == "es"
+                      path.match(/(?<=\/)(en|es|br|ar)(?=\/)/)?.[0] == "es"
                         ? "font-bit text-sm"
                         : "font-mana text-xs"
                     }`}
                     dangerouslySetInnerHTML={{
                       __html: descriptionRegex(
                         item.description?.[
-                          (path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] as
+                          (path.match(/(?<=\/)(en|es|br|ar)(?=\/)/)?.[0] as
                             | "en"
                             | "es") ?? "en"
                         ] || "",

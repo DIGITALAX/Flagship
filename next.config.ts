@@ -6,7 +6,6 @@ const nextConfig: NextConfig = {
     scrollRestoration: true,
     optimizeCss: true,
   },
-  telemetry: false,
   eslint: {
     ignoreDuringBuilds: true,
   },

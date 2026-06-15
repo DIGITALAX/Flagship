@@ -2,7 +2,7 @@ import { match } from "@formatjs/intl-localematcher";
 import Negotiator from "negotiator";
 import { NextRequest, NextResponse } from "next/server";
 
-const locales = ["en", "es"];
+const locales = ["en", "es", "br", "ar"];
 const defaultLocale = "en";
 const CANONICAL_HOST = "digitalax.xyz";
 const TRACKING_QUERY_KEYS = new Set([
@@ -43,7 +43,20 @@ function getLocale(request: NextRequest) {
     "accept-language": request.headers.get("accept-language") || "en",
   };
   let languages = new Negotiator({ headers }).languages();
-  return match(languages, locales, defaultLocale);
+
+  const lowered = languages.map((l) => l.toLowerCase());
+  if (lowered.some((l) => l.startsWith("pt"))) {
+    return "br";
+  }
+  if (lowered.some((l) => l.startsWith("ar"))) {
+    return "ar";
+  }
+
+  try {
+    return match(languages, locales, defaultLocale);
+  } catch {
+    return defaultLocale;
+  }
 }
 
 function isBot(userAgent: string) {

@@ -5,7 +5,7 @@ import Image from "next/legacy/image";
 import {
   BG_SCREENS,
   INFURA_GATEWAY_INTERNAL,
-  screenTranslate,
+  screenKeys,
 } from "@/app/lib/constants";
 import { ModalContext } from "@/app/providers";
 import Video from "./Video";
@@ -177,7 +177,7 @@ const Screen: FunctionComponent<ScreenProps> = ({
                         dangerouslySetInnerHTML={{
                           __html:
                             dict?.common?.[
-                              `${screenTranslate[context?.screen?.title]}P`
+                              `${screenKeys[context?.screen?.index]}P`
                             ],
                         }}
                       ></div>
@@ -191,7 +191,7 @@ const Screen: FunctionComponent<ScreenProps> = ({
                         dangerouslySetInnerHTML={{
                           __html:
                             dict?.common?.[
-                              `${screenTranslate[context?.screen?.title]}R`
+                              `${screenKeys[context?.screen?.index]}R`
                             ],
                         }}
                       ></div>
@@ -205,7 +205,7 @@ const Screen: FunctionComponent<ScreenProps> = ({
                         dangerouslySetInnerHTML={{
                           __html:
                             dict?.common?.[
-                              `${screenTranslate[context?.screen?.title]}A`
+                              `${screenKeys[context?.screen?.index]}A`
                             ],
                         }}
                       ></div>
