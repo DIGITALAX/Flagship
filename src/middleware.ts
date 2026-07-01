@@ -61,7 +61,7 @@ function getLocale(request: NextRequest) {
 
 function isBot(userAgent: string) {
   return /googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|sogou/i.test(
-    userAgent
+    userAgent,
   );
 }
 
@@ -70,7 +70,8 @@ export function middleware(request: NextRequest) {
   const { pathname } = normalizedUrl;
   const userAgent = request.headers.get("user-agent") || "";
   const host =
-    request.headers.get("host")?.toLowerCase() || normalizedUrl.host.toLowerCase();
+    request.headers.get("host")?.toLowerCase() ||
+    normalizedUrl.host.toLowerCase();
 
   let shouldRedirect = false;
 
@@ -98,13 +99,14 @@ export function middleware(request: NextRequest) {
     pathname.startsWith("/sitemap.xml") ||
     pathname.startsWith("/image-sitemap.xml") ||
     pathname.startsWith("/video-sitemap.xml") ||
-    pathname.startsWith("/llms.txt")
+    pathname.startsWith("/llms.txt") ||
+    pathname.startsWith("/digitalaxwhitepaperv3.pdf")
   ) {
     return NextResponse.next();
   }
 
   const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`,
   );
 
   if (pathnameHasLocale) {
@@ -122,7 +124,7 @@ export function middleware(request: NextRequest) {
   }
 
   const response = NextResponse.redirect(
-    new URL(`/${locale}${pathname}`, request.url)
+    new URL(`/${locale}${pathname}`, request.url),
   );
 
   response.cookies.set("NEXT_LOCALE", locale, { path: "/", sameSite: "lax" });
@@ -132,6 +134,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next|images|llms.txt|robots.txt|fonts|favicon.ico|opengraph-image.png|api|sitemap|image-sitemap.xml|video-sitemap.xml).*)",
+    "/((?!_next|images|llms.txt|robots.txt|fonts|favicon.ico|digitalaxwhitepaperv3.pdf|opengraph-image.png|api|sitemap|image-sitemap.xml|video-sitemap.xml).*)",
   ],
 };
