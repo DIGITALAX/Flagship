@@ -161,7 +161,7 @@ export default function TokensEntry({ dict }: { dict: any }) {
           <video
             draggable={false}
             className="relative object-cover border border-white pt-4 w-72 h-40 flex"
-            poster="https://chromadin.xyz/api/infura/QmenggnmziozxNAazvbPH7Dafh2MxT87DqXiYiykRgDJm2"
+            poster="https://cdn.digitalax.xyz/ipfs/QmenggnmziozxNAazvbPH7Dafh2MxT87DqXiYiykRgDJm2"
             controls={true}
           >
             <source src="https://gw.ipfs-lens.dev/ipfs/bafybeibfjkzskjddb2qfvzsmiohoc2mk7ti6ti5g7dtfmxj4jlmtwwkdbm" />

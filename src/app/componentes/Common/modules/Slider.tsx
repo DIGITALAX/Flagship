@@ -26,7 +26,7 @@ const Slider: FunctionComponent = (): JSX.Element => {
                   src={`${INFURA_GATEWAY_INTERNAL}${image}`}
                   objectFit="cover"
                   layout="fill"
-                  priority
+                  loading="lazy"
                   objectPosition={"top"}
                   draggable={false}
                 />

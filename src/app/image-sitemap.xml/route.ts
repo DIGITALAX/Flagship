@@ -146,7 +146,7 @@ const PATHS = [
       },
       {
         title: "Privacy Poster",
-        image: "https://chromadin.xyz/api/infura/QmenggnmziozxNAazvbPH7Dafh2MxT87DqXiYiykRgDJm2",
+        image: "https://cdn.digitalax.xyz/ipfs/QmenggnmziozxNAazvbPH7Dafh2MxT87DqXiYiykRgDJm2",
       },
     ],
   },

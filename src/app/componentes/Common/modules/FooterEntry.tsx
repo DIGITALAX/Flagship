@@ -8,9 +8,11 @@ import { BiArrowToTop } from "react-icons/bi";
 import { FooterProps } from "../types/common.types";
 import { ModalContext } from "@/app/providers";
 import MarqueeText from "react-fast-marquee";
+import { usePathname } from "next/navigation";
 
 const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
   const context = useContext(ModalContext);
+  const path = usePathname();
   return (
     <div className="relative w-full flex flex-col">
       <div className="relative w-full bg-offBlack h-fit flex items-center justify-start flex-col gap-10 pt-12">
@@ -49,8 +51,10 @@ const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
               className="relative w-full h-fit flex items-end justify-end cursor-sewingHS"
               onClick={() => window.open("https://status.digitalax.xyz/")}
             >
-              <div className="relative h-3.5 w-3.5 flex items-center justify-center rounded-full opacity-75 animate-ping bg-green-500"></div>
-              <div className="absolute right-px flex items-center justify-center rounded-full h-3 w-3 bg-green-300"></div>
+              <div className="relative h-3.5 w-3.5 flex items-center justify-center">
+                <div className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping bg-green-500"></div>
+                <div className="relative inline-flex rounded-full h-3 w-3 bg-green-300"></div>
+              </div>
             </div>
             <div className="flex relative h-fit w-full md:w-72 lg:w-[20vw] text-xs md:text-[1vw] xl:text-[0.8vw] text-midWhite justify-center items-center font-lib break-all text-center md:text-left sm:text-right leading-8 whitespace-inline">
               {dict?.footer?.maps}
@@ -102,7 +106,13 @@ const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
               {dict?.footer?.rewind}
             </div>
           </div>
-          <div className="relative w-fit h-fit flex-row gap-3 flex items-end justify-end md:pr-2 md:order-3 order-1 mr-0">
+          <div
+            className={`relative w-fit h-fit flex-row gap-3 flex items-end justify-end md:order-3 order-1 mr-0 ${
+              path.match(/(?<=\/)(en|es|br|ar)(?=\/)/)?.[0] == "ar"
+                ? "md:pl-2"
+                : "md:pr-2"
+            }`}
+          >
             {[
               {
                 image: "QmWVdyGgXbPL5SiRnQwALHvWzAnyiXBos1oB4TVTqg7saV",
@@ -132,7 +142,7 @@ const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
                   link: string;
                   component?: ReactElement;
                 },
-                index: number
+                index: number,
               ) => {
                 return (
                   <div
@@ -152,7 +162,7 @@ const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
                     )}
                   </div>
                 );
-              }
+              },
             )}
           </div>
         </div>
@@ -161,7 +171,10 @@ const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
         <div className="relative w-fit h-fit flex">{dict?.footer?.comms}</div>
         <div className="relative w-fit h-fit flex">{dict?.footer?.foro}</div>
       </div>
-      <div className="relative w-full h-full bg-black flex overflow-x-hidden py-2" dir="ltr">
+      <div
+        className="relative w-full h-full bg-black flex overflow-x-hidden py-2"
+        dir="ltr"
+      >
         <MarqueeText
           gradient={false}
           speed={20}
@@ -169,10 +182,22 @@ const FooterEntry: FunctionComponent<FooterProps> = ({ dict }): JSX.Element => {
           pauseOnHover
           className="z-0"
         >
-          <div className="relative w-full h-fit text-white text-xs font-lib uppercase flex flex-row gap-10 items-center">{" "}{`Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 `}{" "}</div>
-          <div className="relative w-full h-fit text-white text-xs font-lib uppercase flex flex-row gap-10 items-center">{" "}{`Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 `}{" "}</div>
-          <div className="relative w-full h-fit text-white text-xs font-lib uppercase flex flex-row gap-10 items-center">{" "}{`Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 `}{" "}</div>
-          <div className="relative w-full h-fit text-white text-xs font-lib uppercase flex flex-row gap-10 items-center">{" "}{`Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 `}{" "}</div>
+          <div className="relative w-full h-fit text-white text-xs font-lib uppercase flex flex-row gap-10 items-center">
+            {" "}
+            {`Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 `}{" "}
+          </div>
+          <div className="relative w-full h-fit text-white text-xs font-lib uppercase flex flex-row gap-10 items-center">
+            {" "}
+            {`Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 `}{" "}
+          </div>
+          <div className="relative w-full h-fit text-white text-xs font-lib uppercase flex flex-row gap-10 items-center">
+            {" "}
+            {`Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 `}{" "}
+          </div>
+          <div className="relative w-full h-fit text-white text-xs font-lib uppercase flex flex-row gap-10 items-center">
+            {" "}
+            {`Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 Lens: 0x28547B5b6B405A1444A17694AC84aa2d6A03b3Bd Eth: 0x275f5Ad03be0Fa221B4C6649B8AeE09a42D9412A Polygon: 0x6968105460f67c3bf751be7c15f92f5286fd0ce5 `}{" "}
+          </div>
         </MarqueeText>
       </div>
     </div>

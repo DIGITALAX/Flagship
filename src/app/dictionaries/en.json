@@ -64,7 +64,7 @@
     "designR": "Are designers obsolete? I’m feeling like vibe design steals my hope a collector will ever want my work again. Am I wrong?",
     "distroR": "Dropping assets isn’t enough. I need them positioned where they compound. What decides who wins, who gets all the attention, and what makes the spice flow?",
     "collectR": "Do I have to wait until everyone has a GPU rich machine, when virtual worlds fuse with IRL, before collector markets bounce back? Or is it a hype pilled daydream that'll never happen?",
-    "creativeR": "Do I have to wait until everyone has a GPU rich machine, when virtual worlds fuse with IRL, before collector markets bounce back? Or is it a hype pilled daydream that'll never happen?",
+    "creativeR": "I want to produce my own drops, but everyone says you need a factory and capital lined up before you even start. Do I have to sort out manufacturing first, or is there another way?",
     "fulfillR": "I get the pitch—privacy-first, decentralised fulfillment. But last I checked, UPS still needs an address. How does this actually work without breaking the system? I'm studying encryption now?",
     "discoverA": "If you can't find it, why mention it? Find it late, you probably missed out.\n\nHow you find your way means surfacing what's hidden in latent places. There's apps, tools, goods, and workflows designed for use, trade, creation, and max leverage. Edgerunner, skyhunter, channel star, builder, guest. Some collectors pick up a single asset that stands out from the rest. Others play the skill game — interrogating each workflow action and node.\n\nNew here? Check chromadin for 24/7 web3 media streams, lucidity to ask an agent about the latest comfystream workflows, or cypher, where you'll find just about every collectible across the entire ecosystem.",
     "designA": "If you’re still waiting for a collector, you’re already behind.\n\nDesign hasn’t lost its value. It’s been unbundled, embedded, and rerouted into places that static outputs don’t reach anymore.\n\nThe ones adapting aren’t asking if they’re obsolete. They’re using workflows that surface the right attention, structure compensation across channels, and put leverage in their own hands instead of waiting for someone to hand them value.\n\nYour work isn’t the problem. The way you're measuring its position is.",
@@ -152,6 +152,7 @@
     "record": "A visual record of",
     "built": "what's been built &",
     "dev": "what's in development",
+    "general": "Ecosystem Overview",
     "legend": "Legend",
     "comp": "Computational Manufacturing"
   },
@@ -188,7 +189,7 @@
     "prints": "Prints"
   },
   "tokens": {
-    "awake": "¿Still awake, Anon?",
+    "awake": "Still awake, Anon?",
     "chat": "Why not chat with your machine?",
     "llms": "LLMs.txt",
     "description": "Machine shop at 3AM. Las ingenieras de DIGITALAX. Rust, Solidity, TS, Forge, RTX 4090, Pro 6000. Workflows stay local: Comfy setups, video chains, diffusion rigs, SDXL, FLUX, ILLUSTRIOUS, WAN2.1.",

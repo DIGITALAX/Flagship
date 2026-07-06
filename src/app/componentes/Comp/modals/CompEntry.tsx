@@ -7,6 +7,7 @@ import { useContext } from "react";
 import ImagenCambio from "./ImagenCambio";
 import TextoCambio from "./TextoCambio";
 import useComp from "../hooks/useComp";
+import { usePathname } from "next/navigation";
 
 export default function CompEntry({ dict }: { dict: any }) {
   const context = useContext(ModalContext);
@@ -33,6 +34,7 @@ export default function CompEntry({ dict }: { dict: any }) {
     <div
       ref={containerRef}
       className="relative w-full h-screen overflow-hidden bg-offBlack items-center justify-center flex"
+      dir="ltr"
     >
       {fijo && (
         <>
@@ -103,20 +105,20 @@ export default function CompEntry({ dict }: { dict: any }) {
                     etapa <= 1
                       ? "text-white text-xs"
                       : etapa == 3 ||
-                        etapa == 4 ||
-                        (tipo == 1 && etapa == 7) ||
-                        (tipo == 2 && etapa == 6) ||
-                        (tipo == 2 && etapa == 9)
-                      ? "text-black text-base"
-                      : (tipo == 1 && etapa == 8) ||
-                        (tipo == 2 && etapa == 5) ||
-                        (tipo == 2 && etapa == 7)
-                      ? "text-white text-base"
-                      : (tipo == 1 && etapa == 9) ||
-                        (tipo == 2 && etapa == 10) ||
-                        (tipo == 2 && etapa == 2)
-                      ? "text-xs text-black"
-                      : "text-[#F942FD] text-base"
+                          etapa == 4 ||
+                          (tipo == 1 && etapa == 7) ||
+                          (tipo == 2 && etapa == 6) ||
+                          (tipo == 2 && etapa == 9)
+                        ? "text-black text-base"
+                        : (tipo == 1 && etapa == 8) ||
+                            (tipo == 2 && etapa == 5) ||
+                            (tipo == 2 && etapa == 7)
+                          ? "text-white text-base"
+                          : (tipo == 1 && etapa == 9) ||
+                              (tipo == 2 && etapa == 10) ||
+                              (tipo == 2 && etapa == 2)
+                            ? "text-xs text-black"
+                            : "text-[#F942FD] text-base"
                   }`}
                   id="sombra2"
                   readOnly
@@ -176,16 +178,16 @@ export default function CompEntry({ dict }: { dict: any }) {
             etapa <= 1
               ? `translate(${posicion.x}px, ${posicion.y}px) scale(${nivelZoom})`
               : etapa === 3
-              ? `scale(${1.2})`
-              : tipo == 1 && etapa === 5
-              ? `scale(${1.5})`
-              : tipo == 2 && etapa === 5
-              ? `scale(${1.2})`
-              : etapa === 7
-              ? `scale(${1.1})`
-              : (tipo == 2 && etapa === 9) || (tipo == 2 && etapa == 11)
-              ? `scale(${1.1})`
-              : undefined,
+                ? `scale(${1.2})`
+                : tipo == 1 && etapa === 5
+                  ? `scale(${1.5})`
+                  : tipo == 2 && etapa === 5
+                    ? `scale(${1.2})`
+                    : etapa === 7
+                      ? `scale(${1.1})`
+                      : (tipo == 2 && etapa === 9) || (tipo == 2 && etapa == 11)
+                        ? `scale(${1.1})`
+                        : undefined,
           transformOrigin: "center",
           cursor: fijo ? "default" : arrastrando ? "grabbing" : "grab",
         }}

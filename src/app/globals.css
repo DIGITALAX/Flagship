@@ -293,13 +293,13 @@
   --w-calc2: calc(100vw - 10rem);
   --w-calc3: 100vw;
 
-  --cursor-sewingS: url("https://thedial.infura-ipfs.io/ipfs/QmToSnjBTxyQgVAGGWyXsrZQ3WSvHVAJUyBz4EzXWAqKTj"),
+  --cursor-sewingS: url("https://cdn.digitalax.xyz/ipfs/QmToSnjBTxyQgVAGGWyXsrZQ3WSvHVAJUyBz4EzXWAqKTj"),
     auto;
-  --cursor-sewingHS: url("https://thedial.infura-ipfs.io/ipfs/Qmb79KwJPZtvKXhXpHBrFJKkM2gpk29boL5kPehrF6FaC1"),
+  --cursor-sewingHS: url("https://cdn.digitalax.xyz/ipfs/Qmb79KwJPZtvKXhXpHBrFJKkM2gpk29boL5kPehrF6FaC1"),
     pointer;
 
-  --bg-spots: url("https://thedial.infura-ipfs.io/ipfs/QmXcLBvsHDC8kNDe3WFQHzPpotVKG1AHsAHou1AbiYe6yp");
-  --bg-ruido: url("https://thedial.infura-ipfs.io/ipfs/QmVEauHNPMTjyfYvLaz3tJeoEmubApYeMy7EpKycL12umE");
+  --bg-spots: url("https://cdn.digitalax.xyz/ipfs/QmXcLBvsHDC8kNDe3WFQHzPpotVKG1AHsAHou1AbiYe6yp");
+  --bg-ruido: url("https://cdn.digitalax.xyz/ipfs/QmVEauHNPMTjyfYvLaz3tJeoEmubApYeMy7EpKycL12umE");
 }
 
 @layer utilities {
@@ -637,7 +637,7 @@ html::-webkit-scrollbar-thumb:active {
 
 #static {
   margin: auto;
-  background-image: url(https://thedial.infura-ipfs.io/ipfs/QmT6qmYPgfQtS1jy5ukANSeaqDCbq8A1ZxXfhfc98EtRVQ);
+  background-image: url(https://cdn.digitalax.xyz/ipfs/QmT6qmYPgfQtS1jy5ukANSeaqDCbq8A1ZxXfhfc98EtRVQ);
   animation: anim 1s steps(2, end) infinite both;
   transform: translate3d(0, 0, 0);
 }
@@ -649,7 +649,7 @@ html::-webkit-scrollbar-thumb:active {
 
 #static2 {
   margin: auto;
-  background-image: url(https://thedial.infura-ipfs.io/ipfs/QmT6qmYPgfQtS1jy5ukANSeaqDCbq8A1ZxXfhfc98EtRVQ);
+  background-image: url(https://cdn.digitalax.xyz/ipfs/QmT6qmYPgfQtS1jy5ukANSeaqDCbq8A1ZxXfhfc98EtRVQ);
   display: flex;
   animation: anim2 1s steps(2, end) infinite both;
 
@@ -866,7 +866,7 @@ html::-webkit-scrollbar-thumb:active {
 }
 
 #videoplayer {
-  background-image: url("https://thedial.infura-ipfs.io/ipfs/QmekpQQEtQBP1M71SohCHiDRQbV1Sc2bKveVvwEfzAJCPx");
+  background-image: url("https://cdn.digitalax.xyz/ipfs/QmekpQQEtQBP1M71SohCHiDRQbV1Sc2bKveVvwEfzAJCPx");
   background-color: white;
   background-position: center;
   background-size: cover;

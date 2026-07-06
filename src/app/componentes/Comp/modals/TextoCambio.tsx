@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-import { usePathname } from "next/navigation";
 import { TextCambioProps } from "../types/comp.types";
 
 const TextoCambio: FunctionComponent<TextCambioProps> = ({
@@ -11,7 +10,6 @@ const TextoCambio: FunctionComponent<TextCambioProps> = ({
   textboxRef,
   setEtapa,
 }) => {
-  const path = usePathname();
   switch (etapa) {
     case 1:
       return (
@@ -20,11 +18,9 @@ const TextoCambio: FunctionComponent<TextCambioProps> = ({
           style={{
             position: "absolute" as const,
             transformOrigin: "center",
-            left:
-              path.match(/(?<=\/)(en|es)(?=\/)/)?.[0] == "es"
-                ? "47.5%"
-                : "47.7%",
+            left: "50%",
             top: "36.9%",
+            transform: "translateX(-50%)",
           }}
           ref={textboxRef}
         >
@@ -68,8 +64,9 @@ const TextoCambio: FunctionComponent<TextCambioProps> = ({
           style={{
             position: "absolute" as const,
             transformOrigin: "center",
-            left: "48.7%",
+            left: "50%",
             top: "36.9%",
+            transform: "translateX(-50%)",
           }}
           ref={textboxRef}
           onClick={() => centrarImagen()}

@@ -64,7 +64,7 @@
     "designR": "Os designers estão obsoletos? Sinto que o design por vibe rouba minha esperança de que algum colecionador volte a querer meu trabalho. Estou errado?",
     "distroR": "Soltar ativos não é suficiente. Preciso que estejam posicionados onde se acumulam. O que decide quem ganha, quem recebe toda a atenção e o que faz a especiaria fluir?",
     "collectR": "Tenho que esperar até que todo mundo tenha uma máquina rica em GPU, quando os mundos virtuais se fundirem com a vida real, para que os mercados de colecionadores voltem? Ou é só um devaneio embriagado de hype que nunca vai acontecer?",
-    "creativeR": "Tenho que esperar até que todo mundo tenha uma máquina rica em GPU, quando os mundos virtuais se fundirem com a vida real, para que os mercados de colecionadores voltem? Ou é só um devaneio embriagado de hype que nunca vai acontecer?",
+    "creativeR": "Quero produzir meus próprios drops, mas todo mundo diz que você precisa de uma fábrica e capital na mão antes mesmo de começar. Tenho que resolver a fabricação primeiro, ou tem outro jeito?",
     "fulfillR": "Entendi a proposta—fulfillment descentralizado e que prioriza a privacidade. Mas da última vez que verifiquei, a UPS ainda precisa de um endereço. Como isso funciona de verdade sem quebrar o sistema? Estou estudando criptografia agora?",
     "discoverA": "Se você não consegue encontrar, por que mencionar? Encontre tarde e provavelmente já perdeu a chance.\n\nEncontrar seu caminho significa revelar o que está escondido em lugares latentes. Há apps, ferramentas, bens e fluxos de trabalho projetados para uso, troca, criação e máxima alavanca. Edgerunner, skyhunter, channel star, builder, guest. Alguns colecionadores pegam um único ativo que se destaca do resto. Outros jogam o jogo de habilidade — interrogando cada ação e nó do fluxo de trabalho.\n\nNovo por aqui? Confira o chromadin para streams de mídia web3 24/7, o lucidity para perguntar a um agente sobre os últimos fluxos de trabalho comfystream, ou o cypher, onde você encontra praticamente todo colecionável de todo o ecossistema.",
     "designA": "Se você ainda está esperando por um colecionador, você já está atrasado.\n\nO design não perdeu seu valor. Ele foi desagregado, incorporado e redirecionado para lugares que as saídas estáticas não alcançam mais.\n\nOs que se adaptam não estão perguntando se estão obsoletos. Eles estão usando fluxos de trabalho que revelam a atenção certa, estruturam a compensação por canais e colocam a alavanca nas próprias mãos em vez de esperar que alguém lhes entregue valor.\n\nSeu trabalho não é o problema. A forma como você está medindo sua posição é.",
@@ -189,7 +189,7 @@
     "prints": "Estampas"
   },
   "tokens": {
-    "awake": "¿Ainda acordado, Anon?",
+    "awake": "Ainda acordado, Anon?",
     "chat": "Que tal bater um papo com sua máquina?",
     "llms": "LLMs.txt",
     "description": "Oficina de máquinas às 3 da manhã. As engenheiras da DIGITALAX. Rust, Solidity, TS, Forge, RTX 4090, Pro 6000. Os fluxos de trabalho ficam locais: setups Comfy, cadeias de vídeo, plataformas de difusão, SDXL, FLUX, ILLUSTRIOUS, WAN2.1.",

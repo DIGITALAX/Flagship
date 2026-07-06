@@ -38,7 +38,7 @@ const Bar: FunctionComponent<BarProps> = ({
             </div>
             <div className="relative w-fit h-fit flex items-center justify-center flex-row gap-2">
               <div
-                className="relative flex items-center justify-center w-fit h-fit active:scale-95 cursor-sewingHS"
+                className={`relative flex items-center justify-center w-fit h-fit active:scale-95 cursor-sewingHS ${chosenLanguage == 2 && "rotate-180"}`}
                 onClick={() =>
                   setChosenLanguage((prev) =>
                     prev > 0 ? prev - 1 : Object.keys(idiomaAImagen).length - 1
@@ -52,7 +52,7 @@ const Bar: FunctionComponent<BarProps> = ({
                   indiceAIdioma[chosenLanguage]}
               </div>
               <div
-                className="relative flex items-center justify-center w-fit h-fit active:scale-95 cursor-sewingHS"
+                className={`relative flex items-center justify-center w-fit h-fit active:scale-95 cursor-sewingHS ${chosenLanguage == 2 && "rotate-180"}`}
                 onClick={() =>
                   setChosenLanguage((prev) =>
                     prev < Object.keys(idiomaAImagen).length - 1 ? prev + 1 : 0

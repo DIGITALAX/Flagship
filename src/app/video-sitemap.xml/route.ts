@@ -70,7 +70,7 @@ const VIDEO_PATHS = [
         contentLoc:
           "https://gw.ipfs-lens.dev/ipfs/bafybeibfjkzskjddb2qfvzsmiohoc2mk7ti6ti5g7dtfmxj4jlmtwwkdbm",
         thumbnailLoc:
-          "https://chromadin.xyz/api/infura/QmenggnmziozxNAazvbPH7Dafh2MxT87DqXiYiykRgDJm2",
+          "https://cdn.digitalax.xyz/ipfs/QmenggnmziozxNAazvbPH7Dafh2MxT87DqXiYiykRgDJm2",
       },
     ],
   },

@@ -7,12 +7,12 @@ export const RTL_LOCALES: string[] = ["ar"];
 
 export const KINORA_QUEST_DATA: `0x${string}` =
   "0xB638b8e910f5852d9B2b69D250883EB3E8575092";
-export const INFURA_GATEWAY: string = "https://thedial.infura-ipfs.io";
+export const INFURA_GATEWAY: string = "https://cdn.digitalax.xyz";
 export const DIGITALAX_ADDRESS: string =
   "e0deaff9be0da5309d2b19bcb0c133397b2bb20be563ab038e265b0800ddcf57";
 export const IPFS_REGEX: RegExp = /\b(Qm[1-9A-Za-z]{44}|ba[A-Za-z2-7]{57})\b/;
 export const INFURA_GATEWAY_INTERNAL: string =
-  "https://digitalax.xyz/api/infura/";
+  "https://cdn.digitalax.xyz/ipfs/";
 
 export const CHROMADIN: `0x${string}` =
   "0x16a362A10C1f6Bc0565C8fFAd298f1c2761630C5";
@@ -67,91 +67,91 @@ export const HEART_COLORS = [
 export const REPORTS = [
   {
     title: "October ‘20 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-november-12th-2020-36b1da78c09c",
+    link: "https://thedial.xyz",
   },
   {
     title: "November ‘20 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-november-27th-2020-ac33b99b1250",
+    link: "https://thedial.xyz",
   },
   {
     title: "December ‘20 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-december-30th-2020-d5c6b5665b85",
+    link: "https://thedial.xyz",
   },
   {
     title: "January ‘21 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-january-31st-2021-998cb32f198a",
+    link: "https://thedial.xyz",
   },
   {
     title: "February ‘21 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-february-28th-2021-55da9ed10bb8",
+    link: "https://thedial.xyz",
   },
   {
     title: "March ‘21 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-march-31st-2021-7dd878756705",
+    link: "https://thedial.xyz",
   },
   {
     title: "April ‘21 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-april-30th-2021-3834e8c2d16c",
+    link: "https://thedial.xyz",
   },
   {
     title: "May ‘21 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-may-31st-2021-ec7070f40cd7",
+    link: "https://thedial.xyz",
   },
   {
     title: "June ‘21 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-june-30th-2021-80b0a1ae3d3a",
+    link: "https://thedial.xyz",
   },
   {
     title: "July ‘21 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-july-31st-2021-c7549fa7a0aa",
+    link: "https://thedial.xyz",
   },
   {
     title: "August ‘21 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-august-31st-db321d00715",
+    link: "https://thedial.xyz",
   },
   {
     title: "September ‘21 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-september-30th-2021-b146fc4dabe6",
+    link: "https://thedial.xyz",
   },
   {
     title: "October ‘21 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-october-31st-2021-38383898578e",
+    link: "https://thedial.xyz",
   },
   {
     title: "November ‘21 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-november-30th-2021-c44659144183",
+    link: "https://thedial.xyz",
   },
   {
     title: "December ‘21 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-december-31st-2021-d502236f5043",
+    link: "https://thedial.xyz",
   },
   {
     title: "January ‘22 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-january-31st-2022-2f55130354eb",
+    link: "https://thedial.xyz",
   },
   {
     title: "February ‘22 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-february-28th-2022-ffe39d99978e",
+    link: "https://thedial.xyz",
   },
   {
     title: "March ‘22 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-march-31st-2022-600e0915d12e",
+    link: "https://thedial.xyz",
   },
   {
     title: "April ‘22 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-april-31st-2022-b76e5b9c7325",
+    link: "https://thedial.xyz",
   },
   {
     title: "May ‘22 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-may-31st-2022-6e7dc18fcfc2",
+    link: "https://thedial.xyz",
   },
   {
     title: "June ‘22 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-june-30th-2022-fa3b7e7953db",
+    link: "https://thedial.xyz",
   },
   {
     title: "July ‘22 Transparency Report",
-    link: "https://blog.digitalax.xyz/transparency-report-july-31st-2022-210012653c11",
+    link: "https://thedial.xyz",
   },
 ];
 

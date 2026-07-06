@@ -96,7 +96,9 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
                 <div className="relative w-fit h-fit flex items-center jutify-center text-lg break-words">
                   {
                     IMAGE_LOGS[currentImage].title[
-                      path.match(/(?<=\/)(en|es|br|ar)(?=\/)/)?.[0] as "en" | "es"
+                      path.match(/(?<=\/)(en|es|br|ar)(?=\/)/)?.[0] as
+                        | "en"
+                        | "es"
                     ]
                   }
                 </div>
@@ -132,7 +134,11 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
             ++ {dict?.log?.dev} ++
           </div>
         </div>
-        <div className="relative w-full h-fit flex items-start justify-center gap-10 text-left flex-col">
+        <div className={`relative w-full h-fit flex items-start justify-center gap-10 text-left flex-col  ${
+            path.match(/(?<=\/)(en|es|br|ar)(?=\/)/)?.[0] == "ar"
+              ? "text-right"
+              : "text-left"
+          }`}>
           {QUESTIONS.map(
             (
               item: {
@@ -145,7 +151,7 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
                   es: string;
                 };
               },
-              index: number
+              index: number,
             ) => {
               return (
                 <div
@@ -174,19 +180,25 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
                             | "en"
                             | "es") ?? "en"
                         ] || "",
-                        false
+                        false,
                       ),
                     }}
                   ></div>
                 </div>
               );
-            }
+            },
           )}
         </div>
         <div className="relative w-fit h-fit flex items-center justify-center gap-1 text-4xl flex-col pt-10">
           ++ {dict?.log?.general} ++
         </div>
-        <div className="relative w-full h-fit flex items-start justify-center gap-10 text-left flex-col">
+        <div
+          className={`relative w-full h-fit flex items-start justify-center gap-10 flex-col ${
+            path.match(/(?<=\/)(en|es|br|ar)(?=\/)/)?.[0] == "ar"
+              ? "text-right"
+              : "text-left"
+          }`}
+        >
           {LOG.map(
             (
               item: {
@@ -199,7 +211,7 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
                   es: string;
                 };
               },
-              index: number
+              index: number,
             ) => {
               return (
                 <div
@@ -228,13 +240,13 @@ export default function BuildLogEntry({ dict }: { dict: any }) {
                             | "en"
                             | "es") ?? "en"
                         ] || "",
-                        false
+                        false,
                       ),
                     }}
                   ></div>
                 </div>
               );
-            }
+            },
           )}
         </div>
       </div>
