@@ -173,6 +173,14 @@ export default function TokensEntry({ dict }: { dict: any }) {
         </div>
         <div className="relative w-full h-fit flex flex-col gap-2">
           <div className="relative w-fit h-fit flex font-neco text-3xl">
+            {dict?.tokens?.ipfs}
+          </div>
+          <div className="relative w-fit h-fit flex font-star text-xs whitespace-pre-line">
+            {dict?.tokens?.ipfsText}
+          </div>
+        </div>
+        <div className="relative w-full h-fit flex flex-col gap-2">
+          <div className="relative w-fit h-fit flex font-neco text-3xl">
             {dict?.tokens?.social}
           </div>
           <div className="relative w-fit h-fit flex font-star text-xs">
